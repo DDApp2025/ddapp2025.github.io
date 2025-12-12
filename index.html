@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DivaDashApp – The only app built for mobile & house-call injectors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#ffffff;--bg-soft:#ffffff;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--pill-bg:#f4f4f4;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Inter",system-ui;background:var(--bg);color:var(--text-main);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .top-bar{background:#3b0e10;color:#fceee8;text-align:center;padding:.55rem 1.5rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+    .top-bar strong{font-weight:600}
+    .header-wrapper{background:#fff;border-bottom:1px solid var(--border-soft)}
+    .header{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .logo{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.08em;text-transform:uppercase;color:#111}
+    .logo span{font-weight:700;color:var(--accent)}
+    .nav{display:flex;gap:1.5rem;font-size:.9rem}
+    .nav a{text-transform:uppercase;letter-spacing:.08em;font-weight:500;color:#4b433c}
+    .nav a:hover{color:var(--accent)}
+    .header-cta{display:flex;gap:.75rem;font-size:.85rem}
+    .btn-outline{border-radius:999px;padding:.55rem 1.2rem;border:1px solid #c9bcad;text-transform:uppercase;letter-spacing:.12em;font-weight:500;background:#fff;transition:all .18s ease-out}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);box-shadow:0 10px 25px rgba(0,0,0,.08)}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.6rem 1.6rem;border:none;background:var(--accent);color:#fff;text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;font-size:.86rem;box-shadow:0 12px 30px rgba(196,150,82,.35);transition:transform .16s ease-out,box-shadow .16s ease-out,background .16s ease-out}
+    .btn-primary:hover{background:var(--accent-dark);box-shadow:0 18px 40px rgba(166,121,48,.4);transform:translateY(-1px)}
+    .hero{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 3.2rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3.5rem;align-items:end;background:#fff}
+    .hero-copy-eyebrow{font-size:.82rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-dark);margin-bottom:1rem}
+    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.1vw,3rem);line-height:1.05;margin-bottom:1.2rem;color:#201812}
+    .hero-title span{color:var(--accent)}
+    .hero-subtitle{font-size:1rem;color:var(--text-muted);max-width:30rem;margin-bottom:1.5rem}
+    .hero-pills{margin-bottom:1.8rem;display:flex;flex-wrap:wrap;gap:.5rem;max-width:32rem}
+    .hero-pill{background:var(--pill-bg);border-radius:999px;padding:.4rem .9rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#5b4c3c;border:1px solid #ded8cf}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.8rem}
+    .hero-secondary{font-size:.9rem;color:var(--text-muted)}
+    .hero-secondary span{font-weight:500;color:var(--accent-dark)}
+    .hero-note{font-size:.8rem;color:#9a8776;max-width:28rem}
+    .hero-media{position:relative}
+    .hero-card{position:relative;background:var(--card-bg);border-radius:26px;padding:1.5rem 1.5rem 1.6rem;box-shadow:var(--shadow-strong);border:1px solid var(--border-strong);overflow:hidden;backdrop-filter:blur(6px)}
+    .hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(255,255,255,.45),transparent 55%);pointer-events:none}
+    .hero-card-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:#7f6b57;margin-bottom:.7rem}
+    .hero-card-title{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:.8rem}
+    .hero-card-subtitle{font-size:.89rem;color:var(--text-muted);margin-bottom:.9rem}
+    .video-wrapper{position:relative;width:215px;max-width:100%;aspect-ratio:9/19.5;margin:0 auto .9rem;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12)}
+    .video-wrapper video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:18px}
+    .sound-toggle{position:absolute;bottom:.5rem;right:.5rem;width:2rem;height:2rem;background:rgba(0,0,0,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1rem;transition:background .2s;z-index:10}
+    .sound-toggle:hover{background:rgba(0,0,0,.7)}
+    .hero-tag{position:absolute;right:1.6rem;bottom:1.6rem;background:#20120f;color:#fcede1;border-radius:999px;padding:.5rem 1rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 14px 35px rgba(10,5,2,.55)}
+    .feature-strip{border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);background:var(--bg-soft)}
+    .feature-strip-inner{max-width:1200px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;flex-wrap:wrap;gap:1rem 1.7rem;justify-content:center;font-size:.83rem;text-transform:uppercase;letter-spacing:.16em;color:#6b5d50}
+    .feature-strip-inner span::before{content:"•";margin:0 .6rem 0 .2rem;opacity:.45}
+    .feature-strip-inner span:first-child::before{content:"";margin:0}
+    .how-it-works{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff}
+    .how-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:2rem}
+    .how-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
+    .how-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
+    .how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+    .how-card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.4rem 1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:.4rem}
+    .how-step{width:34px;height:34px;border-radius:999px;border:1px solid var(--border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#8b7766;margin-bottom:.4rem;background:#fffaf4}
+    .how-card-title{font-family:"Playfair Display",serif;font-size:1.02rem}
+    .how-card-text{font-size:.9rem;color:var(--text-muted)}
+    .magazine{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff}
+    .magazine-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2rem;gap:1rem}
+    .magazine-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
+    .magazine-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
+    .magazine-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+    .mag-card{background:var(--card-bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-strong);min-height:100%;box-shadow:var(--shadow-soft);transition:transform .16s ease-out,box-shadow .16s ease-out}
+    .mag-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
+    .mag-card-image{height:180px;overflow:hidden;background:#f4ece0}
+    .mag-card-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .mag-card-body{padding:1.3rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem}
+    .mag-card-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#8b7766}
+    .mag-card-title{font-family:"Playfair Display",serif;font-size:1.05rem}
+    .mag-card-text{font-size:.9rem;color:var(--text-muted)}
+    .mag-card-meta{margin-top:.7rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#a08b77}
+    .cta-band{background:#20110c;color:#fef6ee;padding:3rem 1.5rem 3.2rem}
+    .cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .cta-heading{font-family:"Playfair Display",serif;font-size:1.5rem;margin-bottom:.4rem}
+    .cta-text{font-size:.95rem;color:#f6e1cf;max-width:26rem;margin-bottom:1.2rem}
+    .cta-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+    .faq-list{max-width:420px;display:flex;flex-direction:column;gap:1.1rem;font-size:.9rem}
+    .faq-item-question{font-weight:600;margin-bottom:.14rem}
+    .faq-item-answer{color:#f6e1cf;opacity:.92}
+    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.4rem 1.5rem 1.7rem;font-size:.78rem;color:#968371}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .footer-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+    .footer-links a{text-transform:uppercase;letter-spacing:.16em}
+    @media(max-width:960px){.hero{grid-template-columns:1fr}.hero-media{order:-1}.how-grid,.magazine-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.how-grid,.magazine-grid{grid-template-columns:1fr}.hero{padding-top:2.4rem}}
+    .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.6);align-items:flex-start;justify-content:center;padding:2rem 0}
+    .modal.active{display:flex}
+    .modal-content{background:#fff;padding:2.5rem;border-radius:20px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+    .modal-close{position:absolute;top:1rem;right:1.5rem;font-size:2rem;cursor:pointer;color:#999}
+    .modal-close:hover{color:#000}
+    .modal h2{font-family:"Playfair Display",serif;font-size:1.8rem;text-align:center;margin-bottom:1rem}
+    .modal p{text-align:center;margin-bottom:2rem;color:#666}
+    .modal input,.modal select,.modal textarea{width:100%;padding:.9rem;margin:.8rem 0;border:1px solid #ddd;border-radius:12px;font-size:1rem}
+    .modal select[multiple]{height:140px}
+    .modal button[type=submit]{background:var(--accent);color:#fff;border:none;padding:1rem;border-radius:999px;font-weight:600;cursor:pointer;width:100%;font-size:1rem;margin-top:1rem}
+    .modal button[type=submit]:hover{background:var(--accent-dark)}
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"><strong>Founding injector spots now open</strong> · Lock in zero subscription & fee-free payouts for life</div>
+
+  <div class="header-wrapper">
+    <header class="header">
+      <div class="logo">DivaDash<span>App</span></div>
+      <nav class="nav"><a href="#how-it-works">How it works</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
+      <div class="header-cta">
+        <a href="#login" class="btn-outline">Sign In</a>
+        <button class="btn-primary" onclick="openModal()">Claim your spot</button>
+      </div>
+    </header>
+  </div>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-copy-eyebrow">The only app built for mobile & house-call injectors</div>
+      <h1 class="hero-title">AI that <span>shows patients their exact results</span> in 3 seconds — so they book instantly.</h1>
+      <p class="hero-subtitle">Built for injectors who work in homes, on the road, or in concierge practices – with full EHR, real-time before/after simulation, and seamless payouts.</p>
+      <div class="hero-pills">
+        <div class="hero-pill">Zero subscription</div><div class="hero-pill">No processing fees</div>
+        <div class="hero-pill">Volume discounts on product</div><div class="hero-pill">Full EHR</div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal()">Claim your spot – see the numbers</button>
+        <div class="hero-secondary">or <span>book a 10-minute product tour</span></div>
+      </div>
+      <p class="hero-note">Built in partnership with mobile injectors across the U.S. to remove the friction of scheduling, documentation, and getting paid for house-call work.</p>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-card">
+        <div class="hero-card-label">AI Before/After Simulator</div>
+        <div class="hero-card-title">Patients see their transformation instantly.</div>
+        <div class="video-wrapper">
+          <video id="demoVideo" autoplay loop muted playsinline>
+            <source src="AI_Demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="sound-toggle" onclick="toggleSound()">🔊</div>
+        </div>
+        <p class="hero-card-subtitle">15-second demo of the real-time AI simulator running on iPhone.</p>
+        <div class="hero-tag">Mobile • House-call • Concierge</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-strip">
+    <div class="feature-strip-inner">
+      <span>AI before/after simulator</span>
+      <span>Zero monthly subscription</span>
+      <span>No processing or bank fees</span>
+      <span>Exclusive volume pricing on toxin & filler</span>
+      <span>Driveway charting & full SOAP notes</span>
+      <span>Quick payouts directly to your bank</span>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="how-header">
+      <div>
+        <div class="how-eyebrow">How it works</div>
+        <h2 class="how-title">From first swipe to confirmed house-call</h2>
+      </div>
+      <div class="how-eyebrow">A simple 3-step flow patients actually complete.</div>
+    </div>
+    <div class="how-grid">
+      <article class="how-card">
+        <div class="how-step">1</div>
+        <h3 class="how-card-title">Pick your procedure and see your results.</h3>
+        <p class="how-card-text">
+          Patients choose their concern — forehead lines, lips, cheeks, jawline — and run the
+          AI before/after simulator on their own face. They see realistic outcomes before anyone
+          opens a vial or draws a syringe.
+        </p>
+      </article>
+      <article class="how-card">
+        <div class="how-step">2</div>
+        <h3 class="how-card-title">Select your provider.</h3>
+        <p class="how-card-text">
+          After they love their simulated results, DivaDashApp shows mobile-ready provider profiles:
+          experience, specialties, ratings, and travel radius — all tailored to the patient’s location
+          and desired treatment.
+        </p>
+      </article>
+      <article class="how-card">
+        <div class="how-step">3</div>
+        <h3 class="how-card-title">Book your appointment.</h3>
+        <p class="how-card-text">
+          Patients pick a time that fits your availability, confirm in a few taps, and receive
+          appointment details automatically. You get a clean, mobile-first booking with everything
+          you need to show up prepared.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="magazine" id="features">
+    <div class="magazine-header">
+      <div>
+        <div class="magazine-kicker">For injectors on the move</div>
+        <h2 class="magazine-title">Everything you need to run a house-call practice</h2>
+      </div>
+      <div class="magazine-kicker">App features designed for driveways, living rooms, and hotel rooms.</div>
+    </div>
+    <div class="magazine-grid">
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="BeforeAfter.png" alt="Patient viewing AI-powered before and after results on a phone" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">AI Before/After Simulator</div>
+          <h3 class="mag-card-title">Patients see their exact results before you ever open a vial.</h3>
+          <p class="mag-card-text">
+            Show realistic toxin and filler outcomes in seconds. Let patients explore options
+            on their own device, then tap to request an in-home treatment through DivaDashApp.
+          </p>
+          <div class="mag-card-meta">Self-serve visuals · No editing · Higher conversions</div>
+        </div>
+      </article>
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="WorkingFromHome.png" alt="Mobile injector working comfortably from home with laptop and phone" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Zero Monthly Subscription</div>
+          <h3 class="mag-card-title">Keep your overhead light, even when your schedule is not.</h3>
+          <p class="mag-card-text">
+            DivaDashApp charges <strong>no monthly subscription</strong>. Whether you take one
+            house-call a week or run a full concierge route, you're not paying a platform fee
+            just to belong.
+          </p>
+          <div class="mag-card-meta">No plans · No tiers · No surprise charges</div>
+        </div>
+      </article>
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="TaxMess.png" alt="Injector checking fast payouts and earnings on a banking app" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">No Processing or Bank Fees</div>
+          <h3 class="mag-card-title">We cover the fees so your payouts stay yours.</h3>
+          <p class="mag-card-text">
+            Accept cards and digital wallets without losing margin. DivaDashApp absorbs
+            processing and bank fees, then deposits <strong>full payouts directly to you</strong>.
+          </p>
+          <div class="mag-card-meta">We cover every penny · Same-week payouts</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band" id="faq">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-heading">Claim your market before everyone goes mobile.</h2>
+        <p class="cta-text">
+          Zero subscription, no processing fees, volume discounts on product, and a full EHR —
+          all wrapped around AI that sells your treatments for you. There is only one DivaDashApp.
+        </p>
+        <div class="cta-actions">
+          <button class="btn-primary" onclick="openModal()">Claim your spot – see the numbers</button>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-item-question">Do I really pay zero subscription and zero processing fees?</div>
+          <div class="faq-item-answer">
+            Yes. Founding injectors lock in no monthly subscription and no card or bank fees on payouts
+            processed through DivaDashApp, subject to program terms.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item-question">Is this only for injectors who are already fully mobile?</div>
+          <div class="faq-item-answer">
+            No. You can start part-time while you're still in a clinic. DivaDashApp is built to support
+            injectors who want to test, grow, or fully switch to house-call and concierge work.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item-question">What about compliance, charting, and consents?</div>
+          <div class="faq-item-answer">
+            The platform includes a mobile EHR, consent capture, before/after photos, and treatment
+            documentation designed for in-home visits — so you're not trying to force clinic software
+            to work in someone's driveway.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item-question">How many markets will DivaDashApp launch in?</div>
+          <div class="faq-item-answer">
+            We are starting with select U.S. markets and expanding based on mobile injector demand.
+            Founding injectors get priority access when we open or expand a region.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer – links now live -->
+  <footer>
+    <div class="footer-inner">
+      <div>© DivaDashApp. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#terms">Terms</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Real sections for the footer links -->
+  <section id="terms" style="max-width:1200px;margin:6rem auto 4rem;padding:0 1.5rem;font-size:.9rem;line-height:1.6">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Terms of Service</h2>
+    <p>Last updated: December 12, 2025</p>
+    <p>By using DivaDashApp, you agree to these terms. We reserve the right to update them at any time.</p>
+    <p><strong>Use of Service</strong>: You must be a licensed medical professional to provide services through the platform.</p>
+    <p><strong>Payments & Fees</strong>: Founding injectors receive zero subscription and zero processing fees for life.</p>
+    <p><strong>Privacy</strong>: Your data is protected under HIPAA-compliant standards.</p>
+  </section>
+
+  <section id="privacy" style="max-width:1200px;margin:4rem auto;padding:0 1.5rem;font-size:.9rem;line-height:1.6">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Privacy Policy</h2>
+    <p>Last updated: December 12, 2025</p>
+    <p>We collect only the information necessary to provide our service (name, email, phone, city, practice details).</p>
+    <p>Patient data is encrypted and never shared. We comply with HIPAA.</p>
+  </section>
+
+  <section id="contact" style="max-width:1200px;margin:4rem auto 6rem;padding:0 1.5rem;font-size:.9rem;line-height:1.6;text-align:center">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Contact Us</h2>
+    <p>Email: <a href="mailto:info@divadashapp.com">info@divadashapp.com</a></p>
+    <p>We reply within 24 hours.</p>
+  </section>
+
+  <!-- Your Formspree popup modal – unchanged -->
+  <div id="claimModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <h2>Claim Your Founding Injector Spot</h2>
+      <p>See your exclusive numbers — zero fees, volume pricing, and priority access.</p>
+      <form action="https://formspree.io/f/xqarwnnw" method="POST">
+        <input type="text" name="name" placeholder="Your full name" required>
+        <input type="text" name="clinic" placeholder="Clinic or business name (if any)">
+        <input type="email" name="email" placeholder="Best email address" required>
+        <input type="tel" name="phone" placeholder="Best phone number" required>
+        <select name="city[]" multiple required style="height:140px;">
+          <option value="Las Vegas">Las Vegas</option>
+          <option value="Summerlin">Summerlin</option>
+          <option value="Henderson">Henderson</option>
+          <option value="Boulder City">Boulder City</option>
+          <option value="Other">Other</option>
+        </select>
+        <select name="appointments" required>
+          <option value="" disabled selected>How many house-call / mobile appointments per month?</option>
+          <option>0–5</option><option>6–15</option><option>16–30</option><option>30+</option>
+        </select>
+        <select name="volume_interest" required>
+          <option value="" disabled selected>Interested in volume pricing on toxin & filler?</option>
+          <option>Yes, definitely</option><option>Maybe</option><option>No</option>
+        </select>
+        <textarea name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
+        <button type="submit">Submit →</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openModal(){document.getElementById('claimModal').classList.add('active')}
+    function closeModal(){document.getElementById('claimModal').classList.remove('active')}
+    function toggleSound(){const v=document.getElementById('demoVideo');v.muted=!v.muted;event.target.innerHTML=v.muted?'🔇':'🔊'}
+    window.onclick=e=>{if(e.target===document.getElementById('claimModal'))closeModal()}
+  </script>
+</body>
+</html>
