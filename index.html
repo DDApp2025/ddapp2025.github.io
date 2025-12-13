@@ -38,7 +38,7 @@
     .hero-secondary span{font-weight:500;color:var(--accent-dark)}
     .hero-note{font-size:.8rem;color:#9a8776;max-width:28rem}
     .hero-media{position:relative}
-    .hero-card{position:relative;background:var(--card-bg);border-radius:26px;padding:1.5rem 1.5rem 2.8rem;box-shadow:var(--shadow-strong);border:1px solid var(--border-strong);overflow:hidden;backdrop-filter:blur(6px)}
+    .hero-card{position:relative;background:var(--card-bg);border-radius:26px;padding:1.5rem 1.5rem 1.6rem;box-shadow:var(--shadow-strong);border:1px solid var(--border-strong);overflow:hidden;backdrop-filter:blur(6px)}
     .hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(255,255,255,.45),transparent 55%);pointer-events:none}
     .hero-card-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:#7f6b57;margin-bottom:.7rem}
     .hero-card-title{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:.8rem}
@@ -47,8 +47,7 @@
     .video-wrapper video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:18px}
     .sound-toggle{position:absolute;bottom:.5rem;right:.5rem;width:2rem;height:2rem;background:rgba(0,0,0,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1rem;transition:background .2s;z-index:10}
     .sound-toggle:hover{background:rgba(0,0,0,.7)}
-    /* FIXED: Black tag moved below the card, centered */
-    .hero-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:auto;top:100%;margin-top:1rem;right:auto;background:#20120f;color:#fcede1;border-radius:999px;padding:.5rem 1rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 14px 35px rgba(10,5,2,.55)}
+    .hero-tag{position:absolute;left:50%;right:auto;bottom:3rem;transform:translateX(-50%);background:#20120f;color:#fcede1;border-radius:999px;padding:.5rem 1rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 14px 35px rgba(10,5,2,.55);white-space:nowrap;min-width:260px}
     .feature-strip{border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);background:var(--bg-soft)}
     .feature-strip-inner{max-width:1200px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;flex-wrap:wrap;gap:1rem 1.7rem;justify-content:center;font-size:.83rem;text-transform:uppercase;letter-spacing:.16em;color:#6b5d50}
     .feature-strip-inner span::before{content:"•";margin:0 .6rem 0 .2rem;opacity:.45}
@@ -145,7 +144,7 @@
           </video>
           <div class="sound-toggle" onclick="toggleSound()">🔊</div>
         </div>
-        <p class="hero-card-subtitle">15-second demo of the real-time AI simulator running on iPhone.</p>
+        <p class="hero-card-subtitle">15-second demo of the real-time AI simulator running on iPhone.</p><br><br><br>
         <div class="hero-tag">Mobile • House-call • Concierge</div>
       </div>
     </div>
@@ -348,7 +347,7 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">×</span>
       <h2>Claim Your Founding Injector Spot</h2>
-      <p>See your exclusive numbers — zero bank fees, volume pricing, and priority access.</p>
+      <p>See your exclusive numbers — zero fees, volume pricing, and priority access.</p>
       <form action="https://formspree.io/f/xqarwnnw" method="POST">
         <input type="text" name="name" placeholder="Your full name" required>
         <input type="text" name="clinic" placeholder="Clinic or business name (if any)">
