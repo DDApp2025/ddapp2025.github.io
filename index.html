@@ -97,10 +97,10 @@
     .modal h2{font-family:"Playfair Display",serif;font-size:1.8rem;text-align:center;margin-bottom:1rem}
     .modal p{text-align:center;margin-bottom:2rem;color:#666}
     .modal input,.modal select,.modal textarea{width:100%;padding:.9rem;margin:.8rem 0;border:1px solid #ddd;border-radius:12px;font-size:1rem}
-    .modal select[multiple]{height:140px}
-    .modal button[type=submit]{background:var(--accent);color:#fff;border:none;padding:1rem;border-radius:999px;font-weight:600;cursor:pointer;width:100%;font-size:1rem;margin-top:1rem}
-    .modal button[type=submit]:hover{background:var(--accent-dark)}
     .modal label{display:block;margin:.8rem 0 .5rem;font-size:1rem;color:#333}
+    /* Checkbox styling for cities */
+    .city-checkboxes label{display:block;margin:.5rem 0}
+    .city-checkboxes input[type=checkbox]{margin-right:.8rem}
   </style>
 </head>
 <body>
@@ -354,14 +354,14 @@
         <input type="text" name="clinic" placeholder="Clinic or business name (if any)">
         <input type="email" name="email" placeholder="Best email address" required>
         <input type="tel" name="phone" placeholder="Best phone number" required>
-        <label>Primary cities you serve (select all that apply)</label>
-        <select name="city[]" multiple size="5" required>
-          <option value="Las Vegas">Las Vegas</option>
-          <option value="Summerlin">Summerlin</option>
-          <option value="Henderson">Henderson</option>
-          <option value="Boulder City">Boulder City</option>
-          <option value="Other">Other</option>
-        </select>
+        <label>Primary cities you serve (check all that apply)</label>
+        <div class="city-checkboxes">
+          <label><input type="checkbox" name="city[]" value="Las Vegas"> Las Vegas</label>
+          <label><input type="checkbox" name="city[]" value="Summerlin"> Summerlin</label>
+          <label><input type="checkbox" name="city[]" value="Henderson"> Henderson</label>
+          <label><input type="checkbox" name="city[]" value="Boulder City"> Boulder City</label>
+          <label><input type="checkbox" name="city[]" value="Other"> Other</label>
+        </div>
         <input type="text" name="other_city" placeholder="Please specify other city" style="display:none;margin-top:.5rem" id="otherCityInput">
         <select name="appointments" required>
           <option value="" disabled selected>How many house-call / mobile appointments per month?</option>
@@ -382,12 +382,15 @@
     function closeModal(){document.getElementById('claimModal').classList.remove('active')}
     function toggleSound(){const v=document.getElementById('demoVideo');v.muted=!v.muted;event.target.innerHTML=v.muted?'🔇':'🔊'}
     window.onclick=e=>{if(e.target===document.getElementById('claimModal'))closeModal()}
-    const citySelect = document.querySelector('select[name="city[]"]');
-    citySelect.addEventListener('change', function() {
-      const otherInput = document.getElementById('otherCityInput');
-      const hasOther = Array.from(this.selectedOptions).some(opt => opt.value === 'Other');
-      otherInput.style.display = hasOther ? 'block' : 'none';
-      otherInput.required = hasOther;
+    // Show/hide "Other" text box
+    const checkboxes = document.querySelectorAll('input[name="city[]"]');
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', function() {
+        const otherInput = document.getElementById('otherCityInput');
+        const otherChecked = Array.from(checkboxes).some(c => c.value === 'Other' && c.checked);
+        otherInput.style.display = otherChecked ? 'block' : 'none';
+        otherInput.required = otherChecked;
+      });
     });
   </script>
 </body>
