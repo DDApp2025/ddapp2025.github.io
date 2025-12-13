@@ -156,7 +156,7 @@
       <span>AI before/after simulator</span>
       <span>Zero monthly subscription</span>
       <span>No processing or bank fees</span>
-      <span>Exclusive volume pricing on tox & filler</span>
+      <span>Exclusive volume pricing on toxin & filler</span>
       <span>Driveway charting & full SOAP notes</span>
       <span>Quick payouts directly to your bank</span>
     </div>
@@ -222,7 +222,7 @@
           <div class="mag-card-eyebrow">AI Before/After Simulator</div>
           <h3 class="mag-card-title">Patients see their exact results before you ever open a vial.</h3>
           <p class="mag-card-text">
-            Show realistic tox and filler outcomes in seconds. Let patients explore options
+            Show realistic toxin and filler outcomes in seconds. Let patients explore options
             on their own device, then tap to request an in-home treatment through DivaDashApp.
           </p>
           <div class="mag-card-meta">Self-serve visuals · No editing · Higher conversions</div>
@@ -348,7 +348,7 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">×</span>
       <h2>Claim Your Founding Injector Spot</h2>
-      <p>See your exclusive numbers — zero monthly subscription fees, volume pricing, and priority access.</p>
+      <p>See your exclusive numbers — zero fees, volume pricing, and priority access.</p>
       <form action="https://formspree.io/f/xqarwnnw" method="POST">
         <input type="text" name="name" placeholder="Your full name" required>
         <input type="text" name="clinic" placeholder="Clinic or business name (if any)">
@@ -368,7 +368,7 @@
           <option>0–5</option><option>6–15</option><option>16–30</option><option>30+</option>
         </select>
         <select name="volume_interest" required>
-          <option value="" disabled selected>Interested in volume pricing on tox & filler?</option>
+          <option value="" disabled selected>Interested in volume pricing on toxin & filler?</option>
           <option>Yes, definitely</option><option>Maybe</option><option>No</option>
         </select>
         <textarea name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
@@ -382,7 +382,6 @@
     function closeModal(){document.getElementById('claimModal').classList.remove('active')}
     function toggleSound(){const v=document.getElementById('demoVideo');v.muted=!v.muted;event.target.innerHTML=v.muted?'🔇':'🔊'}
     window.onclick=e=>{if(e.target===document.getElementById('claimModal'))closeModal()}
-    // Show/hide "Other" text box
     const citySelect = document.querySelector('select[name="city[]"]');
     citySelect.addEventListener('change', function() {
       const otherInput = document.getElementById('otherCityInput');
