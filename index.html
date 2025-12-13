@@ -100,6 +100,7 @@
     .modal select[multiple]{height:140px}
     .modal button[type=submit]{background:var(--accent);color:#fff;border:none;padding:1rem;border-radius:999px;font-weight:600;cursor:pointer;width:100%;font-size:1rem;margin-top:1rem}
     .modal button[type=submit]:hover{background:var(--accent-dark)}
+    .modal label{display:block;margin:.8rem 0 .5rem;font-size:1rem;color:#333}
   </style>
 </head>
 <body>
@@ -155,7 +156,7 @@
       <span>AI before/after simulator</span>
       <span>Zero monthly subscription</span>
       <span>No processing or bank fees</span>
-      <span>Exclusive volume pricing on toxin & filler</span>
+      <span>Exclusive volume pricing on tox & filler</span>
       <span>Driveway charting & full SOAP notes</span>
       <span>Quick payouts directly to your bank</span>
     </div>
@@ -221,7 +222,7 @@
           <div class="mag-card-eyebrow">AI Before/After Simulator</div>
           <h3 class="mag-card-title">Patients see their exact results before you ever open a vial.</h3>
           <p class="mag-card-text">
-            Show realistic toxin and filler outcomes in seconds. Let patients explore options
+            Show realistic tox and filler outcomes in seconds. Let patients explore options
             on their own device, then tap to request an in-home treatment through DivaDashApp.
           </p>
           <div class="mag-card-meta">Self-serve visuals · No editing · Higher conversions</div>
@@ -347,12 +348,13 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">×</span>
       <h2>Claim Your Founding Injector Spot</h2>
-      <p>See your exclusive numbers — zero fees, volume pricing, and priority access.</p>
+      <p>See your exclusive numbers — zero monthly subscription fees, volume pricing, and priority access.</p>
       <form action="https://formspree.io/f/xqarwnnw" method="POST">
         <input type="text" name="name" placeholder="Your full name" required>
         <input type="text" name="clinic" placeholder="Clinic or business name (if any)">
         <input type="email" name="email" placeholder="Best email address" required>
         <input type="tel" name="phone" placeholder="Best phone number" required>
+        <label>Primary cities you serve (select all that apply)</label>
         <select name="city[]" multiple size="5" required>
           <option value="Las Vegas">Las Vegas</option>
           <option value="Summerlin">Summerlin</option>
@@ -360,12 +362,13 @@
           <option value="Boulder City">Boulder City</option>
           <option value="Other">Other</option>
         </select>
+        <input type="text" name="other_city" placeholder="Please specify other city" style="display:none;margin-top:.5rem" id="otherCityInput">
         <select name="appointments" required>
           <option value="" disabled selected>How many house-call / mobile appointments per month?</option>
           <option>0–5</option><option>6–15</option><option>16–30</option><option>30+</option>
         </select>
         <select name="volume_interest" required>
-          <option value="" disabled selected>Interested in volume pricing on toxin & filler?</option>
+          <option value="" disabled selected>Interested in volume pricing on tox & filler?</option>
           <option>Yes, definitely</option><option>Maybe</option><option>No</option>
         </select>
         <textarea name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
@@ -379,6 +382,14 @@
     function closeModal(){document.getElementById('claimModal').classList.remove('active')}
     function toggleSound(){const v=document.getElementById('demoVideo');v.muted=!v.muted;event.target.innerHTML=v.muted?'🔇':'🔊'}
     window.onclick=e=>{if(e.target===document.getElementById('claimModal'))closeModal()}
+    // Show/hide "Other" text box
+    const citySelect = document.querySelector('select[name="city[]"]');
+    citySelect.addEventListener('change', function() {
+      const otherInput = document.getElementById('otherCityInput');
+      const hasOther = Array.from(this.selectedOptions).some(opt => opt.value === 'Other');
+      otherInput.style.display = hasOther ? 'block' : 'none';
+      otherInput.required = hasOther;
+    });
   </script>
 </body>
 </html>
