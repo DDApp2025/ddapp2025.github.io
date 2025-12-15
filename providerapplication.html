@@ -581,15 +581,28 @@
       if (validateSection(currentSection)) {
         const email = document.getElementById('email').value;
         const firstName = document.getElementById('firstName').value;
+        const form = event.target;
         
-        document.getElementById('providerForm').style.display = 'none';
-        document.getElementById('successMessage').classList.add('show');
-        document.getElementById('displayEmail').textContent = email;
-        document.getElementById('successText').innerHTML = `Thank you, <strong>${firstName}</strong>. Your provider application has been submitted and received.`;
-        
-        setTimeout(() => {
-          event.target.submit();
-        }, 2000);
+        // Submit to Formspree via AJAX (no redirect)
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            // Show success message without redirect
+            document.getElementById('providerForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('displayEmail').textContent = email;
+            document.getElementById('successText').innerHTML = `Thank you, <strong>${firstName}</strong>. Your provider application has been submitted and received.`;
+          } else {
+            alert('There was an error submitting your form. Please try again.');
+          }
+        }).catch(error => {
+          alert('There was an error submitting your form. Please try again.');
+        });
       }
     }
 
