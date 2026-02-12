@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aesthetics To Go – The Clinical Operating System for Aesthetic PAs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#ffffff;--bg-soft:#ffffff;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--pill-bg:#f4f4f4;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Inter",system-ui;background:var(--bg);color:var(--text-main);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .top-bar{background:#3b0e10;color:#fceee8;text-align:center;padding:.55rem 1.5rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+    .top-bar strong{font-weight:600}
+    .header-wrapper{background:#fff;border-bottom:1px solid var(--border-soft)}
+    .header{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .logo{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.08em;text-transform:uppercase;color:#111}
+    .logo span{font-weight:700;color:var(--accent)}
+    .nav{display:flex;gap:1.5rem;font-size:.9rem}
+    .nav a{text-transform:uppercase;letter-spacing:.08em;font-weight:500;color:#4b433c}
+    .nav a:hover{color:var(--accent)}
+    .header-cta{display:flex;gap:.75rem;font-size:.85rem}
+    .btn-outline{border-radius:999px;padding:.55rem 1.2rem;border:1px solid #c9bcad;text-transform:uppercase;letter-spacing:.12em;font-weight:500;background:#fff;transition:all .18s ease-out}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);box-shadow:0 10px 25px rgba(0,0,0,.08)}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.6rem 1.6rem;border:none;background:var(--accent);color:#fff;text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;font-size:.86rem;box-shadow:0 12px 30px rgba(196,150,82,.35);transition:transform .16s ease-out,box-shadow .16s ease-out,background .16s ease-out}
+    .btn-primary:hover{background:var(--accent-dark);box-shadow:0 18px 40px rgba(166,121,48,.4);transform:translateY(-1px)}
+    .hero{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 3.2rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3.5rem;align-items:end;background:#fff}
+    .hero-copy-eyebrow{font-size:.82rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-dark);margin-bottom:1rem}
+    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.1vw,3rem);line-height:1.05;margin-bottom:1.2rem;color:#201812}
+    .hero-title span{color:var(--accent)}
+    .hero-subtitle{font-size:1rem;color:var(--text-muted);max-width:30rem;margin-bottom:1.5rem}
+    .hero-pills{margin-bottom:1.8rem;display:flex;flex-wrap:wrap;gap:.5rem;max-width:32rem}
+    .hero-pill{background:var(--pill-bg);border-radius:999px;padding:.4rem .9rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#5b4c3c;border:1px solid #ded8cf}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.8rem}
+    .hero-secondary{font-size:.9rem;color:var(--text-muted)}
+    .hero-secondary span{font-weight:500;color:var(--accent-dark)}
+    .hero-note{font-size:.8rem;color:#9a8776;max-width:28rem}
+    .hero-media{position:relative}
+    .hero-card{position:relative;background:var(--card-bg);border-radius:26px;padding:1.5rem 1.5rem 1.6rem;box-shadow:var(--shadow-strong);border:1px solid var(--border-strong);overflow:hidden;backdrop-filter:blur(6px)}
+    .hero-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(255,255,255,.45),transparent 55%);pointer-events:none}
+    .hero-card-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:#7f6b57;margin-bottom:.7rem}
+    .hero-card-title{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:.8rem}
+    .hero-card-subtitle{font-size:.89rem;color:var(--text-muted);margin-bottom:.9rem}
+    .video-wrapper{position:relative;width:215px;max-width:100%;aspect-ratio:9/19.5;margin:0 auto .9rem;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.12)}
+    .video-wrapper video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:18px}
+    .sound-toggle{position:absolute;bottom:.5rem;right:.5rem;width:2rem;height:2rem;background:rgba(0,0,0,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1rem;transition:background .2s;z-index:10}
+    .sound-toggle:hover{background:rgba(0,0,0,.7)}
+    .hero-tag{position:absolute;left:50%;right:auto;bottom:3rem;transform:translateX(-50%);background:#20120f;color:#fcede1;border-radius:999px;padding:.5rem 1rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 14px 35px rgba(10,5,2,.55);white-space:nowrap;min-width:260px}
+    .feature-strip{border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);background:var(--bg-soft)}
+    .feature-strip-inner{max-width:1200px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;flex-wrap:wrap;gap:1rem 1.7rem;justify-content:center;font-size:.83rem;text-transform:uppercase;letter-spacing:.16em;color:#6b5d50}
+    .feature-strip-inner span::before{content:"•";margin:0 .6rem 0 .2rem;opacity:.45}
+    .feature-strip-inner span:first-child::before{content:"";margin:0}
+    .how-it-works{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff}
+    .how-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:2rem}
+    .how-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
+    .how-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
+    .how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+    .how-card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.4rem 1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:.4rem}
+    .how-step{width:34px;height:34px;border-radius:999px;border:1px solid var(--border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#8b7766;margin-bottom:.4rem;background:#fffaf4}
+    .how-card-title{font-family:"Playfair Display",serif;font-size:1.02rem}
+    .how-card-text{font-size:.9rem;color:var(--text-muted)}
+    .magazine{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff}
+    .magazine-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2rem;gap:1rem}
+    .magazine-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
+    .magazine-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
+    .magazine-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+    .mag-card{background:var(--card-bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-strong);min-height:100%;box-shadow:var(--shadow-soft);transition:transform .16s ease-out,box-shadow .16s ease-out}
+    .mag-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
+    .mag-card-image{height:180px;overflow:hidden;background:#f4ece0}
+    .mag-card-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .mag-card-body{padding:1.3rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem}
+    .mag-card-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#8b7766}
+    .mag-card-title{font-family:"Playfair Display",serif;font-size:1.05rem}
+    .mag-card-text{font-size:.9rem;color:var(--text-muted)}
+    .mag-card-meta{margin-top:.7rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#a08b77}
+    .cta-band{background:#20110c;color:#fef6ee;padding:3rem 1.5rem 3.2rem}
+    .cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .cta-heading{font-family:"Playfair Display",serif;font-size:1.5rem;margin-bottom:.4rem}
+    .cta-text{font-size:.95rem;color:#f6e1cf;max-width:26rem;margin-bottom:1.2rem}
+    .cta-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+    .faq-list{max-width:420px;display:flex;flex-direction:column;gap:1.1rem;font-size:.9rem}
+    .faq-item-question{font-weight:600;margin-bottom:.14rem}
+    .faq-item-answer{color:#f6e1cf;opacity:.92}
+    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.4rem 1.5rem 1.7rem;font-size:.78rem;color:#968371}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .footer-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+    .footer-links a{text-transform:uppercase;letter-spacing:.16em}
+    @media(max-width:960px){.hero{grid-template-columns:1fr}.hero-media{order:-1}.how-grid,.magazine-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.how-grid,.magazine-grid{grid-template-columns:1fr}.hero{padding-top:2.4rem}}
+    .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.6);align-items:flex-start;justify-content:center;padding:2rem 0}
+    .modal.active{display:flex}
+    .modal-content{background:#fff;padding:2.5rem;border-radius:20px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+    .modal-close{position:absolute;top:1rem;right:1.5rem;font-size:2rem;cursor:pointer;color:#999}
+    .modal-close:hover{color:#000}
+    .modal h2{font-family:"Playfair Display",serif;font-size:1.8rem;text-align:center;margin-bottom:1rem}
+    .modal p{text-align:center;margin-bottom:2rem;color:#666}
+    .modal input,.modal select,.modal textarea{width:100%;padding:.9rem;margin:.8rem 0;border:1px solid #ddd;border-radius:12px;font-size:1rem}
+    .modal label{display:block;margin:.8rem 0 .5rem;font-size:1rem;color:#333}
+    .city-checkboxes label{display:block;margin:.5rem 0}
+    .city-checkboxes input[type=checkbox]{margin-right:.8rem}
+    .thank-you-message{text-align:center;padding:2rem;}
+    .thank-you-message h2{font-family:"Playfair Display",serif;margin-bottom:1rem;color:#2a2520;}
+    .thank-you-message p{color:#666;}
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"><strong>Founding PA-C opportunities now open</strong> · Professional Autonomy. Clinical Excellence. Fee-free payouts.</div>
+
+  <div class="header-wrapper">
+    <header class="header">
+      <div class="logo">Aesthetics To Go <span> PA</span></div>
+      <nav class="nav"><a href="#clinical-workflow">Clinical Workflow</a><a href="#compliance">Compliance</a><a href="#faq">FAQ</a></nav>
+      <div class="header-cta">
+        <a href="#login" class="btn-outline">Provider Login</a>
+        <button class="btn-primary" onclick="openModal()">Join the Network</button>
+      </div>
+    </header>
+  </div>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-copy-eyebrow">The Dedicated Platform for Mobile Physician Assistants</div>
+      <h1 class="hero-title">A <span>mobile-first EHR</span> that empowers PAs to lead in concierge aesthetic care.</h1>
+      <p class="hero-subtitle">Scale your concierge panel with a full medical suite: AI-driven patient consultations, structured SOAP charting, and HIPAA-compliant documentation designed for the field.</p>
+      <div class="hero-pills">
+        <div class="hero-pill">Zero Monthly Overhead</div><div class="hero-pill">Full Mobile EHR</div>
+        <div class="hero-pill">Volume Product Discounts</div><div class="hero-pill">No Merchant Fees</div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal()">Apply for Founding Status</button>
+        <div class="hero-secondary">or <span>request a clinical demo</span></div>
+      </div>
+      <p class="hero-note">Designed by licensed clinicians to eliminate the friction of house-call scheduling and medical record-keeping while maximizing provider earnings.</p>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-card">
+        <div class="hero-card-label">AI Diagnostic Simulator</div>
+        <div class="hero-card-title">Enhance your consultation with precision.</div>
+        <div class="video-wrapper">
+          <video id="demoVideo" autoplay loop muted playsinline>
+            <source src="AI_Demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="sound-toggle" onclick="toggleSound()">🔊</div>
+        </div>
+        <p class="hero-card-subtitle">AI-assisted visual mapping for toxins and fillers, built for high-conversion patient education.</p><br><br><br>
+        <div class="hero-tag">Licensed PAs • NPs • MDs</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-strip">
+    <div class="feature-strip-inner">
+      <span>Structured SOAP Charting</span>
+      <span>Zero Platform Subscriptions</span>
+      <span>HIPAA-Compliant Storage</span>
+      <span>Wholesale Pricing Access</span>
+      <span>Instant Digital Consents</span>
+      <span>100% Payout Retention</span>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="clinical-workflow">
+    <div class="how-header">
+      <div>
+        <div class="how-eyebrow">The Clinical Flow</div>
+        <h2 class="how-title">Streamlined from Assessment to Injection</h2>
+      </div>
+      <div class="how-eyebrow">Professional-grade care in any environment.</div>
+    </div>
+
+    <div class="how-grid">
+      <article class="how-card">
+        <div class="how-step">1</div>
+        <h3 class="how-card-title">Patient Self-Assessment.</h3>
+        <p class="how-card-text">
+          Prospective patients utilize the AI simulator to identify concerns and visualize potential outcomes. This pre-qualifies interest and establishes realistic expectations before the initial consult.
+        </p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-step">2</div>
+        <h3 class="how-card-title">Provider Match & Scheduling.</h3>
+        <p class="how-card-text">
+          Aesthetics To Go connects patients with credentialed PAs based on expertise and location. You control your travel radius and clinical availability through a mobile-optimized provider dashboard.
+        </p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-step">3</div>
+        <h3 class="how-card-title">Documentation & Treatment.</h3>
+        <p class="how-card-text">
+          Conduct house-calls with a full clinical toolkit. Capture digital consents, log lot numbers/units, and complete comprehensive SOAP notes in the driveway before you even leave the site.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="magazine" id="compliance">
+    <div class="magazine-header">
+      <div>
+        <div class="magazine-kicker">Built for Medical Autonomy</div>
+        <h2 class="magazine-title">A Professional Suite for Your Private Practice</h2>
+      </div>
+      <div class="magazine-kicker">The clinical rigor of a med-spa, optimized for the mobile provider.</div>
+    </div>
+
+    <div class="magazine-grid">
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="BeforeAfter.png" alt="Clinical documentation of patient results" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Diagnostic Precision</div>
+          <h3 class="mag-card-title">Evidence-based consultations using AI modeling.</h3>
+          <p class="mag-card-text">
+            Standardize your patient education. Use high-fidelity AI to map toxin and filler placement, allowing for more accurate treatment planning and higher patient satisfaction rates.
+          </p>
+          <div class="mag-card-meta">Clinical Visualization · Patient Education</div>
+        </div>
+      </article>
+
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="WorkingFromHome.png" alt="PA-C managing patient records" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Low-Overhead Practice</div>
+          <h3 class="mag-card-title">Eliminate the cost of traditional clinic space.</h3>
+          <p class="mag-card-text">
+            Aesthetics To Go charges <strong>no monthly subscription</strong>. Build your private concierge panel with zero upfront platform costs, whether you see one patient a month or twenty a week.
+          </p>
+          <div class="mag-card-meta">No Fixed Costs · Professional Independence</div>
+        </div>
+      </article>
+
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="TaxMess.png" alt="Direct deposit for medical providers" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Financial Transparency</div>
+          <h3 class="mag-card-title">Zero-fee merchant processing for PAs.</h3>
+          <p class="mag-card-text">
+            We absorb all card processing and banking fees. When you perform a treatment, you receive the <strong>full payout</strong> directly to your bank. No hidden deductions or platform cuts.
+          </p>
+          <div class="mag-card-meta">Full Revenue Retention · Direct Deposit</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band" id="faq">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-heading">Own your schedule. Lead your practice.</h2>
+        <p class="cta-text">
+          Access a full mobile EHR, volume pricing on medical supplies, and AI-driven growth tools with zero platform fees. This is the future of aesthetic medicine for the modern PA.
+        </p>
+        <div class="cta-actions">
+          <button class="btn-primary" onclick="openModal()">Claim Your Founding Provider Spot</button>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-item-question">Is the documentation HIPAA-compliant?</div>
+          <div class="faq-item-answer">
+            Yes. All patient data is encrypted and stored in a HIPAA-compliant environment, including charting, consents, and before/after photos.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item-question">Can I use this alongside my clinical employment?</div>
+          <div class="faq-item-answer">
+            Absolutely. Many PAs use Aesthetics To Go to manage their concierge side-practice. Our platform is designed to handle the logistical load so you can focus on patient care.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item-question">How does the SOAP charting work?</div>
+          <div class="faq-item-answer">
+            Our EHR features a streamlined mobile interface specifically for aesthetics: log injection sites, units/volumes used, lot numbers, and expiration dates in seconds.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item-question">What about supervising physician requirements?</div>
+          <div class="faq-item-answer">
+            The platform allows you to maintain clean, exportable records that can be shared with your supervising physician or integrated into larger clinic EMRs as required by your state.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© Aesthetics To Go PA Edition. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#terms">Provider Terms</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Clinical Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <section id="terms" style="max-width:1200px;margin:6rem auto 4rem;padding:0 1.5rem;font-size:.9rem;line-height:1.6">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Terms of Service</h2>
+    <p>Last updated: December 12, 2025</p>
+    <p>By using Aesthetics To Go, you agree to these terms. We reserve the right to verify credentials at any time.</p>
+    <p><strong>Clinical Scope</strong>: You must be a licensed Physician Assistant (PA-C), Nurse Practitioner (NP), or MD/DO to provide medical services through the platform.</p>
+    <p><strong>Professional Responsibility</strong>: Providers are responsible for maintaining their own malpractice insurance and supervision agreements according to state law.</p>
+  </section>
+
+  <section id="privacy" style="max-width:1200px;margin:4rem auto;padding:0 1.5rem;font-size:.9rem;line-height:1.6">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Privacy & HIPAA Policy</h2>
+    <p>Last updated: December 12, 2025</p>
+    <p>We prioritize patient confidentiality and data integrity. All electronic PHI is encrypted and accessible only by the treating provider.</p>
+    <p>We comply with all federal HIPAA standards for the transmission and storage of medical records.</p>
+  </section>
+
+  <section id="contact" style="max-width:1200px;margin:4rem auto 6rem;padding:0 1.5rem;font-size:.9rem;line-height:1.6;text-align:center">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1rem">Provider Support</h2>
+    <p>Email: <a href="mailto:info@aestheticstogo.com">info@aestheticstogo.com</a></p>
+    <p>Clinical inquiries are prioritized and answered within 24 hours.</p>
+  </section>
+
+  <div id="claimModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <div id="formContainer">
+        <h2>Join as a Founding PA-C</h2>
+        <p>Apply for priority access to our zero-fee clinical operating system.</p>
+        <form id="contactForm" action="https://formspree.io/f/xaqobgpq" method="POST">
+          <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, PA-C)" required>
+          <input type="text" name="license" placeholder="State(s) of Licensure">
+          <input type="email" name="email" placeholder="Professional Email Address" required>
+          <input type="tel" name="phone" placeholder="Cell Phone Number" required>
+          <label>Markets you wish to serve (check all that apply)</label>
+          <div class="city-checkboxes">
+            <label><input type="checkbox" name="city[]" value="Las Vegas"> Las Vegas</label>
+            <label><input type="checkbox" name="city[]" value="Summerlin"> Summerlin</label>
+            <label><input type="checkbox" name="city[]" value="Henderson"> Henderson</label>
+            <label><input type="checkbox" name="city[]" value="Boulder City"> Boulder City</label>
+            <label><input type="checkbox" name="city[]" value="Other"> Other</label>
+          </div>
+          <input type="text" name="other_city" placeholder="Please specify other city" style="display:none;margin-top:.5rem" id="otherCityInput">
+          <select name="appointments" required>
+            <option value="" disabled selected>Anticipated mobile patient volume per month?</option>
+            <option>0–5</option><option>6–15</option><option>16–30</option><option>30+</option>
+          </select>
+          <select name="volume_interest" required>
+            <option value="" disabled selected>Interested in medical supply volume pricing?</option>
+            <option>Yes, definitely</option><option>Maybe</option><option>No</option>
+          </select>
+          <textarea name="notes" rows="3" placeholder="Tell us about your aesthetic practice..."></textarea>
+          <button type="submit">Submit Application →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('claimModal').classList.add('active');
+    }
+    
+    function closeModal() {
+      document.getElementById('claimModal').classList.remove('active');
+    }
+    
+    function toggleSound() {
+      var v = document.getElementById('demoVideo');
+      v.muted = !v.muted;
+      event.target.innerHTML = v.muted ? '🔇' : '🔊';
+    }
+    
+    window.onclick = function(e) {
+      if (e.target === document.getElementById('claimModal')) {
+        closeModal();
+      }
+    };
+    
+    var checkboxes = document.querySelectorAll('input[name="city[]"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].addEventListener('change', function() {
+        var otherInput = document.getElementById('otherCityInput');
+        var otherChecked = false;
+        for (var j = 0; j < checkboxes.length; j++) {
+          if (checkboxes[j].value === 'Other' && checkboxes[j].checked) {
+            otherChecked = true;
+            break;
+          }
+        }
+        otherInput.style.display = otherChecked ? 'block' : 'none';
+        otherInput.required = otherChecked;
+      });
+    }
+    
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function(response) {
+        if (response.ok) {
+          document.getElementById('formContainer').innerHTML = '<div class="thank-you-message"><h2>Application Received</h2><p>Our credentialing team will review your info and reach out within 24 hours.</p></div>';
+        } else {
+          alert('There was a problem submitting the form. Please try again.');
+        }
+      }).catch(function(error) {
+        alert('There was a problem submitting the form. Please try again.');
+      });
+    });
+  </script>
+</body>
+</html>

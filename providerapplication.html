@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aesthetics To Go App Provider Application - Complete Your Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#ffffff;--bg-soft:#fdf8f3;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16);--error:#d32f2f;--success:#388e3c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Inter",system-ui;background:var(--bg);color:var(--text-main);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .top-bar{background:#3b0e10;color:#fceee8;text-align:center;padding:.55rem 1.5rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+    .header-wrapper{background:#fff;border-bottom:1px solid var(--border-soft)}
+    .header{max-width:1000px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .logo{font-family:"Playfair Display",serif;font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase;color:#111}
+    .logo span{font-weight:700;color:var(--accent)}
+    .progress-bar{max-width:1000px;margin:0 auto;padding:1.5rem 1.5rem 1rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem}
+    .progress-step{flex:1;height:6px;background:#e3d6c5;border-radius:3px}
+    .progress-step.active{background:var(--accent);box-shadow:0 2px 8px rgba(196,150,82,.3)}
+    .progress-step.completed{background:var(--success)}
+    .progress-text{font-size:.8rem;color:var(--text-muted);margin-top:.5rem;text-align:center}
+    .container{max-width:900px;margin:0 auto;padding:2rem 1.5rem 3rem}
+    .form-section{background:var(--card-bg);border-radius:16px;padding:2rem;margin-bottom:2rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft)}
+    .section-title{font-family:"Playfair Display",serif;font-size:1.3rem;margin-bottom:.5rem;color:#201812}
+    .section-subtitle{font-size:.9rem;color:var(--text-muted);margin-bottom:1.5rem}
+    .form-group{margin-bottom:1.5rem}
+    label{display:block;margin-bottom:.5rem;font-size:.95rem;font-weight:500;color:#2a2520}
+    .required{color:var(--error)}
+    input[type="text"],input[type="email"],input[type="tel"],input[type="date"],input[type="number"],select,textarea{width:100%;padding:.85rem;border:1px solid var(--border-strong);border-radius:10px;font-family:"Inter",system-ui;font-size:1rem;color:var(--text-main);background:#ffffff;transition:border-color .2s,box-shadow .2s}
+    input[type="text"]:focus,input[type="email"]:focus,input[type="tel"]:focus,input[type="date"]:focus,input[type="number"]:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(196,150,82,.1)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .form-row.full{grid-template-columns:1fr}
+    .help-text{font-size:.8rem;color:var(--text-muted);margin-top:.4rem}
+    .checkbox-group,.radio-group{margin-bottom:1.5rem}
+    .checkbox-item,.radio-item{display:flex;align-items:center;margin-bottom:.8rem}
+    input[type="checkbox"],input[type="radio"]{width:18px;height:18px;margin-right:.8rem;cursor:pointer;accent-color:var(--accent)}
+    .checkbox-label,.radio-label{cursor:pointer;font-size:.95rem}
+    .file-upload{position:relative;display:inline-block;margin-bottom:.8rem;width:100%}
+    .file-input{display:none}
+    .file-label{display:flex;align-items:center;justify-content:center;width:100%;padding:1.5rem;border:2px dashed var(--border-strong);border-radius:10px;background:#fafaf8;cursor:pointer;transition:border-color .2s,background .2s;font-size:.9rem;color:var(--text-muted)}
+    .file-label:hover{border-color:var(--accent);background:#fff9f0}
+    .file-name{font-size:.85rem;color:var(--text-muted);margin-top:.5rem;margin-left:0}
+    .form-actions{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.7rem 2rem;border:none;background:var(--accent);color:#fff;text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;font-size:.9rem;box-shadow:0 12px 30px rgba(196,150,82,.35);transition:transform .16s ease-out,box-shadow .16s ease-out,background .16s ease-out}
+    .btn-primary:hover{background:var(--accent-dark);box-shadow:0 18px 40px rgba(166,121,48,.4);transform:translateY(-1px)}
+    .btn-secondary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.7rem 2rem;border:1px solid var(--border-strong);background:#fff;color:var(--text-main);text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .2s}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.5rem;margin-top:3rem;font-size:.8rem;color:#968371;text-align:center}
+    @media(max-width:768px){
+      .form-row{grid-template-columns:1fr}
+      .container{padding:1.5rem 1rem}
+      .form-section{padding:1.5rem}
+    }
+    .success-message{display:none;text-align:center;padding:3rem 1.5rem}
+    .success-message.show{display:block}
+    .success-icon{font-size:3rem;margin-bottom:1rem}
+    .success-message h2{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:1rem;color:var(--success)}
+    .success-message p{color:var(--text-muted);margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+    .page-title{font-family:"Playfair Display",serif;font-size:2rem;text-align:center;margin-bottom:.5rem;color:#201812}
+    .page-subtitle{text-align:center;color:var(--text-muted);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">Provider Application — Completing Your Profile</div>
+
+  <div class="header-wrapper">
+    <header class="header">
+      <div class="logo">Aesthetics To Go<span>App</span></div>
+      <div style="font-size:.9rem;color:var(--text-muted)">Provider Application</div>
+    </header>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-step active" id="progress1"></div>
+    <div class="progress-step" id="progress2"></div>
+    <div class="progress-step" id="progress3"></div>
+    <div class="progress-step" id="progress4"></div>
+    <div class="progress-step" id="progress5"></div>
+    <div class="progress-text"><span id="progressText">Step 1 of 5: Personal Information</span></div>
+  </div>
+
+  <div class="container">
+    <h1 class="page-title">Provider Application</h1>
+    <p class="page-subtitle">Complete your professional profile to be approved as a Aesthetics To Go App provider. All information is verified and securely stored.</p>
+
+    <form id="providerForm" action="https://formspree.io/f/mgokzgvy" method="POST" onsubmit="handleSubmit(event)">
+
+      <!-- SECTION 1: PERSONAL INFORMATION -->
+      <div class="form-section" id="section1">
+        <h2 class="section-title">Personal Information</h2>
+        <p class="section-subtitle">Let's start with your basic details.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+          <div class="form-group">
+            <label for="state">State of Residence <span class="required">*</span></label>
+            <select id="state" name="state" required>
+              <option value="">Select State</option>
+              <option value="NV">Nevada</option>
+              <option value="CA">California</option>
+              <option value="AZ">Arizona</option>
+              <option value="UT">Utah</option>
+              <option value="TX">Texas</option>
+              <option value="FL">Florida</option>
+              <option value="NY">New York</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label for="address">Current Street Address <span class="required">*</span></label>
+          <input type="text" id="address" name="address" placeholder="Street address" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City <span class="required">*</span></label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code <span class="required">*</span></label>
+            <input type="text" id="zip" name="zip" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: PROFESSIONAL CREDENTIALS -->
+      <div class="form-section" id="section2" style="display:none">
+        <h2 class="section-title">Professional Credentials</h2>
+        <p class="section-subtitle">All information must be current and verified.</p>
+
+        <div class="form-group full">
+          <label for="licenseType">Primary License Type <span class="required">*</span></label>
+          <select id="licenseType" name="licenseType" required>
+            <option value="">Select License Type</option>
+            <option value="RN">Registered Nurse (RN)</option>
+            <option value="NP">Nurse Practitioner (NP)</option>
+            <option value="PA">Physician Assistant (PA)</option>
+            <option value="MD">Medical Doctor (MD)</option>
+            <option value="DO">Doctor of Osteopathic Medicine (DO)</option>
+            <option value="CRNA">Certified Registered Nurse Anesthetist (CRNA)</option>
+            <option value="LPN">Licensed Practical Nurse (LPN)</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="licenseNumber">License Number <span class="required">*</span></label>
+            <input type="text" id="licenseNumber" name="licenseNumber" placeholder="e.g., NV-RN-123456" required>
+          </div>
+          <div class="form-group">
+            <label for="licenseState">License Issuing State <span class="required">*</span></label>
+            <select id="licenseState" name="licenseState" required>
+              <option value="">Select State</option>
+              <option value="NV">Nevada</option>
+              <option value="CA">California</option>
+              <option value="AZ">Arizona</option>
+              <option value="UT">Utah</option>
+              <option value="TX">Texas</option>
+              <option value="FL">Florida</option>
+              <option value="NY">New York</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="licenseExpire">License Expiration Date <span class="required">*</span></label>
+            <input type="date" id="licenseExpire" name="licenseExpire" required>
+            <p class="help-text">Must be current or renewable within 30 days</p>
+          </div>
+          <div class="form-group">
+            <label for="npiNumber">NPI Number (if applicable)</label>
+            <input type="text" id="npiNumber" name="npiNumber" placeholder="10-digit NPI">
+            <p class="help-text">National Provider Identifier — required for billing/insurance</p>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Additional Professional Licenses</label>
+          <div class="checkbox-item">
+            <input type="checkbox" id="hasSecondaryLicense" name="hasSecondaryLicense" onchange="toggleSecondaryLicense()">
+            <label for="hasSecondaryLicense" class="checkbox-label">I have an additional state license or credential</label>
+          </div>
+          <div id="secondaryLicenseField" style="display:none;margin-top:1rem">
+            <input type="text" id="secondaryLicense" name="secondaryLicense" placeholder="e.g., CA-RN-987654">
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: EXPERIENCE & CERTIFICATIONS -->
+      <div class="form-section" id="section3" style="display:none">
+        <h2 class="section-title">Experience & Certifications</h2>
+        <p class="section-subtitle">Document your injectable experience and training.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="yearsInjecting">Years of Injectable Experience <span class="required">*</span></label>
+            <select id="yearsInjecting" name="yearsInjecting" required>
+              <option value="">Select Years</option>
+              <option value="0-1">0-1 years</option>
+              <option value="1-2">1-2 years</option>
+              <option value="2-3">2-3 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5-10">5-10 years</option>
+              <option value="10+">10+ years</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="proceduresPerMonth">Average Procedures Per Month <span class="required">*</span></label>
+            <input type="number" id="proceduresPerMonth" name="proceduresPerMonth" min="0" placeholder="e.g., 25" required>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Aesthetic Injectable Certifications <span class="required">*</span></label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert1" name="certifications" value="Allergan Certified">
+              <label for="cert1" class="checkbox-label">Allergan Certified (Botox, Juvéderm)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert2" name="certifications" value="Galderma Certified">
+              <label for="cert2" class="checkbox-label">Galderma Certified (Restylane, Dysport)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert3" name="certifications" value="Merz Certified">
+              <label for="cert3" class="checkbox-label">Merz Certified (Radiesse, Xeomin)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert4" name="certifications" value="ASPS Member">
+              <label for="cert4" class="checkbox-label">ASPS (American Society of Plastic Surgeons) Member</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert5" name="certifications" value="AAFPRS Member">
+              <label for="cert5" class="checkbox-label">AAFPRS (American Academy of Facial Plastic Surgery) Member</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert6" name="certifications" value="Empire Medical Training">
+              <label for="cert6" class="checkbox-label">Empire Medical Training Certified</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cert7" name="certifications" value="Other">
+              <label for="cert7" class="checkbox-label">Other Certification (please specify below)</label>
+            </div>
+          </div>
+          <input type="text" name="otherCertification" placeholder="Other certifications" style="margin-top:1rem;display:none" id="otherCertField">
+        </div>
+
+        <div class="form-group full">
+          <label>Procedures You Perform <span class="required">*</span></label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc1" name="procedures" value="Botox/Neuromodulators">
+              <label for="proc1" class="checkbox-label">Botox / Neuromodulators (Dysport, Xeomin)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc2" name="procedures" value="Dermal Fillers">
+              <label for="proc2" class="checkbox-label">Dermal Fillers (Juvéderm, Restylane, Radiesse)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc3" name="procedures" value="Lip Fillers">
+              <label for="proc3" class="checkbox-label">Lip Enhancement</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc4" name="procedures" value="Cheek Augmentation">
+              <label for="proc4" class="checkbox-label">Cheek Augmentation</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc5" name="procedures" value="Chin Augmentation">
+              <label for="proc5" class="checkbox-label">Chin / Jawline Augmentation</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc6" name="procedures" value="Under Eye Filler">
+              <label for="proc6" class="checkbox-label">Under Eye / Tear Trough Treatment</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc7" name="procedures" value="Microneedling">
+              <label for="proc7" class="checkbox-label">Microneedling</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="proc8" name="procedures" value="Hair Restoration">
+              <label for="proc8" class="checkbox-label">Hair Restoration (PRF, PRP, Kerafactor)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label for="training">Most Recent Training / Continuing Education</label>
+          <textarea id="training" name="training" rows="4" placeholder="List any recent training, workshops, or continuing education related to injectables (dates, instructors, topics)"></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 4: COMPLIANCE & INSURANCE -->
+      <div class="form-section" id="section4" style="display:none">
+        <h2 class="section-title">Compliance & Insurance</h2>
+        <p class="section-subtitle">Professional liability and regulatory information.</p>
+
+        <div class="form-group full">
+          <label>Professional Liability Insurance <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="hasInsurance1" name="hasInsurance" value="Yes" onchange="toggleInsuranceFields()" required>
+              <label for="hasInsurance1" class="radio-label">Yes, I have active malpractice/liability insurance</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="hasInsurance2" name="hasInsurance" value="No" onchange="toggleInsuranceFields()" required>
+              <label for="hasInsurance2" class="radio-label">No, I do not have insurance</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="hasInsurance3" name="hasInsurance" value="Applying" onchange="toggleInsuranceFields()" required>
+              <label for="hasInsurance3" class="radio-label">I am currently applying</label>
+            </div>
+          </div>
+          <p class="help-text">Aesthetics To Go App strongly recommends professional liability coverage. Some markets may require it.</p>
+        </div>
+
+        <div id="insuranceFields" style="display:none">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="insuranceProvider">Insurance Provider / Carrier <span class="required">*</span></label>
+              <input type="text" id="insuranceProvider" name="insuranceProvider" placeholder="e.g., The Doctors Company, HPSO, Nurses Service Organization">
+            </div>
+            <div class="form-group">
+              <label for="policyNumber">Policy Number <span class="required">*</span></label>
+              <input type="text" id="policyNumber" name="policyNumber" placeholder="Policy #">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="coverageAmount">Coverage Amount <span class="required">*</span></label>
+              <select id="coverageAmount" name="coverageAmount">
+                <option value="">Select Coverage</option>
+                <option value="$1M/$2M">$1M/$2M</option>
+                <option value="$1M/$3M">$1M/$3M</option>
+                <option value="$2M/$4M">$2M/$4M</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="policyExpire">Policy Expiration Date <span class="required">*</span></label>
+              <input type="date" id="policyExpire" name="policyExpire">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Medical Background Check <span class="required">*</span></label>
+          <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:1rem">Aesthetics To Go App conducts routine background checks. Please confirm:</p>
+          <div class="checkbox-item">
+            <input type="checkbox" id="bgCheck" name="bgCheck" required>
+            <label for="bgCheck" class="checkbox-label">I authorize Aesthetics To Go App to conduct a background check including state medical board records, malpractice history, and licensing verification</label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Disciplinary History <span class="required">*</span></label>
+          <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:1rem">Have you ever been subject to any disciplinary action, licensing suspension, or malpractice settlement?</p>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="discipline1" name="discipline" value="No" required>
+              <label for="discipline1" class="radio-label">No</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="discipline2" name="discipline" value="Yes" required>
+              <label for="discipline2" class="radio-label">Yes (please explain below)</label>
+            </div>
+          </div>
+          <textarea id="disciplineExplain" name="disciplineExplain" rows="3" placeholder="Please provide details if applicable" style="margin-top:1rem;display:none"></textarea>
+        </div>
+
+        <div class="form-group full">
+          <label>State Medical Board Verification</label>
+          <p style="font-size:.9rem;color:var(--text-muted)">We will verify your license status with the Nevada State Board of Nursing / Medical Examiners. Please allow 3-5 business days for verification.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 5: AGREEMENT & VERIFICATION -->
+      <div class="form-section" id="section5" style="display:none">
+        <h2 class="section-title">Agreement & Verification</h2>
+        
+        <div class="checkbox-item" style="margin-bottom:1.5rem">
+          <input type="checkbox" id="agree" name="agree" required>
+          <label for="agree" class="checkbox-label" style="font-weight:500">I certify that all information provided above is accurate and complete. I authorize Aesthetics To Go App to verify my credentials with state medical boards and professional organizations.</label>
+        </div>
+
+        <div class="checkbox-item" style="margin-bottom:1.5rem">
+          <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+          <label for="agreeTerms" class="checkbox-label" style="font-weight:500">I agree to the Aesthetics To Go App Provider Agreement and acknowledge that I have read and understand the platform policies, compliance requirements, and independent contractor terms.</label>
+        </div>
+
+        <div class="checkbox-item" style="margin-bottom:2rem">
+          <input type="checkbox" id="agreeHIPAA" name="agreeHIPAA" required>
+          <label for="agreeHIPAA" class="checkbox-label" style="font-weight:500">I understand that patient data is protected under HIPAA and I am responsible for maintaining confidentiality and proper documentation on the Aesthetics To Go App platform.</label>
+        </div>
+      </div>
+
+      <!-- FORM ACTIONS -->
+      <div class="form-actions" id="formActions">
+        <button type="button" class="btn-secondary" onclick="previousSection()" id="backBtn" style="display:none">← Back</button>
+        <button type="button" id="nextBtn" class="btn-primary" onclick="nextSection()">Next Step →</button>
+        <button type="submit" id="submitBtn" class="btn-primary" style="display:none">Submit Application</button>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">✓</div>
+      <h2>Application Received!</h2>
+      <p id="successText">Thank you. Your provider application has been submitted and received.</p>
+      <p style="margin-bottom:2rem;font-size:.95rem"><strong>What happens next:</strong> Our compliance team will verify your credentials with state medical boards (3-5 business days). You'll receive an email update once verification is complete and your provider profile is activated.</p>
+      <p style="color:var(--text-muted);font-size:.9rem">We'll be in touch at <strong id="displayEmail"></strong> with next steps and your provider login credentials.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Aesthetics To Go App Provider Application | Version 1.0 | December 2025</p>
+    <p style="margin-top:.5rem">© 2025 Aesthetics To Go App. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Contact</a></p>
+  </footer>
+
+  <script>
+    let currentSection = 1;
+    const totalSections = 5;
+
+    // Handle file uploads
+    document.querySelectorAll('.file-input').forEach(input => {
+      input.addEventListener('change', function() {
+        const nameDisplay = this.parentElement.querySelector('.file-name');
+        if (this.files.length > 0) {
+          const fileNames = Array.from(this.files).map(f => f.name).join(', ');
+          nameDisplay.textContent = `✓ ${fileNames}`;
+          nameDisplay.style.color = 'var(--success)';
+        }
+      });
+    });
+
+    // Toggle secondary license field
+    function toggleSecondaryLicense() {
+      const field = document.getElementById('secondaryLicenseField');
+      field.style.display = document.getElementById('hasSecondaryLicense').checked ? 'block' : 'none';
+    }
+
+    // Toggle insurance fields
+    function toggleInsuranceFields() {
+      const value = document.querySelector('input[name="hasInsurance"]:checked').value;
+      const insuranceFields = document.getElementById('insuranceFields');
+      insuranceFields.style.display = value === 'Yes' || value === 'Applying' ? 'block' : 'none';
+      
+      document.querySelectorAll('#insuranceFields input, #insuranceFields select').forEach(field => {
+        field.required = value === 'Yes' || value === 'Applying';
+      });
+    }
+
+    // Toggle discipline explanation
+    document.querySelectorAll('input[name="discipline"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        document.getElementById('disciplineExplain').style.display = this.value === 'Yes' ? 'block' : 'none';
+        if (this.value === 'Yes') {
+          document.getElementById('disciplineExplain').required = true;
+        } else {
+          document.getElementById('disciplineExplain').required = false;
+        }
+      });
+    });
+
+    // Show/hide "Other certification" field
+    document.getElementById('cert7').addEventListener('change', function() {
+      document.getElementById('otherCertField').style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Navigation
+    function showSection(n) {
+      if (n > totalSections) n = totalSections;
+      if (n < 1) n = 1;
+
+      for (let i = 1; i <= totalSections; i++) {
+        const section = document.getElementById('section' + i);
+        if (section) section.style.display = i === n ? 'block' : 'none';
+      }
+
+      updateProgress(n);
+      updateButtons(n);
+      document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+      currentSection = n;
+    }
+
+    function updateProgress(n) {
+      document.getElementById('progressText').textContent = `Step ${n} of ${totalSections}`;
+      for (let i = 1; i <= 5; i++) {
+        const prog = document.getElementById('progress' + i);
+        if (i < n) prog.classList.add('completed');
+        else if (i === n) prog.classList.add('active');
+        else {
+          prog.classList.remove('active', 'completed');
+        }
+      }
+    }
+
+    function updateButtons(n) {
+      document.getElementById('backBtn').style.display = n > 1 ? 'block' : 'none';
+      document.getElementById('nextBtn').style.display = n < totalSections ? 'block' : 'none';
+      document.getElementById('submitBtn').style.display = n === totalSections ? 'block' : 'none';
+    }
+
+    function nextSection() {
+      if (validateSection(currentSection)) {
+        showSection(currentSection + 1);
+      }
+    }
+
+    function previousSection() {
+      showSection(currentSection - 1);
+    }
+
+    function validateSection(n) {
+      const section = document.getElementById('section' + n);
+      if (!section) return true;
+
+      const requiredFields = section.querySelectorAll('[required]');
+      let isValid = true;
+
+      requiredFields.forEach(field => {
+        if (field.type === 'checkbox' || field.type === 'radio') {
+          const name = field.name;
+          const isChecked = document.querySelector(`[name="${name}"]:checked`);
+          if (!isChecked) {
+            isValid = false;
+          }
+        } else if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = 'var(--error)';
+        }
+      });
+
+      if (!isValid) {
+        alert('Please complete all required fields before proceeding.');
+      }
+
+      return isValid;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      if (validateSection(currentSection)) {
+        const email = document.getElementById('email').value;
+        const firstName = document.getElementById('firstName').value;
+        const form = event.target;
+        
+        // Submit to Formspree via AJAX (no redirect)
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            // Show success message without redirect
+            document.getElementById('providerForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            document.getElementById('displayEmail').textContent = email;
+            document.getElementById('successText').innerHTML = `Thank you, <strong>${firstName}</strong>. Your provider application has been submitted and received.`;
+          } else {
+            alert('There was an error submitting your form. Please try again.');
+          }
+        }).catch(error => {
+          alert('There was an error submitting your form. Please try again.');
+        });
+      }
+    }
+
+    showSection(1);
+  </script>
+
+</body>
+</html>
