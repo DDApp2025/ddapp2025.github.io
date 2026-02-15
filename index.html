@@ -120,7 +120,7 @@
       <div class="logo"><img src="atg_logo_white_bg.jpg" alt=""><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Clinical Platform for Mobile PAs</span></div></div>
       <nav class="nav"><a href="#clinical-workflow">Clinical Workflow</a><a href="#compliance">Compliance</a><a href="#faq">FAQ</a></nav>
       <div class="header-cta">
-        <a href="#login" class="btn-outline">Provider Login</a>
+        <a href="#" class="btn-outline" onclick="openLoginModal();return false">Provider Login</a>
         <button class="btn-primary" onclick="openModal()">Join the Network</button>
       </div>
     </header>
@@ -373,6 +373,32 @@
     </div>
   </div>
 
+  <div id="loginModal" class="modal">
+    <div class="modal-content" style="max-width:420px">
+      <span class="modal-close" onclick="closeLoginModal()">×</span>
+      <div style="text-align:center;margin-bottom:.5rem">
+        <img src="atg_logo_white_bg.jpg" alt="Aesthetics To Go" style="height:70px;width:auto">
+      </div>
+      <h2 style="font-size:1.5rem;margin-bottom:.3rem">Provider Portal</h2>
+      <p style="margin-bottom:1.5rem;color:#7b6f63;font-size:.9rem">Sign in to access your clinical dashboard</p>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <input type="email" name="email" placeholder="Email Address" required style="margin-top:0">
+        <input type="password" name="password" placeholder="Password" required>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin:.6rem 0 1.2rem;font-size:.84rem">
+          <label style="display:flex;align-items:center;gap:.4rem;margin:0;cursor:pointer;color:#5b4c3c">
+            <input type="checkbox" style="width:auto;margin:0;accent-color:#c49652"> Remember me
+          </label>
+          <a href="#" onclick="return false" style="color:#c49652;font-weight:500">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;padding:.85rem;font-size:.92rem;border-radius:12px">Sign In</button>
+      </form>
+      <div id="loginMessage" style="display:none;text-align:center;padding:1.5rem 0 .5rem">
+        <p style="color:#c49652;font-weight:600;font-size:1rem;margin-bottom:.4rem">Portal Launching Soon</p>
+        <p style="color:#7b6f63;font-size:.88rem">The provider dashboard is currently under development. We'll notify you when it's live.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     function openModal() {
       document.getElementById('claimModal').classList.add('active');
@@ -388,9 +414,28 @@
       event.target.innerHTML = v.muted ? '🔇' : '🔊';
     }
     
+    function openLoginModal() {
+      document.getElementById('loginModal').classList.add('active');
+      document.getElementById('loginForm').style.display = '';
+      document.getElementById('loginMessage').style.display = 'none';
+    }
+
+    function closeLoginModal() {
+      document.getElementById('loginModal').classList.remove('active');
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('loginMessage').style.display = 'block';
+    }
+
     window.onclick = function(e) {
       if (e.target === document.getElementById('claimModal')) {
         closeModal();
+      }
+      if (e.target === document.getElementById('loginModal')) {
+        closeLoginModal();
       }
     };
     
