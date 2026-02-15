@@ -21,9 +21,9 @@
     .logo-text{display:flex;flex-direction:column;white-space:nowrap}
     .logo-brand{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.08em;text-transform:uppercase;color:#111;font-weight:700}
     .logo-tagline{font-family:"Inter",system-ui;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);font-weight:400;margin-top:.1rem}
-    .nav{display:flex;gap:1.5rem;font-size:.9rem;margin-left:auto}
-    .nav a{text-transform:uppercase;letter-spacing:.08em;font-weight:500;color:#4b433c}
-    .nav a:hover{color:var(--accent)}
+    .nav{display:flex;flex:1;justify-content:space-evenly;align-items:center;font-size:.9rem}
+    .nav a,.nav .btn-outline{text-transform:uppercase;letter-spacing:.08em;font-weight:500;color:#4b433c;text-align:center}
+    .nav a:hover,.nav .btn-outline:hover{color:var(--accent)}
     .header-cta{display:flex;gap:.75rem;font-size:.85rem}
     .btn-outline{border-radius:999px;padding:.55rem 1.2rem;border:1px solid #c9bcad;text-transform:uppercase;letter-spacing:.12em;font-weight:500;background:#fff;transition:all .18s ease-out}
     .btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);box-shadow:0 10px 25px rgba(0,0,0,.08)}
@@ -118,9 +118,8 @@
   <div class="header-wrapper">
     <header class="header">
       <div class="logo"><img src="atg_logo_white_bkg.jpg" alt=""><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Clinical Platform for Mobile PAs</span></div></div>
-      <nav class="nav"><a href="#clinical-workflow">Clinical Workflow</a><a href="#compliance">Compliance</a><a href="#faq">FAQ</a></nav>
+      <nav class="nav"><a href="#clinical-workflow">Clinical Workflow</a><a href="#compliance">Compliance</a><a href="#faq">FAQ</a><a href="#" onclick="openLoginModal();return false">Provider Login</a></nav>
       <div class="header-cta">
-        <a href="#" class="btn-outline" onclick="openLoginModal();return false">Provider Login</a>
         <button class="btn-primary" onclick="openModal()">Join the Network</button>
       </div>
     </header>
