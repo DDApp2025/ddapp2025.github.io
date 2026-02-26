@@ -1,0 +1,29 @@
+﻿# Aesthetics To Go
+# The Clinical Operating System for Mobile Aesthetic Providers
+
+## About
+Aesthetics To Go is a mobile-first clinical platform for licensed
+Physician Assistants (PA-Cs), Nurse Practitioners (NPs), and MDs/DOs
+who deliver concierge aesthetic treatments at patients' homes and offices.
+
+## Key Facts
+- Zero monthly subscription fees for providers
+- Zero merchant processing fees (100% payout retention)
+- Full mobile EHR with HIPAA-compliant SOAP charting
+- AI diagnostic simulator for patient visualization
+- Volume wholesale pricing on medical supplies
+- Launching in Las Vegas, NV metro area
+
+## Services Facilitated
+- Botox and neurotoxin injections
+- Dermal fillers (lips, cheeks, jawline)
+- Hair restoration treatments
+
+## For Providers
+Licensed aesthetic providers can join the platform to build a mobile
+concierge practice with no overhead, full clinical tools, and
+complete professional autonomy.
+
+## Contact
+- Website: https://aestheticstogo.com
+- Email: info@aestheticstogo.com
