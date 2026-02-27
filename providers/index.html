@@ -117,7 +117,7 @@
     .logo-text{display:flex;flex-direction:column;white-space:nowrap}
     .logo-brand{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.08em;text-transform:uppercase;color:#111;font-weight:700}
     .logo-tagline{font-family:"Inter",system-ui;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);font-weight:400;margin-top:.1rem}
-    .nav{display:flex;flex:1;justify-content:space-evenly;align-items:center;font-size:.9rem}
+    .nav{display:flex;flex:1;justify-content:space-evenly;align-items:center;font-size:.78rem}
     .nav a,.nav .btn-outline{text-transform:uppercase;letter-spacing:.08em;font-weight:500;color:#4b433c;text-align:center}
     .nav a:hover,.nav .btn-outline:hover{color:var(--accent)}
     .header-cta{display:flex;gap:.75rem;font-size:.85rem}
@@ -221,10 +221,12 @@
     .cta-note{font-size:.8rem;color:#c9a882;margin-top:1rem}
 
     /* Footer */
-    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.4rem 1.5rem 1.7rem;font-size:.78rem;color:#968371}
-    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-    .footer-links{display:flex;gap:1.3rem;flex-wrap:wrap}
-    .footer-links a{text-transform:uppercase;letter-spacing:.16em}
+    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.6rem 1.5rem 1.8rem;font-size:.78rem;color:#968371}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+    .footer-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.4rem}
+    .footer-row a{text-transform:uppercase;letter-spacing:.12em;color:#968371;transition:color .15s}
+    .footer-row a:hover{color:var(--accent)}
+    .footer-copy{margin-top:.3rem;font-size:.74rem;color:#b0a293}
 
     /* Modal */
     .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.6);align-items:flex-start;justify-content:center;padding:2rem 0}
@@ -254,7 +256,7 @@
   <div class="header-wrapper">
     <header class="header">
       <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go logo - mobile clinical platform for aesthetic PAs"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Clinical Platform for Mobile PAs</span></div></a>
-      <nav class="nav"><a href="/">Home</a><a href="/providers">For Providers</a><a href="/#faq">FAQ</a><a href="#" onclick="openLoginModal();return false">Provider Login</a></nav>
+      <nav class="nav"><a href="/">Home</a><a href="/providers">For Providers</a><a href="/services/botox">Botox</a><a href="/services/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="openModal()">Join the Network</button>
       </div>
@@ -560,7 +562,7 @@
       </p>
       <div class="cta-actions">
         <button class="btn-primary" onclick="openModal()">Apply for Founding Status</button>
-        <a href="mailto:info@aestheticstogo.com" class="btn-outline" style="color:#fef6ee;border-color:rgba(254,246,238,.3)">Email Us: info@aestheticstogo.com</a>
+        <a href="/cdn-cgi/l/email-protection#452c2b232a05242036312d20312c2636312a222a6b262a28" class="btn-outline" style="color:#fef6ee;border-color:rgba(254,246,238,.3)">Email Us: <span class="__cf_email__" data-cfemail="94fdfaf2fbd4f5f1e7e0fcf1e0fdf7e7e0fbf3fbbaf7fbf9">[email&#160;protected]</span></a>
       </div>
       <p class="cta-note">Applications reviewed within 48 hours · Credentialing takes 5–7 business days</p>
     </div>
@@ -568,12 +570,9 @@
 
   <footer>
     <div class="footer-inner">
-      <div>© 2025-2026 Aesthetics To Go. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="/#terms">Provider Terms</a>
-        <a href="/#privacy">Privacy</a>
-        <a href="/#contact">Clinical Support</a>
-      </div>
+      <div class="footer-row"><a href="/services/botox">Botox</a><a href="/services/fillers">Fillers</a><a href="/providers">For Providers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a><a href="/faq">FAQ</a></div>
+      <div class="footer-row"><a href="/las-vegas">Las Vegas</a><a href="/summerlin">Summerlin</a><a href="/henderson">Henderson</a><a href="/boulder-city">Boulder City</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
+      <div class="footer-copy">© 2026 Aesthetics To Go. All rights reserved.</div>
     </div>
   </footer>
 
@@ -640,7 +639,7 @@
     </div>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function openModal() {
       document.getElementById('claimModal').classList.add('active');
     }
@@ -686,10 +685,4 @@
         headers: { 'Accept': 'application/json' }
       }).then(function(response) {
         if (response.ok) {
-          document.getElementById('formContainer').innerHTML = '<div class="thank-you-message"><h2>Application Received</h2><p>Our credentialing team will review your info and reach out within 24 hours.</p></div>';
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+          document.getEle
