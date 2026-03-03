@@ -710,4 +710,10 @@
         headers: { 'Accept': 'application/json' }
       }).then(function(response) {
         if (response.ok) {
-          document.getEle
+          document.getElementById('formContainer').innerHTML = '<div class="thank-you-message"><h2>Application Received</h2><p>Our credentialing team will review your info and reach out within 48 hours.</p></div>';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
