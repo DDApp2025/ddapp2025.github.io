@@ -286,7 +286,7 @@
     /* Article Grid */
     .articles-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
     .articles-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-    .article-card{background:var(--card-bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);transition:transform .16s ease-out,box-shadow .16s ease-out;cursor:pointer}
+    .article-card{background:var(--card-bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);transition:transform .16s ease-out,box-shadow .16s ease-out}
     .article-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
     .article-card-image{height:180px;overflow:hidden;background:#f4ece0;display:flex;align-items:center;justify-content:center}
     .article-card-icon{font-size:3rem;opacity:.35}
@@ -295,6 +295,19 @@
     .article-card-title{font-family:"Playfair Display",serif;font-size:1.05rem;line-height:1.25}
     .article-card-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
     .article-card-meta{margin-top:auto;padding-top:.7rem;font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:#a08b77}
+    .article-card-read-more{display:inline-block;margin-top:.6rem;font-size:.82rem;font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;transition:color .15s}
+    .article-card-read-more:hover{color:var(--accent)}
+    .article-card-content{display:none;padding:0 1.3rem 1.6rem;font-size:.9rem;color:var(--text-muted);line-height:1.7}
+    .article-card-content p{margin-bottom:1rem}
+    .article-card-content h4{font-family:"Playfair Display",serif;font-size:1rem;color:var(--text-main);margin:1.2rem 0 .5rem}
+    .article-card-content ul{margin:0 0 1rem 1.2rem}
+    .article-card-content li{margin-bottom:.4rem}
+    .article-card.expanded{grid-column:1/-1}
+    .article-card.expanded .article-card-content{display:block}
+    .article-card.expanded .article-card-image{height:100px}
+    .article-card-close{display:none;margin-top:.8rem;font-size:.82rem;font-weight:600;color:#c0392b;text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+    .article-card.expanded .article-card-close{display:inline-block}
+    .article-card.expanded .article-card-read-more{display:none}
 
     /* Provider Resources Section */
     .resources-section{background:var(--card-bg);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:3.5rem 1.5rem}
@@ -445,170 +458,396 @@
     <div class="articles-grid" id="articlesGrid">
 
       <article class="article-card" data-categories="economics,career">
-        <div class="article-card-image">
-          <div class="article-card-icon">📈</div>
+        <div class="article-card-image"><div class="article-card-icon">🏠</div></div>
+        <div class="article-card-body">
+          <div class="article-card-tag">Practice Economics</div>
+          <h3 class="article-card-title">Home Office Deductions Every Mobile Aesthetic Provider Should Know</h3>
+          <p class="article-card-text">Your car, your supplies, your phone, your home office — mobile providers have significant tax advantages over clinic-based practitioners. A practical guide to the deductions that reduce your tax burden and increase your take-home pay.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
+          <div class="article-card-meta">March 3, 2026 · 5 min read</div>
         </div>
+        <div class="article-card-content">
+          <h4>The mobile provider tax advantage</h4>
+<p>One of the overlooked benefits of running a mobile aesthetic practice is the favorable tax treatment of business expenses. Unlike clinic employees who receive a W-2 and have limited deduction options, independent mobile providers operating as sole proprietors or LLCs can deduct a wide range of business expenses that directly reduce taxable income.</p>
+<h4>Key deductions for mobile injectors</h4>
+<ul>
+<li><strong>Vehicle expenses:</strong> Miles driven to and from patient appointments are deductible. Track every mile with an app — the standard mileage rate for 2026 provides a significant per-mile deduction. For providers driving 500–1,000+ miles per month for appointments, this adds up quickly.</li>
+<li><strong>Medical supplies:</strong> Neurotoxins, fillers, needles, cannulas, topical anesthetics, gloves, gauze, alcohol preps — all deductible as cost of goods sold or business supplies.</li>
+<li><strong>Technology and equipment:</strong> Your phone, tablet, portable lighting, centrifuge (for PRP), and any clinical equipment used for practice are deductible. Platform subscriptions and software costs also qualify.</li>
+<li><strong>Home office:</strong> If you use a dedicated space in your home for practice administration — scheduling, charting, patient communication — you may qualify for the home office deduction.</li>
+<li><strong>Insurance:</strong> Malpractice insurance premiums, general liability, and health insurance premiums (for self-employed individuals) are typically deductible.</li>
+<li><strong>Continuing education:</strong> Courses, certifications, conferences, and training related to aesthetic medicine are deductible business expenses.</li>
+</ul>
+<h4>The bottom line</h4>
+<p>A mobile provider who tracks expenses diligently can reduce their effective tax rate significantly compared to a W-2 clinic employee earning the same gross income. Consult with a tax professional who understands independent medical practice — the savings are real and meaningful. The combination of higher gross revenue (100% retention as a founding provider) plus lower effective taxes makes the mobile model even more financially compelling.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
+        </div>
+      </article>
+
+      <article class="article-card" data-categories="economics,career">
+        <div class="article-card-image"><div class="article-card-icon">📈</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Industry Insights</div>
           <h3 class="article-card-title">Why Mobile Aesthetics Is the Fastest-Growing Practice Model for Injectors</h3>
           <p class="article-card-text">The data is clear: mobile aesthetic practices are outpacing traditional med spas in growth. We break down why PA-Cs, NPs, and MDs are choosing zero-overhead mobile models over clinic employment — and what it means for your career.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">March 3, 2026 · 8 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The shift is already happening</h4>
+          <p>Over the past three years, the number of licensed aesthetic providers operating independently outside of traditional clinic settings has grown significantly. The reasons are straightforward: clinic overhead is punishing, patient demand for convenience is surging, and technology has finally caught up to make mobile practice viable at scale.</p>
+          <p>For PA-Cs and NPs in particular, the math has never been more compelling. A typical med spa employee injector generates $300,000–$500,000+ in annual treatment revenue — but takes home a fraction of that after the clinic covers its lease, staff, equipment, software, insurance, and marketing. The provider does the clinical work. The building collects most of the profit.</p>
+          <h4>Why mobile is winning</h4>
+          <p>Mobile aesthetic practices eliminate the single largest expense in the business: physical space. No lease. No build-out. No front desk. No waiting room. The provider travels to the patient's home or office with a clinical kit, performs the treatment, documents in a mobile EHR, and collects payment — all without a fixed overhead structure.</p>
+          <p>This model works because aesthetic treatments are inherently portable. Botox and filler injections require a sterile field, proper lighting, the product itself, and a trained clinician. None of that requires a 2,000-square-foot suite with a $10,000/month lease.</p>
+          <h4>The technology gap is closed</h4>
+          <p>What held mobile practice back for years was the lack of integrated technology. Providers needed separate solutions for scheduling, charting, consents, payments, supply ordering, and patient communication. Platforms like Aesthetics To Go now bundle all of those into a single mobile-first clinical operating system — purpose-built for providers who treat on the move.</p>
+          <p>Smart scheduling clusters appointments by geography so providers minimize windshield time. AI-powered simulators pre-qualify patients before the provider even arrives. Mobile EHRs capture SOAP notes, injection maps, and lot numbers on-site. The technology no longer forces a choice between convenience and clinical rigor.</p>
+          <h4>What this means for your career</h4>
+          <p>If you are a licensed injector currently working for a clinic, the mobile model offers a path to full revenue retention, schedule control, and clinical autonomy — without the six-figure startup cost of opening your own brick-and-mortar practice. The market is moving. The providers who position themselves now — especially as founding providers on platforms that offer zero-fee entry — will have a structural advantage as patient demand for at-home aesthetic care continues to grow.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="economics">
-        <div class="article-card-image">
-          <div class="article-card-icon">💰</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">💰</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Practice Economics</div>
           <h3 class="article-card-title">The Real Cost of Running a Med Spa vs. Going Mobile</h3>
           <p class="article-card-text">Lease payments, staff salaries, equipment financing, liability insurance — the overhead of a traditional clinic adds up fast. Here's a side-by-side cost comparison showing why mobile providers keep more of what they earn.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">March 2, 2026 · 9 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The real numbers behind a med spa</h4>
+          <p>Opening a traditional med spa in a market like Las Vegas typically requires $150,000–$400,000 in upfront capital. Monthly operating costs — lease, utilities, staff, insurance, software, marketing — commonly run $15,000–$35,000 before a single unit of Botox is injected. Most new med spas take 12–18 months to break even.</p>
+          <p>Here is a rough breakdown of typical monthly med spa overhead:</p>
+          <ul>
+            <li><strong>Lease:</strong> $3,000–$15,000/month depending on location and square footage</li>
+            <li><strong>Staff (front desk, medical assistant):</strong> $4,000–$8,000/month</li>
+            <li><strong>EHR/software subscriptions:</strong> $300–$800/month</li>
+            <li><strong>Equipment lease/depreciation:</strong> $500–$2,000/month</li>
+            <li><strong>Insurance (general liability + malpractice):</strong> $500–$1,500/month</li>
+            <li><strong>Marketing:</strong> $2,000–$5,000/month</li>
+            <li><strong>Supplies, utilities, misc:</strong> $1,000–$3,000/month</li>
+          </ul>
+          <p>Total: $11,300–$35,300 per month in fixed and semi-fixed costs — before the provider earns a dollar.</p>
+          <h4>The mobile provider model</h4>
+          <p>A mobile aesthetic provider on a platform like Aesthetics To Go operates with a fundamentally different cost structure. There is no lease, no front desk staff, no equipment financing, and no separate software subscription. The platform provides the EHR, scheduling, patient acquisition, and payment processing.</p>
+          <p>Typical mobile provider monthly costs:</p>
+          <ul>
+            <li><strong>Platform fees:</strong> $0 (founding providers)</li>
+            <li><strong>Malpractice insurance:</strong> $150–$300/month</li>
+            <li><strong>Vehicle/fuel:</strong> $200–$500/month</li>
+            <li><strong>Clinical supplies (needles, gloves, topicals):</strong> $100–$300/month</li>
+            <li><strong>Product (Botox, fillers):</strong> Purchased per-patient at wholesale, cost recovered in pricing</li>
+          </ul>
+          <p>Total: roughly $450–$1,100/month in true overhead. The rest is revenue.</p>
+          <h4>The bottom line</h4>
+          <p>A med spa owner generating $30,000/month in treatment revenue might net $5,000–$12,000 after expenses. A mobile provider generating the same $30,000 — with founding provider pricing and wholesale supply access — could net $25,000+ because the overhead structure is 90% smaller. The clinical skill is the same. The business model makes the difference.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="technology">
-        <div class="article-card-image">
-          <div class="article-card-icon">🤖</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">🤖</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Technology</div>
           <h3 class="article-card-title">How the AI Simulator Helps Providers Close More Consultations</h3>
           <p class="article-card-text">Patients who see their projected results before treatment book at significantly higher rates. Here's how ATG providers use the AI diagnostic simulator as a clinical sales tool — and why it's changing the consultation process.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">March 1, 2026 · 6 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The consultation problem</h4>
+          <p>In traditional aesthetic practice, the consultation is where most revenue is lost. A patient walks in curious about Botox or fillers, the provider explains the treatment verbally, maybe shows some before-and-after photos of other patients, and the patient says "let me think about it." Conversion rates for first-time aesthetic consultations typically hover around 40–60%. That means nearly half of interested patients walk away without booking.</p>
+          <h4>What the AI simulator changes</h4>
+          <p>The Aesthetics To Go AI diagnostic simulator lets patients see realistic before-and-after outcomes on their own face — before the provider even arrives. Using high-fidelity visual mapping, the simulator shows what specific treatments (Botox for forehead lines, filler for lips or cheeks, jawline contouring) would look like on their actual facial structure.</p>
+          <p>This changes the psychology of the consultation entirely. Instead of asking "what would this look like?" the patient has already seen the answer. They have already visualized the outcome. They have already moved past the uncertainty that kills most first-time bookings.</p>
+          <h4>How providers use it</h4>
+          <p>ATG providers report that patients who use the AI simulator before their appointment arrive with clear expectations, specific treatment goals, and genuine intent to proceed. The consultation shifts from "educating and convincing" to "confirming and refining." Providers spend less time selling and more time treating — which means more patients per shift and higher revenue per hour.</p>
+          <p>The simulator also serves as a clinical tool: it helps providers identify treatment areas the patient may not have considered, opening opportunities for additional services in a way that feels consultative rather than sales-driven.</p>
+          <h4>The conversion impact</h4>
+          <p>While every patient and market is different, the principle is well-established in behavioral science: people who visualize an outcome are significantly more likely to commit to the action that produces it. For mobile aesthetic providers, the AI simulator is not a gimmick — it is a clinical workflow tool that pre-qualifies patients, reduces no-shows, and increases treatment acceptance rates.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="founding,economics">
-        <div class="article-card-image">
-          <div class="article-card-icon">⭐</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">⭐</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Founding Provider</div>
           <h3 class="article-card-title">What Founding Providers Get That Latecomers Won't</h3>
           <p class="article-card-text">Zero platform fees locked in permanently for founding providers. Priority scheduling territory in Las Vegas. Wholesale pricing from day one. Early-market advantage before the platform opens wide. Here's exactly what founding providers receive — and why the window is limited.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 28, 2026 · 7 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>Why "founding" matters</h4>
+          <p>Every platform needs early adopters who help prove the model. Uber's first drivers, Airbnb's first hosts — they got in before the rules changed and the economics tightened. Aesthetics To Go is offering the same opportunity to licensed aesthetic providers in Las Vegas right now.</p>
+          <p>Founding providers are the first cohort of PA-Cs, NPs, and MDs to join the platform. In exchange for helping establish the provider network in a new market, they receive a set of permanent economic advantages that will not be available to providers who join later.</p>
+          <h4>What founding providers receive</h4>
+          <ul>
+            <li><strong>Zero platform fees — permanently.</strong> No monthly subscription, no per-appointment fees, no percentage of revenue. This is locked in for founding providers and does not expire.</li>
+            <li><strong>Zero merchant processing fees.</strong> ATG covers all payment processing and banking fees. You receive 100% of your treatment revenue via direct deposit.</li>
+            <li><strong>Priority scheduling territory.</strong> Founding providers get first access to their preferred service areas — Summerlin, Henderson, Las Vegas, Boulder City — before the provider network expands.</li>
+            <li><strong>Wholesale supply pricing from day one.</strong> Access volume pricing on branded neurotoxins and dermal fillers through ATG's aggregated purchasing power.</li>
+            <li><strong>Full platform access.</strong> Mobile EHR, AI diagnostic simulator, smart scheduling, digital consents, and patient acquisition tools — all included, all from launch day.</li>
+          </ul>
+          <h4>Why the window is limited</h4>
+          <p>Founding provider spots are capped per market. Once the Las Vegas cohort is filled, new providers will join under standard platform economics. The founding offer exists to build the initial provider network quickly — not to be the permanent pricing model. If you are a licensed injector considering mobile practice, the founding window is the lowest-risk, highest-upside entry point available.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="economics,founding">
-        <div class="article-card-image">
-          <div class="article-card-icon">🎯</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">🎯</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Practice Economics</div>
           <h3 class="article-card-title">Zero Platform Fees, 100% Revenue: How the ATG Model Works</h3>
           <p class="article-card-text">No percentage of your revenue. No monthly subscription. No merchant processing fees for founding providers. Here's how the ATG business model works — and why keeping 100% of what you earn changes the math on mobile practice.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 25, 2026 · 6 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>How most platforms charge providers</h4>
+          <p>Most healthcare and service platforms take a cut of every transaction. Some charge 15–30% of each booking. Others charge monthly SaaS fees of $200–$500 plus per-transaction processing fees. For a provider generating $15,000–$30,000/month in treatment revenue, these fees add up to thousands of dollars per month — money that comes directly out of the provider's pocket.</p>
+          <h4>How ATG works differently for founding providers</h4>
+          <p>Aesthetics To Go does not take a percentage of treatment revenue from founding providers. There is no monthly subscription fee. There are no per-appointment booking fees. And ATG covers all merchant processing and banking fees — meaning the full treatment amount goes directly to the provider's bank account via direct deposit.</p>
+          <p>Example: a founding provider performs a Botox treatment and charges the patient $500. The provider receives $500. Not $425 after a 15% platform cut. Not $485 after processing fees. The full $500.</p>
+          <h4>Where ATG revenue comes from</h4>
+          <p>ATG's long-term revenue model is built around platform economics that keep providers earning more than they would in any traditional practice setting. The details of future pricing will be transparent and competitive — but the founding provider offer locks in zero-fee economics permanently for the initial cohort.</p>
+          <h4>Why this changes the math</h4>
+          <p>When you eliminate platform fees and processing fees, the breakeven point for a mobile practice drops dramatically. A founding provider who sees just 3–5 patients per week at average treatment values of $300–$600 is already generating meaningful income with near-zero overhead. Scale to 10–15 patients per week and the economics compete with — or exceed — a full-time clinic salary, without the overhead, the commute, or the boss.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="career">
-        <div class="article-card-image">
-          <div class="article-card-icon">📋</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">📋</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Provider Guide</div>
           <h3 class="article-card-title">How to Start a Mobile Aesthetic Practice as a PA-C</h3>
           <p class="article-card-text">A step-by-step guide for licensed Physician Assistants ready to go independent — from licensure requirements and malpractice insurance to choosing a technology platform, sourcing supplies, and booking your first mobile patients.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 20, 2026 · 12 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>Step 1: Verify your licensure and scope</h4>
+          <p>Before anything else, confirm that your PA-C license is active and in good standing in the state where you plan to practice. In Nevada, PA-Cs can perform aesthetic injections under a collaborative agreement with a supervising physician. Make sure your collaborative agreement explicitly covers the aesthetic procedures you intend to offer — Botox, dermal fillers, PRP, etc.</p>
+          <h4>Step 2: Secure malpractice insurance</h4>
+          <p>You need your own professional liability policy. Most mobile aesthetic PAs carry $1M/$3M occurrence-based policies. Companies like HPSO, CM&F Group, and NSO offer policies specifically for PAs performing aesthetic procedures. Expect to pay $1,500–$3,500/year depending on coverage limits and procedure types.</p>
+          <h4>Step 3: Choose your technology platform</h4>
+          <p>A mobile practice needs integrated technology: scheduling, EHR, consents, payments, and patient communication. You can cobble together separate apps — or join a purpose-built platform like Aesthetics To Go that bundles everything into one system designed for mobile aesthetics. The right platform eliminates administrative overhead and lets you focus on clinical care.</p>
+          <h4>Step 4: Source your supplies</h4>
+          <p>You will need FDA-approved neurotoxins and dermal fillers from authorized distributors, plus clinical supplies: needles, cannulas, topical anesthetic, alcohol prep pads, gauze, gloves, and emergency supplies including hyaluronidase. Platforms with wholesale pricing access can significantly reduce your per-unit product costs compared to ordering individually.</p>
+          <h4>Step 5: Build your mobile kit</h4>
+          <p>Your mobile clinical kit should include everything you would have in a treatment room: proper lighting (a portable ring light works), a mirror for the patient, sterile field supplies, your product, documentation tools (phone or tablet with your EHR app), and a cooler bag for temperature-sensitive products. Keep it organized, professional, and compliant.</p>
+          <h4>Step 6: Get your first patients</h4>
+          <p>This is where most independent providers struggle — patient acquisition. Platforms like ATG handle marketing, SEO, and patient booking so you can focus on clinical work. If going fully independent, budget for digital marketing, build an Instagram presence showcasing your work (with patient consent), and leverage your existing network of friends, family, and colleagues who have been asking you about Botox for years.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="technology">
-        <div class="article-card-image">
-          <div class="article-card-icon">📱</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">📱</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Technology</div>
           <h3 class="article-card-title">Mobile EHR Built for Injectors: Charting, Consents, and Compliance in One App</h3>
           <p class="article-card-text">Forget cobbling together separate apps for charting, consents, photos, and billing. ATG's clinical platform was purpose-built for mobile aesthetic providers — SOAP notes, injection mapping, lot tracking, and patient management in one system.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 15, 2026 · 8 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The problem with generic EHRs</h4>
+          <p>Most electronic health record systems were built for primary care or multi-specialty clinics. They are bloated with fields and workflows that aesthetic injectors never use — and missing the specific features mobile providers need most. Injection site mapping, unit-per-zone tracking, lot number and expiration logging, before-and-after photo management, and digital consent capture are afterthoughts (if they exist at all) in systems like Epic, Athena, or DrChrono.</p>
+          <h4>What a purpose-built aesthetic EHR looks like</h4>
+          <p>The Aesthetics To Go mobile EHR was designed from the ground up for one use case: a licensed injector performing aesthetic treatments at a patient's location. Every screen, every workflow, and every data field exists because a mobile aesthetic provider needs it.</p>
+          <ul>
+            <li><strong>Structured SOAP charting:</strong> Pre-built templates for Botox, filler, and PRP treatments. Tap-to-complete fields for injection sites, units/volumes, and clinical observations.</li>
+            <li><strong>Injection site mapping:</strong> Visual face diagrams where providers mark exactly where product was placed — anatomical precision for follow-up appointments and medical records.</li>
+            <li><strong>Lot number and expiration tracking:</strong> Scan or enter lot numbers for every product used. The system links lot data to patient records automatically for recall compliance.</li>
+            <li><strong>Digital consent capture:</strong> Patients sign consent forms on the provider's device. Stored, encrypted, and linked to the patient record — no paper to scan later.</li>
+            <li><strong>Before-and-after photos:</strong> Standardized photo capture with consistent lighting prompts and angle guides. Photos stored in the patient record, HIPAA-compliant.</li>
+          </ul>
+          <h4>Why it matters for mobile providers</h4>
+          <p>When your office is a patient's kitchen table, you cannot afford to fumble with technology. The EHR needs to work on a phone or tablet, load fast, and let you complete documentation before you leave the driveway. ATG's system is built for that exact workflow — treat, document, done.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="economics">
-        <div class="article-card-image">
-          <div class="article-card-icon">💊</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">💊</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Practice Economics</div>
           <h3 class="article-card-title">Wholesale Supply Pricing: How Mobile Providers Save on Product</h3>
           <p class="article-card-text">Access branded neurotoxins and dermal fillers at wholesale rates with zero minimums. How ATG's volume purchasing power translates to higher per-unit margins for independent mobile providers.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 10, 2026 · 6 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The supply cost problem for solo providers</h4>
+          <p>When you order Botox or dermal fillers as an individual provider, you are paying list price — or close to it. Authorized distributors offer volume discounts, but those discounts typically require minimum order quantities that only make sense for high-volume clinics. A solo mobile provider ordering 10–20 vials per month does not have the purchasing power to negotiate meaningful discounts alone.</p>
+          <h4>How platform aggregation changes the math</h4>
+          <p>Aesthetics To Go aggregates purchasing volume across its entire provider network. When dozens of providers order through the platform, the collective volume qualifies for wholesale pricing tiers that no individual provider could access alone. The savings are passed through to providers — no markup, no middleman margin.</p>
+          <p>The result: providers on the platform pay significantly less per unit of neurotoxin and per syringe of filler than they would ordering independently. Over the course of a year, the savings on product costs alone can amount to thousands of dollars — money that goes directly to the provider's bottom line.</p>
+          <h4>No minimums, no commitments</h4>
+          <p>Unlike joining a group purchasing organization with annual commitments and minimum order requirements, ATG's wholesale access is flexible. Order what you need, when you need it. There are no monthly minimums, no annual contracts, and no penalties for ordering less during slower months. The pricing is always available — you just order when your supply runs low.</p>
+          <h4>Impact on per-treatment margins</h4>
+          <p>If a provider saves even $2–$4 per unit of Botox through wholesale pricing, and the average Botox treatment uses 30–50 units, that is $60–$200 in additional margin per treatment. Multiply that across 20–40 treatments per month and the annual impact is substantial — often exceeding what providers would pay in platform fees on competing services.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="technology">
-        <div class="article-card-image">
-          <div class="article-card-icon">📅</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">📅</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Platform Features</div>
           <h3 class="article-card-title">Smart Scheduling: How ATG Fills Your Calendar Without You Lifting a Finger</h3>
           <p class="article-card-text">Patient acquisition, appointment booking, and route optimization — all handled by the platform. You set your availability and service area. ATG drives the patients. Here's how the scheduling engine works for mobile providers.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">February 5, 2026 · 7 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The scheduling challenge for mobile providers</h4>
+          <p>Independent mobile providers face a unique scheduling problem: appointments are spread across different locations, and travel time between patients eats into productive hours. A provider who books four appointments across Las Vegas, Henderson, Summerlin, and Boulder City in one day could spend more time driving than treating. Without intelligent scheduling, mobile practice is inefficient.</p>
+          <h4>How smart scheduling works</h4>
+          <p>ATG's scheduling engine uses geographic clustering to group appointments by location. When patients book, the system considers the provider's existing schedule, location of confirmed appointments, and travel time between locations — then offers appointment slots that minimize windshield time and maximize treatment density.</p>
+          <p>For example: if a provider has two appointments in Summerlin on Tuesday afternoon, the system preferentially offers Tuesday afternoon slots to other Summerlin patients. The result is a tightly clustered schedule that lets providers see more patients per shift without covering more miles.</p>
+          <h4>Provider controls everything</h4>
+          <p>The provider remains in full control. You set your available days and hours, your service territory (specific neighborhoods or broader metro areas), your maximum patients per day, and your buffer time between appointments. The smart scheduling works within your parameters — it optimizes, it does not override.</p>
+          <h4>Patient acquisition is built in</h4>
+          <p>The scheduling system is not just a calendar — it is connected to ATG's patient acquisition pipeline. When ATG drives a new patient through advertising, SEO, social media, or the AI simulator, that patient books directly into the scheduling system. The provider does not need to manage a separate marketing funnel or booking page. Patients appear on your calendar. You show up and treat.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="compliance">
-        <div class="article-card-image">
-          <div class="article-card-icon">🔒</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">🔒</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Compliance</div>
           <h3 class="article-card-title">HIPAA Compliance for Mobile Aesthetic Providers: What You Need</h3>
           <p class="article-card-text">Your office is a patient's living room — but your documentation standards don't change. A practical guide to HIPAA compliance in mobile practice: digital consents, encrypted data, proper charting, and what your mobile EHR must include.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">January 28, 2026 · 10 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>HIPAA applies everywhere — including living rooms</h4>
+          <p>The Health Insurance Portability and Accountability Act does not care where you practice. Whether you treat patients in a hospital, a clinic, or their kitchen, the same privacy and security rules apply to protected health information (PHI). For mobile aesthetic providers, this means every piece of patient data — names, photos, treatment records, consent forms, payment information — must be handled with the same rigor as a traditional medical office.</p>
+          <h4>What your mobile EHR must provide</h4>
+          <ul>
+            <li><strong>Encryption at rest and in transit:</strong> All patient data must be encrypted on the device and during transmission to servers. No unencrypted patient information should exist on any device.</li>
+            <li><strong>Access controls:</strong> Your EHR should require authentication (PIN, biometric, or password) to access patient records. Auto-lock after inactivity is essential.</li>
+            <li><strong>Audit trails:</strong> The system should log who accessed what data and when — a requirement for HIPAA compliance and useful for supervisory chart reviews.</li>
+            <li><strong>Secure photo storage:</strong> Before-and-after photos must be stored within the EHR, not in your phone's camera roll. Photos in the camera roll can be backed up to iCloud or Google Photos, creating an unencrypted copy of PHI outside your control.</li>
+            <li><strong>Digital consent management:</strong> Consent forms should be captured electronically, signed on-device, and stored directly in the patient record.</li>
+          </ul>
+          <h4>Practical tips for mobile HIPAA compliance</h4>
+          <p>Beyond the technology, mobile providers should follow basic operational security: do not discuss patient information where others can overhear, ensure your device screen is not visible to non-patients during treatment, use a privacy screen on your tablet if documenting in shared spaces, and never text or email patient information through unsecured channels. ATG's platform handles the technical compliance — but the human practices matter just as much.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="career">
-        <div class="article-card-image">
-          <div class="article-card-icon">🚀</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">🚀</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Career Growth</div>
           <h3 class="article-card-title">From Clinic Employee to Independent Provider: Making the Leap</h3>
           <p class="article-card-text">You're a skilled injector generating six figures in revenue for someone else's clinic. What would it look like to keep 100% of that revenue yourself as a founding provider? Here's how aesthetic providers are making the transition to independent mobile practice.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">January 20, 2026 · 9 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>The employee injector trap</h4>
+          <p>If you are a PA-C or NP working at a med spa, you know the math. You perform $20,000–$40,000+ in treatments per month. You take home $6,000–$10,000 — sometimes less. The clinic keeps the rest to cover overhead, profit margins, and the owner's draw. You are the revenue engine, but you capture a fraction of the value you create.</p>
+          <p>The frustration is compounded by the lack of autonomy: someone else sets your schedule, chooses your products, determines your pricing, and owns the patient relationships you build. If you leave, you start from zero.</p>
+          <h4>Why mobile changes the equation</h4>
+          <p>Going mobile does not mean going alone. It means replacing the clinic infrastructure with technology that costs a fraction of what a lease costs. Platforms like Aesthetics To Go provide the EHR, scheduling, payments, supply access, and patient acquisition — the same functions a clinic provides — without the overhead that eats your revenue.</p>
+          <p>As a founding provider, you keep 100% of your treatment revenue. You set your own prices. You choose your patients. You control your schedule. The clinical skills that make you valuable at a med spa are the same skills that make you successful as an independent mobile provider — the difference is who keeps the money.</p>
+          <h4>How to make the transition</h4>
+          <p>Most providers do not quit their clinic job on day one. The smart approach is to start mobile practice part-time — evenings, weekends, or days off — while maintaining your existing income. Build your patient panel gradually. Once your mobile revenue reaches a level where you are comfortable, you can reduce clinic hours or transition fully. The platform has no minimums and no exclusivity requirements, so you move at your own pace.</p>
+          <h4>The risk is lower than you think</h4>
+          <p>The biggest barrier to going independent is fear of the unknown — not the actual financial risk. With zero platform fees (as a founding provider), zero upfront investment, and the ability to start part-time, the downside is minimal. The upside is keeping every dollar you earn and building a practice that belongs to you.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="technology,economics">
-        <div class="article-card-image">
-          <div class="article-card-icon">📊</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">📊</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Patient Acquisition</div>
           <h3 class="article-card-title">How ATG Drives Patients to Your Schedule So You Just Inject</h3>
           <p class="article-card-text">Paid ads, SEO, social media, AI simulator leads, and direct outreach — ATG runs multi-channel patient acquisition so providers never have to market themselves. Here's how the funnel works and what it means for your patient volume.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">January 12, 2026 · 7 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>Marketing is the hardest part of independent practice</h4>
+          <p>Ask any independent provider what their biggest challenge is and the answer is almost always the same: getting patients. Clinical skills are not the problem — patient acquisition is. Running Google Ads, managing Instagram, writing SEO content, building landing pages, and converting leads into booked appointments requires a completely different skill set than performing injections. Most providers either spend hours on marketing they are not good at, or they pay agencies $2,000–$5,000/month for inconsistent results.</p>
+          <h4>How ATG handles patient acquisition</h4>
+          <p>Aesthetics To Go runs patient acquisition as a platform-level function. This means the marketing is not the provider's responsibility — it is a built-in service. The platform drives patient demand through multiple channels:</p>
+          <ul>
+            <li><strong>SEO:</strong> ATG ranks for high-intent search terms like "mobile Botox Las Vegas," "at-home filler Henderson," and "concierge aesthetics Summerlin." Patients searching for these services find ATG and book through the platform.</li>
+            <li><strong>Paid advertising:</strong> Geo-targeted Google and social media ads drive patient leads in specific service areas. The platform manages ad spend, targeting, and conversion optimization.</li>
+            <li><strong>AI simulator leads:</strong> Patients who use the AI simulator to visualize treatment results are high-intent prospects. The simulator captures interest and converts it into booked appointments.</li>
+            <li><strong>Social media and content:</strong> ATG produces provider-focused and patient-facing content that builds awareness and drives traffic to the booking funnel.</li>
+          </ul>
+          <h4>What this means for providers</h4>
+          <p>Patients appear on your schedule. You did not run the ad, write the blog post, or manage the social media account that brought them in. You show up, treat, document, and get paid. Patient acquisition is the platform's job. Clinical excellence is yours.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="career,economics">
-        <div class="article-card-image">
-          <div class="article-card-icon">🧬</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">🧬</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Service Expansion</div>
           <h3 class="article-card-title">Adding PRP Hair Restoration to Your Mobile Practice</h3>
           <p class="article-card-text">PRP is one of the highest-margin services a mobile injector can offer. Here's what you need to add hair restoration to your practice — equipment, training, pricing strategy, and why mobile delivery gives you a competitive edge.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">January 5, 2026 · 8 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>Why PRP is a high-margin mobile service</h4>
+          <p>Platelet-Rich Plasma therapy for hair restoration is one of the most compelling service additions for mobile aesthetic providers. The treatment requires minimal equipment (a centrifuge and blood draw supplies), the product cost is essentially zero (it is the patient's own blood), and patients typically pay $600–$1,500 per session with a recommended series of 3–4 treatments. The margin profile is exceptional compared to neurotoxins and fillers where product cost is a significant factor.</p>
+          <h4>What you need to get started</h4>
+          <ul>
+            <li><strong>Centrifuge:</strong> A portable, FDA-cleared PRP centrifuge. Units designed for point-of-care use are compact enough for a mobile kit and cost $2,000–$5,000.</li>
+            <li><strong>PRP kits:</strong> Single-use collection and separation kits. Cost per treatment is typically $50–$150 depending on the system.</li>
+            <li><strong>Blood draw supplies:</strong> Standard phlebotomy equipment — tourniquets, needles, tubes, alcohol preps, gauze, bandages.</li>
+            <li><strong>Training:</strong> PRP injection technique for hair restoration, including scalp mapping, injection depth, and treatment protocols. Many providers complete hands-on training courses in 1–2 days.</li>
+          </ul>
+          <h4>The mobile advantage for hair restoration</h4>
+          <p>Hair loss is a sensitive topic. Many patients — particularly men — are reluctant to walk into a clinic for hair restoration treatment. Mobile delivery removes that barrier entirely. The treatment happens in the privacy of the patient's home. No waiting room. No receptionist who sees them come in. For this demographic, convenience and discretion are powerful motivators — and mobile providers deliver both.</p>
+          <h4>Building PRP into your service menu</h4>
+          <p>PRP pairs naturally with neurotoxin and filler services. A provider who visits a patient for Botox can mention PRP for hair concerns. A patient who books PRP may be interested in facial aesthetics. Cross-selling between services increases per-patient revenue and strengthens the ongoing patient relationship. Platforms like ATG allow you to list all your services so patients can book the treatments they need in a single visit.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
       <article class="article-card" data-categories="compliance">
-        <div class="article-card-image">
-          <div class="article-card-icon">📝</div>
-        </div>
+        <div class="article-card-image"><div class="article-card-icon">📝</div></div>
         <div class="article-card-body">
           <div class="article-card-tag">Compliance</div>
           <h3 class="article-card-title">SOAP Charting for Mobile Aesthetic Providers: Best Practices</h3>
           <p class="article-card-text">Structured documentation protects your practice and your patients. A guide to efficient SOAP charting in the field — injection site mapping, unit tracking, lot number logging, and before-and-after photo standards for mobile providers.</p>
+          <div class="article-card-read-more" onclick="toggleArticle(this)">Read More →</div>
           <div class="article-card-meta">December 20, 2025 · 11 min read</div>
+        </div>
+        <div class="article-card-content">
+          <h4>Why SOAP charting matters more for mobile providers</h4>
+          <p>In a traditional clinic, documentation gaps can sometimes be covered by institutional systems — a medical assistant who double-checks lot numbers, a front desk that files consent forms, an EMR administrator who audits charts. As a mobile provider, you are the entire clinical team. Your SOAP notes are the only record of what happened during the treatment. They must be thorough, accurate, and compliant — every time.</p>
+          <h4>Subjective</h4>
+          <p>Document the patient's stated concerns, goals, and medical history relevant to the treatment. For aesthetic treatments, this includes: areas of concern (forehead lines, nasolabial folds, lip volume), previous aesthetic treatments and outcomes, allergies (especially to albumin or any neurotoxin/filler components), current medications (blood thinners are critical to note), and pregnancy/nursing status.</p>
+          <h4>Objective</h4>
+          <p>Record your clinical examination findings. For injectables: skin quality, muscle movement assessment, facial symmetry observations, and baseline photos. Note the products used (brand, lot number, expiration date), exact injection sites (use a face diagram for precision), units or volume per site, and needle/cannula gauge used.</p>
+          <h4>Assessment</h4>
+          <p>Your clinical assessment of the treatment performed. Document the diagnosis (e.g., "dynamic rhytids of the forehead and glabella"), the treatment rationale, and any clinical decisions made during the procedure (e.g., "reduced units to right corrugator due to mild ptosis risk based on lid assessment").</p>
+          <h4>Plan</h4>
+          <p>Post-treatment instructions given to the patient, expected timeline for results, recommended follow-up schedule, and any contraindications discussed. For neurotoxins: "avoid rubbing the treatment area for 4 hours, remain upright for 2 hours, results expected in 5–14 days, follow up in 2 weeks if needed." Include your signature, credentials, date, and time.</p>
+          <h4>Efficiency tips for the field</h4>
+          <p>Use an EHR with pre-built aesthetic templates so you are tapping and selecting rather than typing paragraphs. ATG's mobile EHR includes structured SOAP fields, visual injection mapping, auto-populated lot tracking, and digital consent capture — designed so you can complete a thorough chart in under 5 minutes at the patient's location before you leave.</p>
+          <div class="article-card-close" onclick="toggleArticle(this)">Close ×</div>
         </div>
       </article>
 
@@ -827,6 +1066,20 @@
         }
       });
     });
+
+    // Article expand/collapse
+    function toggleArticle(el) {
+      var card = el.closest('.article-card');
+      var wasExpanded = card.classList.contains('expanded');
+      // Close all other expanded cards
+      var allCards = document.querySelectorAll('.article-card.expanded');
+      for (var i = 0; i < allCards.length; i++) { allCards[i].classList.remove('expanded'); }
+      // Toggle clicked card
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
     // Category filter
     var pills = document.querySelectorAll('.category-pill');
