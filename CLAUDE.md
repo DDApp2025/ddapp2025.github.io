@@ -31,7 +31,7 @@ Launching ATG Clinical Supply: a soft-gated catalog of exosomes, post-procedure 
 ## Scope
 
 - Three product categories only: Exosomes, Post-Procedure Devices, Skincare Actives. No commodity consumables.
-- Nav label for the new section: "Clinical Supply".
+- Nav label for the new section: "Clinical Supplies" (plural — used in header + footer nav on every page). The sub-brand name is still "ATG Clinical Supply" (singular).
 - URL: `/clinical-supplies`.
 - Soft email gate (regex + disposable blocklist client-side, MX check via Cloudflare Worker calling Abstract API).
 - Stripe Payment Links for checkout. No server-side cart. Client-side cart in localStorage.
