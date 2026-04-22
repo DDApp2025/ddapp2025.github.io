@@ -126,6 +126,41 @@
     return entry.stripeLink;
   }
 
+  // Early-access mailto for SKUs or bundles whose stripeLink is still
+  // TODO_STRIPE_LINK. Rendered as a "Get Early Access" btn-outline
+  // wherever we previously rendered a disabled "Coming Soon" button.
+  // Returns null if the slug is not in CATALOG.
+  function earlyAccessMailto(type, slug) {
+    var entry = lookup({ type: type, slug: slug });
+    if (!entry) return null;
+    var name     = entry.name;
+    var category = type === "sku" ? (entry.categoryLabel || "Clinical Supply") : "Bundle";
+    var subject  = "Early access request — " + name;
+    var body = [
+      "Hi ATG,",
+      "",
+      "I'd like early access to the following when it becomes available:",
+      "",
+      "Product: "  + name,
+      "Category: " + category,
+      "SKU: "      + slug,
+      "",
+      "My practice details:",
+      "Name:",
+      "License type (PA / NP / MD):",
+      "State(s) licensed:",
+      "Practice / business name:",
+      "Best email:",
+      "Phone:",
+      "",
+      "Thanks,",
+      ""
+    ].join("\n");
+    return "mailto:" + SUPPORT_EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body="    + encodeURIComponent(body);
+  }
+
   // ---- Mutations ----------------------------------------------------
 
   function addRaw(type, slug, qty) {
@@ -495,7 +530,7 @@
             '<div class="cart-checkout-line-meta">' + priceLabel + '</div>' +
           '</div>' +
           (disabled
-            ? '<button class="btn-outline cart-checkout-pay" type="button" disabled aria-disabled="true" title="Coming soon">Coming soon</button>'
+            ? '<a class="btn-outline cart-checkout-pay" href="' + escapeHtml(earlyAccessMailto(it.type, it.slug) || "#") + '">Get Early Access</a>'
             : '<a class="btn-primary cart-checkout-pay" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Pay for this item</a>'
           ) +
         '</div>'
@@ -550,16 +585,17 @@
   }
 
   window.cart = {
-    mount:         mount,
-    addSku:        addSku,
-    addBundle:     addBundle,
-    remove:        remove,
-    updateQty:     updateQty,
-    clear:         clear,
-    openDrawer:    openDrawer,
-    closeDrawer:   closeDrawer,
-    checkout:      checkout,
-    showToast:     showToast,
-    getItems:      readItems
+    mount:              mount,
+    addSku:             addSku,
+    addBundle:          addBundle,
+    remove:             remove,
+    updateQty:          updateQty,
+    clear:              clear,
+    openDrawer:         openDrawer,
+    closeDrawer:        closeDrawer,
+    checkout:           checkout,
+    showToast:          showToast,
+    getItems:           readItems,
+    earlyAccessMailto:  earlyAccessMailto
   };
 })();

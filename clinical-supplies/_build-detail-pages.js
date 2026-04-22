@@ -434,10 +434,16 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
       const btn = document.getElementById("addToCartBtn");
       const ready = sku.stripeLink && sku.stripeLink !== "TODO_STRIPE_LINK";
       if (!ready) {
-        btn.disabled = true;
-        btn.setAttribute("aria-disabled", "true");
-        btn.title = "Coming soon";
-        btn.textContent = "Coming Soon";
+        // Replace the <button> with an <a class="btn-outline"> Get Early
+        // Access mailto, keeping the same slot + id. Matches the landing
+        // page's treatment for TODO_STRIPE_LINK SKUs.
+        const mailto = (window.cart && window.cart.earlyAccessMailto("sku", sku.slug)) || "#";
+        const link = document.createElement("a");
+        link.className = "btn-outline product-add-btn";
+        link.id = "addToCartBtn";
+        link.textContent = "Get Early Access";
+        link.href = mailto;
+        btn.parentNode.replaceChild(link, btn);
         return;
       }
       btn.addEventListener("click", () => {

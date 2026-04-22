@@ -398,9 +398,10 @@
           return s ? `<li>${s.shortName}</li>` : "";
         }).join("");
         const ready = isReady(b);
+        const mailto = (window.cart && window.cart.earlyAccessMailto("bundle", b.id)) || "#";
         const btn = ready
           ? `<button class="btn-primary" type="button" onclick="window.cart && window.cart.addBundle('${b.id}')">Add Bundle to Cart</button>`
-          : `<button class="btn-primary" type="button" disabled aria-disabled="true" title="Coming soon">Coming Soon</button>`;
+          : `<a class="btn-outline" href="${mailto.replace(/&/g,'&amp;')}">Get Early Access</a>`;
         return `
           <article class="bundle-card" data-bundle-id="${b.id}">
             <div class="bundle-eyebrow">Bundle</div>
@@ -422,9 +423,10 @@
       const grid = document.getElementById("productGrid");
       grid.innerHTML = CATALOG.skus.map(s => {
         const ready = isReady(s);
+        const mailto = (window.cart && window.cart.earlyAccessMailto("sku", s.slug)) || "#";
         const addBtn = ready
           ? `<button class="btn-primary" type="button" onclick="window.cart && window.cart.addSku('${s.slug}')">Add to Cart</button>`
-          : `<button class="btn-primary" type="button" disabled aria-disabled="true" title="Coming soon">Coming Soon</button>`;
+          : `<a class="btn-outline" href="${mailto.replace(/&/g,'&amp;')}">Get Early Access</a>`;
         return `
         <article class="product-card" data-sku-id="${s.id}" data-cat="${s.category}">
           <div class="product-image" data-cat="${s.category}">${s.shortName}</div>
