@@ -1,4 +1,4 @@
-/* ATG Clinical Supply — cart UI (icon badge, slide-in drawer, toast, checkout modal).
+/* ATG Clinical Supplies — cart UI (icon badge, slide-in drawer, toast, checkout modal).
  * Loaded from every /clinical-supplies/* page. Uses the CSS variables defined
  * in each page's inline :root token block, so colors stay in sync with
  * docs/DESIGN_TOKENS.md without duplicating hex values here. */

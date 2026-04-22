@@ -30,8 +30,8 @@ const jsonStr = s => JSON.stringify(String(s));
 function renderPage(sku) {
   const savings = Math.round(((sku.publicPrice - sku.injectorPrice) / sku.publicPrice) * 100);
   const pageUrl = `${ORIGIN}/clinical-supplies/${sku.slug}/`;
-  const title = `${sku.name} — Injector Pricing · ATG Clinical Supply`;
-  const metaDesc = `${sku.rationale} Injector-priced via ATG Clinical Supply for licensed aesthetic providers — direct-ship to your practice.`;
+  const title = `${sku.name} — Injector Pricing · ATG Clinical Supplies`;
+  const metaDesc = `${sku.rationale} Injector-priced via ATG Clinical Supplies for licensed aesthetic providers — direct-ship to your practice.`;
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -104,7 +104,7 @@ function renderPage(sku) {
   <!-- Open Graph -->
   <meta property="og:type" content="product" />
   <meta property="og:url" content="${pageUrl}" />
-  <meta property="og:title" content="${esc(sku.name)} — ATG Clinical Supply" />
+  <meta property="og:title" content="${esc(sku.name)} — ATG Clinical Supplies" />
   <meta property="og:description" content="${esc(sku.rationale)}" />
   <meta property="og:image" content="${ORIGIN}/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
@@ -112,7 +112,7 @@ function renderPage(sku) {
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${esc(sku.name)} — ATG Clinical Supply" />
+  <meta name="twitter:title" content="${esc(sku.name)} — ATG Clinical Supplies" />
   <meta name="twitter:description" content="${esc(sku.rationale)}" />
   <meta name="twitter:image" content="${ORIGIN}/og-image.jpg" />
 
@@ -257,7 +257,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
 </head>
 <body>
 
-  <div class="top-bar"><strong>Founding Provider Applications Open</strong> · ATG Clinical Supply now live</div>
+  <div class="top-bar"><strong>Founding Provider Applications Open</strong> · ATG Clinical Supplies now live</div>
 
   <div class="header-wrapper">
     <header class="header">

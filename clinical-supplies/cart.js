@@ -1,5 +1,5 @@
 /*
- * ATG Clinical Supply — cart + Stripe Payment Link router.
+ * ATG Clinical Supplies — cart + Stripe Payment Link router.
  *
  * Loaded from every /clinical-supplies/* page. Exposes a single global
  * `window.cart` with:
@@ -134,7 +134,7 @@
     var entry = lookup({ type: type, slug: slug });
     if (!entry) return null;
     var name     = entry.name;
-    var category = type === "sku" ? (entry.categoryLabel || "Clinical Supply") : "Bundle";
+    var category = type === "sku" ? (entry.categoryLabel || "Clinical Supplies") : "Bundle";
     var subject  = "Early access request — " + name;
     var body = [
       "Hi ATG,",
@@ -538,11 +538,11 @@
     }).join("");
 
     // Bundle-request mailto with the cart prefilled in the body.
-    var subject = encodeURIComponent("ATG Clinical Supply — combined bundle request");
+    var subject = encodeURIComponent("ATG Clinical Supplies — combined bundle request");
     var lines = [
       "Hello,",
       "",
-      "I would like to place a single combined order for the following ATG Clinical Supply items:",
+      "I would like to place a single combined order for the following ATG Clinical Supplies items:",
       ""
     ];
     items.forEach(function (it) {

@@ -1,4 +1,4 @@
-// ATG Clinical Supply catalog — single source of truth.
+// ATG Clinical Supplies catalog — single source of truth.
 //
 // Loaded as a classic script by:
 //   - /clinical-supplies/index.html                  (landing page)

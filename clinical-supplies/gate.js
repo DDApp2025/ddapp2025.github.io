@@ -1,5 +1,5 @@
 /*
- * ATG Clinical Supply — soft email gate (client).
+ * ATG Clinical Supplies — soft email gate (client).
  *
  * Loaded as a classic script from every /clinical-supplies/* page.
  * Exposes a single global `window.gate` with four entry points:

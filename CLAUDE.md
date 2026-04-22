@@ -17,7 +17,7 @@ GitHub Pages serves `origin/main` directly to aestheticstogo.com. No build step,
 
 ## Project
 
-Launching ATG Clinical Supply: a soft-gated catalog of exosomes, post-procedure devices, and skincare actives at injector pricing. Sub-brand inside aestheticstogo.com. Also rewriting homepage hero to position ATG as one clinical platform: EHR + AI Simulator + Clinical Supply.
+Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedure devices, and skincare actives at injector pricing. Sub-brand inside aestheticstogo.com. Also rewriting homepage hero to position ATG as one clinical platform: EHR + AI Simulator + Clinical Supplies.
 
 ## Hard rules — never violate
 
@@ -31,7 +31,7 @@ Launching ATG Clinical Supply: a soft-gated catalog of exosomes, post-procedure 
 ## Scope
 
 - Three product categories only: Exosomes, Post-Procedure Devices, Skincare Actives. No commodity consumables.
-- Nav label for the new section: "Clinical Supply".
+- Nav label for the new section: "Clinical Supplies".
 - URL: `/clinical-supplies`.
 - Soft email gate (regex + disposable blocklist client-side, MX check via Cloudflare Worker calling Abstract API).
 - Stripe Payment Links for checkout. No server-side cart. Client-side cart in localStorage.
@@ -48,8 +48,8 @@ Launching ATG Clinical Supply: a soft-gated catalog of exosomes, post-procedure 
 | 5 | Product detail template | Pending | — | — | clinical-supplies/{slug}/*.html |
 | 6 | Soft email gate + Worker | Complete | [see git log] | 2026-04-22 | clinical-supplies/gate.js, workers/email-verify/ |
 | 7 | Cart + Stripe router | Complete | [see git log] | 2026-04-22 | clinical-supplies/cart.js, clinical-supplies/cart.css |
-| 8 | Homepage Clinical Supply section | Complete | [see git log] | 2026-04-22 | index.html |
-| 9 | Global nav/footer/sitemap | Pending | — | — | multiple files |
+| 8 | Homepage Clinical Supplies section | Complete | [see git log] | 2026-04-22 | index.html |
+| 9 | Global nav/footer/sitemap | Complete | [see git log] | 2026-04-22 | nav + footer on all pages, sitemap.xml, docs/POST_DEPLOY_TODO.md |
 | 10 | QA report | Pending | — | — | docs/QA_REPORT.md |
 
 ## End-of-prompt rule

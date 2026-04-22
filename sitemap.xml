@@ -102,4 +102,72 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- ATG Clinical Supplies (Prompt 9) -->
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/benev-erc/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/anteage-mdx/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/exo-skin-serum/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/drpen-a20/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/drpen-h6/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/celluma-pro/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/skinceuticals-ce-ferulic/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/skinmedica-tns-advanced/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/zo-daily-power-defense/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aestheticstogo.com/clinical-supplies/obagi-professional-c-20/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -1,4 +1,4 @@
-# Cloudflare Worker — ATG Clinical Supply email gate.
+# Cloudflare Worker — ATG Clinical Supplies email gate.
 #
 # Deploy:   wrangler deploy
 # Secrets:  wrangler secret put CHECK_MAIL_API_KEY

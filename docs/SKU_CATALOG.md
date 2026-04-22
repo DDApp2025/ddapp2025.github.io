@@ -1,6 +1,6 @@
-# SKU Catalog — ATG Clinical Supply
+# SKU Catalog — ATG Clinical Supplies
 
-> Sourcing research for the initial ATG Clinical Supply launch. Three categories only: Exosomes, Post-Procedure Devices, Skincare Actives. Commodity consumables intentionally excluded.
+> Sourcing research for the initial ATG Clinical Supplies launch. Three categories only: Exosomes, Post-Procedure Devices, Skincare Actives. Commodity consumables intentionally excluded.
 >
 > **Pricing note:** most legitimate professional wholesale channels gate pricing behind a verified account. Ranges below are derived from published retail, third-party reseller listings, and practice pricing references as of April 2026. Actual injector/wholesale prices must be confirmed at account setup with each source. This file is a sourcing starting point, not a final price list.
 >
@@ -174,7 +174,7 @@
 
 3. **Exosome regulatory positioning is sensitive.** All three exosome SKUs are topical cosmetic products — not drugs, not injectables. Any copy on the site, product pages, or marketing must reinforce "topical use only" and avoid injection claims. This is non-negotiable for FDA compliance. The soft email gate should probably also add a brief attestation checkbox at the gate: "I am a licensed aesthetic practitioner and will use these products for topical application only."
 
-4. **Cold chain adds operational cost.** BENEV ERC and AnteAGE MDX ship cold. If ATG Clinical Supply drop-ships, the supplier handles this. If ATG warehouses and re-ships, cold-chain capability is required. Recommend: drop-ship model for all exosome SKUs at launch; revisit warehousing later when volume justifies it.
+4. **Cold chain adds operational cost.** BENEV ERC and AnteAGE MDX ship cold. If ATG Clinical Supplies drop-ships, the supplier handles this. If ATG warehouses and re-ships, cold-chain capability is required. Recommend: drop-ship model for all exosome SKUs at launch; revisit warehousing later when volume justifies it.
 
 5. **MOQ is mostly 1 unit at pro pricing** — which is friendly to a low-volume launch. But distributors that offer deeper discounts often require bulk buys. Plan the first 90 days around 1-unit sourcing, then negotiate bulk pricing once order history exists.
 

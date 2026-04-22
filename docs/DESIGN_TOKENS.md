@@ -422,7 +422,7 @@ Two-column on desktop (`flex` with `flex-wrap`): left = heading + body + CTA but
 footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.6rem 1.5rem 1.8rem;font-size:.78rem;color:#968371}
 ```
 
-Three centered rows in a flex column: primary nav row → city/legal row → social row → copyright. Links uppercase, `letter-spacing:.12em`. **Add the new "Clinical Supply" link to the primary nav row in every footer instance, and keep the order: Botox, Fillers, For Providers, Blog, Careers, About, FAQ, Contact.**
+Three centered rows in a flex column: primary nav row → city/legal row → social row → copyright. Links uppercase, `letter-spacing:.12em`. **Add the new "Clinical Supplies" link to the primary nav row in every footer instance, and keep the order: Botox, Fillers, For Providers, Blog, Careers, About, FAQ, Contact.**
 
 ### 4.10 Modal
 
@@ -670,10 +670,10 @@ These are the implicit rules that keep new pages visually coherent with the home
 11. **Hard copy rules** (from the project spec — bake into every new page):
     - Never use "marketplace", "med spa", or DoorDash analogies.
     - Never reference DivaDash / Diva-Dash / Diva Dash or any former brand.
-    - All services under "Aesthetics To Go" brand only; "ATG Clinical Supply" is a sub-brand.
+    - All services under "Aesthetics To Go" brand only; "ATG Clinical Supplies" is a sub-brand.
     - Never quote a specific revenue split percentage — use "industry-leading".
     - Never mention Kelly Wellington, Dr. Deborah Kessler-Hudak, or Princess.
-12. **Nav label for the new section: "Clinical Supply"** (not "Clinical Supplies", not "Supplies", not "Shop"). Add it to both the header `.nav` and the footer `.footer-row` on every page.
+12. **Nav label for the new section: "Clinical Supplies"** (not "Clinical Supplies", not "Supplies", not "Shop"). Add it to both the header `.nav` and the footer `.footer-row` on every page.
 
 ---
 

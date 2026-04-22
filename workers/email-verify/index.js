@@ -1,5 +1,5 @@
 /*
- * ATG Clinical Supply — Email Verify Worker.
+ * ATG Clinical Supplies — Email Verify Worker.
  *
  * Cloudflare Worker that backs the soft email gate on /clinical-supplies/*.
  *
@@ -202,15 +202,15 @@ async function sendBrevoNotification(env, info) {
       return;
     }
 
-    const subject  = `ATG Clinical Supply — pricing unlocked by ${info.email}`;
+    const subject  = `ATG Clinical Supplies — pricing unlocked by ${info.email}`;
     const textBody =
-      "A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.\n\n" +
+      "A new practitioner unlocked injector pricing on the ATG Clinical Supplies catalog.\n\n" +
       "Email:      " + info.email + "\n" +
       "Timestamp:  " + info.ts + "\n" +
       "IP:         " + info.ip + "\n" +
       "User-Agent: " + info.userAgent + "\n";
     const htmlBody =
-      "<p>A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.</p>" +
+      "<p>A new practitioner unlocked injector pricing on the ATG Clinical Supplies catalog.</p>" +
       "<table style=\"font-family:Inter,Arial,sans-serif;font-size:14px;border-collapse:collapse\">" +
         "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Email</td><td><strong>" + escapeHtml(info.email) + "</strong></td></tr>" +
         "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Timestamp</td><td>" + escapeHtml(info.ts) + "</td></tr>" +
@@ -219,7 +219,7 @@ async function sendBrevoNotification(env, info) {
       "</table>";
 
     const body = {
-      sender: { email: "info@aestheticstogo.com", name: "ATG Clinical Supply" },
+      sender: { email: "info@aestheticstogo.com", name: "ATG Clinical Supplies" },
       to:     [{ email: "info@aestheticstogo.com" }],
       subject,
       textContent: textBody,
