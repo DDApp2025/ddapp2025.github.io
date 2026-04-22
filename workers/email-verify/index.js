@@ -194,49 +194,58 @@ function interpretCheckMail(r) {
 }
 
 async function sendBrevoNotification(env, info) {
-  if (!env.BREVO_API_KEY) {
-    console.log("[brevo] BREVO_API_KEY not set; skipping notification.");
-    return;
-  }
-
-  const subject  = `ATG Clinical Supply — pricing unlocked by ${info.email}`;
-  const textBody =
-    "A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.\n\n" +
-    "Email:      " + info.email + "\n" +
-    "Timestamp:  " + info.ts + "\n" +
-    "IP:         " + info.ip + "\n" +
-    "User-Agent: " + info.userAgent + "\n";
-  const htmlBody =
-    "<p>A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.</p>" +
-    "<table style=\"font-family:Inter,Arial,sans-serif;font-size:14px;border-collapse:collapse\">" +
-      "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Email</td><td><strong>" + escapeHtml(info.email) + "</strong></td></tr>" +
-      "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Timestamp</td><td>" + escapeHtml(info.ts) + "</td></tr>" +
-      "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">IP</td><td>" + escapeHtml(info.ip) + "</td></tr>" +
-      "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">User-Agent</td><td>" + escapeHtml(info.userAgent) + "</td></tr>" +
-    "</table>";
-
   try {
-    const res = await fetch(BREVO_URL, {
+    console.log("[brevo] starting notification send for email=" + info.email);
+
+    if (!env.BREVO_API_KEY) {
+      console.log("[brevo] BREVO_API_KEY not set; skipping notification.");
+      return;
+    }
+
+    const subject  = `ATG Clinical Supply — pricing unlocked by ${info.email}`;
+    const textBody =
+      "A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.\n\n" +
+      "Email:      " + info.email + "\n" +
+      "Timestamp:  " + info.ts + "\n" +
+      "IP:         " + info.ip + "\n" +
+      "User-Agent: " + info.userAgent + "\n";
+    const htmlBody =
+      "<p>A new practitioner unlocked injector pricing on the ATG Clinical Supply catalog.</p>" +
+      "<table style=\"font-family:Inter,Arial,sans-serif;font-size:14px;border-collapse:collapse\">" +
+        "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Email</td><td><strong>" + escapeHtml(info.email) + "</strong></td></tr>" +
+        "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">Timestamp</td><td>" + escapeHtml(info.ts) + "</td></tr>" +
+        "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">IP</td><td>" + escapeHtml(info.ip) + "</td></tr>" +
+        "<tr><td style=\"padding:4px 12px 4px 0;color:#7b6f63\">User-Agent</td><td>" + escapeHtml(info.userAgent) + "</td></tr>" +
+      "</table>";
+
+    const body = {
+      sender: { email: "info@aestheticstogo.com", name: "ATG Clinical Supply" },
+      to:     [{ email: "info@aestheticstogo.com" }],
+      subject,
+      textContent: textBody,
+      htmlContent: htmlBody
+    };
+
+    console.log("[brevo] POST to " + BREVO_URL + " with sender=" + JSON.stringify(body.sender) + " to=" + JSON.stringify(body.to));
+
+    const response = await fetch(BREVO_URL, {
       method: "POST",
       headers: {
         "accept":       "application/json",
         "api-key":      env.BREVO_API_KEY,
         "content-type": "application/json"
       },
-      body: JSON.stringify({
-        sender: { email: "info@aestheticstogo.com", name: "ATG Clinical Supply" },
-        to:     [{ email: "info@aestheticstogo.com" }],
-        subject,
-        textContent: textBody,
-        htmlContent: htmlBody
-      })
+      body: JSON.stringify(body)
     });
-    if (!res.ok) {
-      console.log("[brevo] non-OK response:", res.status);
+
+    console.log("[brevo] response status=" + response.status);
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.log("[brevo] error body: " + errorBody);
     }
   } catch (err) {
-    // Never fail the unlock on notification error — just log and move on.
-    console.log("[brevo] send failed:", err?.message || String(err));
+    console.log("[brevo] exception: " + (err && err.message) + " stack=" + (err && err.stack));
   }
 }
 
