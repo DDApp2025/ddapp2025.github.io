@@ -367,6 +367,86 @@
   </section>
   <p style="text-align:center;font-size:.72rem;color:#9a8776;margin-top:-.4rem;margin-bottom:.4rem;letter-spacing:.06em">*For Founding Providers during launch period.</p>
 
+  <!--
+    ATG Clinical Supply teaser. Featured SKUs (hardcoded — intentionally NOT
+    fetched from clinical-supplies/catalog.js to keep the homepage off the
+    async-render path). Update these three cards whenever catalog.js changes:
+      - benev-erc                 (Exosomes)
+      - drpen-a20                 (Post-Procedure Devices)
+      - skinceuticals-ce-ferulic  (Skincare Actives)
+  -->
+  <section class="magazine" id="clinical-supplies-teaser" aria-labelledby="supply-teaser-title">
+    <div class="magazine-header">
+      <div>
+        <div class="magazine-kicker">ATG Clinical Supply</div>
+        <h2 class="magazine-title" id="supply-teaser-title">Clinical supplies at injector pricing</h2>
+      </div>
+      <div class="magazine-kicker">Direct-ship · licensed providers only</div>
+    </div>
+
+    <p style="max-width:48rem;font-size:1rem;color:var(--text-muted);line-height:1.6;margin:-.6rem 0 2rem">
+      Exosomes, post-procedure devices, and skincare actives — sourced for licensed aesthetic providers and priced for the professional who runs the case. No subscription, no credentialing friction, no retail markup.
+    </p>
+
+    <div class="magazine-grid">
+      <article class="mag-card">
+        <div class="mag-card-image" style="display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center;font-family:'Playfair Display',serif;font-size:1.15rem;letter-spacing:.04em;color:#5b4c3c" aria-hidden="true">BENEV ERC</div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Exosome Serum</div>
+          <h3 class="mag-card-title">BENEV Exosome Regenerative Complex</h3>
+          <p class="mag-card-text">Market-leading topical exosome serum. Post-microneedling, post-laser, post-RF, and post-PRP adjunct.</p>
+          <div class="mag-card-meta">🔒 Sign in for injector pricing</div>
+          <a href="/clinical-supplies/benev-erc/" style="margin-top:.6rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-dark);font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:.15rem;align-self:flex-start">View →</a>
+        </div>
+      </article>
+
+      <article class="mag-card">
+        <div class="mag-card-image" style="display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center;font-family:'Playfair Display',serif;font-size:1.15rem;letter-spacing:.04em;color:#5b4c3c" aria-hidden="true">Dr. Pen A20</div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Post-Procedure Device</div>
+          <h3 class="mag-card-title">Dr. Pen A20 Microneedling Pen</h3>
+          <p class="mag-card-text">FDA-cleared pro microneedling pen. Workhorse for every exosome or serum-infusion protocol.</p>
+          <div class="mag-card-meta">🔒 Sign in for injector pricing</div>
+          <a href="/clinical-supplies/drpen-a20/" style="margin-top:.6rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-dark);font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:.15rem;align-self:flex-start">View →</a>
+        </div>
+      </article>
+
+      <article class="mag-card">
+        <div class="mag-card-image" style="display:flex;align-items:center;justify-content:center;padding:1.2rem;text-align:center;font-family:'Playfair Display',serif;font-size:1.15rem;letter-spacing:.04em;color:#5b4c3c" aria-hidden="true">SkinCeuticals CE Ferulic</div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Skincare Active</div>
+          <h3 class="mag-card-title">SkinCeuticals C E Ferulic</h3>
+          <p class="mag-card-text">Gold-standard daytime vitamin C + ferulic + vitamin E. Highest patient name-recognition in the category.</p>
+          <div class="mag-card-meta">🔒 Sign in for injector pricing</div>
+          <a href="/clinical-supplies/skinceuticals-ce-ferulic/" style="margin-top:.6rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-dark);font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:.15rem;align-self:flex-start">View →</a>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin:2.4rem 0 2.8rem">
+      <a class="btn-primary" href="/clinical-supplies">Browse Clinical Supplies</a>
+    </div>
+
+    <!-- 3-step process strip — reuses existing .how-grid / .how-card / .how-step tokens. -->
+    <div class="how-grid">
+      <article class="how-card">
+        <div class="how-step">1</div>
+        <h3 class="how-card-title">Verify professional email</h3>
+        <p class="how-card-text">Enter your practice email on the catalog page. We check the domain against licensed-provider records and unlock injector pricing for this browser.</p>
+      </article>
+      <article class="how-card">
+        <div class="how-step">2</div>
+        <h3 class="how-card-title">Browse injector pricing</h3>
+        <p class="how-card-text">Exosomes, post-procedure devices, and skincare actives at the same prices you would see at a pro-account portal — no retail markup, no subscription.</p>
+      </article>
+      <article class="how-card">
+        <div class="how-step">3</div>
+        <h3 class="how-card-title">Direct-ship to your practice</h3>
+        <p class="how-card-text">Secure Stripe checkout, and the authorized source drop-ships directly to your practice. Cold-chain SKUs ship overnight on cold pack.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="how-it-works" id="clinical-workflow">
     <div class="how-header">
       <div>
