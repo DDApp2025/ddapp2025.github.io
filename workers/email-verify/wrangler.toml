@@ -15,7 +15,7 @@ workers_dev         = true
 # never full email addresses. Bucket TTL is 60 seconds (see index.js).
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id      = "TODO_KV_NAMESPACE_ID"
+id      = "bf63141af8724265bff596e38839f555"
 
 # Optional: salt for the IP hash. Set with `wrangler secret put RATE_LIMIT_SALT`
 # if you want a rotating salt; otherwise the worker uses a static default.

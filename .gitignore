@@ -1,2 +1,5 @@
 
 _notes/
+
+# Wrangler (Cloudflare Workers CLI) local build + deploy cache — never commit.
+.wrangler/
