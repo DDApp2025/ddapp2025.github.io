@@ -104,6 +104,7 @@
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/clinical-supplies/cart.css" />
   <style>
     :root {
       --bg:#ffffff;--bg-soft:#ffffff;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--pill-bg:#f4f4f4;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16);
@@ -370,6 +371,8 @@
   <script src="/clinical-supplies/catalog.js"></script>
   <!-- Soft email gate: client-side regex + disposable blocklist + Cloudflare Worker. -->
   <script src="/clinical-supplies/gate.js"></script>
+  <!-- Cart + Stripe Payment Link router. -->
+  <script src="/clinical-supplies/cart.js"></script>
   <script>
     /* Landing-page rendering. CATALOG is loaded from catalog.js above.
        Prompt 6 (email gate) and Prompt 7 (cart) will plug into the TODOs at
@@ -382,6 +385,11 @@
     const fmt = n => "$" + n.toLocaleString("en-US");
     const skuById = id => CATALOG.skus.find(s => s.id === id);
 
+    // stripeLink placeholder sentinel — keep "Add to Cart" disabled until real
+    // Stripe Payment Link URLs replace the TODO placeholders in catalog.js.
+    const STRIPE_TODO = "TODO_STRIPE_LINK";
+    const isReady = x => x && x.stripeLink && x.stripeLink !== STRIPE_TODO;
+
     function renderBundles() {
       const grid = document.getElementById("bundleGrid");
       grid.innerHTML = CATALOG.bundles.map(b => {
@@ -389,6 +397,10 @@
           const s = skuById(id);
           return s ? `<li>${s.shortName}</li>` : "";
         }).join("");
+        const ready = isReady(b);
+        const btn = ready
+          ? `<button class="btn-primary" type="button" onclick="window.cart && window.cart.addBundle('${b.id}')">Add Bundle to Cart</button>`
+          : `<button class="btn-primary" type="button" disabled aria-disabled="true" title="Coming soon">Coming Soon</button>`;
         return `
           <article class="bundle-card" data-bundle-id="${b.id}">
             <div class="bundle-eyebrow">Bundle</div>
@@ -400,7 +412,7 @@
               <span class="bundle-locked"><span class="product-lock-icon">🔒</span> Sign in for bundle price</span>
               <span class="bundle-price">${fmt(b.bundlePrice)}</span>
             </div>
-            <button class="btn-primary" onclick="addBundleToCart('${b.id}')">Add Bundle to Cart</button>
+            ${btn}
           </article>
         `;
       }).join("");
@@ -408,7 +420,12 @@
 
     function renderProducts() {
       const grid = document.getElementById("productGrid");
-      grid.innerHTML = CATALOG.skus.map(s => `
+      grid.innerHTML = CATALOG.skus.map(s => {
+        const ready = isReady(s);
+        const addBtn = ready
+          ? `<button class="btn-primary" type="button" onclick="window.cart && window.cart.addSku('${s.slug}')">Add to Cart</button>`
+          : `<button class="btn-primary" type="button" disabled aria-disabled="true" title="Coming soon">Coming Soon</button>`;
+        return `
         <article class="product-card" data-sku-id="${s.id}" data-cat="${s.category}">
           <div class="product-image" data-cat="${s.category}">${s.shortName}</div>
           <div class="product-body">
@@ -422,12 +439,12 @@
               <span class="product-injector-label">Injector price</span>
             </div>
             <div class="product-actions">
-              <button class="btn-primary" onclick="addSkuToCart('${s.id}')">Add to Cart</button>
+              ${addBtn}
               <a class="btn-outline" href="/clinical-supplies/${s.slug}/">View Details</a>
             </div>
           </div>
-        </article>
-      `).join("");
+        </article>`;
+      }).join("");
     }
 
     // =========================================================================
@@ -451,23 +468,8 @@
     }
 
     // =========================================================================
-    // Email gate — wiring lives in gate.js (loaded above). See Boot block at
-    // the bottom of this script for the two calls that engage it.
-    // =========================================================================
-    // Cart stubs — Prompt 7 wires these to cart.js (localStorage-backed cart,
-    // Stripe Payment Link router using stripeLink fields on each object).
-    // =========================================================================
-    function addSkuToCart(skuId) {
-      // TODO (Prompt 7): push {type:"sku", id:skuId, qty:1} to localStorage cart
-      // and open the cart drawer. stripeLink is read at checkout time.
-      console.log("[cart] add sku:", skuId, skuById(skuId));
-    }
-    function addBundleToCart(bundleId) {
-      // TODO (Prompt 7): push {type:"bundle", id:bundleId, qty:1} as a single
-      // line item. Bundle checkout uses the bundle's own stripeLink.
-      console.log("[cart] add bundle:", bundleId);
-    }
-
+    // Email gate + cart — both live in their own modules (gate.js, cart.js).
+    // The Boot block below calls into them after the main catalog has rendered.
     // =========================================================================
     // Boot
     // =========================================================================
@@ -479,6 +481,11 @@
     if (window.gate) {
       window.gate.renderPrices();
       window.gate.bindGateForm(document.getElementById("gateForm"));
+    }
+
+    // Cart: mount icon + drawer + toast + checkout modal (idempotent).
+    if (window.cart) {
+      window.cart.mount();
     }
   </script>
 </body>

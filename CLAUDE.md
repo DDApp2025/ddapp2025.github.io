@@ -47,7 +47,7 @@ Launching ATG Clinical Supply: a soft-gated catalog of exosomes, post-procedure 
 | 4 | /clinical-supplies landing | Complete | [see git log] | 2026-04-21 | clinical-supplies/index.html |
 | 5 | Product detail template | Pending | — | — | clinical-supplies/{slug}/*.html |
 | 6 | Soft email gate + Worker | Complete | [see git log] | 2026-04-22 | clinical-supplies/gate.js, workers/email-verify/ |
-| 7 | Cart + Stripe router | Pending | — | — | cart.js, cart.css |
+| 7 | Cart + Stripe router | Complete | [see git log] | 2026-04-22 | clinical-supplies/cart.js, clinical-supplies/cart.css |
 | 8 | Homepage Clinical Supply section | Pending | — | — | index.html |
 | 9 | Global nav/footer/sitemap | Pending | — | — | multiple files |
 | 10 | QA report | Pending | — | — | docs/QA_REPORT.md |

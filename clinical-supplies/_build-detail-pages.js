@@ -127,6 +127,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../cart.css" />
   <style>
     :root{--bg:#ffffff;--bg-soft:#ffffff;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--pill-bg:#f4f4f4;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16)}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -349,6 +350,8 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
   <script src="../catalog.js"></script>
   <!-- Soft email gate: applies any persisted unlock (set on the landing page). -->
   <script src="../gate.js"></script>
+  <!-- Cart + Stripe Payment Link router. -->
+  <script src="../cart.js"></script>
   <script>
     const CURRENT_SKU_SLUG = ${jsonStr(sku.slug)};
     const fmt = n => "$" + n.toLocaleString("en-US");
@@ -361,6 +364,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
       renderRelated(sku);
       wireBuyControls(sku);
       if (window.gate) window.gate.renderPrices();
+      if (window.cart) window.cart.mount();
     }
 
     function renderDetail(sku) {
@@ -427,10 +431,18 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
     }
 
     function wireBuyControls(sku) {
-      document.getElementById("addToCartBtn").addEventListener("click", () => {
+      const btn = document.getElementById("addToCartBtn");
+      const ready = sku.stripeLink && sku.stripeLink !== "TODO_STRIPE_LINK";
+      if (!ready) {
+        btn.disabled = true;
+        btn.setAttribute("aria-disabled", "true");
+        btn.title = "Coming soon";
+        btn.textContent = "Coming Soon";
+        return;
+      }
+      btn.addEventListener("click", () => {
         const qty = parseInt(document.getElementById("qtyInput").value, 10) || 1;
-        // TODO (Prompt 7): integrate with cart.js — push {type:"sku", id:sku.id, qty} into localStorage cart.
-        console.log("[cart] add sku:", sku.id, "qty:", qty, "stripeLink:", sku.stripeLink);
+        if (window.cart) window.cart.addSku(sku.slug, qty);
       });
     }
 
