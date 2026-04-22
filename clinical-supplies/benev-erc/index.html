@@ -336,6 +336,7 @@
   <script src="../catalog.js"></script>
   <script>
     const CURRENT_SKU_SLUG = "benev-erc";
+    const fmt = n => "$" + n.toLocaleString("en-US");
 
     const sku = CATALOG.skus.find(s => s.slug === CURRENT_SKU_SLUG);
     if (!sku) {
@@ -346,8 +347,6 @@
       wireBuyControls(sku);
       applyGateStateFromStorage();
     }
-
-    const fmt = n => "$" + n.toLocaleString("en-US");
 
     function renderDetail(sku) {
       // Breadcrumb

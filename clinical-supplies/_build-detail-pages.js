@@ -349,6 +349,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
   <script src="../catalog.js"></script>
   <script>
     const CURRENT_SKU_SLUG = ${jsonStr(sku.slug)};
+    const fmt = n => "$" + n.toLocaleString("en-US");
 
     const sku = CATALOG.skus.find(s => s.slug === CURRENT_SKU_SLUG);
     if (!sku) {
@@ -359,8 +360,6 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
       wireBuyControls(sku);
       applyGateStateFromStorage();
     }
-
-    const fmt = n => "$" + n.toLocaleString("en-US");
 
     function renderDetail(sku) {
       // Breadcrumb
