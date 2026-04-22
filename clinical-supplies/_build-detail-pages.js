@@ -347,6 +347,8 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
   </footer>
 
   <script src="../catalog.js"></script>
+  <!-- Soft email gate: applies any persisted unlock (set on the landing page). -->
+  <script src="../gate.js"></script>
   <script>
     const CURRENT_SKU_SLUG = ${jsonStr(sku.slug)};
     const fmt = n => "$" + n.toLocaleString("en-US");
@@ -358,7 +360,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
       renderDetail(sku);
       renderRelated(sku);
       wireBuyControls(sku);
-      applyGateStateFromStorage();
+      if (window.gate) window.gate.renderPrices();
     }
 
     function renderDetail(sku) {
@@ -432,15 +434,6 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
       });
     }
 
-    function applyGateStateFromStorage() {
-      // TODO (Prompt 6): once the Cloudflare Worker gate is wired up, read the
-      // persisted flag and apply the unlock class.
-      try {
-        if (localStorage.getItem("atgGateUnlocked") === "true") {
-          document.body.classList.add("unlocked");
-        }
-      } catch (e) { /* storage unavailable */ }
-    }
   </script>
 </body>
 </html>

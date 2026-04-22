@@ -291,7 +291,7 @@
         <div class="gate-banner-title">Enter your professional email to unlock injector pricing across the catalog.</div>
         <div class="gate-banner-text">Enter your practice email. We verify and unlock injector pricing for this browser session.</div>
       </div>
-      <form class="gate-banner-form" id="gateForm" onsubmit="return handleGateSubmit(event)">
+      <form class="gate-banner-form" id="gateForm">
         <input type="email" name="email" placeholder="you@yourpractice.com" required aria-label="Professional email" />
         <button type="submit" class="btn-primary">Unlock Pricing</button>
         <span class="gate-banner-success" id="gateSuccess">✓ Pricing unlocked</span>
@@ -368,6 +368,8 @@
 
   <!-- CATALOG is defined in /clinical-supplies/catalog.js (shared with every detail page). -->
   <script src="/clinical-supplies/catalog.js"></script>
+  <!-- Soft email gate: client-side regex + disposable blocklist + Cloudflare Worker. -->
+  <script src="/clinical-supplies/gate.js"></script>
   <script>
     /* Landing-page rendering. CATALOG is loaded from catalog.js above.
        Prompt 6 (email gate) and Prompt 7 (cart) will plug into the TODOs at
@@ -449,23 +451,8 @@
     }
 
     // =========================================================================
-    // Email gate — UI stub. Prompt 6 replaces this with:
-    //   1) client-side regex + disposable blocklist
-    //   2) Cloudflare Worker MX check via Abstract API
-    //   3) persist unlock in localStorage + shared gate.js module
-    // For now: any well-formed email unlocks the UI for this page load.
-    // =========================================================================
-    function handleGateSubmit(e) {
-      e.preventDefault();
-      const email = e.target.email.value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false;
-      // TODO (Prompt 6): call Cloudflare Worker /verify endpoint and only
-      // unlock on {ok:true} response. Persist unlock in localStorage.
-      document.body.classList.add("unlocked");
-      document.getElementById("gateSuccess").style.display = "inline";
-      return false;
-    }
-
+    // Email gate — wiring lives in gate.js (loaded above). See Boot block at
+    // the bottom of this script for the two calls that engage it.
     // =========================================================================
     // Cart stubs — Prompt 7 wires these to cart.js (localStorage-backed cart,
     // Stripe Payment Link router using stripeLink fields on each object).
@@ -488,8 +475,11 @@
     renderProducts();
     initCategoryTabs();
 
-    // TODO (Prompt 6): on page load, read localStorage unlock flag and apply
-    // document.body.classList.add("unlocked") if previously verified.
+    // Email gate: apply any persisted unlock, then wire up the banner form.
+    if (window.gate) {
+      window.gate.renderPrices();
+      window.gate.bindGateForm(document.getElementById("gateForm"));
+    }
   </script>
 </body>
 </html>

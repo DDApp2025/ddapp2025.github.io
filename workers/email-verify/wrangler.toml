@@ -1,0 +1,25 @@
+# Cloudflare Worker — ATG Clinical Supply email gate.
+#
+# Deploy:   wrangler deploy
+# Secrets:  wrangler secret put CHECK_MAIL_API_KEY
+#           wrangler secret put BREVO_API_KEY
+# KV:       wrangler kv namespace create atg_email_verify_ratelimit
+#           (paste the returned id into [[kv_namespaces]].id below, then redeploy)
+
+name                = "atg-email-verify"
+main                = "index.js"
+compatibility_date  = "2026-04-22"
+workers_dev         = true
+
+# Rate-limit counter storage. Keys are SHA-256 hashes of CF-Connecting-IP;
+# never full email addresses. Bucket TTL is 60 seconds (see index.js).
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id      = "TODO_KV_NAMESPACE_ID"
+
+# Optional: salt for the IP hash. Set with `wrangler secret put RATE_LIMIT_SALT`
+# if you want a rotating salt; otherwise the worker uses a static default.
+#
+# Required secrets (set via wrangler secret put — NOT here, NOT in env vars below):
+#   CHECK_MAIL_API_KEY
+#   BREVO_API_KEY
