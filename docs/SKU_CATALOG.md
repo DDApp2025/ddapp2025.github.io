@@ -87,18 +87,6 @@
 - **Cold chain:** No
 - **Clinical rationale:** FDA-cleared for acne, anti-aging, pain management, hair restoration, and more. Industry-standard pro LED device. Pairs naturally with exosome facials, microneedling recovery, and post-filler/post-Botox calming protocols. Higher price point but higher margin and higher perceived clinical credibility than consumer LED masks.
 
-### SKU: currentbody-series2
-- **Product:** CurrentBody Skin LED Red Light Therapy Face Mask Series 2
-- **Manufacturer:** CurrentBody
-- **Pack size:** Flexible silicone mask + controller + USB charging cable
-- **Injector price range (USD):** Consumer device — retail ~$460, with some B2B/practitioner program pricing available through CurrentBody Pro at an estimated 15–25% discount
-- **Retail price:** ~$460
-- **Sourcing channel:** CurrentBody (us.currentbody.com) — consumer-first; practitioner/reseller programs available by request. Note: primarily a consumer device, so margin is thinner than true pro-channel products.
-- **MOQ:** 1 unit
-- **Credentialing required:** No
-- **Cold chain:** No
-- **Clinical rationale:** Premium consumer LED mask with strong brand recognition among patients (celebrity endorsements, influencer marketing). Good take-home retail option for patients who ask "what can I use between visits?" Bundle play: pair with exosome take-home serum. **⚠️ Flag:** thinner margin than pro-channel devices; consider whether selling a consumer-branded mask alongside pro-gated products dilutes the Clinical Supply positioning. See "Strategic flags" at bottom.
-
 ---
 
 ## Category 3 — Skincare Actives
@@ -182,15 +170,13 @@
 
 1. **Pricing gating is universal in this category.** Every legitimate professional source in this catalog gates its wholesale pricing behind credentialed accounts. Exact injector prices must be confirmed at account setup, not hard-coded from public listings. Recommend: for each SKU, establish the account, capture the confirmed price, then enter into `catalog.js`.
 
-2. **CurrentBody Series 2 sits awkwardly in the catalog.** It's a consumer-branded device sold mostly through consumer channels. Including it alongside true pro-gated products (Celluma, BENEV, SkinCeuticals) risks two problems: (a) thinner margin than pro-channel products, (b) positioning drift — ATG Clinical Supply implies clinical-grade, and CurrentBody is consumer-grade. **Recommendation:** either drop CurrentBody and add a second pro LED product (Celluma DELUX or Celluma MYSTIQUE), or keep it clearly labeled as a take-home/retail option. Flag for Albert to decide.
+2. **Allergan relationship gates SkinMedica access.** SkinMedica practice accounts are typically rolled up under an existing Allergan Aesthetics (Botox/Juvederm) account. Confirm ATG's Allergan account status before committing to stock SkinMedica — if no Allergan account exists, sourcing becomes harder.
 
-3. **Allergan relationship gates SkinMedica access.** SkinMedica practice accounts are typically rolled up under an existing Allergan Aesthetics (Botox/Juvederm) account. Confirm ATG's Allergan account status before committing to stock SkinMedica — if no Allergan account exists, sourcing becomes harder.
+3. **Exosome regulatory positioning is sensitive.** All three exosome SKUs are topical cosmetic products — not drugs, not injectables. Any copy on the site, product pages, or marketing must reinforce "topical use only" and avoid injection claims. This is non-negotiable for FDA compliance. The soft email gate should probably also add a brief attestation checkbox at the gate: "I am a licensed aesthetic practitioner and will use these products for topical application only."
 
-4. **Exosome regulatory positioning is sensitive.** All three exosome SKUs are topical cosmetic products — not drugs, not injectables. Any copy on the site, product pages, or marketing must reinforce "topical use only" and avoid injection claims. This is non-negotiable for FDA compliance. The soft email gate should probably also add a brief attestation checkbox at the gate: "I am a licensed aesthetic practitioner and will use these products for topical application only."
+4. **Cold chain adds operational cost.** BENEV ERC and AnteAGE MDX ship cold. If ATG Clinical Supply drop-ships, the supplier handles this. If ATG warehouses and re-ships, cold-chain capability is required. Recommend: drop-ship model for all exosome SKUs at launch; revisit warehousing later when volume justifies it.
 
-5. **Cold chain adds operational cost.** BENEV ERC and AnteAGE MDX ship cold. If ATG Clinical Supply drop-ships, the supplier handles this. If ATG warehouses and re-ships, cold-chain capability is required. Recommend: drop-ship model for all exosome SKUs at launch; revisit warehousing later when volume justifies it.
-
-6. **MOQ is mostly 1 unit at pro pricing** — which is friendly to a low-volume launch. But distributors that offer deeper discounts often require bulk buys. Plan the first 90 days around 1-unit sourcing, then negotiate bulk pricing once order history exists.
+5. **MOQ is mostly 1 unit at pro pricing** — which is friendly to a low-volume launch. But distributors that offer deeper discounts often require bulk buys. Plan the first 90 days around 1-unit sourcing, then negotiate bulk pricing once order history exists.
 
 ---
 
@@ -202,7 +188,7 @@
 4. **Week 2:** Set up Dr. Pen authorized distributor account (drpen.net or us.drpen.co) + confirm pro pricing on A20 and H6.
 5. **Week 3:** Confirm Allergan Aesthetics account status for SkinMedica access. If no account, defer SkinMedica TNS Advanced+ to Phase 2.
 6. **Week 3:** Set up AnteAGE Professional account + confirm MDX pricing.
-7. **Week 4:** Set up Celluma pro account + confirm PRO device pricing. Evaluate CurrentBody — keep, drop, or replace.
+7. **Week 4:** Set up Celluma pro account + confirm PRO device pricing.
 8. **Week 4:** Set up Dp Dermaceuticals pro account for EXO-SKIN serum.
 
 Once all accounts are confirmed and injector prices captured, update `clinical-supplies/catalog.js` with real `injectorPrice` values and real `stripeLink` URLs (Stripe Payment Links to be created separately).
