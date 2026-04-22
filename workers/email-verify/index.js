@@ -116,9 +116,11 @@ export default {
     }
 
     const verdict = interpretCheckMail(checkMailResult);
+    if (verdict.blocked)     return jsonReply({ ok: false, reason: "blocked" }, 200, corsOrigin);
     if (!verdict.validMx)    return jsonReply({ ok: false, reason: "invalid_mx" }, 200, corsOrigin);
     if (verdict.disposable)  return jsonReply({ ok: false, reason: "disposable" }, 200, corsOrigin);
-    if (verdict.role)        return jsonReply({ ok: false, reason: "role" }, 200, corsOrigin);
+    if (verdict.role)        return jsonReply({ ok: false, reason: "role_email" }, 200, corsOrigin);
+    if (verdict.risk > 70)   return jsonReply({ ok: false, reason: "high_risk" }, 200, corsOrigin);
 
     // --- Brevo notification (best-effort — never blocks the unlock) ------
     const notifyCtx = {
@@ -164,39 +166,31 @@ async function sha256Hex(str) {
 }
 
 /**
- * Map Check-Mail.org's response to { validMx, disposable, role }.
+ * Map Check-Mail.org v2's response to { blocked, validMx, disposable, role, risk }.
  *
- * The API's exact field names can drift between versions. This helper
- * tolerates several shapes seen in the wild so a minor docs change does
- * not take the gate down. Confirm the live field names against
- * https://docs.check-mail.org before relying on any single key.
+ * Confirmed against a real v2 response for aestheticstogo.com:
+ *   { valid, block, domain, text, reason, risk, is_disposable,
+ *     is_role_based_email, mx_host, mx_hosts, mx_fallback, email_provider }
+ *
+ * If the API changes field names again, update this one function — the
+ * rest of the Worker reads only the normalized shape below.
  */
 function interpretCheckMail(r) {
   if (!r || typeof r !== "object") {
-    return { validMx: false, disposable: false, role: false };
+    return { blocked: false, validMx: false, disposable: false, role: false, risk: 0 };
   }
 
-  const validMx =
-    r.valid_mx === true ||
-    r.mx_found === true ||
-    (r.mx && r.mx.valid === true) ||
-    r.deliverable === true ||
-    r.status === "valid" ||
-    r.result === "valid" ||
-    r.is_valid === true;
+  const hasMxHosts = Array.isArray(r.mx_hosts) && r.mx_hosts.length > 0;
+  const hasMxHost  = typeof r.mx_host === "string" && r.mx_host.length > 0;
+  const validMx    = r.valid === true && (hasMxHosts || hasMxHost);
 
-  const disposable =
-    r.disposable === true ||
-    r.is_disposable === true ||
-    (r.flags && r.flags.disposable === true);
-
-  const role =
-    r.role === true ||
-    r.is_role === true ||
-    r.role_account === true ||
-    (r.flags && r.flags.role === true);
-
-  return { validMx: !!validMx, disposable: !!disposable, role: !!role };
+  return {
+    blocked:    r.block === true,
+    validMx:    validMx,
+    disposable: r.is_disposable === true,
+    role:       r.is_role_based_email === true,
+    risk:       typeof r.risk === "number" ? r.risk : 0
+  };
 }
 
 async function sendBrevoNotification(env, info) {
