@@ -1,0 +1,11 @@
+Aesthetics To Go — Provider Application
+
+Licensed PA-Cs, NPs, and MDs/DOs can apply to join Aesthetics To Go as a
+founding provider. The live application form is hosted at the canonical
+URL below; this plaintext file exists as a crawlable summary only.
+
+Canonical:   https://aestheticstogo.com/providerapplication.html
+Site root:   https://aestheticstogo.com/
+Sitemap:     https://aestheticstogo.com/sitemap.xml
+LLMs:        https://aestheticstogo.com/llms.txt
+Contact:     info@aestheticstogo.com

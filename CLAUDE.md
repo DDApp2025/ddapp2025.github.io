@@ -51,6 +51,7 @@ Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedur
 | 8 | Homepage Clinical Supplies section | Complete | [see git log] | 2026-04-22 | index.html |
 | 9 | Global nav/footer/sitemap | Complete | [see git log] | 2026-04-22 | nav + footer on all pages, sitemap.xml, docs/POST_DEPLOY_TODO.md |
 | 10 | QA report | Complete | [see git log] | 2026-04-22 | docs/QA_REPORT.md |
+| — | Geographic strip — removed Las Vegas references, repositioned as nationwide platform | Complete | [see git log] | 2026-04-28 | All city pages hidden and redirected, legacy index files redirected, all visible text and metadata updated, providerapplication.html updated to 50-state dropdown, builder template updated and detail pages regenerated, QA report at docs/GEO_STRIP_QA_REPORT.md |
 
 ## End-of-prompt rule
 

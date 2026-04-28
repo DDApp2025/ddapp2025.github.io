@@ -12,7 +12,7 @@ who deliver concierge aesthetic treatments at patients' homes and offices.
 - Full mobile EHR with HIPAA-compliant SOAP charting
 - AI diagnostic simulator for patient visualization
 - Volume wholesale pricing on medical supplies
-- Launching in Las Vegas, NV metro area
+- Nationwide mobile platform
 
 ## Services Facilitated
 - Botox and neurotoxin injections

@@ -1,5 +1,7 @@
 # ATG Design Tokens & Source-of-Truth Audit
 
+> **NOTE:** This document is a dated audit snapshot. The site has been repositioned as a nationwide mobile clinical platform (geographic strip completed 2026-04-28). The references to Las Vegas, Henderson, Summerlin, and Boulder City below reflect the historical state of the site at the time of this audit. For current state, see [`docs/GEO_STRIP_QA_REPORT.md`](./GEO_STRIP_QA_REPORT.md).
+
 > Read-only audit of `index.html` (root, 41,246 bytes, last modified Apr 21 12:51 2026) and all linked CSS/JS/assets.
 > Authoritative reference for every future page or section built on aestheticstogo.com.
 > Do not deviate from these tokens without an explicit, documented design decision.

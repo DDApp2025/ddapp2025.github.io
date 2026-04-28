@@ -35,7 +35,7 @@
 
   <!-- Primary SEO Meta Tags -->
   <meta name="description" content="The clinical platform for licensed aesthetic injectors. Mobile EHR, AI procedure simulator, and injector-priced clinical supplies — one login, one brand." />
-  <meta name="keywords" content="mobile Botox Las Vegas, at-home Botox, concierge aesthetic care, PA aesthetic platform, mobile aesthetic practice, mobile EHR aesthetics, Botox house call, mobile filler injections, PA-C concierge practice, mobile aesthetic provider, Botox at home Henderson, concierge fillers Summerlin" />
+  <meta name="keywords" content="mobile Botox, at-home Botox, concierge aesthetic care, PA aesthetic platform, mobile aesthetic practice, mobile EHR aesthetics, Botox house call, mobile filler injections, PA-C concierge practice, mobile aesthetic provider" />
   <meta name="author" content="Aesthetics To Go" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://aestheticstogo.com/" />
@@ -80,21 +80,16 @@
   }
   </script>
 
-  <!-- Structured Data: MedicalBusiness -->
+  <!-- Structured Data: MedicalOrganization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": "MedicalOrganization",
     "name": "Aesthetics To Go",
     "url": "https://aestheticstogo.com",
     "description": "Mobile concierge aesthetic treatments delivered by licensed PA-Cs, NPs, and MDs to your home or office. Zero platform fees for founding providers, full mobile EHR, AI diagnostic simulator.",
     "medicalSpecialty": "Dermatology",
-    "areaServed": [
-      {"@type": "City", "name": "Las Vegas", "addressRegion": "NV"},
-      {"@type": "City", "name": "Henderson", "addressRegion": "NV"},
-      {"@type": "City", "name": "Summerlin", "addressRegion": "NV"},
-      {"@type": "City", "name": "Boulder City", "addressRegion": "NV"}
-    ],
+    "areaServed": "United States",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Mobile Aesthetic Services",
@@ -123,10 +118,10 @@
       },
       {
         "@type": "Question",
-        "name": "Can I get Botox at home in Las Vegas?",
+        "name": "Can I get Botox at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients in the Las Vegas metro area including Summerlin, Henderson, and Boulder City with licensed, credentialed aesthetic providers who deliver Botox, dermal fillers, and other treatments at your home or office. Patients use an AI simulator to visualize results before the provider arrives."
+          "text": "Yes. Aesthetics To Go connects patients with licensed, credentialed aesthetic providers who deliver Botox, dermal fillers, and other treatments at your home or office. Provider availability varies by market. Patients use an AI simulator to visualize results before the provider arrives."
         }
       },
       {
@@ -584,7 +579,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-row"><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>
-      <div class="footer-row"><a href="/las-vegas">Las Vegas</a><a href="/summerlin">Summerlin</a><a href="/henderson">Henderson</a><a href="/boulder-city">Boulder City</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div><div class="footer-row footer-row-clinical-supplies"><span style="color:#4b433c;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem">Clinical Supplies ·</span><a href="/clinical-supplies">Browse Catalog</a><a href="/clinical-supplies#exosomes">Exosomes</a><a href="/clinical-supplies#devices">Devices</a><a href="/clinical-supplies#skincare">Skincare</a></div>
+      <div class="footer-row"><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div><div class="footer-row footer-row-clinical-supplies"><span style="color:#4b433c;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem">Clinical Supplies ·</span><a href="/clinical-supplies">Browse Catalog</a><a href="/clinical-supplies#exosomes">Exosomes</a><a href="/clinical-supplies#devices">Devices</a><a href="/clinical-supplies#skincare">Skincare</a></div>
       <div class="footer-social" style="margin-bottom:.5rem;display:flex;gap:1.2rem;justify-content:center;align-items:center"><a href="https://www.instagram.com/aesthetics.togo/" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">Instagram</a><a href="https://www.tiktok.com/@aesthetics.togo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">TikTok</a><a href="https://www.youtube.com/@AestheticsToGo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">YouTube</a><a href="https://x.com/aestheticstogo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">X</a></div><div class="footer-copy">© 2026 Aesthetics To Go. All rights reserved.</div>
     </div>
   </footer>
@@ -603,15 +598,7 @@
           <input type="text" name="license" placeholder="State(s) of Licensure">
           <input type="email" name="email" placeholder="Professional Email Address" required>
           <input type="tel" name="phone" placeholder="Cell Phone Number" required>
-          <label>Markets you wish to serve (check all that apply)</label>
-          <div class="city-checkboxes">
-            <label><input type="checkbox" name="city[]" value="Las Vegas"> Las Vegas</label>
-            <label><input type="checkbox" name="city[]" value="Summerlin"> Summerlin</label>
-            <label><input type="checkbox" name="city[]" value="Henderson"> Henderson</label>
-            <label><input type="checkbox" name="city[]" value="Boulder City"> Boulder City</label>
-            <label><input type="checkbox" name="city[]" value="Other"> Other</label>
-          </div>
-          <input type="text" name="other_city" placeholder="Please specify other city" style="display:none;margin-top:.5rem" id="otherCityInput">
+          <input type="text" name="markets" placeholder="Markets you'd like to serve (city, state, or region)">
           <select name="appointments" required>
             <option value="" disabled selected>Anticipated mobile patient volume per month?</option>
             <option>0–5</option><option>6–15</option><option>16–30</option><option>30+</option>
@@ -692,22 +679,6 @@
         closeLoginModal();
       }
     };
-    
-    var checkboxes = document.querySelectorAll('input[name="city[]"]');
-    for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].addEventListener('change', function() {
-        var otherInput = document.getElementById('otherCityInput');
-        var otherChecked = false;
-        for (var j = 0; j < checkboxes.length; j++) {
-          if (checkboxes[j].value === 'Other' && checkboxes[j].checked) {
-            otherChecked = true;
-            break;
-          }
-        }
-        otherInput.style.display = otherChecked ? 'block' : 'none';
-        otherInput.required = otherChecked;
-      });
-    }
     
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
