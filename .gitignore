@@ -3,3 +3,11 @@ _notes/
 
 # Wrangler (Cloudflare Workers CLI) local build + deploy cache — never commit.
 .wrangler/
+
+# Internal business documents — GitHub Pages publishes the entire repo as
+# static files, so anything in here would be retrievable at aestheticstogo.com.
+*.docx
+*.doc
+~$*
+*.tmp
+~WRL*
