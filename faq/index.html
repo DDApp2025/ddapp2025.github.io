@@ -44,7 +44,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aestheticstogo.com/faq/" />
   <meta property="og:title" content="FAQ | Aesthetics To Go — Mobile Aesthetic Care" />
-  <meta property="og:description" content="Everything you need to know about mobile Botox, fillers, hair restoration, the AI simulator, safety, and pricing. Plus a live AI assistant to answer any question." />
+  <meta property="og:description" content="Everything you need to know about mobile Botox, fillers, hair restoration, safety, and pricing. Plus a live AI assistant to answer any question." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
 
@@ -77,7 +77,7 @@
         "name": "What is Aesthetics To Go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go (ATG) is a mobile-first clinical platform that connects patients with licensed PA-Cs, NPs, and MDs who deliver concierge Botox, dermal filler, and hair restoration treatments at the patient's home or office. The platform provides providers with a full mobile EHR, AI diagnostic simulator, smart scheduling with route optimization, HIPAA-compliant documentation, zero-fee payments (founding providers), and wholesale medical supply pricing. A nationwide mobile clinical platform; provider availability varies by market."
+          "text": "Aesthetics To Go (ATG) is a mobile-first clinical platform that connects patients with licensed PA-Cs, NPs, and MDs who deliver concierge Botox, dermal filler, and hair restoration treatments at the patient's home or office. The platform provides providers with a full mobile EHR, smart scheduling with route optimization, HIPAA-compliant documentation, zero-fee payments (founding providers), and wholesale medical supply pricing. A nationwide mobile clinical platform; provider availability varies by market."
         }
       },
       {
@@ -85,7 +85,7 @@
         "name": "Can I get Botox at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients with licensed providers who deliver professional Botox injections at your home or office. Provider availability varies by market. You can visualize your results using the AI simulator before booking."
+          "text": "Yes. Aesthetics To Go connects patients with licensed providers who deliver professional Botox injections at your home or office. Provider availability varies by market."
         }
       },
       {
@@ -114,18 +114,10 @@
       },
       {
         "@type": "Question",
-        "name": "What is the AI diagnostic simulator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The ATG AI diagnostic simulator uses high-fidelity visual mapping to show patients realistic before-and-after outcomes for Botox and filler treatments on their own face. Upload a photo, select treatment areas, and see a personalized visualization in seconds. The simulator is free, private, HIPAA-compliant, and helps patients set clear expectations before booking."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "How does the Aesthetics To Go patient app work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The patient app lets you run the AI diagnostic simulator on your own face, browse credentialed providers in your area, view transparent pricing, book appointments, receive appointment confirmations and reminders, communicate securely with your provider, make payments, view your complete treatment history including before-and-after photos, and schedule follow-up treatments. All data is encrypted and HIPAA-compliant."
+          "text": "The patient app lets you browse credentialed providers in your area, view transparent pricing, book appointments, receive appointment confirmations and reminders, communicate securely with your provider, make payments, view your complete treatment history including before-and-after photos, and schedule follow-up treatments. All data is encrypted and HIPAA-compliant."
         }
       },
       {
@@ -141,7 +133,7 @@
         "name": "Is Aesthetics To Go HIPAA compliant?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. All patient data including charting, digital consents, before-and-after photos, medical records, AI simulator photos, and payment information is encrypted and stored in a HIPAA-compliant environment. The platform was built for clinical compliance from day one."
+          "text": "Yes. All patient data including charting, digital consents, before-and-after photos, medical records, and payment information is encrypted and stored in a HIPAA-compliant environment. The platform was built for clinical compliance from day one."
         }
       },
       {
@@ -149,7 +141,7 @@
         "name": "How do PAs start a mobile Botox business with Aesthetics To Go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Licensed PA-Cs apply through aestheticstogo.com for founding provider status. The platform provides a full mobile EHR, HIPAA-compliant SOAP charting, AI diagnostic simulator, wholesale medical supply pricing, smart scheduling, and integrated payments with zero monthly fees and zero merchant processing fees for founding providers. Credentialing takes 5-7 business days. Providers control their own schedule, travel radius, pricing, and patient panel as independent contractors."
+          "text": "Licensed PA-Cs apply through aestheticstogo.com for founding provider status. The platform provides a full mobile EHR, HIPAA-compliant SOAP charting, wholesale medical supply pricing, smart scheduling, and integrated payments with zero monthly fees and zero merchant processing fees for founding providers. Credentialing takes 5-7 business days. Providers control their own schedule, travel radius, pricing, and patient panel as independent contractors."
         }
       },
       {
@@ -221,7 +213,7 @@
         "name": "How is Aesthetics To Go different from a med spa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go is not a med spa. It is a two-sided clinical platform — similar to how Uber connects riders with drivers. There are no physical clinic locations. Providers are independent contractors who travel to patients. The platform provides technology infrastructure — mobile EHR, AI diagnostics, scheduling, payments — while providers maintain full clinical autonomy."
+          "text": "Aesthetics To Go is not a med spa. It is a two-sided clinical platform — similar to how Uber connects riders with drivers. There are no physical clinic locations. Providers are independent contractors who travel to patients. The platform provides technology infrastructure — mobile EHR, scheduling, payments — while providers maintain full clinical autonomy."
         }
       },
       {
@@ -390,7 +382,8 @@
       <div class="chat-messages" id="chatMessages">
         <div class="chat-msg chat-msg-ai">
           <div class="msg-label">ATG Assistant</div>
-          Hi! I'm the Aesthetics To Go AI assistant. I can answer any question about our platform, mobile apps, services, providers, safety, pricing, the AI simulator — anything. What would you like to know?
+          <!-- prior text 2026-04-29: "providers, safety, pricing, the AI simulator — anything." -->
+          Hi! I'm the Aesthetics To Go AI assistant. I can answer any question about our platform, mobile apps, services, providers, safety, pricing — anything. What would you like to know?
         </div>
       </div>
       <div class="chat-suggestions" id="chatSuggestions">
@@ -398,7 +391,9 @@
         <div class="chat-suggestion" onclick="askSuggestion(this)">Is it safe to get fillers at home?</div>
         <div class="chat-suggestion" onclick="askSuggestion(this)">What does the patient app do?</div>
         <div class="chat-suggestion" onclick="askSuggestion(this)">How do I join as a provider?</div>
+        <!-- AI Simulator chat suggestion hidden 2026-04-29 — uncomment to restore
         <div class="chat-suggestion" onclick="askSuggestion(this)">What is the AI simulator?</div>
+        -->
         <div class="chat-suggestion" onclick="askSuggestion(this)">How much does it cost?</div>
       </div>
       <div class="chat-input-area">
@@ -470,12 +465,15 @@
     <div class="faq-grid">
       <div class="faq-card">
         <h3 class="faq-card-question">What does the patient app do?</h3>
-        <p class="faq-card-answer">Run the AI simulator on your face, browse credentialed providers, view transparent pricing, book appointments, receive reminders, communicate securely with your provider, make payments, view treatment history and before-and-after photos, and schedule follow-ups.</p>
+        <!-- prior text 2026-04-29: "Run the AI simulator on your face, browse credentialed providers, view transparent pricing, book appointments, receive reminders, communicate securely with your provider, make payments, view treatment history and before-and-after photos, and schedule follow-ups." -->
+        <p class="faq-card-answer">Browse credentialed providers, view transparent pricing, book appointments, receive reminders, communicate securely with your provider, make payments, view treatment history and before-and-after photos, and schedule follow-ups.</p>
       </div>
+      <!-- AI Simulator FAQ card hidden 2026-04-29 — uncomment to restore
       <div class="faq-card">
         <h3 class="faq-card-question">What is the AI simulator?</h3>
         <p class="faq-card-answer">Upload a photo, select treatment areas, and see realistic before-and-after outcomes mapped onto your own face. Free to use, HIPAA-compliant, no obligation. Helps you set clear expectations before booking.</p>
       </div>
+      -->
       <div class="faq-card">
         <h3 class="faq-card-question">Is my data private?</h3>
         <p class="faq-card-answer">Yes. All data — photos, medical records, payments — is encrypted and stored in a HIPAA-compliant environment. Only you and your treating provider can see your records. You can delete your data at any time.</p>
@@ -513,7 +511,8 @@
       </div>
       <div class="faq-card">
         <h3 class="faq-card-question">How do patients find me?</h3>
-        <p class="faq-card-answer">Patients download the app, run the AI simulator, and book with credentialed providers in their area. The platform handles discovery, scheduling, and payments. You focus on clinical care.</p>
+        <!-- prior text 2026-04-29: "Patients download the app, run the AI simulator, and book with credentialed providers in their area." -->
+        <p class="faq-card-answer">Patients download the app and book with credentialed providers in their area. The platform handles discovery, scheduling, and payments. You focus on clinical care.</p>
       </div>
     </div>
   </section>
@@ -608,7 +607,9 @@ SERVICES OFFERED:
 3. HAIR RESTORATION: PRP (Platelet-Rich Plasma) therapy. Uses patient's own blood — drawn on-site, processed in portable centrifuge, concentrated growth factors injected into thinning scalp areas. Stimulates follicle activity and natural regrowth. Best for early-to-moderate thinning, androgenetic alopecia (pattern hair loss in men and women), crown thinning, receding hairlines, post-partum thinning. Not effective for complete baldness or scarring alopecia. Treatment: 3-4 sessions over 12 weeks spaced 4-6 weeks apart, maintenance every 6-12 months. Results in 3-6 months. About 45 minutes per visit. Zero downtime.
 
 PATIENT APP FEATURES:
+<!-- AI Simulator embedded LLM bullet hidden 2026-04-29 — uncomment to restore
 - AI Diagnostic Simulator: Upload a photo, select treatment areas, see realistic before-and-after outcomes mapped onto your own face. Free, HIPAA-compliant, no obligation. Supports Botox and filler visualizations. Helps set expectations before booking.
+-->
 - Provider Browse & Booking: View credentialed providers in your area with their credentials, experience, availability, and reviews. Transparent pricing shown before booking. Real-time scheduling.
 - Appointment Management: Confirmations, reminders, calendar integration. Same-day booking subject to provider availability. Most patients book within 24-48 hours.
 - Secure Communication: HIPAA-compliant messaging between patient and provider before and after appointments.
@@ -663,14 +664,16 @@ CLINICAL STANDARDS:
 
 HIPAA COMPLIANCE:
 - All patient data encrypted at rest and in transit
-- HIPAA-compliant storage for: charting, digital consents, before-and-after photos, medical records, AI simulator photos, payment information
+<!-- prior text 2026-04-29: "charting, digital consents, before-and-after photos, medical records, AI simulator photos, payment information" -->
+- HIPAA-compliant storage for: charting, digital consents, before-and-after photos, medical records, payment information
 - Only the patient and their treating provider can access patient records
 - Patients can delete their data at any time
 - Exportable records available for supervising physician review
 - The platform was designed for clinical compliance from the ground up
 
 WEBSITE: aestheticstogo.com
-- Homepage: Platform overview, AI simulator demo video, provider recruitment CTA, clinical workflow explanation
+<!-- prior text 2026-04-29: "Platform overview, AI simulator demo video, provider recruitment CTA, clinical workflow explanation" -->
+- Homepage: Platform overview, provider recruitment CTA, clinical workflow explanation
 - /providers: Provider recruitment page — value proposition, comparison table (ATG vs traditional clinic vs other platforms), how to join, technology showcase, provider FAQ
 - /botox: Mobile Botox service page — treatment areas, how it works for patients, what to expect, service areas, patient FAQ, booking
 - /fillers: Mobile dermal filler service page — treatment areas with durations, fillers vs Botox comparison, how it works, what to expect, service areas, patient FAQ

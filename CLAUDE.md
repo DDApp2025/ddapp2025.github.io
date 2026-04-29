@@ -17,7 +17,7 @@ GitHub Pages serves `origin/main` directly to aestheticstogo.com. No build step,
 
 ## Project
 
-Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedure devices, skincare actives, peptide supplements, PRP/PRF procedural equipment, transdermal peptide patches, and regenerative biologics (Florida/Utah where applicable) at injector pricing. Sub-brand inside aestheticstogo.com. Positions ATG as one clinical platform: EHR + AI Simulator + Clinical Supplies.
+Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedure devices, skincare actives, peptide supplements, PRP/PRF procedural equipment, transdermal peptide patches, and regenerative biologics (Florida/Utah where applicable) at injector pricing. Sub-brand inside aestheticstogo.com. Positions ATG as one clinical platform: Mobile EHR + Clinical Supplies. (Note: AI Simulator capability still exists in the codebase but was hidden from public site 2026-04-29 — do not reintroduce simulator marketing copy without explicit instruction.)
 
 ## Hard rules — never violate
 
@@ -52,6 +52,7 @@ Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedur
 | 9 | Global nav/footer/sitemap | Complete | [see git log] | 2026-04-22 | nav + footer on all pages, sitemap.xml, docs/POST_DEPLOY_TODO.md |
 | 10 | QA report | Complete | [see git log] | 2026-04-22 | docs/QA_REPORT.md |
 | — | Geographic strip — removed Las Vegas references, repositioned as nationwide platform | Complete | [see git log] | 2026-04-28 | All city pages hidden and redirected, legacy index files redirected, all visible text and metadata updated, providerapplication.html updated to 50-state dropdown, builder template updated and detail pages regenerated, QA report at docs/GEO_STRIP_QA_REPORT.md |
+| — | AI Simulator hide — removed from public visibility, homepage card replaced with provider image | Complete | [see git log] | 2026-04-29 | /ai-simulator/ page hidden and redirected, homepage card replaced with ATG_in_home.jpg sized to fill column, all visible copy and metadata stripped of simulator references (originals preserved as date-marked HTML/CSS/JS comments), QA report at docs/AI_SIM_HIDE_QA_REPORT.md |
 
 ## End-of-prompt rule
 

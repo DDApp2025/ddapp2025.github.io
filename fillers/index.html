@@ -75,10 +75,10 @@
     "@type": "MedicalProcedure",
     "name": "Mobile Dermal Filler Injections",
     "procedureType": "NoninvasiveProcedure",
-    "description": "Concierge dermal filler injections delivered by a licensed PA-C, NP, or MD at your home or office. Treatments include lip filler, cheek augmentation, jawline contouring, nasolabial fold correction, marionette lines, under-eye hollows, chin projection, and temple volume restoration. Includes AI-powered before-and-after visualization and HIPAA-compliant documentation.",
+    "description": "Concierge dermal filler injections delivered by a licensed PA-C, NP, or MD at your home or office. Treatments include lip filler, cheek augmentation, jawline contouring, nasolabial fold correction, marionette lines, under-eye hollows, chin projection, and temple volume restoration. Includes HIPAA-compliant documentation.",
     "bodyLocation": "Face — lips, cheeks, jawline, nasolabial folds, marionette lines, under-eye hollows (tear troughs), chin, temples",
-    "howPerformed": "A licensed aesthetic provider travels to the patient's home or office with a full mobile clinical kit including sterile supplies and properly stored filler products. The provider reviews the patient's AI simulation results, conducts a facial assessment, discusses treatment goals, obtains digital consent, administers dermal filler injections using appropriate technique for each treatment area, and completes HIPAA-compliant SOAP documentation including product name, lot numbers, volumes injected, and injection sites.",
-    "preparation": "Patients use the Aesthetics To Go AI diagnostic simulator to visualize realistic before-and-after outcomes on their own face prior to the appointment. Avoid blood thinners, aspirin, ibuprofen, fish oil, and alcohol for 24–48 hours before treatment to minimize bruising. No other special preparation is required.",
+    "howPerformed": "A licensed aesthetic provider travels to the patient's home or office with a full mobile clinical kit including sterile supplies and properly stored filler products. The provider conducts a facial assessment, discusses treatment goals, obtains digital consent, administers dermal filler injections using appropriate technique for each treatment area, and completes HIPAA-compliant SOAP documentation including product name, lot numbers, volumes injected, and injection sites.",
+    "preparation": "Avoid blood thinners, aspirin, ibuprofen, fish oil, and alcohol for 24–48 hours before treatment to minimize bruising. No other special preparation is required.",
     "followup": "Mild swelling, tenderness, and possible bruising are normal for 3–7 days. Avoid intense exercise for 24 hours. Do not apply pressure to treated areas for 48 hours. Results are visible immediately and typically last 6–18 months depending on the product used and treatment area. Follow-up appointments can be scheduled through the Aesthetics To Go app.",
     "status": "https://schema.org/EventScheduled"
   }
@@ -95,7 +95,7 @@
         "name": "Can I get lip filler at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver lip filler and other dermal filler treatments at your home or office. You can visualize your results using the AI simulator before booking, and a credentialed provider comes to you with a full mobile clinical kit including properly stored filler products. Provider availability varies by market."
+          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver lip filler and other dermal filler treatments at your home or office. A credentialed provider comes to you with a full mobile clinical kit including properly stored filler products. Provider availability varies by market."
         }
       },
       {
@@ -356,17 +356,21 @@
       </div>
       <div class="hero-service-actions">
         <button class="btn-primary" onclick="openPatientModal()">Book Your Treatment</button>
+        <!-- AI Simulator hero secondary CTA hidden 2026-04-29 — uncomment to restore
         <div class="hero-service-secondary">or <span>try the AI simulator first</span></div>
+        -->
       </div>
       <p class="hero-service-note">All providers are licensed, credentialed, and insured. Same clinical standards as a medical office — at your home. All filler products are FDA-approved and properly stored.</p>
     </div>
 
     <div class="hero-service-media">
+      <!-- AI Simulator hero-service-card hidden 2026-04-29 — uncomment to restore
       <div class="hero-service-card">
         <img src="before_after.jpg" alt="Before and after results from mobile dermal filler treatment showing lip and cheek enhancement" />
         <h3 class="hero-service-card-title">Visualize your filler results before treatment.</h3>
         <p class="hero-service-card-text">The AI diagnostic simulator maps filler placement onto your own face — lips, cheeks, jawline, nasolabial folds — so you see realistic outcomes before the provider arrives.</p>
       </div>
+      -->
     </div>
   </section>
 
@@ -458,10 +462,12 @@
         <div class="how-eyebrow">Your Experience</div>
         <h2 class="how-title">How Mobile Fillers Work</h2>
       </div>
-      <div class="how-eyebrow">From AI preview to treatment in three steps.</div>
+      <!-- prior text 2026-04-29: "From AI preview to treatment in three steps." -->
+      <div class="how-eyebrow">From booking to treatment in two steps.</div>
     </div>
 
     <div class="how-grid">
+      <!-- AI Simulator how-step "Visualize Your Results" hidden 2026-04-29 — uncomment to restore (note: subsequent steps will need renumbering if restored)
       <article class="how-card">
         <div class="how-step">1</div>
         <h3 class="how-card-title">Visualize Your Results.</h3>
@@ -469,17 +475,21 @@
           Open the Aesthetics To Go app and run the AI diagnostic simulator on your own face. Select your treatment areas — lips, cheeks, jawline, nasolabial folds — and see a realistic before-and-after visualization in seconds. Know exactly what to expect before you commit.
         </p>
       </article>
+      -->
 
       <article class="how-card">
-        <div class="how-step">2</div>
+        <!-- prior step number 2026-04-29: "2" (was step 2 before AI Simulator step removal) -->
+        <div class="how-step">1</div>
         <h3 class="how-card-title">Book Your Provider.</h3>
+        <!-- prior text 2026-04-29: "Your provider reviews your AI simulation results and prepares the appropriate filler products before arriving at your home or office." -->
         <p class="how-card-text">
-          Choose a licensed PA-C or NP based on their credentials, experience, and availability. Select a date and time that fits your schedule. Your provider reviews your AI simulation results and prepares the appropriate filler products before arriving at your home or office.
+          Choose a licensed PA-C or NP based on their credentials, experience, and availability. Select a date and time that fits your schedule. Your provider prepares the appropriate filler products before arriving at your home or office.
         </p>
       </article>
 
       <article class="how-card">
-        <div class="how-step">3</div>
+        <!-- prior step number 2026-04-29: "3" (was step 3 before AI Simulator step removal) -->
+        <div class="how-step">2</div>
         <h3 class="how-card-title">Get Treated at Home.</h3>
         <p class="how-card-text">
           Your provider arrives with a full mobile clinical kit including properly stored FDA-approved filler products. They assess your facial anatomy, discuss your goals, obtain digital consent, administer the treatment, and complete HIPAA-compliant documentation. Results are visible immediately.
@@ -614,7 +624,9 @@
       <div class="cta-features">
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed PA-Cs, NPs, and MDs only</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">FDA-approved hyaluronic acid fillers</span></div>
+        <!-- AI Simulator cta-feature hidden 2026-04-29 — uncomment to restore
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">AI before-and-after visualization</span></div>
+        -->
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">HIPAA-compliant documentation</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">No travel fees or surcharges</span></div>
       </div>

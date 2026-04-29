@@ -10,7 +10,6 @@ who deliver concierge aesthetic treatments at patients' homes and offices.
 - Zero monthly subscription fees for providers
 - Zero merchant processing fees (100% payout retention)
 - Full mobile EHR with HIPAA-compliant SOAP charting
-- AI diagnostic simulator for patient visualization
 - Volume wholesale pricing on medical supplies
 - Nationwide mobile platform
 

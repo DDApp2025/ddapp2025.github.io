@@ -75,10 +75,10 @@
     "@type": "MedicalProcedure",
     "name": "Mobile Botox Injections",
     "procedureType": "NoninvasiveProcedure",
-    "description": "Concierge Botox injections delivered by a licensed PA-C, NP, or MD at your home or office. Includes AI-powered before-and-after visualization, HIPAA-compliant SOAP charting, and digital consent capture.",
+    "description": "Concierge Botox injections delivered by a licensed PA-C, NP, or MD at your home or office. Includes HIPAA-compliant SOAP charting and digital consent capture.",
     "bodyLocation": "Face — forehead lines, crow's feet, frown lines (glabellar), brow lift, bunny lines, lip flip, chin dimpling, neck bands",
-    "howPerformed": "A licensed aesthetic provider travels to the patient's home or office with a full mobile clinical kit. The provider reviews the patient's AI simulation results, conducts an in-person assessment, obtains digital consent, administers Botox injections using standard techniques, documents the treatment with structured SOAP notes including injection sites, unit counts, and lot numbers, and captures before-and-after photos.",
-    "preparation": "Patients use the Aesthetics To Go AI diagnostic simulator to visualize realistic before-and-after outcomes on their own face prior to the appointment. No special preparation is required. Patients should avoid blood thinners and alcohol for 24 hours before treatment.",
+    "howPerformed": "A licensed aesthetic provider travels to the patient's home or office with a full mobile clinical kit. The provider conducts an in-person assessment, obtains digital consent, administers Botox injections using standard techniques, documents the treatment with structured SOAP notes including injection sites, unit counts, and lot numbers, and captures before-and-after photos.",
+    "preparation": "No special preparation is required. Patients should avoid blood thinners and alcohol for 24 hours before treatment.",
     "followup": "Avoid rubbing the treated area for 4 hours. Remain upright for 4 hours post-injection. Results typically appear within 3–7 days and last 3–4 months. Follow-up appointments can be scheduled through the Aesthetics To Go app.",
     "status": "https://schema.org/EventScheduled"
   }
@@ -95,7 +95,7 @@
         "name": "Can I get Botox at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver Botox injections at your home or office. You can visualize your results using the AI simulator before booking, and a credentialed provider comes to you with a full mobile clinical kit. Provider availability varies by market."
+          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver Botox injections at your home or office. A credentialed provider comes to you with a full mobile clinical kit. Provider availability varies by market."
         }
       },
       {
@@ -120,14 +120,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, when administered by a licensed provider. Aesthetics To Go providers follow the same clinical protocols used in medical offices — sterile technique, proper product storage and handling, HIPAA-compliant documentation, lot number tracking, and structured SOAP charting. The only difference is the setting: your home instead of a clinic."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the AI simulator and how does it work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Aesthetics To Go AI diagnostic simulator uses high-fidelity visual mapping to show you realistic before-and-after outcomes for Botox on your own face. You upload a photo, select your areas of concern — forehead lines, crow's feet, frown lines, brow lift — and the simulator generates a personalized visualization. This helps you set clear expectations before the provider arrives."
         }
       },
       {
@@ -341,17 +333,21 @@
       </div>
       <div class="hero-service-actions">
         <button class="btn-primary" onclick="openPatientModal()">Book Your Treatment</button>
+        <!-- AI Simulator hero secondary CTA hidden 2026-04-29 — uncomment to restore
         <div class="hero-service-secondary">or <span>try the AI simulator first</span></div>
+        -->
       </div>
       <p class="hero-service-note">All providers are licensed, credentialed, and carry their own malpractice insurance. Same clinical standards as a medical office — delivered at your home.</p>
     </div>
 
     <div class="hero-service-media">
+      <!-- AI Simulator hero-service-card hidden 2026-04-29 — uncomment to restore
       <div class="hero-service-card">
         <img src="before_after.jpg" alt="Before and after results from mobile Botox treatment showing forehead line reduction" />
         <h3 class="hero-service-card-title">See your results before you book.</h3>
         <p class="hero-service-card-text">The AI diagnostic simulator maps Botox outcomes onto your own face — forehead, crow's feet, frown lines, brow lift — so you know exactly what to expect before the provider arrives.</p>
       </div>
+      -->
     </div>
   </section>
 
@@ -435,10 +431,12 @@
         <div class="how-eyebrow">Your Experience</div>
         <h2 class="how-title">How Mobile Botox Works</h2>
       </div>
-      <div class="how-eyebrow">From AI preview to treatment in three steps.</div>
+      <!-- prior text 2026-04-29: "From AI preview to treatment in three steps." -->
+      <div class="how-eyebrow">From booking to treatment in two steps.</div>
     </div>
 
     <div class="how-grid">
+      <!-- AI Simulator how-step "Visualize Your Results" hidden 2026-04-29 — uncomment to restore (note: subsequent steps will need renumbering if restored)
       <article class="how-card">
         <div class="how-step">1</div>
         <h3 class="how-card-title">Visualize Your Results.</h3>
@@ -446,17 +444,21 @@
           Open the Aesthetics To Go app and run the AI diagnostic simulator on your own face. Select your areas of concern — forehead, crow's feet, frown lines, brow — and see a realistic before-and-after visualization in seconds. Know exactly what to expect before you book.
         </p>
       </article>
+      -->
 
       <article class="how-card">
-        <div class="how-step">2</div>
+        <!-- prior step number 2026-04-29: "2" (was step 2 before AI Simulator step removal) -->
+        <div class="how-step">1</div>
         <h3 class="how-card-title">Book Your Provider.</h3>
+        <!-- prior text 2026-04-29: "Your provider reviews your AI simulation results before they arrive so they come prepared." -->
         <p class="how-card-text">
-          Choose a licensed PA-C or NP in your area based on their credentials, availability, and reviews. Select a date and time that fits your schedule — mornings, evenings, weekends. Your provider reviews your AI simulation results before they arrive so they come prepared.
+          Choose a licensed PA-C or NP in your area based on their credentials, availability, and reviews. Select a date and time that fits your schedule — mornings, evenings, weekends.
         </p>
       </article>
 
       <article class="how-card">
-        <div class="how-step">3</div>
+        <!-- prior step number 2026-04-29: "3" (was step 3 before AI Simulator step removal) -->
+        <div class="how-step">2</div>
         <h3 class="how-card-title">Get Treated at Home.</h3>
         <p class="how-card-text">
           Your provider arrives with a full mobile clinical kit. They conduct an in-person assessment, review your goals, obtain digital consent, administer your Botox treatment, and complete HIPAA-compliant documentation. The entire visit typically takes 30–45 minutes.
@@ -527,10 +529,12 @@
         <p class="faq-card-answer">Results typically appear within 3–7 days and last 3–4 months. Your provider will recommend a treatment schedule based on your goals and facial anatomy. The app tracks your treatment history for optimal timing on follow-up appointments.</p>
       </div>
 
+      <!-- AI Simulator FAQ card hidden 2026-04-29 — uncomment to restore
       <div class="faq-card">
         <h3 class="faq-card-question">What is the AI simulator?</h3>
         <p class="faq-card-answer">The AI diagnostic simulator maps realistic Botox outcomes onto your own face using high-fidelity visual modeling. Upload a photo, select your treatment areas, and see a personalized before-and-after visualization — before you ever book an appointment.</p>
       </div>
+      -->
 
       <div class="faq-card">
         <h3 class="faq-card-question">Can I book same-day?</h3>
@@ -555,7 +559,9 @@
 
       <div class="cta-features">
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed PA-Cs, NPs, and MDs only</span></div>
+        <!-- AI Simulator cta-feature hidden 2026-04-29 — uncomment to restore
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">AI before-and-after visualization</span></div>
+        -->
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">HIPAA-compliant documentation</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">No travel fees or surcharges</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Transparent pricing before booking</span></div>
