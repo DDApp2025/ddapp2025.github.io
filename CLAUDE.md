@@ -53,6 +53,7 @@ Launching ATG Clinical Supplies: a soft-gated catalog of exosomes, post-procedur
 | 10 | QA report | Complete | [see git log] | 2026-04-22 | docs/QA_REPORT.md |
 | — | Geographic strip — removed Las Vegas references, repositioned as nationwide platform | Complete | [see git log] | 2026-04-28 | All city pages hidden and redirected, legacy index files redirected, all visible text and metadata updated, providerapplication.html updated to 50-state dropdown, builder template updated and detail pages regenerated, QA report at docs/GEO_STRIP_QA_REPORT.md |
 | — | AI Simulator hide — removed from public visibility, homepage card replaced with provider image | Complete | [see git log] | 2026-04-29 | /ai-simulator/ page hidden and redirected, homepage card replaced with ATG_in_home.jpg sized to fill column, all visible copy and metadata stripped of simulator references (originals preserved as date-marked HTML/CSS/JS comments), QA report at docs/AI_SIM_HIDE_QA_REPORT.md |
+| — | Value Prop Realignment Phase 1 — homepage copy and audience parity | Complete | 4392747 | 2026-05-03 | index.html — wordmark, hero H1/subhead/eyebrow, both above-the-fold CTAs, header CTA, FAQ + schema + OG/Twitter meta updated to Regional Lead Provider / Licensed Providers framing per VALUE_PROP_REALIGNMENT_RULES.md. All Rule 2 forbidden strings cleared from homepage. Modal H2 + cta-band paragraph deferred to Phase 3. Phase 2 pending. |
 
 ## End-of-prompt rule
 
