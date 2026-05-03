@@ -261,8 +261,18 @@
     .footer-row a{text-transform:uppercase;letter-spacing:.12em;color:#968371;transition:color .15s}
     .footer-row a:hover{color:var(--accent)}
     .footer-copy{margin-top:.3rem;font-size:.74rem;color:#b0a293}
-    @media(max-width:960px){.hero{grid-template-columns:1fr}.hero-media{height:auto}.hero-image{height:auto;aspect-ratio:1/1}.how-grid,.magazine-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.how-grid,.magazine-grid{grid-template-columns:1fr}.hero{padding-top:2.4rem}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions>*{width:100%;text-align:center}}
+    /* 2026-05-03: .how-grid/.magazine-grid use minmax(0,1fr) — NOT bare 1fr — because bare 1fr resolves to minmax(auto,1fr) where the auto minimum equals the column's min-content. Grid children with HTML width/height attributes (set on imgs for CLS prevention) report their declared pixel size as min-content, which can exceed the viewport at small breakpoints and force horizontal overflow of the entire body. Do not simplify back to repeat(2,1fr). */
+    @media(max-width:960px){.hero{grid-template-columns:1fr}.hero-media{height:auto}.hero-image{height:auto;aspect-ratio:1/1}.how-grid,.magazine-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    /* 2026-05-03: same protection as the 960px rule above — minmax(0,1fr) prevents img min-content from forcing the single-column grid wider than the viewport. Do not simplify back to 1fr. */
+    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.how-grid,.magazine-grid{grid-template-columns:minmax(0,1fr)}.hero{padding-top:2.4rem}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions>*{width:100%;text-align:center}}
+    /* 2026-05-03: at mobile widths, allow long unbreakable strings in flex items to wrap. Default desktop nowrap rules on .logo-text and .hero-actions buttons assumed shorter strings (pre-Phase-1: .logo-text 36 chars, hero CTAs 22-25 chars). Phase 1 grew these to 60 chars and 32-44 chars respectively. Long unbreakable strings in flex items overflow the viewport at mobile breakpoints regardless of width:100% on the containing box. Do not re-apply nowrap to these selectors below 720px. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em}
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline{white-space:normal;font-size:.74rem;padding:.65rem 1rem;letter-spacing:.06em;line-height:1.25}
+    }
     @media(max-width:1200px) and (min-width:721px){
       .hero-actions .btn-primary,
       .hero-actions .btn-outline{
@@ -271,9 +281,10 @@
         letter-spacing:.08em;
       }
     }
-    .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.6);align-items:flex-start;justify-content:center;padding:2rem 0}
-    .modal.active{display:flex}
-    .modal-content{background:#fff;padding:2.5rem;border-radius:20px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+    /* 2026-05-03: modal centering — must center .modal-content horizontally and align it to the top vertically across all viewports (375/768/1280). Flex container properties (align-items, justify-content) live on .modal.active alongside display:flex, NOT on the base .modal{display:none} rule. CSS spec says properties on display:none rules cascade fine, but in practice some browser contexts (device-mode toggle, class-toggle JS racing reflow, certain re-layout paths) fail to re-apply flex container properties when display transitions from none to flex via class toggle, leaving .modal-content flush-left at narrow viewports. Setting them on the .active rule guarantees the flex container is fully configured the moment it activates. .modal-content also carries margin:0 auto as a block-level fallback so auto-margin centering kicks in even if flex misbehaves. inset:0 replaces the prior top/left/width/height combo for clearer viewport-edge pinning. Do not move centering properties back to the base .modal rule. */
+    .modal{display:none;position:fixed;inset:0;z-index:9999;overflow:auto;background:rgba(0,0,0,.6);padding:2rem 0}
+    .modal.active{display:flex;align-items:flex-start;justify-content:center}
+    .modal-content{background:#fff;padding:2.5rem;border-radius:20px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25);margin:0 auto}
     .modal-close{position:absolute;top:1rem;right:1.5rem;font-size:2rem;cursor:pointer;color:#999}
     .modal-close:hover{color:#000}
     .modal h2{font-family:"Playfair Display",serif;font-size:1.8rem;text-align:center;margin-bottom:1rem}
@@ -285,6 +296,12 @@
     .thank-you-message{text-align:center;padding:2rem;}
     .thank-you-message h2{font-family:"Playfair Display",serif;margin-bottom:1rem;color:#2a2520;}
     .thank-you-message p{color:#666;}
+    /* 2026-05-03: modal form inputs use a smaller font + tighter padding at mobile so long placeholder strings (e.g. "Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)") render with maximum visible characters within the 337.5px modal-content width at 375px viewport. Placed AFTER the base .modal input rule because both have specificity (0,1,1) — equal specificity means later in source wins, so this @media block must follow the base rule, not precede it inside the earlier @720px block. Some truncation of the longest placeholder is still expected — informative-but-truncated was chosen over short-and-uninformative. */
+    @media(max-width:720px){
+      .modal input,
+      .modal select,
+      .modal textarea{font-size:.85rem;padding:.7rem .85rem}
+    }
   </style>
 </head>
 <body>
@@ -303,14 +320,14 @@
 
   <section class="hero">
     <div class="hero-copy">
-      <div class="hero-copy-eyebrow">The Mobile Clinical Operating System for Licensed Providers.</div>
+      <div class="hero-copy-eyebrow">Concierge Aesthetic Provider Network.</div>
       <h1 class="hero-title">The <span>Six-Figure</span> Private Practice. Zero Overhead. Full Clinical Autonomy. Direct Patient Access.</h1>
       <!-- prior text 2026-04-29: "Charting, scheduling, and an AI procedure simulator on your phone. Injector-priced exosomes, post-procedure devices, and skincare actives shipped to your door." -->
       <p class="hero-subtitle">A mobile clinical operating system for licensed physicians, NPs, and PAs building concierge aesthetic practices on their own terms.</p>
       <div class="hero-pills">
         <!-- prior text 2026-04-29: "Mobile EHR + AI Simulator" -->
-        <div class="hero-pill">✓ Mobile EHR</div>
-        <div class="hero-pill">✓ Injector-Priced Supplies</div>
+        <div class="hero-pill">✓ HIPAA Compliant</div>
+        <div class="hero-pill">✓ Encrypted Documentation</div>
         <div class="hero-pill">✓ Malpractice Insurance Integration</div>
       </div>
       <div class="hero-actions">
@@ -322,7 +339,7 @@
     <div class="hero-media">
       <figure class="hero-image">
         <img src="ATG_in_home.jpg" alt="Licensed provider delivering concierge treatment in patient's home" />
-        <figcaption class="hero-image-caption">A mobile app for mobile aesthetic providers</figcaption>
+        <figcaption class="hero-image-caption">A mobile clinical operating system.</figcaption>
       </figure>
       <!-- AI Simulator card hidden 2026-04-29 — uncomment to restore
       <div class="hero-card">
@@ -355,6 +372,82 @@
   </section>
   <p style="text-align:center;font-size:.72rem;color:#9a8776;margin-top:-.4rem;margin-bottom:.4rem;letter-spacing:.06em">*For Regional Lead Providers during launch period.</p>
 
+  <section class="how-it-works" id="clinical-workflow">
+    <!-- Provider Journey rebuilt 2026-05-03: was "Clinical Flow / Streamlined from Assessment to Injection" with 2 steps; now 3-step journey per VALUE_PROP_REALIGNMENT_RULES.md Rule 6. id="clinical-workflow" preserved for any existing anchor links. -->
+    <div class="how-header">
+      <div>
+        <h2 class="how-title">The Provider Journey</h2>
+      </div>
+    </div>
+
+    <div class="how-grid">
+      <article class="how-card">
+        <div class="how-step">1</div>
+        <h3 class="how-card-title">Credentialing & Clinical Onboarding.</h3>
+        <p class="how-card-text">
+          License verification, malpractice integration, supervisory framework setup where state scope requires it, and a clinical readiness review before your first appointment. We confirm you can practice cleanly in every territory you accept.
+        </p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-step">2</div>
+        <h3 class="how-card-title">Patient Acquisition & Provider Match.</h3>
+        <p class="how-card-text">
+          Pre-qualified patient consultations are routed to you based on credentials, territory, and clinical specialty. You set your travel radius and your availability. Patients arrive ready to commit — no chair-time spent convincing.
+        </p>
+      </article>
+
+      <article class="how-card">
+        <div class="how-step">3</div>
+        <h3 class="how-card-title">High-Margin Payouts & Revenue Retention.</h3>
+        <p class="how-card-text">
+          Direct deposit on completed treatments. Regional Lead Providers retain the full payout during the launch period, with a transparent fee schedule disclosed before any post-launch transition. Your revenue model is part of the agreement, not a surprise.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="magazine" id="compliance">
+    <!-- Reorder + AI sim card removal 2026-05-03: had 3 cards (Diagnostic Precision · Low-Overhead Practice · Your Revenue, Protected). Diagnostic Precision relocated to "The Patient Experience" section per VALUE_PROP_REALIGNMENT_RULES.md Rule 6. Remaining 2 cards reordered with Revenue first. Grid kept at default 3-col so existing media queries continue to work at 720/960 breakpoints; 2 cards occupy cols 1-2 on desktop with col 3 blank. -->
+    <div class="magazine-header">
+      <div>
+        <div class="magazine-kicker">Built for Medical Autonomy</div>
+        <h2 class="magazine-title">A Professional Suite for Your Private Practice</h2>
+      </div>
+      <div class="magazine-kicker">Clinical-grade standards, optimized for the mobile provider.</div>
+    </div>
+
+    <div class="magazine-grid">
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="TaxMess.png" alt="Direct deposit dashboard for a licensed aesthetic provider on Aesthetics To Go." width="1200" height="800" loading="lazy" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Your Revenue, Protected</div>
+          <h3 class="mag-card-title">Direct deposit. Full payout retention during launch.</h3>
+          <p class="mag-card-text">
+            As a Regional Lead Provider, we cover every processing and banking fee so your payouts stay yours. Perform a treatment, receive the <strong>full amount</strong> directly to your bank — no hidden deductions, no platform cuts, no margin lost to merchant fees.
+          </p>
+          <div class="mag-card-meta">Full Revenue Retention · Direct Deposit</div>
+        </div>
+      </article>
+
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="WorkingFromHome.png" alt="Licensed provider managing a concierge aesthetic practice on a mobile clinical operating system." width="511" height="374" loading="lazy" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Low-Overhead Practice</div>
+          <h3 class="mag-card-title">Eliminate the cost of traditional clinic space.</h3>
+          <p class="mag-card-text">
+            Aesthetics To Go charges <strong>no monthly subscription for Regional Lead Providers</strong>. Build your private concierge panel with zero upfront platform costs, whether you see one patient a month or twenty a week.
+          </p>
+          <div class="mag-card-meta">No Fixed Costs · Professional Independence</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!--
     ATG Clinical Supplies teaser. Featured SKUs (hardcoded — intentionally NOT
     fetched from clinical-supplies/catalog.js to keep the homepage off the
@@ -362,12 +455,17 @@
       - benev-erc                 (Exosomes)
       - drpen-a20                 (Post-Procedure Devices)
       - skinceuticals-ce-ferulic  (Skincare Actives)
+    Section relocated 2026-05-03 from above-the-fold (after feature strip) to
+    after Provider Journey + Professional Suite per VALUE_PROP_REALIGNMENT_RULES.md
+    Rule 6 — supply catalog should not be the second thing a provider sees.
+    Heading + eyebrow updated same date: was "ATG Clinical Supplies / Clinical
+    supplies at injector pricing".
   -->
   <section class="magazine" id="clinical-supplies-teaser" aria-labelledby="supply-teaser-title">
     <div class="magazine-header">
       <div>
-        <div class="magazine-kicker">ATG Clinical Supplies</div>
-        <h2 class="magazine-title" id="supply-teaser-title">Clinical supplies at injector pricing</h2>
+        <div class="magazine-kicker">Add-On for Licensed Providers</div>
+        <h2 class="magazine-title" id="supply-teaser-title">Injector-Priced Clinical Supplies for Your Practice</h2>
       </div>
       <div class="magazine-kicker">Direct-ship · licensed providers only</div>
     </div>
@@ -435,101 +533,6 @@
     </div>
   </section>
 
-  <section class="how-it-works" id="clinical-workflow">
-    <div class="how-header">
-      <div>
-        <div class="how-eyebrow">The Clinical Flow</div>
-        <h2 class="how-title">Streamlined from Assessment to Injection</h2>
-      </div>
-      <div class="how-eyebrow">Professional-grade care in any environment.</div>
-    </div>
-
-    <div class="how-grid">
-      <!-- AI Simulator how-step "Patient Self-Assessment" hidden 2026-04-29 — uncomment to restore (note: subsequent steps will need renumbering if restored)
-      <article class="how-card">
-        <div class="how-step">1</div>
-        <h3 class="how-card-title">Patient Self-Assessment.</h3>
-        <p class="how-card-text">
-          Patients select their area of concern — forehead lines, lips, cheeks, jawline — and run the AI simulator on their own face. Within seconds they see realistic before-and-after outcomes, establishing clinical expectations and pre-qualifying genuine interest before you ever open your kit.
-        </p>
-      </article>
-      -->
-
-      <article class="how-card">
-        <!-- prior step number 2026-04-29: "2" (was step 2 before AI Simulator step removal) -->
-        <div class="how-step">1</div>
-        <h3 class="how-card-title">Provider Match & Scheduling.</h3>
-        <!-- prior text 2026-04-29: "Aesthetics To Go connects patients with credentialed PAs based on expertise and location. You control your travel radius and clinical availability through a mobile-optimized provider dashboard. Because patients have already visualized their results, they arrive pre-qualified and ready to commit — less time convincing, more time treating." -->
-        <p class="how-card-text">
-          Aesthetics To Go connects patients with credentialed providers based on expertise and location. You control your travel radius and clinical availability through a mobile-optimized provider dashboard. Patients arrive ready to commit — less time convincing, more time treating.
-        </p>
-      </article>
-
-      <article class="how-card">
-        <!-- prior step number 2026-04-29: "3" (was step 3 before AI Simulator step removal) -->
-        <div class="how-step">2</div>
-        <h3 class="how-card-title">Documentation & Treatment.</h3>
-        <p class="how-card-text">
-          Conduct house-calls with a full clinical toolkit. Capture digital consents, log lot numbers/units, and complete comprehensive SOAP notes in the driveway before you even leave the site.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="magazine" id="compliance">
-    <div class="magazine-header">
-      <div>
-        <div class="magazine-kicker">Built for Medical Autonomy</div>
-        <h2 class="magazine-title">A Professional Suite for Your Private Practice</h2>
-      </div>
-      <div class="magazine-kicker">Clinical-grade standards, optimized for the mobile provider.</div>
-    </div>
-
-    <div class="magazine-grid">
-      <article class="mag-card">
-        <div class="mag-card-image">
-          <img src="BeforeAfter.png" alt="Before and after results from mobile Botox and filler treatment by licensed provider" />
-        </div>
-        <div class="mag-card-body">
-          <div class="mag-card-eyebrow">Diagnostic Precision</div>
-          <h3 class="mag-card-title">Evidence-based consultations using AI modeling.</h3>
-          <p class="mag-card-text">
-            Standardize your patient education. Use high-fidelity AI to map toxin and filler placement, allowing for more accurate treatment planning and higher patient satisfaction rates. Patients who visualize their results before a consultation convert at significantly higher rates — the simulator does the selling before you even arrive.
-          </p>
-          <div class="mag-card-meta">Clinical Visualization · Patient Education</div>
-        </div>
-      </article>
-
-      <article class="mag-card">
-        <div class="mag-card-image">
-          <img src="WorkingFromHome.png" alt="Licensed provider managing patient records on Aesthetics To Go mobile EHR" />
-        </div>
-        <div class="mag-card-body">
-          <div class="mag-card-eyebrow">Low-Overhead Practice</div>
-          <h3 class="mag-card-title">Eliminate the cost of traditional clinic space.</h3>
-          <p class="mag-card-text">
-            Aesthetics To Go charges <strong>no monthly subscription for Regional Lead Providers</strong>. Build your private concierge panel with zero upfront platform costs, whether you see one patient a month or twenty a week.
-          </p>
-          <div class="mag-card-meta">No Fixed Costs · Professional Independence</div>
-        </div>
-      </article>
-
-      <article class="mag-card">
-        <div class="mag-card-image">
-          <img src="TaxMess.png" alt="Direct deposit payment for mobile aesthetic provider with zero merchant fees" />
-        </div>
-        <div class="mag-card-body">
-          <div class="mag-card-eyebrow">Your Revenue, Protected</div>
-          <h3 class="mag-card-title">Zero-fee merchant processing for early adopter providers.</h3>
-          <p class="mag-card-text">
-            As a Regional Lead Provider, we cover every processing and banking fee so your payouts stay yours. Perform a treatment, receive the <strong>full amount</strong> directly to your bank — no hidden deductions, no platform cuts, no margin lost to merchant fees.
-          </p>
-          <div class="mag-card-meta">Full Revenue Retention · Direct Deposit</div>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section class="cta-band" id="faq">
     <div class="cta-inner">
       <div>
@@ -538,7 +541,7 @@
           Access a full mobile EHR, volume pricing on medical supplies, and AI-driven growth tools with zero platform fees for Regional Lead Providers. This is the future of aesthetic medicine for the modern licensed provider.
         </p>
         <div class="cta-actions">
-          <button class="btn-primary" onclick="openModal()">Claim Your Free EHR →</button>
+          <button class="btn-primary" onclick="openModal()">Apply as Regional Lead Provider →</button>
         </div>
       </div>
 
@@ -574,6 +577,35 @@
     </div>
   </section>
 
+  <section class="magazine" id="patient-experience">
+    <!-- Patient Experience section added 2026-05-03: contains the AI Diagnostic Precision card relocated from "A Professional Suite" per VALUE_PROP_REALIGNMENT_RULES.md Rule 6. Single-card layout via inline grid override. -->
+    <div class="magazine-header">
+      <div>
+        <h2 class="magazine-title">The Patient Experience</h2>
+      </div>
+    </div>
+
+    <p style="max-width:48rem;font-size:1rem;color:var(--text-muted);line-height:1.6;margin:-.6rem 0 2rem">
+      What your patients see before you arrive.
+    </p>
+
+    <div class="magazine-grid" style="grid-template-columns:minmax(0,1fr);max-width:42rem;margin:0 auto">
+      <article class="mag-card">
+        <div class="mag-card-image">
+          <img src="BeforeAfter.png" alt="Before and after results from mobile Botox and filler treatment by licensed provider" />
+        </div>
+        <div class="mag-card-body">
+          <div class="mag-card-eyebrow">Diagnostic Precision</div>
+          <h3 class="mag-card-title">Evidence-based consultations using AI modeling.</h3>
+          <p class="mag-card-text">
+            Standardize your patient education. Use high-fidelity AI to map toxin and filler placement, allowing for more accurate treatment planning and higher patient satisfaction rates. Patients who visualize their results before a consultation convert at significantly higher rates — the simulator does the selling before you even arrive.
+          </p>
+          <div class="mag-card-meta">Clinical Visualization · Patient Education</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-row"><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>
@@ -589,7 +621,7 @@
       <span class="modal-close" onclick="closeModal()">×</span>
       <div id="formContainer">
         <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go" style="height:70px;width:auto"></div>
-        <h2>Join as a Founding Provider</h2>
+        <h2>Apply as a Regional Lead Provider</h2>
         <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="contactForm" action="https://formspree.io/f/xbdanjvw" method="POST">
           <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)" required>
@@ -641,7 +673,27 @@
   <script>
     function openModal() {
       document.getElementById('claimModal').classList.add('active');
+      // 2026-05-03: temporary diagnostic for Phase 2 mobile-rendering verification — REMOVE after issue confirmed resolved
+      requestAnimationFrame(() => {
+        var c = document.querySelector('#claimModal .modal-content');
+        if (!c) return;
+        var rect = c.getBoundingClientRect();
+        console.log('[ATG diag] Modal content rect: left=' + rect.left.toFixed(2) + ', width=' + rect.width.toFixed(2) + ', right=' + rect.right.toFixed(2) + ', viewport=' + window.innerWidth + ', body=' + document.body.scrollWidth + ', expected-center-left=' + ((window.innerWidth - rect.width) / 2).toFixed(2));
+      });
     }
+    // 2026-05-03: temporary diagnostic — call window.atgDiag() from DevTools console at any time to print body/viewport widths plus the rect of every section header. REMOVE after Phase 2 mobile rendering is verified across all environments.
+    window.atgDiag = function() {
+      console.log('[ATG diag] viewport=' + window.innerWidth + ', body.scrollWidth=' + document.body.scrollWidth + ', html.scrollWidth=' + document.documentElement.scrollWidth);
+      document.querySelectorAll('section').forEach(function(s) {
+        var r = s.getBoundingClientRect();
+        console.log('[ATG diag]   <section ' + (s.id ? '#' + s.id : '.' + s.className) + '> rect=[' + Math.round(r.left) + '..' + Math.round(r.right) + '] width=' + Math.round(r.width));
+      });
+      var k = document.querySelectorAll('#compliance .magazine-header > .magazine-kicker');
+      if (k.length) {
+        var r = k[k.length - 1].getBoundingClientRect();
+        console.log('[ATG diag]   #compliance right magazine-kicker rect=[' + Math.round(r.left) + '..' + Math.round(r.right) + '] width=' + Math.round(r.width) + ' height=' + Math.round(r.height) + ' text="' + k[k.length - 1].textContent.trim() + '"');
+      }
+    };
     
     function closeModal() {
       document.getElementById('claimModal').classList.remove('active');
