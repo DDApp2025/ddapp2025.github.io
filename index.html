@@ -673,28 +673,8 @@
   <script>
     function openModal() {
       document.getElementById('claimModal').classList.add('active');
-      // 2026-05-03: temporary diagnostic for Phase 2 mobile-rendering verification — REMOVE after issue confirmed resolved
-      requestAnimationFrame(() => {
-        var c = document.querySelector('#claimModal .modal-content');
-        if (!c) return;
-        var rect = c.getBoundingClientRect();
-        console.log('[ATG diag] Modal content rect: left=' + rect.left.toFixed(2) + ', width=' + rect.width.toFixed(2) + ', right=' + rect.right.toFixed(2) + ', viewport=' + window.innerWidth + ', body=' + document.body.scrollWidth + ', expected-center-left=' + ((window.innerWidth - rect.width) / 2).toFixed(2));
-      });
     }
-    // 2026-05-03: temporary diagnostic — call window.atgDiag() from DevTools console at any time to print body/viewport widths plus the rect of every section header. REMOVE after Phase 2 mobile rendering is verified across all environments.
-    window.atgDiag = function() {
-      console.log('[ATG diag] viewport=' + window.innerWidth + ', body.scrollWidth=' + document.body.scrollWidth + ', html.scrollWidth=' + document.documentElement.scrollWidth);
-      document.querySelectorAll('section').forEach(function(s) {
-        var r = s.getBoundingClientRect();
-        console.log('[ATG diag]   <section ' + (s.id ? '#' + s.id : '.' + s.className) + '> rect=[' + Math.round(r.left) + '..' + Math.round(r.right) + '] width=' + Math.round(r.width));
-      });
-      var k = document.querySelectorAll('#compliance .magazine-header > .magazine-kicker');
-      if (k.length) {
-        var r = k[k.length - 1].getBoundingClientRect();
-        console.log('[ATG diag]   #compliance right magazine-kicker rect=[' + Math.round(r.left) + '..' + Math.round(r.right) + '] width=' + Math.round(r.width) + ' height=' + Math.round(r.height) + ' text="' + k[k.length - 1].textContent.trim() + '"');
-      }
-    };
-    
+
     function closeModal() {
       document.getElementById('claimModal').classList.remove('active');
     }
