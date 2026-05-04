@@ -273,6 +273,12 @@
       .hero-actions .btn-primary,
       .hero-actions .btn-outline{white-space:normal;font-size:.74rem;padding:.65rem 1rem;letter-spacing:.06em;line-height:1.25}
     }
+    /* 2026-05-03 (Phase 3 follow-on): header overflow fix at intermediate widths. The header is display:flex with no wrap by default. Phase 1's longer CTA string + Phase 2's longer logo tagline pushed total flex-item content past the 1200px max-width container at 721–1280px viewports, producing horizontal body overflow. flex-wrap:wrap lets the CTA drop to a second row when nav + logo can't share a row with it. The intermediate breakpoint nav font-size shrink keeps the wrap from triggering at common desktop widths (1024+) where everything actually fits. Same regression class as the earlier flex-item-nowrap fixes documented at line 268; do not remove flex-wrap. */
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
     @media(max-width:1200px) and (min-width:721px){
       .hero-actions .btn-primary,
       .hero-actions .btn-outline{
@@ -302,6 +308,28 @@
       .modal select,
       .modal textarea{font-size:.85rem;padding:.7rem .85rem}
     }
+    /* 2026-05-03: .governance-grid — Phase 3 Clinical Governance section's 2x2 pillar layout. Existing .how-grid and .magazine-grid both use 3-col desktop layouts that produce orphan rows with 4 children (3 in row 1, 1 in row 2). minmax(0,1fr) wraps prevent the grid track-sizing class-of-bug addressed in Phase 2 (see lines 264-267). Single column at the 720px breakpoint matches the existing pattern. */
+    .governance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+    @media(max-width:720px){.governance-grid{grid-template-columns:minmax(0,1fr)}}
+    /* 2026-05-03: .economics-table — Phase 3 Practice Economics comparison table. Standard 3-column table at desktop and tablet. At mobile (<=720px) the header row hides and each tbody row stacks as a card; column labels are reintroduced via td[data-label] + ::before pseudo-elements. Pattern is the standard "responsive table to stacked card" approach. Color/border tokens reuse existing CSS custom properties so the table matches the homepage palette without introducing new design language. */
+    .economics-table{width:100%;border-collapse:collapse;margin:1rem 0 .5rem}
+    .economics-table th,.economics-table td{padding:.85rem 1rem;text-align:left;font-size:.92rem;line-height:1.45;border-bottom:1px solid var(--border-soft);vertical-align:top}
+    .economics-table thead th{font-family:"Inter",system-ui;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);background:var(--card-bg);border-bottom:1px solid var(--border-strong)}
+    .economics-table tbody th{font-weight:600;color:var(--text-main);width:30%}
+    .economics-table tbody tr:hover{background:#fffaf4}
+    .economics-table tbody td{color:var(--text-muted)}
+    @media(max-width:720px){
+      .economics-table,
+      .economics-table tbody,
+      .economics-table tr,
+      .economics-table td,
+      .economics-table th{display:block;width:100%}
+      .economics-table thead{display:none}
+      .economics-table tbody tr{border:1px solid var(--border-strong);border-radius:12px;background:var(--card-bg);padding:1rem;margin-bottom:1rem}
+      .economics-table tbody th{padding:0 0 .6rem 0;border-bottom:1px solid var(--border-soft);margin-bottom:.6rem;font-size:.95rem;width:auto;color:var(--text-main)}
+      .economics-table tbody td{padding:.5rem 0;border:none;font-size:.88rem;color:var(--text-main)}
+      .economics-table tbody td::before{content:attr(data-label) " · ";font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;display:block;margin-bottom:.15rem}
+    }
   </style>
 </head>
 <body>
@@ -313,7 +341,7 @@
       <div class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go logo - mobile clinical operating system for licensed providers"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></div>
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
-        <button class="btn-primary" onclick="openModal()">Apply as Regional Lead Provider →</button>
+        <button class="btn-primary" onclick="openModal()">Apply as Provider →</button>
       </div>
     </header>
   </div>
@@ -407,6 +435,46 @@
     </div>
   </section>
 
+  <section class="how-it-works" id="clinical-governance">
+    <!-- Clinical Governance section added 2026-05-03 (Phase 3) per VALUE_PROP_REALIGNMENT_RULES.md Rule 5: addresses state-specific supervisory frameworks, malpractice integration, adverse-event protocols, and audit-ready documentation. Uses .how-it-works wrapper for section padding consistency with Provider Journey above; .governance-grid is a new utility added in this phase to support the 2x2 pillar layout that .how-grid and .magazine-grid don't accommodate cleanly with 4 children. -->
+    <div class="how-header">
+      <div>
+        <div class="how-eyebrow">Clinical Governance</div>
+        <h2 class="how-title">Built for the standard of care your license demands.</h2>
+      </div>
+    </div>
+
+    <p style="max-width:48rem;font-size:1rem;color:var(--text-muted);line-height:1.6;margin:-.6rem 0 2rem">
+      Mobile aesthetics is a regulated clinical practice, not a delivery service. Aesthetics To Go is built around the supervisory, documentation, and insurance requirements that licensed providers actually face — so the platform supports your scope of practice instead of working around it.
+    </p>
+
+    <div class="governance-grid">
+      <article class="how-card">
+        <h3 class="how-card-title">State-Specific Supervisory Frameworks</h3>
+        <p class="how-card-text">Supervisory and collaborative requirements vary by state and by license type. We map the framework that applies to your license in your territory before your first appointment, and we maintain auditable records of every supervisory touchpoint.</p>
+      </article>
+
+      <article class="how-card">
+        <h3 class="how-card-title">Malpractice Insurance Integration</h3>
+        <p class="how-card-text">Coverage requirements for mobile aesthetic practice differ from clinic-based coverage. We coordinate with carriers experienced in concierge aesthetic medicine and integrate proof-of-coverage into your provider profile.</p>
+      </article>
+
+      <article class="how-card">
+        <h3 class="how-card-title">Adverse-Event Protocols</h3>
+        <p class="how-card-text">Every provider on the platform operates under a documented adverse-event protocol covering vascular occlusion, hypersensitivity reactions, and post-procedure escalation. The protocol is accessible from your mobile device on every visit.</p>
+      </article>
+
+      <article class="how-card">
+        <h3 class="how-card-title">Audit-Ready Documentation</h3>
+        <p class="how-card-text">Lot numbers, units administered, consent capture, and SOAP notes are encrypted and exportable. Records are formatted for sharing with supervising physicians, state board inquiries, or carrier audits without manual reconstruction.</p>
+      </article>
+    </div>
+
+    <p style="font-size:.78rem;color:#9a8776;margin-top:1.4rem;font-style:italic;line-height:1.5;max-width:48rem">
+      Specific regulatory requirements are state-dependent. We confirm the framework applicable to your license during onboarding.
+    </p>
+  </section>
+
   <section class="magazine" id="compliance">
     <!-- Reorder + AI sim card removal 2026-05-03: had 3 cards (Diagnostic Precision · Low-Overhead Practice · Your Revenue, Protected). Diagnostic Precision relocated to "The Patient Experience" section per VALUE_PROP_REALIGNMENT_RULES.md Rule 6. Remaining 2 cards reordered with Revenue first. Grid kept at default 3-col so existing media queries continue to work at 720/960 breakpoints; 2 cards occupy cols 1-2 on desktop with col 3 blank. -->
     <div class="magazine-header">
@@ -426,7 +494,7 @@
           <div class="mag-card-eyebrow">Your Revenue, Protected</div>
           <h3 class="mag-card-title">Direct deposit. Full payout retention during launch.</h3>
           <p class="mag-card-text">
-            As a Regional Lead Provider, we cover every processing and banking fee so your payouts stay yours. Perform a treatment, receive the <strong>full amount</strong> directly to your bank — no hidden deductions, no platform cuts, no margin lost to merchant fees.
+            Regional Lead Providers retain the full payout on completed treatments during the launch period. Processing and banking fees are absorbed by the platform. The transition to a transparent post-launch fee schedule is disclosed in your agreement, not after the fact.
           </p>
           <div class="mag-card-meta">Full Revenue Retention · Direct Deposit</div>
         </div>
@@ -438,14 +506,84 @@
         </div>
         <div class="mag-card-body">
           <div class="mag-card-eyebrow">Low-Overhead Practice</div>
-          <h3 class="mag-card-title">Eliminate the cost of traditional clinic space.</h3>
+          <h3 class="mag-card-title">Eliminate the fixed overhead of a clinic footprint.</h3>
           <p class="mag-card-text">
-            Aesthetics To Go charges <strong>no monthly subscription for Regional Lead Providers</strong>. Build your private concierge panel with zero upfront platform costs, whether you see one patient a month or twenty a week.
+            Concierge aesthetic practice does not require leased clinical real estate, front-desk staff, or a marketing department. Aesthetics To Go provides the full operational infrastructure under a Regional Lead Provider agreement — letting you scale your panel from one patient a month to a full caseload without taking on a fixed cost base.
           </p>
           <div class="mag-card-meta">No Fixed Costs · Professional Independence</div>
         </div>
       </article>
     </div>
+  </section>
+
+  <section class="magazine" id="practice-economics">
+    <!-- Practice Economics section added 2026-05-03 (Phase 3) per VALUE_PROP_REALIGNMENT_RULES.md Rule 8: comparison table contrasts cost categories carried by an aesthetic provider in a traditional clinic-based employment role vs. an ATG Regional Lead Provider. NO specific dollar figures appear in this section per Rule 8; "Six-figure" appears only in the intro paragraph. The .economics-table utility (defined in <style>) provides desktop 3-column layout that collapses to stacked-card layout at <=720px via td[data-label] pseudo-elements. -->
+    <div class="magazine-header">
+      <div>
+        <div class="magazine-kicker">Practice Economics</div>
+        <h2 class="magazine-title">The cost structure of a mobile concierge practice vs. a traditional clinic role.</h2>
+      </div>
+    </div>
+
+    <p style="max-width:48rem;font-size:1rem;color:var(--text-muted);line-height:1.6;margin:-.6rem 0 2rem">
+      Six-figure earnings in aesthetic medicine are less about the gross-per-procedure number and more about which costs you carry. The table below compares the cost structure typically borne by an aesthetic provider in a traditional clinic-based employment role against the cost structure of a Regional Lead Provider on Aesthetics To Go.
+    </p>
+
+    <table class="economics-table">
+      <thead>
+        <tr>
+          <th scope="col">Cost Category</th>
+          <th scope="col">Traditional Clinic Role</th>
+          <th scope="col">ATG Regional Lead Provider</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Clinic Rent &amp; Utilities</th>
+          <td data-label="Traditional Clinic">Built into employer overhead, reduces commission pool</td>
+          <td data-label="ATG Regional Lead Provider">None</td>
+        </tr>
+        <tr>
+          <th scope="row">Front-Desk &amp; Admin Staffing</th>
+          <td data-label="Traditional Clinic">Built into employer overhead</td>
+          <td data-label="ATG Regional Lead Provider">None</td>
+        </tr>
+        <tr>
+          <th scope="row">Patient Acquisition / Marketing Spend</th>
+          <td data-label="Traditional Clinic">Employer-controlled, variable</td>
+          <td data-label="ATG Regional Lead Provider">Provided as part of agreement</td>
+        </tr>
+        <tr>
+          <th scope="row">EHR &amp; Charting Subscription</th>
+          <td data-label="Traditional Clinic">Often deducted from provider</td>
+          <td data-label="ATG Regional Lead Provider">Provided as part of agreement</td>
+        </tr>
+        <tr>
+          <th scope="row">Merchant Processing Fees</th>
+          <td data-label="Traditional Clinic">Typically deducted before commission</td>
+          <td data-label="ATG Regional Lead Provider">Covered during launch period</td>
+        </tr>
+        <tr>
+          <th scope="row">Supply Cost Markup</th>
+          <td data-label="Traditional Clinic">Retail or near-retail</td>
+          <td data-label="ATG Regional Lead Provider">Injector pricing</td>
+        </tr>
+        <tr>
+          <th scope="row">Schedule Control</th>
+          <td data-label="Traditional Clinic">Employer-determined</td>
+          <td data-label="ATG Regional Lead Provider">Provider-controlled</td>
+        </tr>
+        <tr>
+          <th scope="row">Patient Panel Ownership</th>
+          <td data-label="Traditional Clinic">Employer-owned</td>
+          <td data-label="ATG Regional Lead Provider">Provider-controlled</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:.78rem;color:#9a8776;margin-top:1.4rem;font-style:italic;line-height:1.5;max-width:48rem">
+      Illustrative comparison based on typical industry cost structures and provider-reported figures. Individual results vary by territory, scope of practice, treatment mix, and personal practice patterns. ATG does not guarantee any specific income outcome.
+    </p>
   </section>
 
   <!--
@@ -538,7 +676,7 @@
       <div>
         <h2 class="cta-heading">Enterprise-grade clinical infrastructure. Provided as part of your Regional Lead Provider agreement.</h2>
         <p class="cta-text">
-          Access a full mobile EHR, volume pricing on medical supplies, and AI-driven growth tools with zero platform fees for Regional Lead Providers. This is the future of aesthetic medicine for the modern licensed provider.
+          EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Regional Lead Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period. The full clinical operating system is included; we participate when you do.
         </p>
         <div class="cta-actions">
           <button class="btn-primary" onclick="openModal()">Apply as Regional Lead Provider →</button>
