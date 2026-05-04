@@ -27,15 +27,15 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
-  <title>About Aesthetics To Go | The Mobile Clinical Platform for Aesthetic Providers</title>
+  <title>About | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="google52a8a4460b8acba3" />
 
   <!-- Primary SEO Meta Tags -->
-  <meta name="description" content="Aesthetics To Go is the clinical operating system built for licensed PA-Cs, NPs, and MDs who deliver concierge Botox, fillers, and hair restoration at patients' homes. Full mobile EHR, HIPAA compliance, zero platform fees for founding providers. Serving providers nationwide." />
-  <meta name="keywords" content="about Aesthetics To Go, mobile aesthetic platform, concierge Botox platform, mobile EHR aesthetics, HIPAA compliant aesthetic platform, mobile PA practice technology, aesthetic medicine technology, mobile injector platform, clinical operating system aesthetics" />
+  <meta name="description" content="Aesthetics To Go is a mobile clinical operating system for licensed physicians, NPs, and PAs delivering concierge Botox, fillers, and hair restoration at patients' homes — full mobile EHR, HIPAA-compliant documentation, and clinical governance built around your license." />
+  <meta name="keywords" content="mobile clinical operating system, concierge aesthetic provider network, licensed provider concierge practice, regional lead provider, physician concierge aesthetics, NP concierge aesthetics, PA concierge aesthetics, mobile clinical EHR aesthetics, HIPAA mobile aesthetics, clinical governance aesthetics" />
   <meta name="author" content="Aesthetics To Go" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://aestheticstogo.com/about/" />
@@ -43,16 +43,16 @@
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aestheticstogo.com/about/" />
-  <meta property="og:title" content="About Aesthetics To Go | Mobile Clinical Platform for Aesthetic Providers" />
-  <meta property="og:description" content="The clinical operating system for mobile aesthetic providers. Full mobile EHR, HIPAA compliance, wholesale pricing, zero platform fees for founding providers." />
+  <meta property="og:title" content="About | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers" />
+  <meta property="og:description" content="Aesthetics To Go is a mobile clinical operating system for licensed physicians, NPs, and PAs delivering concierge Botox, fillers, and hair restoration at patients' homes — full mobile EHR, HIPAA-compliant documentation, and clinical governance built around your license." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About Aesthetics To Go | Mobile Aesthetic Medicine Platform" />
-  <meta name="twitter:description" content="Built by clinicians for clinicians. The mobile-first platform powering concierge aesthetic care nationwide." />
+  <meta name="twitter:title" content="About | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers" />
+  <meta name="twitter:description" content="Built by clinicians for clinicians. The mobile clinical operating system for licensed physicians, NPs, and PAs delivering concierge aesthetic care nationwide." />
   <meta name="twitter:image" content="https://aestheticstogo.com/og-image.jpg" />
 
   <!-- Structured Data: BreadcrumbList -->
@@ -105,15 +105,15 @@
         "name": "What is Aesthetics To Go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go is a mobile-first clinical operating system that connects patients with licensed PA-Cs, NPs, and MDs who deliver concierge Botox, dermal filler, and hair restoration treatments at the patient's home or office. The platform provides providers with a full mobile EHR, smart scheduling, HIPAA-compliant documentation, integrated payments with zero merchant fees, and wholesale medical supply pricing — all with zero monthly platform fees."
+          "text": "Aesthetics To Go is a mobile clinical operating system for licensed physicians, NPs, and PAs. We provide credentialed lead flow, scheduling, EHR, payments, and clinical governance — providers retain full clinical autonomy and operate as 1099 independent contractors with their own malpractice and supervisory frameworks."
         }
       },
       {
         "@type": "Question",
-        "name": "How is Aesthetics To Go different from a med spa?",
+        "name": "How is Aesthetics To Go different from a clinic?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go is not a med spa. It is a two-sided clinical platform — similar to how Uber connects riders with drivers, Aesthetics To Go connects patients with licensed, credentialed aesthetic providers. There are no physical clinic locations. Providers are independent contractors who travel from their homes to patients' homes and offices. The platform provides the technology infrastructure — mobile EHR, scheduling, payments — while providers maintain full clinical autonomy over their practice."
+          "text": "Aesthetics To Go is a mobile clinical operating system, not a clinic. Providers are 1099 independent contractors who travel to patients' homes and offices. The operating system provides mobile EHR, scheduling, payments, and clinical governance; providers retain full clinical autonomy."
         }
       },
       {
@@ -129,7 +129,7 @@
         "name": "Where does Aesthetics To Go operate?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go is a nationwide mobile clinical platform. Provider availability varies by market — sign up to be notified when a provider serves your area."
+          "text": "Aesthetics To Go is a nationwide mobile clinical operating system. Regional Lead Provider availability varies by market — sign up to be notified when a provider serves your area."
         }
       }
     ]
@@ -274,18 +274,32 @@
     /* Responsive */
     @media(max-width:960px){.story-grid,.standards-grid,.faq-grid{grid-template-columns:1fr}.platform-grid,.diff-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.platform-grid,.diff-grid,.stats-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}}
+    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
+    }
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
+    @media(max-width:720px){
+      .modal input,.modal select,.modal textarea{font-size:.85rem;padding:.7rem .85rem}
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar"><strong>Founding PA-C opportunities now open</strong> · Professional Autonomy. Clinical Excellence. Fee-free payouts for founding providers.</div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
       <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
-        <button class="btn-primary" onclick="openModal()">Join the Network</button>
+        <button class="btn-primary" onclick="openModal()">Apply as Provider →</button>
       </div>
     </header>
   </div>
@@ -367,7 +381,7 @@
       <div class="platform-card">
         <div class="platform-card-icon">💰</div>
         <h3 class="platform-card-title">Zero-Fee Payments</h3>
-        <p class="platform-card-text">Integrated payment processing with zero merchant fees for founding providers during launch. Perform a treatment, receive the full amount via direct deposit. No platform cuts, no hidden deductions, no percentage lost to processing.</p>
+        <p class="platform-card-text">Integrated payment processing with banking and merchant fees absorbed during the launch period as part of your Regional Lead Provider agreement. Perform a treatment, receive the full payout via direct deposit. The transition to a transparent post-launch fee schedule is disclosed in the agreement, not after the fact.</p>
       </div>
 
       <div class="platform-card">
@@ -408,7 +422,7 @@
         <div class="standard-card">
           <div class="standard-card-number">1</div>
           <h3 class="standard-card-title">Licensed Providers Only</h3>
-          <p class="standard-card-text">Every provider on Aesthetics To Go holds an active, unrestricted license as a PA-C, NP, or MD/DO. No exceptions. No estheticians performing injections. No unlicensed personnel. Every license is verified during our credentialing process.</p>
+          <p class="standard-card-text">Every provider on Aesthetics To Go holds an active, unrestricted license as a physician (MD/DO), nurse practitioner, or physician assistant. No exceptions. No estheticians performing injections. No unlicensed personnel. Every license is verified during our credentialing process.</p>
         </div>
 
         <div class="standard-card">
@@ -449,7 +463,7 @@
     <div class="section-header">
       <div>
         <div class="section-eyebrow">What Sets Us Apart</div>
-        <h2 class="section-title">A Clinical Platform Built for Provider Independence.</h2>
+        <h2 class="section-title">A Clinical Operating System Built for Provider Independence.</h2>
       </div>
       <div class="section-eyebrow">A clinical operating system.</div>
     </div>
@@ -476,8 +490,8 @@
         <div class="diff-card-body">
           <div class="diff-card-eyebrow">Provider-First</div>
           <h3 class="diff-card-title">Zero fees. Full EHR. Complete autonomy.</h3>
-          <p class="diff-card-text">Other platforms charge monthly subscriptions or take a cut of your revenue. As a founding provider, Aesthetics To Go charges you nothing — no monthly fees, no merchant fees, no platform percentage. You keep everything you earn and run your practice your way.</p>
-          <div class="diff-card-meta">$0 Monthly · $0 Processing · 100% Retention — Founding Providers</div>
+          <p class="diff-card-text">EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Regional Lead Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.</p>
+          <div class="diff-card-meta">Enterprise-Grade Infrastructure · Regional Lead Provider Agreement</div>
         </div>
       </article>
 
@@ -500,7 +514,7 @@
     <div class="section-header">
       <div>
         <div class="section-eyebrow">By the Numbers</div>
-        <h2 class="section-title">The Platform at a Glance</h2>
+        <h2 class="section-title">The Operating System at a Glance</h2>
       </div>
     </div>
 
@@ -519,10 +533,10 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">Nationwide</div>
-        <div class="stat-label">Founding-Provider Markets</div>
+        <div class="stat-label">Regional Lead Provider Markets</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:1rem;letter-spacing:.06em">*Founding Provider pricing during launch period.</p>
+    <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:1rem;letter-spacing:.06em">*For Regional Lead Providers during launch period.</p>
   </section>
 
   <!-- FAQ -->
@@ -538,22 +552,22 @@
       <div class="faq-card">
         <h3 class="faq-card-question">What is Aesthetics To Go?</h3>
         <!-- prior text 2026-04-29: "We provide the technology — mobile EHR, AI simulator, scheduling, payments, supply access — and providers deliver the care." -->
-        <p class="faq-card-answer">A mobile-first clinical operating system that connects patients with licensed PA-Cs, NPs, and MDs who deliver concierge Botox, filler, and hair restoration treatments at the patient's home or office. We provide the technology — mobile EHR, scheduling, payments, supply access — and providers deliver the care.</p>
+        <p class="faq-card-answer">A mobile clinical operating system that connects patients with licensed physicians, NPs, and PAs delivering concierge Botox, filler, and hair restoration treatments at the patient's home or office. We provide the technology — mobile EHR, scheduling, payments, supply access, and clinical governance — and providers deliver the care.</p>
       </div>
 
       <div class="faq-card">
-        <h3 class="faq-card-question">How is this different from a med spa?</h3>
-        <p class="faq-card-answer">Aesthetics To Go is not a med spa. We have no physical clinic locations. We are a two-sided clinical platform — think of how Uber connects riders with drivers. We connect patients with licensed, independent aesthetic providers. Providers set their own prices, choose their patients, and maintain full clinical autonomy.</p>
+        <h3 class="faq-card-question">How is this different from a clinic?</h3>
+        <p class="faq-card-answer">Aesthetics To Go is a mobile clinical operating system, not a clinic. Providers come to patients in their homes or offices, with full clinical infrastructure traveling with them. Providers set their own prices, choose their patients, and maintain full clinical autonomy as 1099 independent contractors.</p>
       </div>
 
       <div class="faq-card">
         <h3 class="faq-card-question">Where does Aesthetics To Go operate?</h3>
-        <p class="faq-card-answer">Aesthetics To Go is a nationwide mobile clinical platform. Founding providers are joining across the country as we expand our provider network. Sign up to be notified when a provider serves your area.</p>
+        <p class="faq-card-answer">Aesthetics To Go is a nationwide mobile clinical operating system. Regional Lead Providers are credentialing across the country as we expand the network. Sign up to be notified when a provider serves your area.</p>
       </div>
 
       <div class="faq-card">
         <h3 class="faq-card-question">How do you make money if providers don't pay fees?</h3>
-        <p class="faq-card-answer">The zero-fee model applies to founding providers during the launch period. This allows us to build a strong provider network and demonstrate the platform's value. Our long-term revenue model is built around industry-leading platform economics that keep providers earning more than they would in any traditional practice setting.</p>
+        <p class="faq-card-answer">Regional Lead Providers retain the full payout on completed treatments during the launch period, with banking and processing fees absorbed as part of the agreement. The transition to a transparent post-launch fee schedule is disclosed in the Regional Lead Provider agreement before any change takes effect.</p>
       </div>
     </div>
   </section>
@@ -564,7 +578,7 @@
       <div class="cta-copy">
         <h2 class="cta-heading">Join the future of aesthetic medicine.</h2>
         <p class="cta-text">
-          Whether you're a licensed PA-C, NP, or MD ready to build your concierge practice — Aesthetics To Go was built for you.
+          EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Regional Lead Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.
         </p>
         <div class="cta-actions">
           <button class="btn-primary" onclick="openModal()">Apply as a Provider</button>
@@ -574,7 +588,7 @@
 
       <div class="cta-links">
         <a href="/providers" class="cta-link"><span class="cta-link-arrow">→</span> Build Your Mobile Aesthetic Practice</a>
-        <a href="/careers" class="cta-link"><span class="cta-link-arrow">→</span> Explore Founding Provider Opportunities</a>
+        <a href="/careers" class="cta-link"><span class="cta-link-arrow">→</span> Explore Regional Lead Provider Opportunities</a>
         <a href="/faq" class="cta-link"><span class="cta-link-arrow">→</span> Frequently Asked Questions</a>
       </div>
     </div>
@@ -594,10 +608,10 @@
       <span class="modal-close" onclick="closeModal()">×</span>
       <div id="formContainer">
         <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto"></div>
-        <h2>Join as a Founding Provider</h2>
-        <p>Apply for priority access to our zero-fee clinical operating system for founding providers.</p>
+        <h2>Apply as a Regional Lead Provider</h2>
+        <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="contactForm" action="https://formspree.io/f/xbdanjvw" method="POST">
-          <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, PA-C)" required>
+          <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)" required>
           <input type="text" name="license" placeholder="State(s) of Licensure">
           <input type="email" name="email" placeholder="Professional Email Address" required>
           <input type="tel" name="phone" placeholder="Cell Phone Number" required>

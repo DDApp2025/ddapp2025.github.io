@@ -27,7 +27,7 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
-  <title>Contact Us | Provider Inquiries | Aesthetics To Go</title>
+  <title>Contact | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Search Console Verification -->
@@ -36,24 +36,24 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
   <!-- Primary SEO Meta Tags -->
-  <meta name="description" content="Contact Aesthetics To Go for provider inquiries, partnership opportunities, press and media requests, or general questions. Founding provider spots now open nationwide for PA-Cs, NPs, and MDs." />
-  <meta name="keywords" content="Aesthetics To Go contact, provider inquiry, join mobile aesthetics platform, PA-C mobile practice, NP aesthetic provider application, founding provider opportunity, mobile injector network, partnership aesthetics" />
+  <meta name="description" content="Contact Aesthetics To Go for provider inquiries, partnerships, press, or general questions. Regional Lead Provider applications open nationwide for licensed physicians, NPs, and PAs." />
+  <meta name="keywords" content="Aesthetics To Go contact, provider inquiry, regional lead provider, mobile clinical operating system, physician concierge aesthetics, NP concierge aesthetics, PA concierge aesthetics, partnership aesthetics" />
   <meta name="author" content="Aesthetics To Go" />
   <link rel="canonical" href="https://aestheticstogo.com/contact/" />
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aestheticstogo.com/contact/" />
-  <meta property="og:title" content="Contact Us | Provider Inquiries | Aesthetics To Go" />
-  <meta property="og:description" content="Contact Aesthetics To Go for provider inquiries, partnership opportunities, or general questions. Founding provider spots now open nationwide." />
+  <meta property="og:title" content="Contact | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers" />
+  <meta property="og:description" content="Contact Aesthetics To Go for provider inquiries, partnerships, press, or general questions. Regional Lead Provider applications open nationwide for licensed physicians, NPs, and PAs." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact Us | Provider Inquiries | Aesthetics To Go" />
-  <meta name="twitter:description" content="Founding provider spots now open nationwide. Contact us for provider applications, partnerships, press inquiries, or general questions." />
+  <meta name="twitter:title" content="Contact | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers" />
+  <meta name="twitter:description" content="Regional Lead Provider applications open nationwide. Contact us for provider applications, partnerships, press inquiries, or general questions." />
   <meta name="twitter:image" content="https://aestheticstogo.com/og-image.jpg" />
 
   <!-- Structured Data: BreadcrumbList -->
@@ -203,18 +203,32 @@
     /* Responsive */
     @media(max-width:960px){.contact-grid{grid-template-columns:1fr}.booking-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:1fr}}
     @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.booking-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}}
+    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
+    }
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
+    @media(max-width:720px){
+      .modal input,.modal select,.modal textarea{font-size:.85rem;padding:.7rem .85rem}
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar"><strong>Founding provider spots now open</strong> · Zero platform fees for founding providers. 100% revenue retention</div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
       <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
-        <button class="btn-primary" onclick="window.location.href='/providers'">Join the Network</button>
+        <button class="btn-primary" onclick="openModal()">Apply as Provider →</button>
       </div>
     </header>
   </div>
@@ -229,10 +243,10 @@
   <!-- Feature Strip -->
   <section class="feature-strip">
     <div class="feature-strip-inner">
-      <span>Zero Platform Fees (Founding Providers)</span>
-      <span>Keep 100% Revenue (Founding Providers)</span>
+      <span>HIPAA Compliant</span>
+      <span>Encrypted Documentation</span>
       <span>Licensed Providers Only</span>
-      <span>Founding Spots Open</span>
+      <span>Limited Territories Open</span>
     </div>
   </section>
 
@@ -250,7 +264,7 @@
           <input type="hidden" name="_subject" value="Provider Inquiry — Contact Page">
 
           <label for="cName">Full Name &amp; Credentials</label>
-          <input type="text" id="cName" name="name" placeholder="e.g. Jane Doe, PA-C" required>
+          <input type="text" id="cName" name="name" placeholder="e.g. Jane Doe, MD / NP / PA-C" required>
 
           <label for="cEmail">Professional Email</label>
           <input type="email" id="cEmail" name="email" placeholder="your@email.com" required>
@@ -332,7 +346,7 @@
       <article class="booking-card">
         <div class="booking-step">&#129658;</div>
         <h3 class="booking-card-title">Provider Page</h3>
-        <p class="booking-card-text">Ready to apply? Visit our <a href="/providers" style="color:var(--accent-dark);font-weight:600">providers page</a> for full details on founding provider benefits and the application process.</p>
+        <p class="booking-card-text">Ready to apply? Visit our <a href="/providers" style="color:var(--accent-dark);font-weight:600">providers page</a> for full details on the Regional Lead Provider opportunity and the application process.</p>
       </article>
 
       <article class="booking-card">
@@ -355,17 +369,17 @@
     <div class="faq-grid">
       <div class="faq-card">
         <h3 class="faq-card-question">How do I apply as a provider?</h3>
-        <p class="faq-card-answer">Visit our <a href="/providers" style="color:var(--accent-dark);font-weight:600">providers page</a> to learn about founding provider benefits and submit your application, or go directly to the <a href="/providerapplication" style="color:var(--accent-dark);font-weight:600">provider application</a>. You can also use the form on this page and select "Provider Application" as your inquiry type.</p>
+        <p class="faq-card-answer">Visit our <a href="/providers" style="color:var(--accent-dark);font-weight:600">providers page</a> to learn about the Regional Lead Provider opportunity and submit your application, or go directly to the <a href="/providerapplication" style="color:var(--accent-dark);font-weight:600">provider application</a>. You can also use the form on this page and select "Provider Application" as your inquiry type.</p>
       </div>
 
       <div class="faq-card">
         <h3 class="faq-card-question">What credentials do I need?</h3>
-        <p class="faq-card-answer">Aesthetics To Go is open to licensed PA-Cs, NPs, and MDs with aesthetic experience. You must hold an active license in your state of practice and carry appropriate malpractice insurance. Experience with injectables (Botox, fillers) is required.</p>
+        <p class="faq-card-answer">Aesthetics To Go is open to licensed physicians, NPs, and PAs with aesthetic experience. You must hold an active license in your state of practice and carry appropriate malpractice insurance. Experience with injectables (Botox, fillers) is required.</p>
       </div>
 
       <div class="faq-card">
         <h3 class="faq-card-question">Is there a cost to join?</h3>
-        <p class="faq-card-answer">Zero platform fees for founding providers. No monthly subscription, no per-appointment charges, and no merchant processing fees. You keep your revenue. This is a limited-time founding provider offer for our launch.</p>
+        <p class="faq-card-answer">Regional Lead Providers retain the full payout on completed treatments during the launch period. The transition to a transparent post-launch fee schedule is disclosed in the agreement, not after the fact.</p>
       </div>
 
       <div class="faq-card">
@@ -384,13 +398,13 @@
           Regional Lead Provider spots are limited. Join a credentialed provider network on a mobile clinical operating system — you set your schedule, your prices, and your service areas. We handle the technology, the credentialed lead flow, and the back-office infrastructure.
         </p>
         <div class="cta-actions">
-          <button class="btn-primary" onclick="openModal()">Apply as Founding Provider</button>
+          <button class="btn-primary" onclick="openModal()">Apply as Regional Lead Provider →</button>
           <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#97;&#101;&#115;&#116;&#104;&#101;&#116;&#105;&#99;&#115;&#116;&#111;&#103;&#111;&#46;&#99;&#111;&#109;" class="btn-outline" style="color:#fef6ee;border-color:rgba(254,246,238,.5);background:transparent">Email Us</a>
         </div>
       </div>
 
       <div class="cta-links">
-        <a href="/providers" class="cta-link"><span class="cta-link-arrow">&rarr;</span> For Providers: Founding Provider Benefits</a>
+        <a href="/providers" class="cta-link"><span class="cta-link-arrow">&rarr;</span> For Providers: Regional Lead Provider Opportunity</a>
         <a href="/providerapplication" class="cta-link"><span class="cta-link-arrow">&rarr;</span> Provider Application</a>
         <a href="/careers" class="cta-link"><span class="cta-link-arrow">&rarr;</span> Careers at Aesthetics To Go</a>
         <a href="/about" class="cta-link"><span class="cta-link-arrow">&rarr;</span> About Aesthetics To Go</a>
@@ -413,10 +427,10 @@
       <span class="modal-close" onclick="closeModal()">&times;</span>
       <div id="formContainer">
         <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto"></div>
-        <h2>Join as a Founding Provider</h2>
-        <p>Apply for priority access to our zero-fee clinical operating system for founding providers.</p>
+        <h2>Apply as a Regional Lead Provider</h2>
+        <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="modalForm" action="https://formspree.io/f/xbdanjvw" method="POST">
-          <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, PA-C)" required>
+          <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)" required>
           <input type="text" name="license" placeholder="State(s) of Licensure">
           <input type="email" name="email" placeholder="Professional Email Address" required>
           <input type="tel" name="phone" placeholder="Cell Phone Number" required>
