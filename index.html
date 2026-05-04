@@ -45,6 +45,7 @@
   <meta property="og:url" content="https://aestheticstogo.com/" />
   <meta property="og:title" content="Aesthetics To Go — The Mobile Clinical Operating System for Licensed Providers" />
   <meta property="og:description" content="Full clinical autonomy on a mobile operating system for licensed physicians, NPs, and PAs running concierge aesthetic practice with direct patient access." />
+  <!-- 2026-05-03 Phase 4 TODO: og:image points to og-image.jpg (1200x630), NOT ATG_in_home.jpg, so no OG-cache risk in Phase 4. When the hero asset is swapped per ASSET_BRIEF_PHASE4.md, review og-image.jpg and twitter:image (line below) in the same commit so social previews stay visually aligned with the new hero. Do not change og:image src in Phase 4. -->
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
   <meta property="og:locale" content="en_US" />
@@ -338,7 +339,7 @@
 
   <div class="header-wrapper">
     <header class="header">
-      <div class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go logo - mobile clinical operating system for licensed providers"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></div>
+      <div class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></div>
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="openModal()">Apply as Provider →</button>
@@ -366,7 +367,8 @@
 
     <div class="hero-media">
       <figure class="hero-image">
-        <img src="ATG_in_home.jpg" alt="Licensed provider delivering concierge treatment in patient's home" />
+        <!-- 2026-05-03 Phase 4: ATG_in_home.jpg flagged as PENDING REPLACEMENT per ASSET_BRIEF_PHASE4.md (Asset 1 — Hero Image). Alt text staged for the replacement asset; figcaption acts as the fallback caption layer so the section reads correctly while a placeholder occupies the slot. width/height match current intrinsic 1024x1024 to prevent CLS. loading="eager" — hero, do not change to lazy. -->
+        <img src="ATG_in_home.jpg" alt="Licensed physician delivering concierge aesthetic treatment in a private residence." width="1024" height="1024" loading="eager" />
         <figcaption class="hero-image-caption">A mobile clinical operating system.</figcaption>
       </figure>
       <!-- AI Simulator card hidden 2026-04-29 — uncomment to restore
@@ -488,7 +490,8 @@
     <div class="magazine-grid">
       <article class="mag-card">
         <div class="mag-card-image">
-          <img src="TaxMess.png" alt="Direct deposit dashboard for a licensed aesthetic provider on Aesthetics To Go." width="1200" height="800" loading="lazy" />
+          <!-- 2026-05-03 Phase 4: TaxMess.png flagged as PENDING REPLACEMENT per ASSET_BRIEF_PHASE4.md (Asset 3 — Revenue / Payout). Alt staged for the replacement; surrounding .mag-card-body acts as the fallback caption layer. -->
+          <img src="TaxMess.png" alt="Direct-deposit payout dashboard for a licensed aesthetic provider on Aesthetics To Go." width="1200" height="800" loading="lazy" />
         </div>
         <div class="mag-card-body">
           <div class="mag-card-eyebrow">Your Revenue, Protected</div>
@@ -502,6 +505,7 @@
 
       <article class="mag-card">
         <div class="mag-card-image">
+          <!-- 2026-05-03 Phase 4: WorkingFromHome.png flagged as PENDING REPLACEMENT per ASSET_BRIEF_PHASE4.md (Asset 2 — Practice Management). Alt staged for the replacement; surrounding .mag-card-body acts as the fallback caption layer. -->
           <img src="WorkingFromHome.png" alt="Licensed provider managing a concierge aesthetic practice on a mobile clinical operating system." width="511" height="374" loading="lazy" />
         </div>
         <div class="mag-card-body">
@@ -732,7 +736,7 @@
     <div class="magazine-grid" style="grid-template-columns:minmax(0,1fr);max-width:42rem;margin:0 auto">
       <article class="mag-card">
         <div class="mag-card-image">
-          <img src="BeforeAfter.png" alt="Before and after results from mobile Botox and filler treatment by licensed provider" />
+          <img src="BeforeAfter.png" alt="Patient before-and-after results from a mobile aesthetic treatment performed by a licensed provider." width="638" height="467" loading="lazy" />
         </div>
         <div class="mag-card-body">
           <div class="mag-card-eyebrow">Diagnostic Precision</div>
@@ -761,7 +765,7 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">×</span>
       <div id="formContainer">
-        <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go" style="height:70px;width:auto"></div>
+        <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto"></div>
         <h2>Apply as a Regional Lead Provider</h2>
         <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="contactForm" action="https://formspree.io/f/xbdanjvw" method="POST">
@@ -789,7 +793,7 @@
     <div class="modal-content" style="max-width:420px">
       <span class="modal-close" onclick="closeLoginModal()">×</span>
       <div style="text-align:center;margin-bottom:.5rem">
-        <img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go" style="height:70px;width:auto">
+        <img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto">
       </div>
       <h2 style="font-size:1.5rem;margin-bottom:.3rem">Provider Portal</h2>
       <p style="margin-bottom:1.5rem;color:#7b6f63;font-size:.9rem">Sign in to access your clinical dashboard</p>
