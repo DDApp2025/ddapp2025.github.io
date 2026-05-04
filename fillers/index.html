@@ -34,7 +34,7 @@
   <meta name="google-site-verification" content="google52a8a4460b8acba3" />
 
   <!-- Primary SEO Meta Tags -->
-  <meta name="description" content="Get dermal fillers at home from a licensed PA-C or NP. Mobile lip filler, cheek filler, jawline contouring, and nasolabial fold treatments delivered to your home or office. AI visualization before treatment." />
+  <meta name="description" content="Get dermal fillers at home from a licensed physician, NP, or PA. Mobile lip filler, cheek filler, jawline contouring, and nasolabial fold treatments delivered to your home or office." />
   <meta name="keywords" content="mobile filler, lip filler at home, cheek filler house call, dermal filler, mobile lip injections, concierge filler, at-home dermal filler, jawline filler, nasolabial fold filler mobile, under eye filler, lip filler near me home visit" />
   <meta name="author" content="Aesthetics To Go" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -44,7 +44,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aestheticstogo.com/fillers/" />
   <meta property="og:title" content="Mobile Dermal Fillers at Home | Lip, Cheek, Jawline" />
-  <meta property="og:description" content="Skip the clinic. A licensed PA-C delivers lip filler, cheek filler, jawline contouring, and more at your home or office. See your results with AI first." />
+  <meta property="og:description" content="Skip the clinic. A licensed physician, NP, or PA delivers lip filler, cheek filler, jawline contouring, and more at your home or office. HIPAA-compliant care." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
   <meta property="og:locale" content="en_US" />
@@ -52,7 +52,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mobile Dermal Fillers at Home | Aesthetics To Go" />
-  <meta name="twitter:description" content="Licensed PA-Cs and NPs deliver dermal fillers at your home or office. Lip filler, cheek filler, jawline, nasolabial folds. AI visualization. HIPAA-compliant care." />
+  <meta name="twitter:description" content="Licensed physicians, NPs, and PAs deliver dermal fillers at your home or office. Lip filler, cheek filler, jawline, nasolabial folds. HIPAA-compliant care." />
   <meta name="twitter:image" content="https://aestheticstogo.com/og-image.jpg" />
 
   <!-- Structured Data: BreadcrumbList -->
@@ -75,7 +75,7 @@
     "@type": "MedicalProcedure",
     "name": "Mobile Dermal Filler Injections",
     "procedureType": "NoninvasiveProcedure",
-    "description": "Concierge dermal filler injections delivered by a licensed PA-C, NP, or MD at your home or office. Treatments include lip filler, cheek augmentation, jawline contouring, nasolabial fold correction, marionette lines, under-eye hollows, chin projection, and temple volume restoration. Includes HIPAA-compliant documentation.",
+    "description": "Concierge dermal filler injections delivered by a licensed physician (MD/DO), nurse practitioner, or physician assistant at your home or office. Treatments include lip filler, cheek augmentation, jawline contouring, nasolabial fold correction, marionette lines, under-eye hollows, chin projection, and temple volume restoration. Includes HIPAA-compliant documentation.",
     "bodyLocation": "Face — lips, cheeks, jawline, nasolabial folds, marionette lines, under-eye hollows (tear troughs), chin, temples",
     "howPerformed": "A licensed aesthetic provider travels to the patient's home or office with a full mobile clinical kit including sterile supplies and properly stored filler products. The provider conducts a facial assessment, discusses treatment goals, obtains digital consent, administers dermal filler injections using appropriate technique for each treatment area, and completes HIPAA-compliant SOAP documentation including product name, lot numbers, volumes injected, and injection sites.",
     "preparation": "Avoid blood thinners, aspirin, ibuprofen, fish oil, and alcohol for 24–48 hours before treatment to minimize bruising. No other special preparation is required.",
@@ -95,7 +95,7 @@
         "name": "Can I get lip filler at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver lip filler and other dermal filler treatments at your home or office. A credentialed provider comes to you with a full mobile clinical kit including properly stored filler products. Provider availability varies by market."
+          "text": "Yes. Aesthetics To Go connects patients with licensed physicians, NPs, and PAs who deliver lip filler and other dermal filler treatments at your home or office. A credentialed provider comes to you with a full mobile clinical kit including properly stored filler products. Provider availability varies by market."
         }
       },
       {
@@ -154,7 +154,7 @@
       "url": "https://aestheticstogo.com"
     },
     "serviceType": "Mobile Dermal Filler Injections",
-    "description": "Concierge dermal filler treatments including lip filler, cheek augmentation, jawline contouring, and nasolabial fold correction delivered by licensed PA-Cs, NPs, and MDs at patients' homes and offices.",
+    "description": "Concierge dermal filler treatments including lip filler, cheek augmentation, jawline contouring, and nasolabial fold correction delivered by licensed physicians, NPs, and PAs at patients' homes and offices.",
     "areaServed": "United States",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -326,11 +326,25 @@
     /* Responsive */
     @media(max-width:960px){.hero-service{grid-template-columns:1fr}.hero-service-media{order:-1}.areas-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}.expect-grid{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}}
     @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.areas-grid,.how-grid{grid-template-columns:1fr}.hero-service{padding-top:2.4rem}.cta-inner{flex-direction:column}}
+    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
+    }
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
+    @media(max-width:720px){
+      .modal input,.modal select,.modal textarea{font-size:.85rem;padding:.7rem .85rem}
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar" style="background:#1a4d2e;padding:.85rem 1.5rem;font-size:.88rem;letter-spacing:.04em;text-transform:none;line-height:1.5"><strong>Provider Preview:</strong> This is the type of patient-facing messaging we will deploy once founding providers are activated. Want to be part of it? <a href="/providers" style="color:#c49652;text-decoration:underline;font-weight:600;margin-left:.3rem">Apply as a Founding Provider →</a></div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
@@ -347,9 +361,9 @@
     <div class="hero-service-copy">
       <div class="hero-service-eyebrow">Mobile Dermal Fillers</div>
       <h1 class="hero-service-title"><span>Dermal fillers delivered to your door.</span> Lips, cheeks, jawline — by a licensed provider.</h1>
-      <p class="hero-service-subtitle">No waiting room. No clinic parking lot. A credentialed PA-C or NP brings FDA-approved dermal fillers to your home or office and delivers professional treatment wherever you're comfortable. Visualize your results with AI before you book.</p>
+      <p class="hero-service-subtitle">No waiting room. No clinic parking lot. A credentialed physician, NP, or PA brings FDA-approved dermal fillers to your home or office and delivers professional treatment wherever you're comfortable. Visualize your results with AI before you book.</p>
       <div class="hero-service-pills">
-        <div class="hero-pill">Licensed PA-Cs &amp; NPs</div>
+        <div class="hero-pill">Licensed Physicians, NPs &amp; PAs</div>
         <div class="hero-pill">FDA-Approved Products</div>
         <div class="hero-pill">AI Before &amp; After Preview</div>
         <div class="hero-pill">HIPAA-Compliant Care</div>
@@ -483,7 +497,7 @@
         <h3 class="how-card-title">Book Your Provider.</h3>
         <!-- prior text 2026-04-29: "Your provider reviews your AI simulation results and prepares the appropriate filler products before arriving at your home or office." -->
         <p class="how-card-text">
-          Choose a licensed PA-C or NP based on their credentials, experience, and availability. Select a date and time that fits your schedule. Your provider prepares the appropriate filler products before arriving at your home or office.
+          Choose a licensed provider based on their credentials, experience, and availability. Select a date and time that fits your schedule. Your provider prepares the appropriate filler products before arriving at your home or office.
         </p>
       </article>
 
@@ -577,7 +591,7 @@
     <div class="faq-grid">
       <div class="faq-card">
         <h3 class="faq-card-question">Are at-home filler injections safe?</h3>
-        <p class="faq-card-answer">Yes, when administered by a licensed provider using FDA-approved products. Our PA-Cs and NPs follow identical protocols to medical offices — sterile technique, proper product cold-chain storage, HIPAA documentation, lot tracking, and emergency protocols. All providers carry malpractice insurance.</p>
+        <p class="faq-card-answer">Yes, when administered by a licensed provider using FDA-approved products. Our providers follow identical protocols to medical offices — sterile technique, proper product cold-chain storage, HIPAA documentation, lot tracking, and emergency protocols. All providers carry malpractice insurance.</p>
       </div>
 
       <div class="faq-card">
@@ -622,7 +636,7 @@
       </div>
 
       <div class="cta-features">
-        <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed PA-Cs, NPs, and MDs only</span></div>
+        <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed physicians, NPs, and PAs only</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">FDA-approved hyaluronic acid fillers</span></div>
         <!-- AI Simulator cta-feature hidden 2026-04-29 — uncomment to restore
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">AI before-and-after visualization</span></div>

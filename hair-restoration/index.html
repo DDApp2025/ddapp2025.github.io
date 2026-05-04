@@ -34,7 +34,7 @@
   <meta name="google-site-verification" content="google52a8a4460b8acba3" />
 
   <!-- Primary SEO Meta Tags -->
-  <meta name="description" content="Get hair restoration treatments at home from a licensed PA-C or NP. Mobile PRP therapy, scalp treatments, and non-surgical hair loss solutions delivered to your home or office." />
+  <meta name="description" content="Get hair restoration treatments at home from a licensed physician, NP, or PA. Mobile PRP therapy, scalp treatments, and non-surgical hair loss solutions delivered to your home or office." />
   <meta name="keywords" content="mobile hair restoration, PRP hair treatment at home, hair loss treatment house call, mobile PRP therapy, scalp treatment, non-surgical hair restoration, at-home PRP for hair loss, mobile hair loss treatment, concierge PRP therapy, hair thinning treatment, mobile hair regrowth, PRP hair treatment near me" />
   <meta name="author" content="Aesthetics To Go" />
   <meta name="robots" content="noindex, nofollow" />
@@ -44,7 +44,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aestheticstogo.com/hair-restoration/" />
   <meta property="og:title" content="Mobile Hair Restoration at Home | PRP & Scalp Treatments" />
-  <meta property="og:description" content="A licensed PA-C delivers PRP therapy and non-surgical hair restoration treatments at your home or office. Private, convenient, clinically supervised." />
+  <meta property="og:description" content="A licensed physician, NP, or PA delivers PRP therapy and non-surgical hair restoration treatments at your home or office. Private, convenient, clinically supervised." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
   <meta property="og:site_name" content="Aesthetics To Go" />
   <meta property="og:locale" content="en_US" />
@@ -75,7 +75,7 @@
     "@type": "MedicalProcedure",
     "name": "Mobile Hair Restoration Treatments",
     "procedureType": "NoninvasiveProcedure",
-    "description": "Non-surgical hair restoration treatments including PRP (Platelet-Rich Plasma) therapy delivered by a licensed PA-C, NP, or MD at your home or office. Treatments address hair thinning, early-stage hair loss, receding hairlines, and crown thinning using the patient's own growth factors to stimulate follicle activity and hair regrowth.",
+    "description": "Non-surgical hair restoration treatments including PRP (Platelet-Rich Plasma) therapy delivered by a licensed physician (MD/DO), nurse practitioner, or physician assistant at your home or office. Treatments address hair thinning, early-stage hair loss, receding hairlines, and crown thinning using the patient's own growth factors to stimulate follicle activity and hair regrowth.",
     "bodyLocation": "Scalp — crown, hairline, temples, diffuse thinning areas",
     "howPerformed": "A licensed provider travels to the patient's home or office with a full mobile clinical kit. For PRP therapy, a small blood sample is drawn, processed in a centrifuge to isolate platelet-rich plasma, and the concentrated growth factors are injected into the scalp at targeted areas of thinning. The provider documents the treatment with HIPAA-compliant SOAP notes including injection sites, PRP volume, and before-and-after photography.",
     "preparation": "Patients should avoid blood thinners, aspirin, ibuprofen, and alcohol for 48 hours before treatment. Stay well-hydrated in the 24 hours prior. Wash hair with a gentle shampoo the morning of the appointment — avoid heavy styling products. No other special preparation is required.",
@@ -95,7 +95,7 @@
         "name": "Can I get PRP hair treatment at home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Aesthetics To Go connects patients with licensed PA-Cs, NPs, and MDs who deliver PRP hair restoration treatments at your home or office. A credentialed provider brings a full mobile clinical kit including a portable centrifuge to process your blood and perform the treatment on-site. Provider availability varies by market."
+          "text": "Yes. Aesthetics To Go connects patients with licensed physicians, NPs, and PAs who deliver PRP hair restoration treatments at your home or office. A credentialed provider brings a full mobile clinical kit including a portable centrifuge to process your blood and perform the treatment on-site. Provider availability varies by market."
         }
       },
       {
@@ -154,7 +154,7 @@
       "url": "https://aestheticstogo.com"
     },
     "serviceType": "Mobile Hair Restoration Treatments",
-    "description": "Non-surgical hair restoration treatments including PRP therapy delivered by licensed PA-Cs, NPs, and MDs at patients' homes and offices.",
+    "description": "Non-surgical hair restoration treatments including PRP therapy delivered by licensed physicians, NPs, and PAs at patients' homes and offices.",
     "areaServed": "United States",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -321,11 +321,25 @@
     /* Responsive */
     @media(max-width:960px){.hero-service{grid-template-columns:1fr}.hero-service-media{order:-1}.science-grid{grid-template-columns:repeat(2,1fr)}.how-grid,.plan-grid{grid-template-columns:repeat(2,1fr)}.expect-grid,.candidacy-grid,.faq-grid{grid-template-columns:1fr}}
     @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.science-grid,.how-grid,.plan-grid{grid-template-columns:1fr}.hero-service{padding-top:2.4rem}.cta-inner{flex-direction:column}}
+    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
+    }
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
+    @media(max-width:720px){
+      .modal input,.modal select,.modal textarea{font-size:.85rem;padding:.7rem .85rem}
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar"><strong>Now recruiting founding providers nationwide</strong> · Licensed providers come to you.</div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
@@ -342,9 +356,9 @@
     <div class="hero-service-copy">
       <div class="hero-service-eyebrow">Mobile Hair Restoration</div>
       <h1 class="hero-service-title"><span>Hair restoration at your door.</span> PRP therapy delivered by a licensed provider.</h1>
-      <p class="hero-service-subtitle">Thinning hair doesn't require a clinic visit. A credentialed PA-C or NP delivers PRP therapy and non-surgical hair restoration treatments at your home or office — privately, conveniently, and with full clinical documentation.</p>
+      <p class="hero-service-subtitle">Thinning hair doesn't require a clinic visit. A credentialed physician, NP, or PA delivers PRP therapy and non-surgical hair restoration treatments at your home or office — privately, conveniently, and with full clinical documentation.</p>
       <div class="hero-service-pills">
-        <div class="hero-pill">Licensed PA-Cs &amp; NPs</div>
+        <div class="hero-pill">Licensed Physicians, NPs &amp; PAs</div>
         <div class="hero-pill">PRP Therapy</div>
         <div class="hero-pill">Non-Surgical</div>
         <div class="hero-pill">Private &amp; Discreet</div>
@@ -483,7 +497,7 @@
         <div class="how-step">1</div>
         <h3 class="how-card-title">Book Your Consultation.</h3>
         <p class="how-card-text">
-          Request a hair restoration consultation through the Aesthetics To Go app. Choose a licensed PA-C or NP based on their credentials and availability. Select a date and time — your provider comes to your home or office to assess your hair loss pattern and discuss treatment options.
+          Request a hair restoration consultation through the Aesthetics To Go app. Choose a licensed provider based on their credentials and availability. Select a date and time — your provider comes to your home or office to assess your hair loss pattern and discuss treatment options.
         </p>
       </article>
 
@@ -626,7 +640,7 @@
       </div>
 
       <div class="cta-features">
-        <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed PA-Cs, NPs, and MDs only</span></div>
+        <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Licensed physicians, NPs, and PAs only</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Your own platelet-rich plasma — no synthetic drugs</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">Private treatment in your own home</span></div>
         <div class="cta-feature"><span class="cta-feature-check">✓</span><span class="cta-feature-text">HIPAA-compliant documentation</span></div>
