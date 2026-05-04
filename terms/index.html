@@ -196,18 +196,29 @@
     /* Responsive */
     @media(max-width:960px){.highlights-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:1fr}}
     @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.highlights-grid{grid-template-columns:1fr}}
+    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. /terms/ has no modal so the modal input rule is omitted from this port. */
+    @media(max-width:720px){
+      .logo-text{white-space:normal}
+      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
+      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
+    }
+    @media(min-width:721px) and (max-width:1280px){
+      .header{flex-wrap:wrap;row-gap:.6rem}
+      .nav{font-size:.86rem;gap:1rem}
+      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar"><strong>Founding PA-C opportunities now open</strong> · Professional Autonomy. Clinical Excellence. Fee-free payouts.</div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
       <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
-        <button class="btn-primary" onclick="window.location.href='/careers'">Join the Network</button>
+        <button class="btn-primary" onclick="window.location.href='/careers'">Apply as Provider →</button>
       </div>
     </header>
   </div>
@@ -247,7 +258,7 @@
         <div class="highlight-card">
           <div class="highlight-card-icon">🩺</div>
           <h3 class="highlight-card-title">Licensed Providers Only</h3>
-          <p class="highlight-card-text">All providers must hold an active, unrestricted license as a PA-C, NP, or MD/DO and must maintain current malpractice insurance and supervisory agreements as required by their state.</p>
+          <p class="highlight-card-text">All providers must hold an active, unrestricted license as a physician (MD/DO), nurse practitioner, or physician assistant and must maintain current malpractice insurance and supervisory agreements as required by their state.</p>
         </div>
 
         <!-- AI Simulator highlight-card hidden 2026-04-29 — uncomment to restore (legal disclaimer text retained in §7 policy block and §8 disclaimers)
@@ -294,7 +305,7 @@
     <div class="policy-block">
       <h2 class="policy-block-title">3. Eligibility</h2>
       <p class="policy-text"><strong>Patients:</strong> You must be at least 18 years of age to use the Platform or receive services. By using the Platform, you represent that you are at least 18 years old and have the legal capacity to enter into these Terms.</p>
-      <p class="policy-text"><strong>Providers:</strong> To join the provider network, you must hold an active, unrestricted license as a Physician Assistant (PA-C), Nurse Practitioner (NP), or Physician (MD/DO) in the state where you intend to practice. You must maintain current professional liability and malpractice insurance, a valid collaborative or supervisory agreement as required by your state's practice act, and training and experience in aesthetic injections. All credentials are verified during our onboarding process.</p>
+      <p class="policy-text"><strong>Providers:</strong> To join the provider network, you must hold an active, unrestricted license as a Physician (MD/DO), Nurse Practitioner (NP), or Physician Assistant (PA-C) in the state where you intend to practice. You must maintain current professional liability and malpractice insurance, a valid collaborative or supervisory agreement as required by your state's practice act, and training and experience in aesthetic injections. All credentials are verified during our onboarding process.</p>
     </div>
 
     <div class="policy-block">
