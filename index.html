@@ -331,6 +331,116 @@
       .economics-table tbody td{padding:.5rem 0;border:none;font-size:.88rem;color:var(--text-main)}
       .economics-table tbody td::before{content:attr(data-label) " · ";font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;display:block;margin-bottom:.15rem}
     }
+
+    /* 2026-05-04 (Mobile Nav): hamburger menu toggle button + slide-out panel. Pattern: hamburger button hidden at desktop via display:none, visible at <=720px. The existing .nav { display: none } rule at <=720px continues to hide the desktop nav links. Slide-out .mobile-nav panel + .nav-backdrop are fixed positioning with transform-based slide-in animation. z-index 9000 sits below modal z-index 9999 so existing application/login modals always stack above mobile nav. */
+
+    /* Hamburger button — hidden at desktop, visible at mobile */
+    .nav-toggle{
+      display:none;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      padding:.5rem;
+      width:2.4rem;
+      height:2.4rem;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:.32rem;
+      border-radius:8px;
+      transition:background .15s ease-out
+    }
+    .nav-toggle:hover{background:rgba(0,0,0,.04)}
+    .nav-toggle-bar{
+      display:block;
+      width:1.4rem;
+      height:2px;
+      background:#4b433c;
+      border-radius:2px;
+      transition:transform .2s ease-out,opacity .2s ease-out
+    }
+
+    /* Slide-out nav panel — fixed positioning, hidden offscreen by default */
+    .mobile-nav{
+      position:fixed;
+      top:0;
+      right:0;
+      bottom:0;
+      width:min(82vw,360px);
+      background:#fff;
+      box-shadow:-12px 0 40px rgba(0,0,0,.18);
+      z-index:9000;
+      transform:translateX(100%);
+      transition:transform .28s ease-out;
+      overflow-y:auto;
+      display:none;
+      padding:1rem 1.5rem 2rem
+    }
+    .mobile-nav.is-open{
+      transform:translateX(0);
+      display:block
+    }
+    .mobile-nav-header{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:1rem
+    }
+    .mobile-nav-close{
+      background:transparent;
+      border:none;
+      font-size:2rem;
+      line-height:1;
+      cursor:pointer;
+      color:#999;
+      padding:.3rem .7rem;
+      border-radius:8px;
+      transition:color .15s ease-out,background .15s ease-out
+    }
+    .mobile-nav-close:hover{color:#000;background:rgba(0,0,0,.04)}
+    .mobile-nav-links{
+      display:flex;
+      flex-direction:column;
+      gap:.2rem
+    }
+    .mobile-nav-links a{
+      display:block;
+      padding:.95rem 1rem;
+      font-size:.95rem;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#4b433c;
+      border-bottom:1px solid var(--border-soft);
+      transition:color .15s ease-out,background .15s ease-out
+    }
+    .mobile-nav-links a:hover{
+      color:var(--accent);
+      background:#fdf8f3
+    }
+    .mobile-nav-links a:last-child{border-bottom:none}
+
+    /* Backdrop — fixed full-viewport, dimmed, hidden by default */
+    .nav-backdrop{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      z-index:8999;
+      opacity:0;
+      transition:opacity .25s ease-out
+    }
+    .nav-backdrop.is-open{
+      display:block;
+      opacity:1
+    }
+
+    /* Mobile-only display rules: show hamburger, allow nav panel to render */
+    @media(max-width:720px){
+      .nav-toggle{display:inline-flex}
+    }
+
+    /* Body scroll-lock when nav is open */
+    body.nav-is-open{overflow:hidden}
   </style>
 </head>
 <body>
@@ -343,9 +453,33 @@
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="openModal()">Apply as Provider →</button>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleNav()">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
       </div>
     </header>
   </div>
+
+  <!-- 2026-05-04 (Mobile Nav): backdrop overlay shown behind the slide-out nav panel at <=720px when nav is open. z-index 9000 sits below modal z-index 9999 so existing modals always stack above the nav. Hidden by default; .is-open class shows it. -->
+  <div class="nav-backdrop" id="navBackdrop" onclick="closeNav()" aria-hidden="true"></div>
+
+  <!-- 2026-05-04 (Mobile Nav): slide-out nav panel at <=720px. Panel is fixed positioning + transform translate so it slides in from the right edge. Contains a header row (close button) + nav link list. Hidden offscreen by default; .is-open class slides it into view. id="mobile-nav" matches aria-controls on the hamburger button. -->
+  <aside class="mobile-nav" id="mobile-nav" aria-label="Site navigation" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <button class="mobile-nav-close" type="button" aria-label="Close menu" onclick="closeNav()">×</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="/providers" onclick="closeNav()">For Providers</a>
+      <a href="/clinical-supplies" onclick="closeNav()">Clinical Supplies</a>
+      <a href="/botox" onclick="closeNav()">Botox</a>
+      <a href="/fillers" onclick="closeNav()">Fillers</a>
+      <a href="/blog" onclick="closeNav()">Blog</a>
+      <a href="/careers" onclick="closeNav()">Careers</a>
+      <a href="/about" onclick="closeNav()">About</a>
+    </nav>
+  </aside>
 
   <section class="hero">
     <div class="hero-copy">
@@ -882,6 +1016,48 @@
         this.parentElement.classList.toggle('active');
       });
     }
+
+    // 2026-05-04 (Mobile Nav): hamburger toggle. Adds .is-open class to .mobile-nav, .nav-backdrop, and body simultaneously to coordinate panel-slide, backdrop-fade, and scroll-lock. Updates aria-expanded on toggle button + aria-hidden on panel for screen-reader correctness. Esc key closes. Reads currently-focused element so focus can return on close.
+    var __navLastFocus = null;
+    function toggleNav() {
+      var panel = document.getElementById('mobile-nav');
+      if (panel.classList.contains('is-open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    }
+    function openNav() {
+      __navLastFocus = document.activeElement;
+      document.getElementById('mobile-nav').classList.add('is-open');
+      document.getElementById('navBackdrop').classList.add('is-open');
+      document.body.classList.add('nav-is-open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'true');
+      document.getElementById('mobile-nav').setAttribute('aria-hidden', 'false');
+      document.getElementById('navBackdrop').setAttribute('aria-hidden', 'false');
+      // Move focus to the close button so keyboard users can immediately Esc out
+      setTimeout(function() {
+        var closeBtn = document.querySelector('.mobile-nav-close');
+        if (closeBtn) closeBtn.focus();
+      }, 50);
+    }
+    function closeNav() {
+      document.getElementById('mobile-nav').classList.remove('is-open');
+      document.getElementById('navBackdrop').classList.remove('is-open');
+      document.body.classList.remove('nav-is-open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      document.getElementById('mobile-nav').setAttribute('aria-hidden', 'true');
+      document.getElementById('navBackdrop').setAttribute('aria-hidden', 'true');
+      if (__navLastFocus && __navLastFocus.focus) {
+        __navLastFocus.focus();
+      }
+    }
+    // Esc key closes nav
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('mobile-nav').classList.contains('is-open')) {
+        closeNav();
+      }
+    });
   </script>
 </body>
 </html>
