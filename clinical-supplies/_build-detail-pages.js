@@ -257,7 +257,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
 </head>
 <body>
 
-  <div class="top-bar"><strong>Founding Provider Applications Open</strong> · ATG Clinical Supplies now live</div>
+  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
