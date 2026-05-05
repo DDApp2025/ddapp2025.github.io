@@ -207,6 +207,143 @@
       .nav{font-size:.86rem;gap:1rem}
       .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
     }
+
+    /* 2026-05-04 (Mobile Nav redesigned): hamburger menu toggle button + frosted-glass slide-out panel matching the site's editorial design vocabulary. Pattern: hamburger button hidden at desktop via display:none, visible at <=720px pushed to right edge. The existing .nav { display: none } rule at <=720px continues to hide the desktop nav links. Slide-out .mobile-nav panel uses backdrop-filter:blur for frosted-glass effect over the page content; cream tint matches var(--card-bg). Border, shadow, and accent colors all reuse existing site tokens. .nav-backdrop is fixed positioning with translucent dark layer. z-index 9000 sits below modal z-index 9999 so existing application/login modals always stack above mobile nav. */
+
+    /* Hamburger button — hidden at desktop, visible at mobile */
+    .nav-toggle{
+      display:none;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      padding:.5rem;
+      width:2.4rem;
+      height:2.4rem;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:.32rem;
+      border-radius:8px;
+      transition:background .15s ease-out
+    }
+    .nav-toggle:hover{background:rgba(196,150,82,.08)}
+    .nav-toggle-bar{
+      display:block;
+      width:1.4rem;
+      height:2px;
+      background:#4b433c;
+      border-radius:2px;
+      transition:transform .2s ease-out,opacity .2s ease-out
+    }
+
+    /* Slide-out nav panel — frosted-glass cream, fixed positioning, hidden offscreen by default */
+    .mobile-nav{
+      position:fixed;
+      top:0;
+      right:0;
+      bottom:0;
+      width:min(82vw,360px);
+      background:rgba(253,248,243,.82);
+      border-left:1px solid var(--border-strong);
+      box-shadow:-12px 0 30px rgba(24,16,8,.10);
+      z-index:9000;
+      transform:translateX(100%);
+      transition:transform .32s cubic-bezier(.22,.61,.36,1);
+      overflow-y:auto;
+      display:none;
+      padding:1.4rem 1.6rem 2rem
+    }
+    .mobile-nav.is-open{
+      transform:translateX(0);
+      display:block
+    }
+
+    /* Panel header — "MENU" eyebrow + close button, matching .section-eyebrow typography */
+    .mobile-nav-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding-bottom:1.2rem;
+      border-bottom:1px solid var(--border-soft);
+      margin-bottom:1.2rem
+    }
+    .mobile-nav-eyebrow{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--text-muted);
+      font-weight:500
+    }
+    .mobile-nav-close{
+      background:transparent;
+      border:none;
+      font-size:1.4rem;
+      line-height:1;
+      cursor:pointer;
+      color:var(--accent-dark);
+      padding:.25rem .55rem;
+      border-radius:6px;
+      font-weight:300;
+      transition:color .15s ease-out,background .15s ease-out
+    }
+    .mobile-nav-close:hover{
+      color:var(--accent);
+      background:rgba(196,150,82,.1)
+    }
+
+    /* Link list — editorial spacing, no underlines between, gold hover, gold accent on active */
+    .mobile-nav-links{
+      display:flex;
+      flex-direction:column;
+      gap:.1rem
+    }
+    .mobile-nav-links a{
+      display:block;
+      padding:1rem 1rem 1rem 1.2rem;
+      font-family:"Inter",system-ui;
+      font-size:.92rem;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:#3b342d;
+      border-left:3px solid transparent;
+      border-radius:4px;
+      transition:color .18s ease-out,background .18s ease-out,border-color .18s ease-out
+    }
+    .mobile-nav-links a:hover{
+      color:var(--accent-dark);
+      background:rgba(196,150,82,.06);
+      border-left-color:rgba(196,150,82,.3)
+    }
+    .mobile-nav-links a.is-current{
+      color:var(--accent-dark);
+      border-left-color:var(--accent);
+      font-weight:600
+    }
+
+    /* Backdrop — translucent dark, hidden by default */
+    .nav-backdrop{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:transparent;
+      z-index:8999;
+      opacity:0;
+      transition:opacity .28s ease-out
+    }
+    .nav-backdrop.is-open{
+      display:block;
+      opacity:1
+    }
+
+    /* Mobile-only display rules: show hamburger, push to right edge of header-cta row */
+    @media(max-width:720px){
+      .header-cta{flex:1}
+      .nav-toggle{display:inline-flex;margin-left:auto}
+    }
+
+    /* Body scroll-lock when nav is open */
+    body.nav-is-open{overflow:hidden}
   </style>
 </head>
 <body>
@@ -219,9 +356,34 @@
       <nav class="nav"><a href="/providers">For Providers</a><a href="/clinical-supplies">Clinical Supplies</a><a href="/botox">Botox</a><a href="/fillers">Fillers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="window.location.href='/careers'">Apply as Provider</button>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" onclick="toggleNav()">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
       </div>
     </header>
   </div>
+
+  <!-- 2026-05-04 (Mobile Nav): backdrop overlay shown behind the slide-out nav panel at <=720px when nav is open. z-index 9000 sits below modal z-index 9999 so existing modals always stack above the nav. Hidden by default; .is-open class shows it. -->
+  <div class="nav-backdrop" id="navBackdrop" onclick="closeNav()" aria-hidden="true"></div>
+
+  <!-- 2026-05-04 (Mobile Nav): slide-out nav panel at <=720px. Panel is fixed positioning + transform translate so it slides in from the right edge. Contains a header row (close button) + nav link list. Hidden offscreen by default; .is-open class slides it into view. id="mobile-nav" matches aria-controls on the hamburger button. -->
+  <aside class="mobile-nav" id="mobile-nav" aria-label="Site navigation" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-eyebrow">Menu</span>
+      <button class="mobile-nav-close" type="button" aria-label="Close menu" onclick="closeNav()">×</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="/providers" onclick="closeNav()">For Providers</a>
+      <a href="/clinical-supplies" onclick="closeNav()">Clinical Supplies</a>
+      <a href="/botox" onclick="closeNav()">Botox</a>
+      <a href="/fillers" onclick="closeNav()">Fillers</a>
+      <a href="/blog" onclick="closeNav()">Blog</a>
+      <a href="/careers" onclick="closeNav()">Careers</a>
+      <a href="/about" onclick="closeNav()">About</a>
+    </nav>
+  </aside>
 
   <!-- HERO -->
   <section class="hero-legal">
@@ -443,6 +605,50 @@
       <div class="footer-social" style="margin-bottom:.5rem;display:flex;gap:1.2rem;justify-content:center;align-items:center"><a href="https://www.instagram.com/aesthetics.togo/" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">Instagram</a><a href="https://www.tiktok.com/@aesthetics.togo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">TikTok</a><a href="https://www.youtube.com/@AestheticsToGo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">YouTube</a><a href="https://x.com/aestheticstogo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">X</a></div><div class="footer-copy">© 2026 Aesthetics To Go. All rights reserved.</div>
     </div>
   </footer>
+
+  <script>
+    // 2026-05-04 (Mobile Nav): hamburger toggle. Adds .is-open class to .mobile-nav, .nav-backdrop, and body simultaneously to coordinate panel-slide, backdrop-fade, and scroll-lock. Updates aria-expanded on toggle button + aria-hidden on panel for screen-reader correctness. Esc key closes. Reads currently-focused element so focus can return on close.
+    var __navLastFocus = null;
+    function toggleNav() {
+      var panel = document.getElementById('mobile-nav');
+      if (panel.classList.contains('is-open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    }
+    function openNav() {
+      __navLastFocus = document.activeElement;
+      document.getElementById('mobile-nav').classList.add('is-open');
+      document.getElementById('navBackdrop').classList.add('is-open');
+      document.body.classList.add('nav-is-open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'true');
+      document.getElementById('mobile-nav').setAttribute('aria-hidden', 'false');
+      document.getElementById('navBackdrop').setAttribute('aria-hidden', 'false');
+      // Move focus to the close button so keyboard users can immediately Esc out
+      setTimeout(function() {
+        var closeBtn = document.querySelector('.mobile-nav-close');
+        if (closeBtn) closeBtn.focus();
+      }, 50);
+    }
+    function closeNav() {
+      document.getElementById('mobile-nav').classList.remove('is-open');
+      document.getElementById('navBackdrop').classList.remove('is-open');
+      document.body.classList.remove('nav-is-open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      document.getElementById('mobile-nav').setAttribute('aria-hidden', 'true');
+      document.getElementById('navBackdrop').setAttribute('aria-hidden', 'true');
+      if (__navLastFocus && __navLastFocus.focus) {
+        __navLastFocus.focus();
+      }
+    }
+    // Esc key closes nav
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('mobile-nav').classList.contains('is-open')) {
+        closeNav();
+      }
+    });
+  </script>
 
 </body>
 </html>
