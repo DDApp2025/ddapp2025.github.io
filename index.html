@@ -332,7 +332,7 @@
       .economics-table tbody td::before{content:attr(data-label) " · ";font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;display:block;margin-bottom:.15rem}
     }
 
-    /* 2026-05-04 (Mobile Nav): hamburger menu toggle button + slide-out panel. Pattern: hamburger button hidden at desktop via display:none, visible at <=720px. The existing .nav { display: none } rule at <=720px continues to hide the desktop nav links. Slide-out .mobile-nav panel + .nav-backdrop are fixed positioning with transform-based slide-in animation. z-index 9000 sits below modal z-index 9999 so existing application/login modals always stack above mobile nav. */
+    /* 2026-05-04 (Mobile Nav redesigned): hamburger menu toggle button + frosted-glass slide-out panel matching the site's editorial design vocabulary. Pattern: hamburger button hidden at desktop via display:none, visible at <=720px pushed to right edge. The existing .nav { display: none } rule at <=720px continues to hide the desktop nav links. Slide-out .mobile-nav panel uses backdrop-filter:blur for frosted-glass effect over the page content; cream tint matches var(--card-bg). Border, shadow, and accent colors all reuse existing site tokens. .nav-backdrop is fixed positioning with translucent dark layer. z-index 9000 sits below modal z-index 9999 so existing application/login modals always stack above mobile nav. */
 
     /* Hamburger button — hidden at desktop, visible at mobile */
     .nav-toggle{
@@ -350,7 +350,7 @@
       border-radius:8px;
       transition:background .15s ease-out
     }
-    .nav-toggle:hover{background:rgba(0,0,0,.04)}
+    .nav-toggle:hover{background:rgba(196,150,82,.08)}
     .nav-toggle-bar{
       display:block;
       width:1.4rem;
@@ -360,83 +360,110 @@
       transition:transform .2s ease-out,opacity .2s ease-out
     }
 
-    /* Slide-out nav panel — fixed positioning, hidden offscreen by default */
+    /* Slide-out nav panel — frosted-glass cream, fixed positioning, hidden offscreen by default */
     .mobile-nav{
       position:fixed;
       top:0;
       right:0;
       bottom:0;
       width:min(82vw,360px);
-      background:#fff;
-      box-shadow:-12px 0 40px rgba(0,0,0,.18);
+      background:rgba(253,248,243,.92);
+      -webkit-backdrop-filter:blur(20px) saturate(140%);
+      backdrop-filter:blur(20px) saturate(140%);
+      border-left:1px solid var(--border-strong);
+      box-shadow:-18px 0 55px rgba(24,16,8,.16);
       z-index:9000;
       transform:translateX(100%);
-      transition:transform .28s ease-out;
+      transition:transform .32s cubic-bezier(.22,.61,.36,1);
       overflow-y:auto;
       display:none;
-      padding:1rem 1.5rem 2rem
+      padding:1.4rem 1.6rem 2rem
     }
     .mobile-nav.is-open{
       transform:translateX(0);
       display:block
     }
+
+    /* Panel header — "MENU" eyebrow + close button, matching .section-eyebrow typography */
     .mobile-nav-header{
       display:flex;
-      justify-content:flex-end;
-      margin-bottom:1rem
+      justify-content:space-between;
+      align-items:center;
+      padding-bottom:1.2rem;
+      border-bottom:1px solid var(--border-soft);
+      margin-bottom:1.2rem
+    }
+    .mobile-nav-eyebrow{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--text-muted);
+      font-weight:500
     }
     .mobile-nav-close{
       background:transparent;
       border:none;
-      font-size:2rem;
+      font-size:1.4rem;
       line-height:1;
       cursor:pointer;
-      color:#999;
-      padding:.3rem .7rem;
-      border-radius:8px;
+      color:var(--accent-dark);
+      padding:.25rem .55rem;
+      border-radius:6px;
+      font-weight:300;
       transition:color .15s ease-out,background .15s ease-out
     }
-    .mobile-nav-close:hover{color:#000;background:rgba(0,0,0,.04)}
+    .mobile-nav-close:hover{
+      color:var(--accent);
+      background:rgba(196,150,82,.1)
+    }
+
+    /* Link list — editorial spacing, no underlines between, gold hover, gold accent on active */
     .mobile-nav-links{
       display:flex;
       flex-direction:column;
-      gap:.2rem
+      gap:.1rem
     }
     .mobile-nav-links a{
       display:block;
-      padding:.95rem 1rem;
-      font-size:.95rem;
+      padding:1rem 1rem 1rem 1.2rem;
+      font-family:"Inter",system-ui;
+      font-size:.92rem;
       font-weight:500;
       text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#4b433c;
-      border-bottom:1px solid var(--border-soft);
-      transition:color .15s ease-out,background .15s ease-out
+      letter-spacing:.14em;
+      color:#3b342d;
+      border-left:3px solid transparent;
+      border-radius:4px;
+      transition:color .18s ease-out,background .18s ease-out,border-color .18s ease-out
     }
     .mobile-nav-links a:hover{
-      color:var(--accent);
-      background:#fdf8f3
+      color:var(--accent-dark);
+      background:rgba(196,150,82,.06);
+      border-left-color:rgba(196,150,82,.3)
     }
-    .mobile-nav-links a:last-child{border-bottom:none}
+    .mobile-nav-links a.is-current{
+      color:var(--accent-dark);
+      border-left-color:var(--accent);
+      font-weight:600
+    }
 
-    /* Backdrop — fixed full-viewport, dimmed, hidden by default */
+    /* Backdrop — translucent dark, hidden by default */
     .nav-backdrop{
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.55);
+      background:rgba(20,12,8,.45);
       z-index:8999;
       opacity:0;
-      transition:opacity .25s ease-out
+      transition:opacity .28s ease-out
     }
     .nav-backdrop.is-open{
       display:block;
       opacity:1
     }
 
-    /* Mobile-only display rules: show hamburger, push to right edge of header row */
+    /* Mobile-only display rules: show hamburger, push to right edge of header-cta row */
     @media(max-width:720px){
-      .header-cta{flex:1}
       .nav-toggle{display:inline-flex;margin-left:auto}
     }
 
@@ -469,6 +496,7 @@
   <!-- 2026-05-04 (Mobile Nav): slide-out nav panel at <=720px. Panel is fixed positioning + transform translate so it slides in from the right edge. Contains a header row (close button) + nav link list. Hidden offscreen by default; .is-open class slides it into view. id="mobile-nav" matches aria-controls on the hamburger button. -->
   <aside class="mobile-nav" id="mobile-nav" aria-label="Site navigation" aria-hidden="true">
     <div class="mobile-nav-header">
+      <span class="mobile-nav-eyebrow">Menu</span>
       <button class="mobile-nav-close" type="button" aria-label="Close menu" onclick="closeNav()">×</button>
     </div>
     <nav class="mobile-nav-links">
