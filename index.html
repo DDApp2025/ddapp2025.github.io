@@ -434,9 +434,10 @@
       opacity:1
     }
 
-    /* Mobile-only display rules: show hamburger, allow nav panel to render */
+    /* Mobile-only display rules: show hamburger, push to right edge of header row */
     @media(max-width:720px){
-      .nav-toggle{display:inline-flex}
+      .header-cta{flex:1}
+      .nav-toggle{display:inline-flex;margin-left:auto}
     }
 
     /* Body scroll-lock when nav is open */
