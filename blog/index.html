@@ -256,16 +256,13 @@
     .section-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
     .section-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
     .section-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:2rem}
-    .featured-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2.5rem;align-items:center;background:var(--card-bg);border-radius:26px;padding:2rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-strong);cursor:pointer;transition:transform .16s ease-out,box-shadow .16s ease-out}
+    .featured-card{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;background:var(--card-bg);border-radius:26px;padding:2rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-strong);cursor:pointer;transition:transform .16s ease-out,box-shadow .16s ease-out}
     .featured-card:hover{transform:translateY(-3px);box-shadow:0 28px 65px rgba(24,16,8,.2)}
-    .featured-image{width:100%;aspect-ratio:16/10;border-radius:18px;overflow:hidden;background:#f4ece0}
-    .featured-image img{width:100%;height:100%;object-fit:cover;display:block}
     .featured-body{display:flex;flex-direction:column;gap:.6rem}
     .featured-tag{display:inline-flex;align-items:center;background:var(--accent);color:#fff;border-radius:999px;padding:.3rem .9rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;font-weight:600;width:fit-content}
     .featured-title{font-family:"Playfair Display",serif;font-size:1.5rem;line-height:1.2;color:#201812}
     .featured-excerpt{font-size:.95rem;color:var(--text-muted);line-height:1.6}
     .featured-meta{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#a08b77;margin-top:.3rem}
-    .featured-link{font-size:.88rem;font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.1em;margin-top:.4rem}
 
     /* Article Grid */
     .articles-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
@@ -592,15 +589,11 @@
     </div>
 
     <div class="featured-card" data-categories="founding,economics">
-      <div class="featured-image">
-        <img src="/before_after.jpg" alt="Licensed provider delivering a concierge aesthetic treatment in a patient's home." width="1024" height="559" loading="lazy" />
-      </div>
       <div class="featured-body">
         <div class="featured-tag">Regional Lead Provider</div>
         <h3 class="featured-title">What Regional Lead Providers Get That Latecomers Won't</h3>
         <p class="featured-excerpt">The first cohort of licensed physicians, NPs, and PAs to operate on Aesthetics To Go in their territory receive launch-period payout retention, priority scheduling territory, wholesale supply access, and direct input into the operating system as it matures. Here's exactly what's on the table — and why territories are limited.</p>
         <div class="featured-meta">February 28, 2026 · 7 min read</div>
-        <div class="featured-link">Read the Full Guide →</div>
       </div>
     </div>
   </section>
