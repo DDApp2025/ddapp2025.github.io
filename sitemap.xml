@@ -73,7 +73,7 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- ATG Clinical Supplies (Prompt 9) -->
+  <!-- Clinical Supplies sitemap entries hidden 2026-05-05 — uncomment to restore
   <url>
     <loc>https://aestheticstogo.com/clinical-supplies/</loc>
     <lastmod>2026-04-22</lastmod>
@@ -140,4 +140,5 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
 </urlset>
