@@ -272,7 +272,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
         <a href="/about">About</a>
       </nav>
       <div class="header-cta">
-        <button class="btn-primary" onclick="document.location.href='/'">Free EHR Access</button>
+        <button class="btn-primary" onclick="document.location.href='/#faq'">Apply as Provider</button>
       </div>
     </header>
   </div>

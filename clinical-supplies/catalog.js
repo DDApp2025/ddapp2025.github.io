@@ -55,6 +55,7 @@ const CATALOG = {
       injectorPrice: 375,
       publicPrice: 699,
       slug: "anteage-mdx",
+      additionalCategories: ["regenerative-natural"],
       stripeLink: "TODO_STRIPE_LINK"
     },
     {
@@ -216,6 +217,143 @@ const CATALOG = {
       publicPrice: 126,
       slug: "obagi-professional-c-20",
       stripeLink: "TODO_STRIPE_LINK"
+    },
+
+    // ===================================================================
+    // Category 4 — Regenerative Natural / Secretome (topical, post-procedure)
+    // ===================================================================
+    {
+      id: "anteage-pro-system",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "AnteAGE Pro System (Serum + Accelerator)",
+      shortName: "AnteAGE Pro System",
+      manufacturer: "AnteAGE (Cellese Regenerative Therapeutics)",
+      packSize: "Serum 30 mL + Accelerator 30 mL · paired kit",
+      packDetail: "Two 30 mL airless bottles — paired Serum + Accelerator. Approximately 60 days of twice-daily use at 1 mL per bottle per day.",
+      rationale: "Daily take-home secretome from MSC-conditioned media. Pairs with microneedling, laser, and peel protocols to maintain the response between treatments.",
+      clinicalUse: "Twice-daily topical for patients between in-clinic procedures. Daily exposure to MSC-conditioned media drives a pro-healing/anti-inflammatory signaling environment. The two-step regimen (Serum + Accelerator) is dispensed as a paired kit; patients should use both.",
+      sourcing: "Drop-shipped from the AnteAGE Professional channel. Refrigerate after opening; ~18-24 months sealed shelf life.",
+      licensing: "AnteAGE Professional account required. State aesthetic license + NPI typical. Approval 3-5 business days.",
+      coldChain: true,
+      injectorPrice: 115,
+      publicPrice: 220,
+      slug: "anteage-pro-system",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "anteage-eye",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "AnteAGE Eye",
+      shortName: "AnteAGE Eye",
+      manufacturer: "AnteAGE (Cellese Regenerative Therapeutics)",
+      packSize: "15 mL eye serum",
+      packDetail: "Single 15 mL eye serum bottle. Bone marrow MSC conditioned media on the same platform as the AnteAGE Pro System, formulated for the periorbital area.",
+      rationale: "Targeted periorbital secretome. Companion to the Pro System or stand-alone eye SKU for patients reluctant to commit to a full regimen.",
+      clinicalUse: "Targets periorbital fine lines, puffiness, and dark circles. Used as a daily take-home companion to the Pro System or as a stand-alone eye serum. Same MSC-conditioned-media platform as Pro System; eye-area formulation.",
+      sourcing: "Drop-shipped from the AnteAGE Professional channel. Refrigerate after opening; ~18-24 months sealed shelf life.",
+      licensing: "AnteAGE Professional account required. State aesthetic license + NPI typical. Approval 3-5 business days.",
+      coldChain: true,
+      injectorPrice: 63,
+      publicPrice: 120,
+      slug: "anteage-eye",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "anteage-md-hair-microneedling",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "AnteAGE MD Hair Microneedling Solution",
+      shortName: "AnteAGE MD Hair",
+      manufacturer: "AnteAGE (Cellese Regenerative Therapeutics)",
+      packSize: "Box of 5 · 2 mL vials",
+      packDetail: "Five 2 mL vials per box. Bone marrow MSC conditioned media with 12 bio-identical growth factors and cytokines targeted at the hair follicle.",
+      rationale: "Non-PRP option for scalp microneedling protocols. Pairs with Dr. Pen microneedling or SkinPen for androgenic-alopecia adjunct programs.",
+      clinicalUse: "In-office topical applied during scalp microneedling for androgenic-alopecia and post-partum thinning protocols. Twelve bio-identical growth factors and cytokines targeted at the hair follicle. Marketed as a growth-factor solution rather than an exosome therapy — provides regulatory buffer relative to isolated-exosome scalp products.",
+      sourcing: "Drop-shipped from the AnteAGE Professional channel. Room-temperature shipping; protect from light.",
+      licensing: "AnteAGE Professional account required. State aesthetic license + NPI typical. Approval 3-5 business days.",
+      coldChain: false,
+      injectorPrice: 350,
+      publicPrice: 499,
+      slug: "anteage-md-hair-microneedling",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "plated-intense-serum",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "Plated Intense Serum",
+      shortName: "Plated Intense",
+      manufacturer: "Plated Skin Science (Rion Aesthetics)",
+      packSize: "30 mL airless pump bottle",
+      packDetail: "Single 30 mL airless pump bottle. Platelet-derived exosomes (Renewosome® technology) plus phosphoproteins and antioxidants. Manufacturer cites 1+ trillion exosomes per bottle.",
+      rationale: "Daily take-home secretome for fine lines, wrinkles, redness, brown spots. Premium tier of the secretome catalog. Named to TIME's 200 Best Inventions of 2024.",
+      clinicalUse: "Daily topical for fine lines, wrinkles, redness, brown spots. Recommended for post-ablative, post-microneedling, and anti-aging maintenance protocols. Manufacturer cites 10+ clinical studies including split-face and IRB-approved trials.",
+      sourcing: "Drop-shipped from the Plated Skin Science professional channel. Refrigerate after opening; ~24 months sealed shelf life.",
+      licensing: "Plated Skin Science Provider account required. Physician-dispensed; state license + NPI. Approval 2-5 business days. Plated also runs a consumer DTC channel — confirm provider price ≤ Plated retail at account setup.",
+      coldChain: true,
+      injectorPrice: 142,
+      publicPrice: 258,
+      slug: "plated-intense-serum",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "plated-daily-serum",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "Plated Daily Serum",
+      shortName: "Plated Daily",
+      manufacturer: "Plated Skin Science (Rion Aesthetics)",
+      packSize: "30 mL",
+      packDetail: "Single 30 mL bottle. Same Renewosome® platelet-derived exosome platform as Plated Intense, daily-formula strength, with antioxidants and phosphoproteins.",
+      rationale: "Entry-tier daily AM secretome. Companion to Plated Intense or stand-alone introduction to platelet-derived exosomes.",
+      clinicalUse: "Daily AM serum marketed as 'clinically proven to reveal brighter, more luminous skin' with visible results in 6 weeks. Daily companion to Plated Intense or stand-alone introductory tier.",
+      sourcing: "Drop-shipped from the Plated Skin Science professional channel. Refrigerate after opening; ~24 months sealed shelf life.",
+      licensing: "Plated Skin Science Provider account required. Same credentialing and channel-conflict caveat as Plated Intense.",
+      coldChain: true,
+      injectorPrice: 132,
+      publicPrice: 258,
+      slug: "plated-daily-serum",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "calecim-professional-serum",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "Calecim Professional Serum",
+      shortName: "Calecim Pro Serum",
+      manufacturer: "Celligenics / Calecim Professional",
+      packSize: "5 mL bottle with pipette",
+      packDetail: "Single 5 mL bottle with pipette. Umbilical cord lining stem cell conditioned media (PTT-6®). PTT-6 contains 3,000+ proteins including growth factors, cytokines, and native exosomes.",
+      rationale: "In-office procedural secretome. Conditioned-media breadth — full signaling payload, not isolated-exosome depth.",
+      clinicalUse: "In-office topical applied during microneedling and post-laser protocols; can be dispensed as short-course take-home. PTT-6 delivers growth factors + cytokines + native exosomes together in a single conditioned-media platform.",
+      sourcing: "Drop-shipped from the Calecim Professional B2B portal (calecimpro.com). Refrigerate; 24 months sealed shelf life. Source material is ethically-sourced red deer umbilical cord lining (non-human) — explain on patient-facing materials; some patients will ask.",
+      licensing: "Calecim Professional B2B account required. Practitioner license + business details. Approval 3-7 business days.",
+      coldChain: true,
+      injectorPrice: 58,
+      publicPrice: 100,
+      slug: "calecim-professional-serum",
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "calecim-multi-action-cream",
+      category: "regenerative-natural",
+      categoryLabel: "Regenerative Natural",
+      name: "Calecim Multi-Action Cream",
+      shortName: "Calecim Multi-Action",
+      manufacturer: "Celligenics / Calecim Professional",
+      packSize: "20 g jar",
+      packDetail: "Single 20 g jar. PTT-6® conditioned media in a cream base — same signaling platform as the Professional Serum delivered in a daily moisturizer vehicle.",
+      rationale: "Take-home daily moisturizer delivering the Calecim PTT-6 platform. Pairs with the Professional Serum at-home or as stand-alone.",
+      clinicalUse: "Take-home daily moisturizer for patients on a Calecim regimen. Same PTT-6 conditioned-media platform as the in-office Professional Serum, dispensed in a cream base for daily application.",
+      sourcing: "Drop-shipped from the Calecim Professional B2B portal. Refrigerate; 24 months sealed shelf life. Source material is ethically-sourced red deer umbilical cord lining (non-human) — explain on patient-facing materials; some patients will ask.",
+      licensing: "Calecim Professional B2B account required. Same credentialing as Professional Serum.",
+      coldChain: true,
+      injectorPrice: 90,
+      publicPrice: 168,
+      slug: "calecim-multi-action-cream",
+      stripeLink: "TODO_STRIPE_LINK"
     }
   ],
 
@@ -248,6 +386,26 @@ const CATALOG = {
       includedSkuIds: ["skinceuticals-ce-ferulic","skinmedica-tns-advanced","zo-daily-power-defense"],
       listPrice: 435,
       bundlePrice: 349,
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "post-laser-recovery-kit",
+      name: "Post-Laser Recovery Kit",
+      pitch: "In-office secretome serum + take-home recovery cream + post-microneedling exosome adjunct. The complete 0-72 hour post-laser recovery protocol patients start in your chair and finish on their nightstand.",
+      // Note: calecim-restorative-hydration-cream is the optional 8th SKU not in
+      // this build; the landing-page bundle renderer skips missing slugs at runtime.
+      includedSkuIds: ["calecim-professional-serum","calecim-restorative-hydration-cream","anteage-mdx"],
+      listPrice: 491,
+      bundlePrice: 370,
+      stripeLink: "TODO_STRIPE_LINK"
+    },
+    {
+      id: "take-home-maintenance-kit",
+      name: "Take-Home Maintenance Kit",
+      pitch: "Daily platelet-derived exosomes + twice-daily MSC-conditioned media. Two-brand take-home secretome regimen for patients between in-clinic visits.",
+      includedSkuIds: ["plated-daily-serum","anteage-pro-system"],
+      listPrice: 247,
+      bundlePrice: 200,
       stripeLink: "TODO_STRIPE_LINK"
     }
   ]
