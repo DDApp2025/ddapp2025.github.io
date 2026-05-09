@@ -112,6 +112,14 @@
           "@type": "Answer",
           "text": "Active, unrestricted licensure as a physician (MD/DO), nurse practitioner, or physician assistant. Current malpractice insurance coverage. A valid collaborative or supervisory agreement where state scope requires it. Aesthetics To Go verifies all credentials and maps your state-specific framework during onboarding."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are you currently recruiting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aesthetics To Go is now credentialing Regional Lead Providers nationwide. Provider territory and patient demand vary by market — sign up to learn what's available in your area."
+        }
       }
     ]
   }
@@ -261,9 +269,52 @@
     .thank-you-message h2{font-family:"Playfair Display",serif;margin-bottom:1rem;color:#2a2520;}
     .thank-you-message p{color:#666;}
 
+    /* Generic section helpers — added 2026-05-08 with careers consolidation */
+    .section-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
+    .section-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
+    .section-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:2rem}
+
+    /* Roles section — added 2026-05-08 (migrated from careers) */
+    .roles-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
+    .roles-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+    .role-card{background:var(--card-bg);border-radius:18px;padding:1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:.5rem;transition:transform .16s ease-out,box-shadow .16s ease-out}
+    .role-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
+    .role-card-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#f8eed8,#f0dfc0);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:.3rem}
+    .role-card-title{font-family:"Playfair Display",serif;font-size:1.15rem}
+    .role-card-credential{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-dark);font-weight:600}
+    .role-card-text{font-size:.9rem;color:var(--text-muted);line-height:1.55}
+    .role-card-list{font-size:.85rem;color:var(--text-muted);line-height:1.7;margin-top:.3rem}
+    .role-card-list span{display:block}
+    .role-card-list span::before{content:"✓ ";color:var(--accent);font-weight:700}
+    .role-card-cta{margin-top:auto;padding-top:.8rem}
+
+    /* Training section — added 2026-05-08 */
+    .training-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
+    .training-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
+    .training-card{background:var(--card-bg);border-radius:18px;padding:1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:.5rem;transition:transform .16s ease-out,box-shadow .16s ease-out}
+    .training-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
+    .training-card-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#f8eed8,#f0dfc0);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:.3rem}
+    .training-card-title{font-family:"Playfair Display",serif;font-size:1.15rem}
+    .training-card-text{font-size:.9rem;color:var(--text-muted);line-height:1.55}
+
+    /* Qualifications section — added 2026-05-08 (migrated from careers) */
+    .qualifications-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
+    .qual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
+    .qual-card{background:var(--card-bg);border-radius:18px;padding:1.5rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft)}
+    .qual-card-number{width:34px;height:34px;border-radius:999px;border:1px solid var(--border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:.12em;color:#8b7766;margin-bottom:.6rem;background:#fffaf4}
+    .qual-card-title{font-family:"Playfair Display",serif;font-size:1.02rem;margin-bottom:.4rem}
+    .qual-card-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
+
+    /* Stats section — added 2026-05-08 (migrated from careers) */
+    .stats-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
+    .stat-card{background:var(--card-bg);border-radius:18px;padding:1.5rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);text-align:center}
+    .stat-number{font-family:"Playfair Display",serif;font-size:2rem;color:var(--accent-dark);font-weight:700}
+    .stat-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-top:.3rem}
+
     /* Responsive */
-    @media(max-width:960px){.value-grid,.how-grid,.tech-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{grid-template-columns:1fr}.compare-table{font-size:.82rem}.compare-table th,.compare-table td{padding:.65rem .8rem}}
-    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.value-grid,.how-grid,.tech-grid{grid-template-columns:1fr}.hero-provider{padding-top:2.4rem}.compare-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}}
+    @media(max-width:960px){.value-grid,.how-grid,.tech-grid,.roles-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}.faq-grid,.qual-grid{grid-template-columns:1fr}.compare-table{font-size:.82rem}.compare-table th,.compare-table td{padding:.65rem .8rem}}
+    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.value-grid,.how-grid,.tech-grid,.roles-grid,.training-grid,.stats-grid{grid-template-columns:1fr}.hero-provider{padding-top:2.4rem}.compare-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}}
     /* 2026-05-04 (Phase 5 follow-up): governance grid layout. Phase 5 originally placed grid-template-columns inline on the #clinical-governance .how-grid element to force a 2x2 desktop layout, but inline styles outrank selector specificity in the CSS cascade — so the existing @media(max-width:720px) .how-grid{grid-template-columns:1fr} rule could not collapse it on mobile. Refactored: inline style removed, two scoped rules added below. The default .how-grid 3-col rule still applies at desktop EXCEPT where this scoped rule overrides it. The base @max-width:720px rule still applies for mobile collapse. No !important needed. */
     @media(min-width:721px){
       #clinical-governance .how-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -415,7 +466,7 @@
     <header class="header">
       <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
       <nav class="nav"><!-- TEMPLATE:nav-start -->
-<a href="/providers">For Providers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a><a href="/contact">Contact</a>
+<a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers nav link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/contact">Contact</a>
 <!-- TEMPLATE:nav-end --></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="openModal()">Apply as Provider</button>
@@ -442,7 +493,9 @@
         <a href="/providers" class="is-current" onclick="closeNav()">For Providers</a>
         <a href="/about" onclick="closeNav()">About</a>
         <a href="/blog" onclick="closeNav()">Blog</a>
+        <!-- Careers mobile-nav link hidden 2026-05-08 — uncomment to restore
         <a href="/careers" onclick="closeNav()">Careers</a>
+        -->
         <a href="/faq" onclick="closeNav()">FAQ</a>
         <a href="/contact" onclick="closeNav()">Contact</a>
         <a href="/terms" onclick="closeNav()">Terms</a>
@@ -519,6 +572,135 @@
         <p class="value-card-text">You are the provider. You set your prices, choose your patients, define your services, and control your clinical decisions. Aesthetics To Go is the infrastructure — not your employer. You operate as a 1099 independent contractor with full practice independence.</p>
         <div class="value-card-meta">Independent Contractor · Provider-Owned Practice</div>
       </article>
+    </div>
+  </section>
+
+  <!-- OPEN ROLES — migrated from careers/ 2026-05-08 -->
+  <section class="roles-section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Open Roles</div>
+        <h2 class="section-title">Who We're Looking For</h2>
+      </div>
+      <div class="section-eyebrow">All roles are 1099 independent contractor.</div>
+    </div>
+
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-card-icon">⚕️</div>
+        <div class="role-card-credential">MD / DO · Physician</div>
+        <h3 class="role-card-title">Mobile Aesthetic Physician</h3>
+        <p class="role-card-text">Board-eligible or board-certified physicians build a concierge aesthetic practice on Aesthetics To Go's mobile clinical operating system, with launch-period payout retention as part of the Regional Lead Provider agreement. Full autonomy over clinical decisions, pricing, and patient selection.</p>
+        <div class="role-card-list">
+          <span>Active, unrestricted MD or DO license</span>
+          <span>Aesthetic injection training &amp; experience</span>
+          <span>Own malpractice insurance</span>
+          <span>DEA registration (if applicable)</span>
+        </div>
+        <div class="role-card-cta"><button class="btn-primary" onclick="openModal()" style="font-size:.8rem;padding:.5rem 1.2rem">Apply Now</button></div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-card-icon">💉</div>
+        <div class="role-card-credential">NP · Nurse Practitioner</div>
+        <h3 class="role-card-title">Mobile Aesthetic Nurse Practitioner</h3>
+        <p class="role-card-text">Licensed Nurse Practitioners with aesthetic experience join the Regional Lead Provider network to deliver mobile Botox, filler, and hair restoration treatments. Full prescriptive authority and independent practice scope per state law.</p>
+        <div class="role-card-list">
+          <span>Active, unrestricted NP license</span>
+          <span>Aesthetic injection training &amp; experience</span>
+          <span>Own malpractice insurance</span>
+          <span>Collaborative agreement (if required by state)</span>
+        </div>
+        <div class="role-card-cta"><button class="btn-primary" onclick="openModal()" style="font-size:.8rem;padding:.5rem 1.2rem">Apply Now</button></div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-card-icon">🩺</div>
+        <div class="role-card-credential">PA-C · Physician Assistant</div>
+        <h3 class="role-card-title">Mobile Aesthetic Physician Assistant</h3>
+        <p class="role-card-text">Licensed Physician Assistants with aesthetic injection experience and a valid collaborative or supervisory agreement deliver concierge Botox, fillers, and hair restoration treatments at patients' homes within their scope of practice.</p>
+        <div class="role-card-list">
+          <span>Active, unrestricted PA-C license</span>
+          <span>Aesthetic injection training &amp; experience</span>
+          <span>Own malpractice insurance</span>
+          <span>Valid supervisory agreement</span>
+        </div>
+        <div class="role-card-cta"><button class="btn-primary" onclick="openModal()" style="font-size:.8rem;padding:.5rem 1.2rem">Apply Now</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training section added 2026-05-08 -->
+  <section class="training-section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Provider Training</div>
+        <h2 class="section-title">Train With Expert Injectors.</h2>
+      </div>
+      <div class="section-eyebrow">Hands-on instruction plus an online curriculum.</div>
+    </div>
+
+    <div class="training-grid">
+      <article class="training-card">
+        <div class="training-card-icon">🎓</div>
+        <h3 class="training-card-title">Hands-On Injection Training</h3>
+        <p class="training-card-text">Two-day intensive weekends led by board-certified physician trainers. Live patient practice, technique refinement, and immediate feedback in neurotoxins and dermal fillers. For both new injectors and experienced providers seeking advanced technique. Scheduled periodically.</p>
+      </article>
+
+      <article class="training-card">
+        <div class="training-card-icon">💻</div>
+        <h3 class="training-card-title">Online Curriculum</h3>
+        <p class="training-card-text">Self-paced online modules covering platform onboarding, mobile workflow setup, business fundamentals, regulatory compliance, and ongoing continuing education. Available anytime through your provider account.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHAT WE LOOK FOR — migrated from careers/ 2026-05-08 -->
+  <section class="qualifications-section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Requirements</div>
+        <h2 class="section-title">What We Look For</h2>
+      </div>
+      <div class="section-eyebrow">Non-negotiable clinical standards.</div>
+    </div>
+
+    <div class="qual-grid">
+      <div class="qual-card">
+        <div class="qual-card-number">1</div>
+        <h3 class="qual-card-title">Active Professional License</h3>
+        <p class="qual-card-text">You must hold a current, unrestricted license as a physician (MD/DO), nurse practitioner, or physician assistant in the state where you intend to practice. No exceptions. Every license is verified during our credentialing process before you can accept appointments.</p>
+      </div>
+
+      <div class="qual-card">
+        <div class="qual-card-number">2</div>
+        <h3 class="qual-card-title">Aesthetic Injection Experience</h3>
+        <p class="qual-card-text">Aesthetics To Go is a clinical operating system, not a training program. You must have training and hands-on experience in aesthetic injections including neurotoxins and dermal fillers. We recommend AAAMS, IAPAM, or other accredited certification programs for providers entering the field.</p>
+      </div>
+
+      <div class="qual-card">
+        <div class="qual-card-number">3</div>
+        <h3 class="qual-card-title">Malpractice Insurance</h3>
+        <p class="qual-card-text">All providers must carry their own professional liability and malpractice insurance with coverage adequate for the aesthetic procedures they perform. Proof of active insurance is required during onboarding.</p>
+      </div>
+
+      <div class="qual-card">
+        <div class="qual-card-number">4</div>
+        <h3 class="qual-card-title">Supervisory Compliance</h3>
+        <p class="qual-card-text">Nurse practitioners and physician assistants must maintain a valid collaborative or supervisory agreement as required by their state's practice act. The operating system's EHR produces exportable SOAP notes and treatment records for supervising physician chart review.</p>
+      </div>
+
+      <div class="qual-card">
+        <div class="qual-card-number">5</div>
+        <h3 class="qual-card-title">Professional Standards</h3>
+        <p class="qual-card-text">We expect providers to follow the same clinical protocols used in medical offices — sterile technique, FDA-approved products only, proper cold-chain storage, infection control, and emergency preparedness including hyaluronidase for filler complications.</p>
+      </div>
+
+      <div class="qual-card">
+        <div class="qual-card-number">6</div>
+        <h3 class="qual-card-title">Patient-First Mindset</h3>
+        <p class="qual-card-text">Mobile aesthetic care is built on trust. We look for providers who prioritize clinical outcomes over sales volume, communicate transparently with patients, and treat every home visit with the professionalism of a medical office encounter.</p>
+      </div>
     </div>
   </section>
 
@@ -637,6 +819,36 @@
       </table>
     </div>
     <p style="font-size:.72rem;color:#9a8776;margin-top:.75rem">Illustrative comparison based on typical industry cost structures and provider-reported figures. Individual results vary by territory, scope of practice, treatment mix, and personal practice patterns. ATG does not guarantee any specific income outcome.</p>
+  </section>
+
+  <!-- STATS — migrated from careers/ 2026-05-08 -->
+  <section class="stats-section">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">The Numbers</div>
+        <h2 class="section-title">Why Providers Join</h2>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">$0*</div>
+        <div class="stat-label">Monthly Platform Fee</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$0*</div>
+        <div class="stat-label">Merchant Processing Fee</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%*</div>
+        <div class="stat-label">Revenue Retention</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">48hr</div>
+        <div class="stat-label">Credentialing Review</div>
+      </div>
+    </div>
+    <p style="font-size:.72rem;color:#9a8776;margin-top:.75rem;text-align:center">*For Regional Lead Providers during launch period.</p>
   </section>
 
   <!-- HOW TO JOIN -->
@@ -763,6 +975,11 @@
         <h3 class="faq-card-question">Am I an employee or independent contractor?</h3>
         <p class="faq-card-answer">You operate as a 1099 independent contractor. You set your own prices, choose your patients, define your service menu, and make all clinical decisions. Aesthetics To Go provides the technology and operational infrastructure under your Regional Lead Provider agreement — you run your practice.</p>
       </div>
+
+      <div class="faq-card">
+        <h3 class="faq-card-question">Where are you currently recruiting?</h3>
+        <p class="faq-card-answer">Aesthetics To Go is now credentialing Regional Lead Providers nationwide. Provider territory and patient demand vary by market — sign up to learn what's available in your area.</p>
+      </div>
     </div>
   </section>
 
@@ -783,7 +1000,7 @@
 
   <footer>
     <div class="footer-inner"><!-- TEMPLATE:footer-start -->
-        <div class="footer-row"><a href="/providers">For Providers</a><a href="/blog">Blog</a><a href="/careers">Careers</a><a href="/about">About</a><a href="/contact">Contact</a></div>
+        <div class="footer-row"><a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers footer link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/contact">Contact</a></div>
         <div class="footer-row"><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
         <div class="footer-social" style="margin-bottom:.5rem;display:flex;gap:1.2rem;justify-content:center;align-items:center"><a href="https://www.instagram.com/aesthetics.togo/" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">Instagram</a><a href="https://www.tiktok.com/@aesthetics.togo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">TikTok</a><a href="https://www.youtube.com/@AestheticsToGo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">YouTube</a></div>
         <div class="footer-copy">© 2026 Spire Group Inc. All rights reserved.</div>
@@ -799,6 +1016,7 @@
         <h2>Apply as a Regional Lead Provider</h2>
         <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="contactForm" action="https://formspree.io/f/xbdanjvw" method="POST">
+          <input type="hidden" name="_subject" value="Providers Page — Provider Application">
           <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)" required>
           <input type="text" name="license" placeholder="State(s) of Licensure">
           <input type="email" name="email" placeholder="Professional Email Address" required>

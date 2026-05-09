@@ -48,12 +48,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Careers URL hidden 2026-05-08 — uncomment to restore
   <url>
     <loc>https://aestheticstogo.com/careers/</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
   <url>
     <loc>https://aestheticstogo.com/contact/</loc>
     <lastmod>2026-03-20</lastmod>
