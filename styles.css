@@ -1,0 +1,3003 @@
+/* ============================================================
+   teal/styles.css -- Aesthetics To Go (Path B rebuild)
+   Utility-first stylesheet. Single coherent architecture.
+   Generated 2026-05-10.
+   ============================================================ */
+
+/* ============================================================
+   SECTION 1: DESIGN TOKENS
+   ============================================================ */
+:root {
+  --accent: #00BFA5;
+  --accent-dark: #006D5F;
+  --navy: #1A2B3C;
+  --text-heading: #0F172A;
+  --text-body: #475569;
+  --text-muted: #94A3B8;
+  --tint: #F0FDFA;
+  --border: #E2E8F0;
+  --bg-soft: #F8FAFC;
+  --bg: #FFFFFF;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --font: 'DM Sans', system-ui, sans-serif;
+  --max-width: 1200px;
+}
+
+/* ============================================================
+   SECTION 2: BASE / RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text-body);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font);
+  color: var(--text-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+/* ============================================================
+   SECTION 3: CHROME
+   ============================================================ */
+.top-bar {
+  background: var(--navy);
+  color: var(--bg);
+  text-align: center;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+.top-bar strong {
+  font-weight: 600;
+}
+
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+}
+
+.logo:hover {
+  color: inherit;
+}
+
+.logo img {
+  height: 3rem;
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-brand {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.logo-tagline {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--text-heading);
+}
+
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.nav-backdrop.is-open {
+  display: block;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 18rem;
+  max-width: 80vw;
+  background: var(--bg);
+  z-index: 300;
+  padding: 1.5rem;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobile-nav.is-open {
+  display: flex;
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.mobile-nav-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mobile-nav-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-body);
+  line-height: 1;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  color: var(--text-body);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+}
+
+.mobile-nav-links a:hover {
+  background: var(--bg-soft);
+  color: var(--accent);
+}
+
+.mobile-nav-links a.is-current {
+  color: var(--accent);
+  background: var(--tint);
+}
+
+body.nav-is-open {
+  overflow: hidden;
+}
+
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.footer-row a {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+}
+
+.footer-row a:hover {
+  color: var(--accent);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   SECTION 4: BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: var(--bg);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-outline:hover {
+  background: var(--tint);
+  color: var(--accent-dark);
+}
+
+/* ============================================================
+   SECTION 5: LAYOUT UTILITIES
+   ============================================================ */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.section--no-border {
+  border-top: none;
+}
+
+.section--hero {
+  border-top: none;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+/* Full-bleed band. Breaks out of any max-width context using the
+   viewport-width + negative-margin technique. Inner content should
+   sit inside a .section-inner wrapper to re-establish max-width. */
+.section--band {
+  border-top: none;
+  background: var(--navy);
+  color: var(--bg);
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 4rem 1.5rem;
+}
+
+.section--band h1,
+.section--band h2,
+.section--band h3,
+.section--band .section-title {
+  color: var(--bg);
+}
+
+.section--tinted {
+  background: var(--tint);
+}
+
+.section--legal {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.section--legal h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section--legal h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.section--legal p {
+  margin-bottom: 1rem;
+}
+
+.section--legal ul,
+.section--legal ol {
+  margin: 0 0 1rem 1.25rem;
+}
+
+.section--legal li {
+  margin-bottom: 0.5rem;
+}
+
+.section--feature-strip {
+  border-top: none;
+  background: var(--bg-soft);
+  padding: 1.25rem 1.5rem;
+}
+
+.section--feature-strip .section-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 300;
+  color: var(--text-heading);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+.section-subtitle {
+  color: var(--text-body);
+  max-width: 60ch;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Body-text utilities */
+.section-lede {
+  max-width: 48rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: -0.6rem;
+  margin-bottom: 2rem;
+}
+
+.section-disclaimer {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 48rem;
+  margin-top: 1.4rem;
+}
+
+.footnote-asterisk {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-top: -0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================================
+   SECTION 6: GRIDS
+   ============================================================ */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* ============================================================
+   SECTION 7: HERO VARIANTS
+   ============================================================ */
+.hero {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.hero--split {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 300;
+  color: var(--text-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  color: var(--text-body);
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+  justify-content: center;
+}
+
+.hero-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.hero-image {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Single bottom-up overlay for caption legibility over the photo.
+   This is the only gradient declaration in the file. */
+.hero-image-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem 1.25rem;
+  color: var(--bg);
+  font-size: 0.875rem;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0));
+}
+
+.hero-pill {
+  display: inline-block;
+  background: var(--tint);
+  color: var(--accent-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.hero-note {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.hero-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.hero-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.hero-card-text {
+  color: var(--text-body);
+}
+
+.hero-card-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+/* ============================================================
+   SECTION 8: CARD SYSTEM
+   ============================================================ */
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card--icon {
+  gap: 1rem;
+}
+
+.card--image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card--image .card-body {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card--numbered {
+  gap: 1rem;
+}
+
+.card--credentialed {
+  gap: 0.5rem;
+}
+
+.card--with-cta .card-text {
+  flex-grow: 1;
+}
+
+.card--with-cta .card-cta {
+  margin-top: auto;
+}
+
+.card-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--tint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  color: var(--accent-dark);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.card-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.card-text {
+  color: var(--text-body);
+  margin: 0;
+}
+
+.card-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.card-list {
+  padding-left: 1.25rem;
+  margin: 0;
+  color: var(--text-body);
+}
+
+.card-list li {
+  margin-bottom: 0.5rem;
+}
+
+.card-cta {
+  align-self: flex-start;
+}
+
+.card-duration {
+  display: inline-block;
+  background: var(--tint);
+  color: var(--accent-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.card-step {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.card-phase {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.card-badge--good {
+  background: var(--tint);
+  color: var(--accent-dark);
+}
+
+/* Warning palette. Pre-approved non-token color pair (#FEF3C7 amber-50
+   background, #92400E amber-800 foreground) for the "consider
+   alternatives" candidacy card on the hair-restoration page. */
+.card-badge--consider {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+/* ============================================================
+   SECTION 9: STAT BLOCKS
+   ============================================================ */
+.stat-card {
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-block .stat-number {
+  font-size: 1.5rem;
+}
+
+.stat-block .stat-label {
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
+/* ============================================================
+   SECTION 10: TABLE
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table th {
+  background: var(--navy);
+  color: var(--bg);
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 0.875rem 1.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-body);
+}
+
+.table tbody tr:hover td {
+  background: var(--bg-soft);
+}
+
+.table-cell--highlight {
+  background: var(--tint);
+  color: var(--text-heading);
+  font-weight: 500;
+}
+
+.table-check {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.table-x {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* Row-header neutral override (distinguishes scope=row cells from column headers) */
+.table th[scope="row"] {
+  background: var(--bg-soft);
+  color: var(--text-heading);
+  font-weight: 600;
+}
+
+/* Highlighted column header (teal background on column-header th cells) */
+.table th.table-cell--highlight {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ============================================================
+   SECTION 11: SPECIALIZED COMPONENTS
+   ============================================================ */
+
+/* Blog category filter */
+.category-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.category-pill {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: var(--text-body);
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.category-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.category-pill.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Blog article expand/collapse */
+.article-card-content {
+  display: none;
+}
+
+.article-card.expanded .article-card-content {
+  display: block;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-body);
+}
+
+.article-card-close {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.article-card.expanded .article-card-close {
+  display: inline-block;
+}
+
+.article-card-read-more {
+  color: var(--accent);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.article-card-read-more:hover {
+  color: var(--accent-dark);
+}
+
+/* FAQ accordion */
+.faq-card-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.faq-card-question::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.faq-card.active .faq-card-question::after {
+  content: '\2212';
+}
+
+.faq-card-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: var(--text-body);
+}
+
+.faq-card.active .faq-card-answer {
+  max-height: 40rem;
+  margin-top: 0.75rem;
+}
+
+.faq-category {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+}
+
+/* FAQ AI chat widget */
+.chat-container {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.chat-header {
+  background: var(--navy);
+  color: var(--bg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat-header-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: chat-pulse 2s ease-in-out infinite;
+}
+
+@keyframes chat-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.chat-header-title {
+  font-weight: 600;
+  color: var(--bg);
+}
+
+.chat-header-subtitle {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-left: auto;
+}
+
+.chat-messages {
+  padding: 1.25rem;
+  min-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--bg);
+}
+
+.chat-msg {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  max-width: 80%;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.chat-msg-ai {
+  background: var(--bg-soft);
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  color: var(--text-body);
+}
+
+.chat-msg-user {
+  background: var(--accent);
+  color: var(--bg);
+  align-self: flex-end;
+}
+
+.chat-suggestions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 1.25rem 1rem;
+  background: var(--bg);
+}
+
+.chat-suggestion {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--text-body);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.chat-suggestion:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.chat-input-area {
+  border-top: 1px solid var(--border);
+  display: flex;
+  padding: 0.75rem;
+  gap: 0.5rem;
+  background: var(--bg);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-heading);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.chat-send {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.chat-send:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.msg-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.typing-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: typing-pulse 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-pulse {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+/* Newsletter signup */
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 28rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 12rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-heading);
+  background: var(--bg);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.newsletter-note {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* Contact page form */
+.contact-form-wrapper {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-bottom: 0.375rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  background: var(--bg);
+  color: var(--text-heading);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.contact-form textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.contact-info {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+/* Legal page CTA band (privacy + terms) */
+.contact-band {
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--bg);
+  margin-bottom: 0.75rem;
+}
+
+.contact-text {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.contact-email {
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.contact-email:hover {
+  color: var(--accent);
+}
+
+/* Mission band (about) */
+.mission-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mission-quote {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--bg);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.mission-text {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* Proof quote (providers) */
+.proof-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.proof-quote {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-heading);
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.proof-author {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+}
+
+/* Plan timeline (hair-restoration) */
+.plan-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* CTA band (homepage + service pages) */
+.cta-band {
+  border-top: none;
+  background: var(--navy);
+  color: var(--bg);
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.cta-band-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.cta-band-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  font-weight: 300;
+  color: var(--bg);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.cta-band-text {
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.cta-band-note {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+.cta-band-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-band .btn-outline {
+  background: transparent;
+  color: var(--bg);
+  border-color: var(--bg);
+}
+
+.cta-band .btn-outline:hover {
+  background: var(--bg);
+  color: var(--accent-dark);
+}
+
+/* ============================================================
+   SECTION 12: MODAL
+   ============================================================ */
+/* Pre-approved overlay: rgba(0,0,0,0.5). Translucent black is not
+   expressible via design tokens; flagged in the footer note. */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  max-width: 32rem;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--text-heading);
+}
+
+.modal-content p {
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.modal-content form {
+  display: grid;
+  gap: 0.875rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-heading);
+  background: var(--bg);
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.modal-content textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.modal-content button[type='submit'] {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.modal-content button[type='submit']:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.875rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--text-heading);
+}
+
+.thank-you-message {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.thank-you-message h2 {
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+}
+
+.thank-you-message p {
+  color: var(--text-body);
+}
+
+/* Modal logo wrapper (centered logo image at top of any modal) */
+.modal-logo {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.modal-logo img {
+  height: 70px;
+  width: auto;
+}
+
+/* Territory modal */
+.modal-content-territory {
+  max-width: 56rem;
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+
+.modal-instruction {
+  color: var(--text-body);
+  margin-bottom: 1rem;
+}
+
+.rotate-hint {
+  display: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.map-wrap {
+  width: 100%;
+  margin: 1rem 0 1.5rem;
+}
+
+.us-map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.us-map .state {
+  fill: var(--bg-soft);
+  stroke: var(--text-muted);
+  stroke-width: 1.25;
+  cursor: pointer;
+  transition: fill 0.15s;
+}
+
+.us-map .state:hover {
+  fill: var(--tint);
+}
+
+.us-map .state.selected {
+  fill: var(--accent);
+  stroke: var(--accent-dark);
+  stroke-width: 1;
+}
+
+.us-map.locked .state:not(.selected) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.us-map.locked .state:not(.selected):hover {
+  fill: var(--bg-soft);
+}
+
+.territory-form {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.territory-form input,
+.territory-form select,
+.territory-form textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  background: var(--bg);
+  color: var(--text-heading);
+}
+
+.territory-form input:focus,
+.territory-form select:focus,
+.territory-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.territory-form button[type='submit'] {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.territory-form button[type='submit']:hover:not(:disabled) {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.territory-form button[type='submit']:disabled {
+  background: var(--text-muted);
+  border-color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #c0392b;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  min-height: 1.25rem;
+}
+
+.thank-you-territory {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.thank-you-territory h2 {
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+}
+
+.thank-you-territory p {
+  color: var(--text-body);
+}
+
+/* ============================================================
+   SECTION 13: RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-2-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero--split {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero--split .hero-actions {
+    justify-content: center;
+  }
+
+  .hero--split .hero-pills {
+    justify-content: center;
+  }
+
+  .section {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .hero,
+  .hero--split {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .hero,
+  .hero--split {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 1.875rem);
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .header {
+    padding: 0.875rem 1rem;
+    gap: 1rem;
+  }
+
+  .logo img {
+    height: 2.5rem;
+  }
+
+  .logo-tagline {
+    display: none;
+  }
+
+  .header-cta .btn-primary {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .footer-row {
+    gap: 0.875rem;
+  }
+
+  .modal-content-territory {
+    max-width: 100%;
+    padding: 1.25rem 1rem;
+  }
+
+  .rotate-hint {
+    display: block;
+  }
+
+  .eyebrow {
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   SECTION 14: FOOTER NOTE
+   ============================================================ */
+/*
+  teal/styles.css -- Aesthetics To Go utility-first stylesheet
+  Version: Rebuild 1.1 (Path B)
+  Generated: 2026-05-10
+  Updated: 2026-05-11 (Session 3: added 8 utilities and territory modal coverage)
+
+  Notes:
+  - FAQ accordion currently uses .faq-card.active for the open state.
+    The legacy faq-OLD JS targets .faq-item-question for the click
+    handler; the selector rename happens during page migration.
+  - Pre-approved non-token color uses:
+      .card-badge--consider warning palette (#FEF3C7 background,
+      #92400E foreground) for the hair-restoration "may need
+      alternatives" candidacy badge.
+      .modal overlay rgba(0, 0, 0, 0.5) for the dim backdrop behind
+      modal content.
+      .form-error uses #c0392b for error message text. This is the
+      single approved error-red color and is used by both the
+      territory modal form and (after Session 4 re-migration) the
+      loginModal form.
+  - One pre-approved gradient: .hero-image-caption uses a single
+    linear-gradient from rgba(15, 23, 42, 0.85) to transparent for
+    legibility of the white caption text over the photo. The two
+    rgba stops use the --text-heading hex value (#0F172A is
+    rgb(15, 23, 42)) and are documented here for traceability.
+*/
+/* ============================================================
+   APPENDIX A: LEGACY CLASS ALIAS LAYER
+   Appended: 2026-05-13 (Session 4)
+   Purpose: maps the page-specific class names used by the 9
+     pages converted from cream/gold to teal (about, blog, botox,
+     contact, faq, fillers, hair-restoration, privacy, terms)
+     onto the canonical utilities defined in this stylesheet
+     above. The 9 page HTML files use class names like
+     .story-section, .diff-card, .platform-card-icon, etc.;
+     this appendix gives those class names the same rules as
+     their canonical equivalents.
+
+   Adding aliases here (rather than rewriting the HTML) means:
+     - The 9 new index.html files can ship without HTML edits
+     - homepage and providers, which already use canonical
+       names, are unaffected by this appendix because none of
+       the selectors below appear in their markup (except the
+       feature-strip rule which is a missing canonical, not an
+       alias)
+     - Future pages can use either the canonical utility names
+       or the legacy aliases; both will work
+
+   Conventions:
+     - Each alias block is grouped by component family
+     - Where a legacy class fully duplicates a canonical, the
+       alias is added to the canonical selector list via a
+       single rule below
+     - Where a legacy class needs unique styling not covered
+       by any canonical, a fresh rule is written using design
+       tokens (no hardcoded colors or sizes)
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   A.1  Missing canonical: .feature-strip (and inner)
+   .feature-strip is used by providers and all 9 pages but
+   has no rule in styles.css — only .section--feature-strip
+   exists. Add a bare .feature-strip rule that mirrors the
+   section--feature-strip styling so both work.
+   ------------------------------------------------------------ */
+.feature-strip {
+  border-top: none;
+  background: var(--bg-soft);
+  padding: 1.25rem 1.5rem;
+}
+
+.feature-strip-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+
+/* ------------------------------------------------------------
+   A.2  Hero variants (alias to .hero centered)
+   Legacy heroes used per-page namespaces. They all render as
+   single-column centered heroes identical to .hero, so alias
+   them all in one selector list.
+   ------------------------------------------------------------ */
+.hero-about,
+.hero-blog,
+.hero-contact,
+.hero-faq,
+.hero-legal {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+  text-align: center;
+}
+
+.hero-about-eyebrow,
+.hero-blog-eyebrow,
+.hero-contact-eyebrow,
+.hero-faq-eyebrow,
+.hero-legal-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-about-title,
+.hero-blog-title,
+.hero-contact-title,
+.hero-faq-title,
+.hero-legal-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 300;
+  color: var(--text-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero-about-title span,
+.hero-blog-title span,
+.hero-contact-title span,
+.hero-faq-title span,
+.hero-legal-title span {
+  color: var(--accent);
+}
+
+.hero-about-subtitle,
+.hero-blog-subtitle,
+.hero-contact-subtitle,
+.hero-faq-subtitle {
+  color: var(--text-body);
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  line-height: 1.6;
+}
+
+.hero-legal-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+
+/* ------------------------------------------------------------
+   A.3  Hero-service (botox/fillers/hair-restoration)
+   Service-page hero uses 2-column layout: copy left, media
+   card right, with pills and dual CTAs. Not aliased to .hero;
+   it's its own component.
+   ------------------------------------------------------------ */
+.hero-service {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-service-copy {
+  text-align: left;
+}
+
+.hero-service-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-service-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 300;
+  color: var(--text-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero-service-title span {
+  color: var(--accent);
+}
+
+.hero-service-subtitle {
+  color: var(--text-body);
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  line-height: 1.6;
+}
+
+.hero-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero-service-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.hero-service-secondary {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.hero-service-note {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.hero-service-media {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-service-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 12px);
+  padding: 1.5rem;
+  max-width: 24rem;
+}
+
+.hero-service-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0 0 0.5rem 0;
+}
+
+.hero-service-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.hero-service-card-stats {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+
+/* ------------------------------------------------------------
+   A.4  Section wrappers (alias to .section)
+   Every page-specific section wrapper just behaves like .section.
+   ------------------------------------------------------------ */
+.story-section,
+.platform-section,
+.standards-section,
+.diff-section,
+.stats-section,
+.areas-section,
+.compare-section,
+.expect-section,
+.how-section,
+.science-section,
+.candidacy-section,
+.highlights-section,
+.hipaa-section,
+.booking-section,
+.plan-section,
+.resources-section,
+.featured-section,
+.articles-section,
+.newsletter-section,
+.category-section,
+.chat-section,
+.contact-section,
+.mission-section,
+.policy-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Section inner wrappers (alias to .section-inner): pages
+   sometimes wrap inner content in a max-width container with
+   the section family name. */
+.standards-inner,
+.highlights-inner,
+.hipaa-inner,
+.resources-inner,
+.plan-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+
+/* ------------------------------------------------------------
+   A.5  Section headers, eyebrows, titles (page-specific aliases)
+   ------------------------------------------------------------ */
+.areas-header,
+.compare-header,
+.expect-header,
+.how-header,
+.science-header,
+.faq-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.areas-eyebrow,
+.compare-eyebrow,
+.expect-eyebrow,
+.how-eyebrow,
+.mission-eyebrow,
+.faq-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.areas-title,
+.compare-title,
+.expect-title,
+.how-title,
+.faq-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  color: var(--text-heading);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   A.6  Grid containers (alias to canonical grids)
+   Default mapping is .grid-3. Specific exceptions noted.
+   ------------------------------------------------------------ */
+/* 3-column grids */
+.platform-grid,
+.story-grid,
+.standards-grid,
+.diff-grid,
+.areas-grid,
+.compare-grid,
+.expect-grid,
+.how-grid,
+.science-grid,
+.candidacy-grid,
+.highlights-grid,
+.hipaa-grid,
+.booking-grid,
+.plan-grid,
+.resources-grid,
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* 2-column grids (used for contact form layout) */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* 4-column grids (used for stats card row) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+
+/* ------------------------------------------------------------
+   A.7  Card variants — Icon family
+   These cards have icon + title + text. Behave like .card.card--icon
+   ------------------------------------------------------------ */
+.platform-card,
+.area-card,
+.highlight-card,
+.hipaa-card,
+.info-card,
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 12px);
+  padding: 1.75rem;
+  gap: 0.75rem;
+  transition: border-color 0.15s ease;
+}
+
+.platform-card:hover,
+.area-card:hover,
+.highlight-card:hover,
+.hipaa-card:hover,
+.info-card:hover,
+.resource-card:hover {
+  border-color: var(--accent);
+}
+
+.platform-card-icon,
+.area-card-icon,
+.highlight-card-icon,
+.hipaa-card-icon,
+.info-card-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--tint);
+  border-radius: var(--r-md, 8px);
+  color: var(--accent);
+}
+
+.platform-card-title,
+.area-card-title,
+.highlight-card-title,
+.hipaa-card-title,
+.info-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.platform-card-text,
+.area-card-text,
+.highlight-card-text,
+.hipaa-card-text,
+.info-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.area-card-duration {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.info-card-link {
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.info-card-link:hover {
+  color: var(--accent-dark);
+}
+
+.resource-card-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--tint);
+  border-radius: var(--r-md, 8px);
+  color: var(--accent);
+}
+
+.resource-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.resource-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.resource-card-link {
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.resource-card-link:hover {
+  color: var(--accent-dark);
+}
+
+
+/* ------------------------------------------------------------
+   A.8  Card variants — Numbered/labeled family
+   These cards lead with a big numeral or short label, then
+   title + text. Behave like .card.card--numbered.
+   ------------------------------------------------------------ */
+.standard-card,
+.story-card,
+.expect-card,
+.how-card,
+.science-card,
+.plan-card,
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 12px);
+  padding: 1.75rem;
+  gap: 1rem;
+}
+
+/* Big teal numeral lead (alias to .card-number) */
+.standard-card-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* Short text-label lead (e.g. "The Problem", "Step 1", etc.) */
+.story-card-label,
+.expect-card-label,
+.how-step,
+.science-card-step,
+.plan-card-phase,
+.booking-step {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Numbered/labeled card titles */
+.standard-card-title,
+.story-card-title,
+.expect-card-title,
+.how-card-title,
+.science-card-title,
+.plan-card-title,
+.booking-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+/* Numbered/labeled card body text */
+.standard-card-text,
+.story-card-text,
+.expect-card-text,
+.how-card-text,
+.science-card-text,
+.plan-card-text,
+.booking-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+
+/* ------------------------------------------------------------
+   A.9  Card variants — Image-led family
+   These cards have a top image, then body with eyebrow, title,
+   text, and meta. Behave like .card.card--image.
+   ------------------------------------------------------------ */
+.diff-card,
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 12px);
+  overflow: hidden;
+}
+
+.diff-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.diff-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.diff-card-body {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.diff-card-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.diff-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.diff-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.diff-card-meta {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+/* Article card (blog page) — same family as diff-card */
+.article-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.article-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-card-body {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.article-card-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.article-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.article-card-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.article-card-meta {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+.article-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: var(--tint);
+  border-radius: var(--r-md, 8px);
+  color: var(--accent);
+}
+
+/* Featured card (blog page hero article) */
+.featured-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featured-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.featured-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-heading);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.featured-excerpt {
+  color: var(--text-body);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.featured-meta {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+
+/* ------------------------------------------------------------
+   A.10  Card variants — List family
+   These cards have a title + (optional badge) + bulleted list.
+   Used on hair-restoration page for "good candidate / consider"
+   panels and on compare sections.
+   ------------------------------------------------------------ */
+.candidacy-card,
+.compare-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 12px);
+  padding: 1.75rem;
+  gap: 1rem;
+}
+
+.candidacy-card-title,
+.compare-card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.candidacy-badge-good,
+.compare-card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--r-sm, 6px);
+  background: var(--tint);
+  color: var(--accent-dark);
+}
+
+.candidacy-badge-consider {
+  display: inline-block;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--r-sm, 6px);
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.candidacy-list,
+.compare-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.candidacy-item,
+.compare-card-item {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.candidacy-item::before,
+.compare-card-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+
+/* ------------------------------------------------------------
+   A.11  CTA-band short-form aliases (used by 9 pages)
+   homepage/providers use .cta-band-inner, .cta-band-title, etc.
+   OLD pages use shorter forms: .cta-inner, .cta-heading, etc.
+   Alias the short forms to the same rules.
+   ------------------------------------------------------------ */
+.cta-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.cta-copy {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--bg);
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+.cta-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem 0;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Sub-feature row inside CTA band (used by service pages) */
+.cta-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.cta-feature-check {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cta-feature-text {
+  color: var(--text-muted);
+}
+
+/* Side-link list inside CTA band (used by about) */
+.cta-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.cta-link {
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.cta-link:hover {
+  color: var(--accent);
+}
+
+.cta-link-arrow {
+  color: var(--accent);
+  margin-right: 0.25rem;
+}
+
+
+/* ------------------------------------------------------------
+   A.12  Policy text (terms / privacy)
+   Long-form legal copy with structured sub-headings.
+   ------------------------------------------------------------ */
+.policy-block {
+  max-width: 48rem;
+  margin: 0 auto 2.5rem auto;
+}
+
+.policy-block-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-heading);
+  margin: 0 0 1rem 0;
+}
+
+.policy-subhead {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.policy-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0 0 1rem 0;
+}
+
+
+/* ------------------------------------------------------------
+   A.13  Newsletter (blog page)
+   ------------------------------------------------------------ */
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-heading);
+  margin: 0 0 0.5rem 0;
+}
+
+.newsletter-text {
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin: 0 0 1.25rem 0;
+}
+
+
+/* ------------------------------------------------------------
+   A.13b  FAQ section + grid (used on every OLD page)
+   .faq-card itself is already styled in the canonical CSS above.
+   The wrapping .faq-section and grid container need rules.
+   ------------------------------------------------------------ */
+.faq-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+
+/* ------------------------------------------------------------
+   A.14  Section eyebrow alias
+   .section-eyebrow is the variant of .eyebrow used inside
+   .section-header. Currently undefined; alias to .eyebrow.
+   ------------------------------------------------------------ */
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+
+/* ------------------------------------------------------------
+   A.15  Responsive overrides
+   Mobile and tablet behavior for the aliased components. The
+   canonical responsive rules at the bottom of styles.css cover
+   the canonical class names; this section covers the aliases.
+   ------------------------------------------------------------ */
+@media (max-width: 960px) {
+  .platform-grid,
+  .story-grid,
+  .standards-grid,
+  .diff-grid,
+  .areas-grid,
+  .compare-grid,
+  .expect-grid,
+  .how-grid,
+  .science-grid,
+  .candidacy-grid,
+  .highlights-grid,
+  .hipaa-grid,
+  .booking-grid,
+  .plan-grid,
+  .resources-grid,
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-service {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-service-copy {
+    text-align: center;
+  }
+
+  .hero-service-actions,
+  .hero-service-pills {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .platform-grid,
+  .story-grid,
+  .standards-grid,
+  .diff-grid,
+  .areas-grid,
+  .compare-grid,
+  .expect-grid,
+  .how-grid,
+  .science-grid,
+  .candidacy-grid,
+  .highlights-grid,
+  .hipaa-grid,
+  .booking-grid,
+  .plan-grid,
+  .resources-grid,
+  .articles-grid,
+  .stats-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .areas-header,
+  .compare-header,
+  .expect-header,
+  .how-header,
+  .science-header,
+  .faq-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-about,
+  .hero-blog,
+  .hero-contact,
+  .hero-faq,
+  .hero-legal {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .hero-about-title,
+  .hero-blog-title,
+  .hero-contact-title,
+  .hero-faq-title,
+  .hero-legal-title {
+    font-size: 2rem;
+  }
+
+  .feature-strip-inner {
+    gap: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ============================================================
+   END APPENDIX A
+   ============================================================ */

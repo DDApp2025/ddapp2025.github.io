@@ -35,14 +35,14 @@
 
   <!-- Primary SEO Meta Tags -->
   <meta name="description" content="Aesthetics To Go is a mobile clinical operating system for licensed physicians, NPs, and PAs delivering concierge Botox, fillers, and hair restoration at patients' homes — full mobile EHR, HIPAA-compliant documentation, and clinical governance built around your license." />
-  <meta name="keywords" content="mobile clinical operating system, concierge aesthetic provider network, licensed provider concierge practice, regional lead provider, physician concierge aesthetics, NP concierge aesthetics, PA concierge aesthetics, mobile clinical EHR aesthetics, HIPAA mobile aesthetics, clinical governance aesthetics" />
+  <meta name="keywords" content="mobile clinical operating system, concierge aesthetic provider network, licensed provider concierge practice, provider, physician concierge aesthetics, NP concierge aesthetics, PA concierge aesthetics, mobile clinical EHR aesthetics, HIPAA mobile aesthetics, clinical governance aesthetics" />
   <meta name="author" content="Aesthetics To Go" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <link rel="canonical" href="https://aestheticstogo.com/about/" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="canonical" href="https://aestheticstogo.com/teal/about/" />
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://aestheticstogo.com/about/" />
+  <meta property="og:url" content="https://aestheticstogo.com/teal/about/" />
   <meta property="og:title" content="About | Aesthetics To Go — Mobile Clinical Operating System for Licensed Providers" />
   <meta property="og:description" content="Aesthetics To Go is a mobile clinical operating system for licensed physicians, NPs, and PAs delivering concierge Botox, fillers, and hair restoration at patients' homes — full mobile EHR, HIPAA-compliant documentation, and clinical governance built around your license." />
   <meta property="og:image" content="https://aestheticstogo.com/og-image.jpg" />
@@ -74,7 +74,7 @@
     "@type": "Organization",
     "name": "Aesthetics To Go",
     "url": "https://aestheticstogo.com",
-    "logo": "https://aestheticstogo.com/atg_logo_white_bkg.jpg",
+    "logo": "https://aestheticstogo.com/teal/atg_logo_teal.jpg",
     "description": "Mobile-first clinical operating system for licensed aesthetic providers delivering concierge Botox, dermal fillers, and hair restoration treatments at patients' homes and offices.",
     "email": "info@aestheticstogo.com",
     "foundingDate": "2024",
@@ -105,7 +105,7 @@
         "name": "What is Aesthetics To Go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A mobile clinical operating system for licensed physicians, NPs, and PAs running concierge aesthetic practice. We provide credentialed lead flow, scheduling, mobile EHR, payments, supply access, and clinical governance under the Regional Lead Provider agreement. Providers retain clinical autonomy and operate as 1099 independent contractors with their own malpractice and supervisory frameworks."
+          "text": "A mobile clinical operating system for licensed physicians, NPs, and PAs running concierge aesthetic practice. We provide credentialed lead flow, scheduling, mobile EHR, payments, supply access, and clinical governance under the Provider agreement. Providers retain clinical autonomy and operate as 1099 independent contractors with their own malpractice and supervisory frameworks."
         }
       },
       {
@@ -129,7 +129,7 @@
         "name": "Where does Aesthetics To Go operate?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aesthetics To Go is a nationwide mobile clinical operating system. Regional Lead Provider candidacy is open in territories with current demand and credentialing capacity. Apply through the Regional Lead Provider application to confirm whether your territory is currently in scope."
+          "text": "Aesthetics To Go is a nationwide mobile clinical operating system. Provider candidacy is open in territories with current demand and credentialing capacity. Apply through the Provider application to confirm whether your territory is currently in scope."
         }
       }
     ]
@@ -137,305 +137,19 @@
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg:#ffffff;--bg-soft:#ffffff;--text-main:#2a2520;--text-muted:#7b6f63;--accent:#c49652;--accent-dark:#a67930;--border-soft:#e3d6c5;--border-strong:#d2b894;--card-bg:#fdf8f3;--pill-bg:#f4f4f4;--shadow-soft:0 18px 55px rgba(0,0,0,.06);--shadow-strong:0 24px 60px rgba(24,16,8,.16);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:"Inter",system-ui;background:var(--bg);color:var(--text-main);line-height:1.5}
-    a{text-decoration:none;color:inherit}
-    .top-bar{background:#3b0e10;color:#fceee8;text-align:center;padding:.55rem 1.5rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
-    .top-bar strong{font-weight:600}
-    .header-wrapper{background:#fff;border-bottom:1px solid var(--border-soft)}
-    .header{max-width:1200px;margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-    .logo{display:flex;align-items:center;gap:.5rem}
-    .logo img{height:90px;width:auto}
-    .logo-text{display:flex;flex-direction:column;white-space:nowrap}
-    .logo-brand{font-family:"Playfair Display",serif;font-size:1.4rem;letter-spacing:.08em;text-transform:uppercase;color:#111;font-weight:700}
-    .logo-tagline{font-family:"Inter",system-ui;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);font-weight:400;margin-top:.1rem}
-    .nav{display:flex;flex:1;justify-content:center;align-items:center;gap:2rem;font-size:.82rem}
-    .nav a{text-transform:uppercase;letter-spacing:.06em;padding:0 .3rem;font-weight:500;color:#4b433c;text-align:center}
-    .nav a:hover{color:var(--accent)}
-    .header-cta{display:flex;gap:.75rem;font-size:.85rem}
-    .btn-outline{border-radius:999px;padding:.55rem 1.2rem;border:1px solid #c9bcad;text-transform:uppercase;letter-spacing:.12em;font-weight:500;background:#fff;transition:all .18s ease-out}
-    .btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);box-shadow:0 10px 25px rgba(0,0,0,.08)}
-    .btn-primary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.6rem 1.6rem;border:none;background:var(--accent);color:#fff;text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;font-size:.86rem;box-shadow:0 12px 30px rgba(196,150,82,.35);transition:transform .16s ease-out,box-shadow .16s ease-out,background .16s ease-out}
-    .btn-primary:hover{background:var(--accent-dark);box-shadow:0 18px 40px rgba(166,121,48,.4);transform:translateY(-1px)}
-    .feature-strip{border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);background:var(--bg-soft)}
-    .feature-strip-inner{max-width:1200px;margin:0 auto;padding:1.25rem 1.5rem;display:flex;flex-wrap:wrap;gap:1rem 1.7rem;justify-content:center;font-size:.83rem;text-transform:uppercase;letter-spacing:.16em;color:#6b5d50}
-    .feature-strip-inner span::before{content:"•";margin:0 .6rem 0 .2rem;opacity:.45}
-    .feature-strip-inner span:first-child::before{content:"";margin:0}
-
-    /* Hero */
-    .hero-about{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 3rem;background:#fff;text-align:center}
-    .hero-about-eyebrow{font-size:.82rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-dark);margin-bottom:1rem}
-    .hero-about-title{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.1vw,2.8rem);line-height:1.08;margin-bottom:1.2rem;color:#201812;max-width:42rem;margin-left:auto;margin-right:auto}
-    .hero-about-title span{color:var(--accent)}
-    .hero-about-subtitle{font-size:1.05rem;color:var(--text-muted);max-width:38rem;margin:0 auto 2rem;line-height:1.6}
-
-    /* Story Section */
-    .story-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
-    .section-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--text-muted)}
-    .section-title{font-family:"Playfair Display",serif;font-size:1.4rem;text-transform:uppercase;letter-spacing:.12em}
-    .section-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:2rem}
-    .story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
-    .story-card{background:var(--card-bg);border-radius:18px;padding:1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft)}
-    .story-card-label{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:.6rem;font-weight:600}
-    .story-card-title{font-family:"Playfair Display",serif;font-size:1.1rem;margin-bottom:.6rem}
-    .story-card-text{font-size:.9rem;color:var(--text-muted);line-height:1.6}
-
-    /* Platform Architecture */
-    .platform-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
-    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-    .platform-card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.3rem 1.6rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:.4rem}
-    .platform-card-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#f8eed8,#f0dfc0);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.3rem}
-    .platform-card-title{font-family:"Playfair Display",serif;font-size:1.02rem}
-    .platform-card-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
-
-    /* Clinical Standards */
-    .standards-section{background:var(--card-bg);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:3.5rem 1.5rem}
-    .standards-inner{max-width:1200px;margin:0 auto}
-    .standards-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
-    .standard-card{background:#fff;border-radius:18px;padding:1.5rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft)}
-    .standard-card-number{width:34px;height:34px;border-radius:999px;border:1px solid var(--border-strong);display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;letter-spacing:.12em;color:#8b7766;margin-bottom:.6rem;background:#fffaf4}
-    .standard-card-title{font-family:"Playfair Display",serif;font-size:1.02rem;margin-bottom:.4rem}
-    .standard-card-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
-
-    /* How We're Different */
-    .diff-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
-    .diff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-    .diff-card{background:var(--card-bg);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);transition:transform .16s ease-out,box-shadow .16s ease-out}
-    .diff-card:hover{transform:translateY(-3px);box-shadow:0 22px 55px rgba(0,0,0,.12)}
-    .diff-card-image{height:180px;overflow:hidden;background:#f4ece0}
-    .diff-card-image img{width:100%;height:100%;object-fit:cover;display:block}
-    .diff-card-body{padding:1.3rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.45rem}
-    .diff-card-eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#8b7766}
-    .diff-card-title{font-family:"Playfair Display",serif;font-size:1.05rem}
-    .diff-card-text{font-size:.9rem;color:var(--text-muted)}
-    .diff-card-meta{margin-top:.7rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#a08b77}
-
-    /* Mission Statement */
-    .mission-section{background:#20110c;color:#fef6ee;padding:3rem 1.5rem}
-    .mission-inner{max-width:1200px;margin:0 auto;text-align:center}
-    .mission-eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:#c9a882;margin-bottom:.8rem}
-    .mission-quote{font-family:"Playfair Display",serif;font-size:1.5rem;line-height:1.35;max-width:42rem;margin:0 auto 1rem}
-    .mission-text{font-size:.95rem;color:#f6e1cf;max-width:34rem;margin:0 auto}
-
-    /* Numbers / Stats */
-    .stats-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
-    .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
-    .stat-card{background:var(--card-bg);border-radius:18px;padding:1.5rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft);text-align:center}
-    .stat-number{font-family:"Playfair Display",serif;font-size:2rem;color:var(--accent-dark);font-weight:700}
-    .stat-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-top:.3rem}
-
-    /* FAQ */
-    .faq-section{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem;background:#fff;border-top:1px solid var(--border-soft)}
-    .faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2rem}
-    .faq-card{background:var(--card-bg);border-radius:18px;padding:1.4rem 1.5rem;border:1px solid var(--border-strong);box-shadow:var(--shadow-soft)}
-    .faq-card-question{font-family:"Playfair Display",serif;font-size:1rem;margin-bottom:.5rem;color:#201812}
-    .faq-card-answer{font-size:.9rem;color:var(--text-muted);line-height:1.55}
-
-    /* CTA */
-    .cta-band{background:#20110c;color:#fef6ee;padding:3rem 1.5rem 3.2rem}
-    .cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-    .cta-copy{max-width:28rem}
-    .cta-heading{font-family:"Playfair Display",serif;font-size:1.5rem;margin-bottom:.6rem}
-    .cta-text{font-size:.95rem;color:#f6e1cf;margin-bottom:1.2rem}
-    .cta-actions{display:flex;flex-wrap:wrap;gap:.8rem}
-    .cta-links{display:flex;flex-direction:column;gap:.7rem;font-size:.9rem}
-    .cta-link{color:#f6e1cf;display:flex;align-items:center;gap:.5rem;transition:color .15s}
-    .cta-link:hover{color:var(--accent)}
-    .cta-link-arrow{color:var(--accent);font-weight:700}
-
-    /* Footer */
-    footer{background:#fff;border-top:1px solid var(--border-soft);padding:1.6rem 1.5rem 1.8rem;font-size:.78rem;color:#968371}
-    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:.7rem}
-    .footer-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.4rem}
-    .footer-row a{text-transform:uppercase;letter-spacing:.12em;color:#968371;transition:color .15s}
-    .footer-row a:hover{color:var(--accent)}
-    .footer-copy{margin-top:.3rem;font-size:.74rem;color:#b0a293}
-
-    /* Modal */
-    .modal{display:none;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,.6);align-items:flex-start;justify-content:center;padding:2rem 0}
-    .modal.active{display:flex}
-    .modal-content{background:#fff;padding:2.5rem;border-radius:20px;max-width:560px;width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}
-    .modal-close{position:absolute;top:1rem;right:1.5rem;font-size:2rem;cursor:pointer;color:#999}
-    .modal-close:hover{color:#000}
-    .modal h2{font-family:"Playfair Display",serif;font-size:1.8rem;text-align:center;margin-bottom:1rem}
-    .modal p{text-align:center;margin-bottom:2rem;color:#666}
-    .modal input,.modal select,.modal textarea{width:100%;padding:.9rem;margin:.8rem 0;border:1px solid #ddd;border-radius:12px;font-size:1rem}
-    .modal label{display:block;margin:.8rem 0 .5rem;font-size:1rem;color:#333}
-    .city-checkboxes label{display:block;margin:.5rem 0}
-    .city-checkboxes input[type=checkbox]{margin-right:.8rem}
-    .thank-you-message{text-align:center;padding:2rem}
-    .thank-you-message h2{font-family:"Playfair Display",serif;margin-bottom:1rem;color:#2a2520}
-    .thank-you-message p{color:#666}
-
-    /* Responsive */
-    @media(max-width:960px){.story-grid,.standards-grid,.faq-grid{grid-template-columns:1fr}.platform-grid,.diff-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:720px){.header{flex-wrap:wrap;justify-content:space-between}.nav{display:none}.platform-grid,.diff-grid,.stats-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column}}
-    /* 2026-05-04 (Phase 6B): port of Phase 2 + Phase 3 mobile-rendering fixes from index.html. Same regression class as the homepage's pre-Phase-2 header overflow at <=720px and 721-1280px viewports, caused by the Phase 4-elongated logo tagline + horizontal nav with no flex-wrap. Values aligned with the live homepage <style> block. */
-    @media(max-width:720px){
-      .logo-text{white-space:normal}
-      .logo-tagline{font-size:.6rem;letter-spacing:.1em;line-height:1.3}
-      .header-cta .btn-primary{white-space:normal;font-size:.72rem;padding:.5rem .9rem;letter-spacing:.06em;line-height:1.2}
-    }
-    @media(min-width:721px) and (max-width:1280px){
-      .header{flex-wrap:wrap;row-gap:.6rem}
-      .nav{font-size:.86rem;gap:1rem}
-      .header-cta .btn-primary{font-size:.78rem;padding:.55rem 1.1rem;letter-spacing:.06em}
-    }
-    @media(max-width:720px){
-      .modal input,.modal select,.modal textarea{font-size:.85rem;padding:.7rem .85rem}
-    }
-
-    /* 2026-05-04 (Mobile Nav redesigned): hamburger menu toggle button + frosted-glass slide-out panel matching the site's editorial design vocabulary. Pattern: hamburger button hidden at desktop via display:none, visible at <=720px pushed to right edge. The existing .nav { display: none } rule at <=720px continues to hide the desktop nav links. Slide-out .mobile-nav panel uses backdrop-filter:blur for frosted-glass effect over the page content; cream tint matches var(--card-bg). Border, shadow, and accent colors all reuse existing site tokens. .nav-backdrop is fixed positioning with translucent dark layer. z-index 9000 sits below modal z-index 9999 so existing application/login modals always stack above mobile nav. */
-
-    /* Hamburger button — hidden at desktop, visible at mobile */
-    .nav-toggle{
-      display:none;
-      background:transparent;
-      border:none;
-      cursor:pointer;
-      padding:.5rem;
-      width:2.4rem;
-      height:2.4rem;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      gap:.32rem;
-      border-radius:8px;
-      transition:background .15s ease-out
-    }
-    .nav-toggle:hover{background:rgba(196,150,82,.08)}
-    .nav-toggle-bar{
-      display:block;
-      width:1.4rem;
-      height:2px;
-      background:#4b433c;
-      border-radius:2px;
-      transition:transform .2s ease-out,opacity .2s ease-out
-    }
-
-    /* Slide-out nav panel — frosted-glass cream, fixed positioning, hidden offscreen by default */
-    .mobile-nav{
-      position:fixed;
-      top:0;
-      right:0;
-      bottom:0;
-      width:min(82vw,360px);
-      background:rgba(253,248,243,.82);
-      border-left:1px solid var(--border-strong);
-      box-shadow:-12px 0 30px rgba(24,16,8,.10);
-      z-index:9000;
-      transform:translateX(100%);
-      transition:transform .32s cubic-bezier(.22,.61,.36,1);
-      overflow-y:auto;
-      display:none;
-      padding:1.4rem 1.6rem 2rem
-    }
-    .mobile-nav.is-open{
-      transform:translateX(0);
-      display:block
-    }
-
-    /* Panel header — "MENU" eyebrow + close button, matching .section-eyebrow typography */
-    .mobile-nav-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding-bottom:1.2rem;
-      border-bottom:1px solid var(--border-soft);
-      margin-bottom:1.2rem
-    }
-    .mobile-nav-eyebrow{
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--text-muted);
-      font-weight:500
-    }
-    .mobile-nav-close{
-      background:transparent;
-      border:none;
-      font-size:1.4rem;
-      line-height:1;
-      cursor:pointer;
-      color:var(--accent-dark);
-      padding:.25rem .55rem;
-      border-radius:6px;
-      font-weight:300;
-      transition:color .15s ease-out,background .15s ease-out
-    }
-    .mobile-nav-close:hover{
-      color:var(--accent);
-      background:rgba(196,150,82,.1)
-    }
-
-    /* Link list — editorial spacing, no underlines between, gold hover, gold accent on active */
-    .mobile-nav-links{
-      display:flex;
-      flex-direction:column;
-      gap:.1rem
-    }
-    .mobile-nav-links a{
-      display:block;
-      padding:1rem 1rem 1rem 1.2rem;
-      font-family:"Inter",system-ui;
-      font-size:.92rem;
-      font-weight:500;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color:#3b342d;
-      border-left:3px solid transparent;
-      border-radius:4px;
-      transition:color .18s ease-out,background .18s ease-out,border-color .18s ease-out
-    }
-    .mobile-nav-links a:hover{
-      color:var(--accent-dark);
-      background:rgba(196,150,82,.06);
-      border-left-color:rgba(196,150,82,.3)
-    }
-    .mobile-nav-links a.is-current{
-      color:var(--accent-dark);
-      border-left-color:var(--accent);
-      font-weight:600
-    }
-
-    /* Backdrop — translucent dark, hidden by default */
-    .nav-backdrop{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:transparent;
-      z-index:8999;
-      opacity:0;
-      transition:opacity .28s ease-out
-    }
-    .nav-backdrop.is-open{
-      display:block;
-      opacity:1
-    }
-
-    /* Mobile-only display rules: show hamburger, push to right edge of header-cta row */
-    @media(max-width:720px){
-      .header-cta{flex:1}
-      .nav-toggle{display:inline-flex;margin-left:auto}
-    }
-
-    /* Body scroll-lock when nav is open */
-    body.nav-is-open{overflow:hidden}
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-  <div class="top-bar"><strong>Regional Lead Provider Applications Open</strong> · Limited Territories</div>
+  <div class="top-bar"><strong>Provider Applications Open</strong> · Limited Territories</div>
 
   <div class="header-wrapper">
     <header class="header">
-      <a href="/" class="logo"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
+      <a href="/" class="logo"><img src="../atg_logo_teal.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="eager"><div class="logo-text"><span class="logo-brand">Aesthetics To Go</span><span class="logo-tagline">The Mobile Clinical Operating System for Licensed Providers.</span></div></a>
       <nav class="nav"><!-- TEMPLATE:nav-start -->
-<a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers nav link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/contact">Contact</a>
+<a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers nav link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a>
 <!-- TEMPLATE:nav-end --></nav>
       <div class="header-cta">
         <button class="btn-primary" onclick="openModal()">Apply as Provider</button>
@@ -510,7 +224,7 @@
         <div class="story-card-label">Our Solution</div>
         <h3 class="story-card-title">Replace the clinic asset with clinical infrastructure.</h3>
         <!-- prior text 2026-04-29: "Providers get a full mobile EHR, AI diagnostic simulator, smart scheduling with route optimization, integrated zero-fee payments, and wholesale medical supply access" -->
-        <p class="story-card-text">Aesthetics To Go is a mobile clinical operating system built around the licensed provider, not the building. Under the Regional Lead Provider agreement, providers receive the full clinical infrastructure traditionally reserved for the clinic owner — mobile EHR, smart scheduling, credentialed lead flow, integrated payments, wholesale supply access, and clinical governance. The fixed overhead of running a practice — lease, staffing, marketing — is absorbed by the operating system during the launch period. Providers retain clinical autonomy, set their own schedule, and operate as 1099 independent contractors with their own malpractice and supervisory frameworks. The clinic asset disappears. The clinical practice scales with you.</p>
+        <p class="story-card-text">Aesthetics To Go is a mobile clinical operating system built around the licensed provider, not the building. Under the Provider agreement, providers receive the full clinical infrastructure traditionally reserved for the clinic owner — mobile EHR, smart scheduling, credentialed lead flow, integrated payments, wholesale supply access, and clinical governance. The fixed overhead of running a practice — lease, staffing, marketing — is absorbed by the operating system during the launch period. Providers retain clinical autonomy, set their own schedule, and operate as 1099 independent contractors with their own malpractice and supervisory frameworks. The clinic asset disappears. The clinical practice scales with you.</p>
       </div>
     </div>
   </section>
@@ -549,7 +263,7 @@
       <div class="platform-card">
         <div class="platform-card-icon">💰</div>
         <h3 class="platform-card-title">Zero-Fee Payments</h3>
-        <p class="platform-card-text">Integrated payment processing with banking and merchant fees absorbed during the launch period as part of your Regional Lead Provider agreement. Perform a treatment, receive the full payout via direct deposit. The transition to a transparent post-launch fee schedule is disclosed in the agreement, not after the fact.</p>
+        <p class="platform-card-text">Integrated payment processing with banking and merchant fees absorbed during the launch period as part of your Provider agreement. Perform a treatment, receive the full payout via direct deposit. The transition to a transparent post-launch fee schedule is disclosed in the agreement, not after the fact.</p>
       </div>
 
       <div class="platform-card">
@@ -640,7 +354,7 @@
       <!-- AI Simulator diff-card hidden 2026-04-29 — uncomment to restore
       <article class="diff-card">
         <div class="diff-card-image">
-          <img src="before_after.jpg" alt="Patient before-and-after results from a mobile aesthetic treatment performed by a licensed provider." width="1024" height="559" loading="lazy" />
+          <img src="../before_after.jpg" alt="Patient before-and-after results from a mobile aesthetic treatment performed by a licensed provider." width="1024" height="559" loading="lazy" />
         </div>
         <div class="diff-card-body">
           <div class="diff-card-eyebrow">AI-First</div>
@@ -653,19 +367,19 @@
 
       <article class="diff-card">
         <div class="diff-card-image">
-          <img src="WorkingFromHome.png" alt="Licensed provider managing a concierge aesthetic practice on a mobile clinical operating system." width="511" height="374" loading="lazy" />
+          <img src="../WorkingFromHome.png" alt="Licensed provider managing a concierge aesthetic practice on a mobile clinical operating system." width="511" height="374" loading="lazy" />
         </div>
         <div class="diff-card-body">
           <div class="diff-card-eyebrow">Provider-First</div>
           <h3 class="diff-card-title">Zero fees. Full EHR. Complete autonomy.</h3>
-          <p class="diff-card-text">EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Regional Lead Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.</p>
-          <div class="diff-card-meta">Enterprise-Grade Infrastructure · Regional Lead Provider Agreement</div>
+          <p class="diff-card-text">EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.</p>
+          <div class="diff-card-meta">Enterprise-Grade Infrastructure · Provider Agreement</div>
         </div>
       </article>
 
       <article class="diff-card">
         <div class="diff-card-image">
-          <img src="ATG_in_home.jpg" alt="Licensed physician delivering concierge aesthetic treatment in a private residence." width="1024" height="1024" loading="lazy" />
+          <img src="../ATG_in_home.jpg" alt="Licensed physician delivering concierge aesthetic treatment in a private residence." width="1024" height="1024" loading="lazy" />
         </div>
         <div class="diff-card-body">
           <div class="diff-card-eyebrow">Mobile Clinical Practice</div>
@@ -701,10 +415,10 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">Nationwide</div>
-        <div class="stat-label">Regional Lead Provider Markets</div>
+        <div class="stat-label">Provider Markets</div>
       </div>
     </div>
-    <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:1rem;letter-spacing:.06em">*During Regional Lead Provider launch period. Specific terms disclosed in agreement.</p>
+    <p style="text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:1rem;letter-spacing:.06em">*During Provider launch period. Specific terms disclosed in agreement.</p>
   </section>
 
   <!-- FAQ -->
@@ -720,7 +434,7 @@
       <div class="faq-card">
         <h3 class="faq-card-question">What is Aesthetics To Go?</h3>
         <!-- prior text 2026-04-29: "We provide the technology — mobile EHR, AI simulator, scheduling, payments, supply access — and providers deliver the care." -->
-        <p class="faq-card-answer">A mobile clinical operating system for licensed physicians, NPs, and PAs running concierge aesthetic practice. We provide credentialed lead flow, scheduling, mobile EHR, payments, supply access, and clinical governance under the Regional Lead Provider agreement. Providers retain clinical autonomy and operate as 1099 independent contractors with their own malpractice and supervisory frameworks.</p>
+        <p class="faq-card-answer">A mobile clinical operating system for licensed physicians, NPs, and PAs running concierge aesthetic practice. We provide credentialed lead flow, scheduling, mobile EHR, payments, supply access, and clinical governance under the Provider agreement. Providers retain clinical autonomy and operate as 1099 independent contractors with their own malpractice and supervisory frameworks.</p>
       </div>
 
       <div class="faq-card">
@@ -730,12 +444,12 @@
 
       <div class="faq-card">
         <h3 class="faq-card-question">Where does Aesthetics To Go operate?</h3>
-        <p class="faq-card-answer">ATG is a nationwide mobile clinical operating system. Regional Lead Provider candidacy is open in territories with current demand and credentialing capacity. Apply through the Regional Lead Provider application to confirm whether your territory is currently in scope.</p>
+        <p class="faq-card-answer">ATG is a nationwide mobile clinical operating system. Provider candidacy is open in territories with current demand and credentialing capacity. Apply through the Provider application to confirm whether your territory is currently in scope.</p>
       </div>
 
       <div class="faq-card">
         <h3 class="faq-card-question">How do you make money if providers don't pay fees?</h3>
-        <p class="faq-card-answer">Regional Lead Providers retain the full payout on completed treatments during the launch period, with banking and processing fees absorbed as part of the agreement. The transition to a transparent post-launch fee schedule is disclosed in the Regional Lead Provider agreement before any change takes effect.</p>
+        <p class="faq-card-answer">Providers retain the full payout on completed treatments during the launch period, with banking and processing fees absorbed as part of the agreement. The transition to a transparent post-launch fee schedule is disclosed in the Provider agreement before any change takes effect.</p>
       </div>
     </div>
   </section>
@@ -746,7 +460,7 @@
       <div class="cta-copy">
         <h2 class="cta-heading">Join the future of aesthetic medicine.</h2>
         <p class="cta-text">
-          EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Regional Lead Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.
+          EHR, scheduling, credentialed lead flow, payments, supply access, and clinical governance — provided as part of your Provider agreement. Our model aligns with yours: shared success on completed treatments, with no fixed overhead carried by the provider during the launch period.
         </p>
         <div class="cta-actions">
           <button class="btn-primary" onclick="openModal()">Apply as a Provider</button>
@@ -756,7 +470,7 @@
 
       <div class="cta-links">
         <a href="/providers" class="cta-link"><span class="cta-link-arrow">→</span> Build Your Mobile Aesthetic Practice</a>
-        <a href="/providers" class="cta-link"><span class="cta-link-arrow">→</span> Explore Regional Lead Provider Opportunities</a>
+        <a href="/providers" class="cta-link"><span class="cta-link-arrow">→</span> Explore Provider Opportunities</a>
         <a href="/faq" class="cta-link"><span class="cta-link-arrow">→</span> Frequently Asked Questions</a>
       </div>
     </div>
@@ -764,9 +478,9 @@
 
   <footer>
     <div class="footer-inner"><!-- TEMPLATE:footer-start -->
-        <div class="footer-row"><a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers footer link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/contact">Contact</a></div>
+        <div class="footer-row"><a href="/providers">For Providers</a><a href="/blog">Blog</a><!-- Careers footer link hidden 2026-05-08 — uncomment to restore <a href="/careers">Careers</a> --><a href="/about">About</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>
         <div class="footer-row"><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
-        <div class="footer-social" style="margin-bottom:.5rem;display:flex;gap:1.2rem;justify-content:center;align-items:center"><a href="https://www.instagram.com/aesthetics.togo/" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">Instagram</a><a href="https://www.tiktok.com/@aesthetics.togo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">TikTok</a><a href="https://www.youtube.com/@AestheticsToGo" target="_blank" rel="noopener" style="color:#c9a96e;text-decoration:none;font-size:.95rem">YouTube</a></div>
+        <div class="footer-social" style="margin-bottom:.5rem;display:flex;gap:1.2rem;justify-content:center;align-items:center"><a href="https://www.instagram.com/aesthetics.togo/" target="_blank" rel="noopener" style="color:#475569;text-decoration:none;font-size:.95rem">Instagram</a><a href="https://www.tiktok.com/@aesthetics.togo" target="_blank" rel="noopener" style="color:#475569;text-decoration:none;font-size:.95rem">TikTok</a><a href="https://www.youtube.com/@AestheticsToGo" target="_blank" rel="noopener" style="color:#475569;text-decoration:none;font-size:.95rem">YouTube</a></div>
         <div class="footer-copy">© 2026 Spire Group Inc. All rights reserved.</div>
 <!-- TEMPLATE:footer-end --></div>
   </footer>
@@ -776,8 +490,8 @@
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">×</span>
       <div id="formContainer">
-        <div style="text-align:center;margin-bottom:.5rem"><img src="atg_logo_white_bkg.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto"></div>
-        <h2>Apply as a Regional Lead Provider</h2>
+        <div style="text-align:center;margin-bottom:.5rem"><img src="../atg_logo_teal.jpg" alt="Aesthetics To Go — mobile clinical operating system for licensed providers." width="565" height="571" loading="lazy" style="height:70px;width:auto"></div>
+        <h2>Apply as a Provider</h2>
         <p>Apply for priority access to a limited-territory provider network.</p>
         <form id="contactForm" action="https://formspree.io/f/xbdanjvw" method="POST">
           <input type="text" name="name" placeholder="Full Name & Credentials (e.g. Jane Doe, MD / NP / PA-C)" required>

@@ -19,15 +19,22 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
+
+// 2026-05-14 cutover: refuse to run unless _templates/footer.html exists alongside this script.
+if (!fs.existsSync(path.join(ROOT, '_templates', 'footer.html'))) {
+  console.error('REFUSING TO RUN: _templates/footer.html not found in script directory.');
+  console.error('  ROOT =', ROOT);
+  process.exit(1);
+}
 const TEMPLATE_DIR = path.join(ROOT, '_templates');
 
 const PAGES = [
   'index.html',
   'providers/index.html',
   'about/index.html',
+  'blog/index.html',
   'contact/index.html',
   'faq/index.html',
-  'blog/index.html',
   'terms/index.html',
   'privacy/index.html',
   'botox/index.html',
@@ -39,11 +46,14 @@ const ACTIVE_PATH_MAP = {
   'index.html': '/',
   'providers/index.html': '/providers',
   'about/index.html': '/about',
+  'blog/index.html': '/blog',
   'contact/index.html': '/contact',
   'faq/index.html': '/faq',
-  'blog/index.html': '/blog',
   'terms/index.html': '/terms',
-  'privacy/index.html': '/privacy'
+  'privacy/index.html': '/privacy',
+  'botox/index.html': '/botox',
+  'fillers/index.html': '/fillers',
+  'hair-restoration/index.html': '/hair-restoration'
 };
 
 function loadTemplate(name) {
